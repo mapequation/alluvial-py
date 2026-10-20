@@ -1,0 +1,7 @@
+# v1.7.3
+# ./Infomap fuzz --two-level
+# partitioned into 4 levels with 2 top modules
+# codelength 0.63113 bits
+# path flow name state_id node_id
+37:1 9.873915109846e-01 "v2" 2 2
+35:1 1.260848901537e-02 "v2" 1 2

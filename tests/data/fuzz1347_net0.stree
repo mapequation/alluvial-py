@@ -1,0 +1,13 @@
+# v2.15.1
+# ./Infomap fuzz --two-level
+# partitioned into 4 levels with 3 top modules
+# higher order
+# state level
+# path flow name state_id node_id
+3:3:1: 8.26e-13 "a-b" 1 2
+1:1:1: 8.26e-301 "a-b" 2 2
+3:3;2: 0.327 "a-b" 9 2
+3:1;1; 0.673 "n5" 10 5
+4:1: 8.26e-301 "n5" 11 5
+4:1:1: 8.26e-301 "n5" 18 5
+3:1 8.26e-301 "a-b" 9 2

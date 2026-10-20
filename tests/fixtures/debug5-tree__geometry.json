@@ -1,0 +1,655 @@
+{
+ "formatVersion": 1,
+ "scenario": "debug5-tree__geometry",
+ "group": "debug5-tree",
+ "variant": "geometry",
+ "description": "height=200 moduleWidth=50 streamlineFraction=1.5 marginExponent=5 (triggers the 20% margin cap)",
+ "inputs": {
+  "files": ["data/debug5_0.tree","data/debug5_1.tree"],
+  "formats": ["tree","tree"],
+  "networkIds": ["debug5_0","debug5_1"],
+  "networkNames": ["debug5_0.tree","debug5_1.tree"],
+  "identifier": "id",
+  "options": {
+   "height": 200,
+   "moduleWidth": 50,
+   "streamlineFraction": 1.5,
+   "streamlineThreshold": 1,
+   "flowThreshold": 0.005,
+   "marginExponent": 5,
+   "zeroMargins": false,
+   "verticalAlign": "bottom",
+   "moduleSize": "flow",
+   "sortModulesBy": "flow"
+  },
+  "labelOptions": {"fontSize": 8, "adaptiveFontSize": false, "multilineModuleNames": true, "aggregateStateNames": true, "showModuleNames": true},
+  "colorScheme": "C3 Sinebow",
+  "operations": [
+   {"op": "setNetworks"}
+  ]
+ },
+ "diagram": {
+  "x": 0,
+  "y": 0,
+  "width": 175,
+  "height": 200,
+  "flow": 0,
+  "numNetworks": 2,
+  "maxNetworkFlow": 1,
+  "streamlineWidth": 75,
+  "networkWidth": 125,
+  "totalWidth": 175,
+  "totalMargins": [32,32],
+  "maxTotalMargin": 32,
+  "marginFractionOfHeight": 0.16,
+  "maxMarginFractionOfHeight": 0.2,
+  "marginCapped": false,
+  "moduleMarginScale": null,
+  "scaledTotalMargin": null,
+  "usableHeight": 168,
+  "visibleFlows": [1,1],
+  "visibleModuleCounts": [2,2],
+  "updateLayoutCalls": 1,
+  "usableHeightCheckedModules": 4
+ },
+ "highlightColors": [],
+ "defaultHighlightColor": "#b6b69f",
+ "warnings": [],
+ "networks": [
+  {
+   "networkId": "debug5_0",
+   "name": "debug5_0.tree",
+   "index": 0,
+   "file": {
+    "path": "data/debug5_0.tree",
+    "format": "tree",
+    "numTopModules": 2,
+    "numLevels": 3,
+    "isStateNetwork": false,
+    "directed": null,
+    "codelength": 1.47841,
+    "numNodes": 5
+   },
+   "x": 0,
+   "y": 0,
+   "width": 50,
+   "height": 200,
+   "flow": 1,
+   "numLeafNodes": 5,
+   "moduleFlowThreshold": 0.4,
+   "isCustomSorted": false,
+   "isHigherOrder": false,
+   "namePosition": {"x": 25, "y": 220},
+   "totalMargin": 32,
+   "visibleFlow": 1,
+   "numVisibleModules": 2,
+   "numModules": 2,
+   "modules": [
+    {
+     "moduleId": "1",
+     "id": "debug5_0_module1",
+     "path": [1],
+     "moduleLevel": 1,
+     "maxModuleLevel": 2,
+     "index": 0,
+     "flow": 0.6000000000000001,
+     "numLeafNodes": 3,
+     "meanNodeId": 75.66666666666667,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 32,
+     "x": 0,
+     "y": 99.2,
+     "width": 50,
+     "height": 100.80000000000001,
+     "pass1": {"margin": 32, "index": 0, "x": 0, "y": 79.99999999999999, "width": 50, "height": 120.00000000000001},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 149.60000000000002},
+      "idPosition": {"x": 25, "y": 149.60000000000002},
+      "customName": "",
+      "maxLines": 7,
+      "names": [
+       {"name": "node 1", "nodeId": 1, "stateId": null, "flow": 0.2},
+       {"name": "node 2", "nodeId": 82, "stateId": null, "flow": 0.2},
+       {"name": "node 3", "nodeId": 144, "stateId": null, "flow": 0.2}
+      ],
+      "namesSingleLine": [
+       {"name": "node 1", "nodeId": 1, "stateId": null, "flow": 0.2},
+       {"name": "node 2", "nodeId": 82, "stateId": null, "flow": 0.2},
+       {"name": "node 3", "nodeId": 144, "stateId": null, "flow": 0.2}
+      ]
+     },
+     "groups": [
+      {
+       "id": "debug5_0_module1_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.6000000000000001,
+       "numLeafNodes": 3,
+       "x": 0,
+       "y": 99.2,
+       "width": 50,
+       "height": 100.80000000000001,
+       "pass1": {"x": 0, "y": 79.99999999999999, "width": 50, "height": 120.00000000000001},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.6000000000000001,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": 99.19999999999999,
+         "width": 50,
+         "height": 100.80000000000001,
+         "streamlineNodes": [
+          {
+           "id": "debug5_0_module1_group-1_left",
+           "sourceId": "debug5_0_module1_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.6000000000000001,
+           "numLeafNodes": 3,
+           "x": 0,
+           "y": 99.19999999999999,
+           "width": 50,
+           "height": 100.80000000000001,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.6000000000000001,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": 99.2,
+         "width": 50,
+         "height": 100.80000000000001,
+         "streamlineNodes": [
+          {
+           "id": "debug5_0_module1_group-1_right--debug5_1_module2_group-1_left",
+           "sourceId": "debug5_0_module1_group-1_right",
+           "targetId": "debug5_1_module2_group-1_left",
+           "dangling": false,
+           "flow": 0.2,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 166.4,
+           "width": 50,
+           "height": 33.6,
+           "sortKey": -79.99999999999999,
+           "linked": true,
+           "opposite": {"networkId": "debug5_1", "id": "debug5_1_module2_group-1_left--debug5_0_module1_group-1_right", "moduleId": "2"}
+          },
+          {
+           "id": "debug5_0_module1_group-1_right--debug5_1_module1_group-1_left",
+           "sourceId": "debug5_0_module1_group-1_right",
+           "targetId": "debug5_1_module1_group-1_left",
+           "dangling": false,
+           "flow": 0.4,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 99.2,
+           "width": 50,
+           "height": 67.2,
+           "sortKey": 32.000000000000014,
+           "linked": true,
+           "opposite": {"networkId": "debug5_1", "id": "debug5_1_module1_group-1_left--debug5_0_module1_group-1_right", "moduleId": "1"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "2",
+     "id": "debug5_0_module2",
+     "path": [2],
+     "moduleLevel": 1,
+     "maxModuleLevel": 2,
+     "index": 1,
+     "flow": 0.4,
+     "numLeafNodes": 2,
+     "meanNodeId": 175,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 0,
+     "x": 0,
+     "y": 0,
+     "width": 50,
+     "height": 67.2,
+     "pass1": {"margin": 0, "index": 1, "x": 0, "y": -32.000000000000014, "width": 50, "height": 80},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 33.6},
+      "idPosition": {"x": 25, "y": 33.6},
+      "customName": "",
+      "maxLines": 5,
+      "names": [
+       {"name": "node 4", "nodeId": 171, "stateId": null, "flow": 0.2},
+       {"name": "node 5", "nodeId": 179, "stateId": null, "flow": 0.2}
+      ],
+      "namesSingleLine": [
+       {"name": "node 4", "nodeId": 171, "stateId": null, "flow": 0.2},
+       {"name": "node 5", "nodeId": 179, "stateId": null, "flow": 0.2}
+      ]
+     },
+     "groups": [
+      {
+       "id": "debug5_0_module2_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.4,
+       "numLeafNodes": 2,
+       "x": 0,
+       "y": 0,
+       "width": 50,
+       "height": 67.2,
+       "pass1": {"x": 0, "y": -32.000000000000014, "width": 50, "height": 80},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.4,
+         "numLeafNodes": 2,
+         "x": 0,
+         "y": 0,
+         "width": 50,
+         "height": 67.2,
+         "streamlineNodes": [
+          {
+           "id": "debug5_0_module2_group-1_left",
+           "sourceId": "debug5_0_module2_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.4,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 0,
+           "width": 50,
+           "height": 67.2,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.4,
+         "numLeafNodes": 2,
+         "x": 0,
+         "y": 0,
+         "width": 50,
+         "height": 67.2,
+         "streamlineNodes": [
+          {
+           "id": "debug5_0_module2_group-1_right--debug5_1_module2_group-1_left",
+           "sourceId": "debug5_0_module2_group-1_right",
+           "targetId": "debug5_1_module2_group-1_left",
+           "dangling": false,
+           "flow": 0.4,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 0,
+           "width": 50,
+           "height": 67.2,
+           "sortKey": -79.99999999999999,
+           "linked": true,
+           "opposite": {"networkId": "debug5_1", "id": "debug5_1_module2_group-1_left--debug5_0_module2_group-1_right", "moduleId": "2"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "numLinksAboveZero": 3,
+   "links": [
+    {
+     "id": "debug5_0_module1_group-1_right--debug5_1_module1_group-1_left",
+     "left": {"networkId": "debug5_0", "moduleId": "1", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "debug5_0_module1_group-1_right--debug5_1_module1_group-1_left"},
+     "right": {"networkId": "debug5_1", "moduleId": "1", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "debug5_1_module1_group-1_left--debug5_0_module1_group-1_right"},
+     "x0": 50,
+     "y0": 99.2,
+     "h0": 67.2,
+     "x1": 125,
+     "y1": -1.4210854715202004e-14,
+     "h1": 67.2,
+     "avgHeight": 67.2,
+     "highlightIndex": -1,
+     "leftHighlightIndex": -1,
+     "rightHighlightIndex": -1,
+     "path": "M50,166.4C87.5,166.4,87.5,67.2,125,67.2L125,0C87.5,0,87.5,99.2,50,99.2Z"
+    },
+    {
+     "id": "debug5_0_module2_group-1_right--debug5_1_module2_group-1_left",
+     "left": {"networkId": "debug5_0", "moduleId": "2", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "debug5_0_module2_group-1_right--debug5_1_module2_group-1_left"},
+     "right": {"networkId": "debug5_1", "moduleId": "2", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "debug5_1_module2_group-1_left--debug5_0_module2_group-1_right"},
+     "x0": 50,
+     "y0": 0,
+     "h0": 67.2,
+     "x1": 125,
+     "y1": 99.2,
+     "h1": 67.2,
+     "avgHeight": 67.2,
+     "highlightIndex": -1,
+     "leftHighlightIndex": -1,
+     "rightHighlightIndex": -1,
+     "path": "M50,67.2C87.5,67.2,87.5,166.4,125,166.4L125,99.2C87.5,99.2,87.5,0,50,0Z"
+    },
+    {
+     "id": "debug5_0_module1_group-1_right--debug5_1_module2_group-1_left",
+     "left": {"networkId": "debug5_0", "moduleId": "1", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "debug5_0_module1_group-1_right--debug5_1_module2_group-1_left"},
+     "right": {"networkId": "debug5_1", "moduleId": "2", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "debug5_1_module2_group-1_left--debug5_0_module1_group-1_right"},
+     "x0": 50,
+     "y0": 166.4,
+     "h0": 33.6,
+     "x1": 125,
+     "y1": 166.4,
+     "h1": 33.6,
+     "avgHeight": 33.6,
+     "highlightIndex": -1,
+     "leftHighlightIndex": -1,
+     "rightHighlightIndex": -1,
+     "path": "M50,200C87.5,200,87.5,200,125,200L125,166.4C87.5,166.4,87.5,166.4,50,166.4Z"
+    }
+   ],
+   "hierarchy": [
+    {"type": "module", "moduleId": "1"},
+    {"type": "module", "moduleId": "2"}
+   ],
+   "identifiersUnique": true,
+   "leafColumns": ["identifier","nodeId","stateId","moduleId","moduleLevel","highlightIndex","insignificant"],
+   "leaves": [
+    ["1",1,null,"1",1,-1,false],
+    ["82",82,null,"1",1,-1,false],
+    ["144",144,null,"1",1,-1,false],
+    ["171",171,null,"2",1,-1,false],
+    ["179",179,null,"2",1,-1,false]
+   ]
+  },
+  {
+   "networkId": "debug5_1",
+   "name": "debug5_1.tree",
+   "index": 1,
+   "file": {
+    "path": "data/debug5_1.tree",
+    "format": "tree",
+    "numTopModules": 2,
+    "numLevels": 3,
+    "isStateNetwork": false,
+    "directed": null,
+    "codelength": 1.47841,
+    "numNodes": 5
+   },
+   "x": 125,
+   "y": 0,
+   "width": 50,
+   "height": 200,
+   "flow": 1,
+   "numLeafNodes": 5,
+   "moduleFlowThreshold": 0.4,
+   "isCustomSorted": false,
+   "isHigherOrder": false,
+   "namePosition": {"x": 150, "y": 220},
+   "totalMargin": 32,
+   "visibleFlow": 1,
+   "numVisibleModules": 2,
+   "numModules": 2,
+   "modules": [
+    {
+     "moduleId": "2",
+     "id": "debug5_1_module2",
+     "path": [2],
+     "moduleLevel": 1,
+     "maxModuleLevel": 2,
+     "index": 0,
+     "flow": 0.6000000000000001,
+     "numLeafNodes": 3,
+     "meanNodeId": 164.66666666666666,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 32,
+     "x": 125,
+     "y": 99.19999999999999,
+     "width": 50,
+     "height": 100.80000000000001,
+     "pass1": {"margin": 32, "index": 0, "x": 125, "y": 79.99999999999999, "width": 50, "height": 120.00000000000001},
+     "label": {
+      "shown": true,
+      "textAnchor": "start",
+      "namePosition": {"x": 195, "y": 149.6},
+      "idPosition": {"x": 150, "y": 149.6},
+      "customName": "",
+      "maxLines": 7,
+      "names": [
+       {"name": "node 3", "nodeId": 144, "stateId": null, "flow": 0.2},
+       {"name": "node 4", "nodeId": 171, "stateId": null, "flow": 0.2},
+       {"name": "node 5", "nodeId": 179, "stateId": null, "flow": 0.2}
+      ],
+      "namesSingleLine": [
+       {"name": "node 3", "nodeId": 144, "stateId": null, "flow": 0.2},
+       {"name": "node 4", "nodeId": 171, "stateId": null, "flow": 0.2},
+       {"name": "node 5", "nodeId": 179, "stateId": null, "flow": 0.2}
+      ]
+     },
+     "groups": [
+      {
+       "id": "debug5_1_module2_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.6000000000000001,
+       "numLeafNodes": 3,
+       "x": 125,
+       "y": 99.19999999999999,
+       "width": 50,
+       "height": 100.80000000000001,
+       "pass1": {"x": 125, "y": 79.99999999999999, "width": 50, "height": 120.00000000000001},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.6000000000000001,
+         "numLeafNodes": 3,
+         "x": 125,
+         "y": 99.2,
+         "width": 50,
+         "height": 100.80000000000001,
+         "streamlineNodes": [
+          {
+           "id": "debug5_1_module2_group-1_left--debug5_0_module1_group-1_right",
+           "sourceId": "debug5_1_module2_group-1_left",
+           "targetId": "debug5_0_module1_group-1_right",
+           "dangling": false,
+           "flow": 0.2,
+           "numLeafNodes": 1,
+           "x": 125,
+           "y": 166.4,
+           "width": 50,
+           "height": 33.6,
+           "sortKey": -79.99999999999999,
+           "linked": true,
+           "opposite": {"networkId": "debug5_0", "id": "debug5_0_module1_group-1_right--debug5_1_module2_group-1_left", "moduleId": "1"}
+          },
+          {
+           "id": "debug5_1_module2_group-1_left--debug5_0_module2_group-1_right",
+           "sourceId": "debug5_1_module2_group-1_left",
+           "targetId": "debug5_0_module2_group-1_right",
+           "dangling": false,
+           "flow": 0.4,
+           "numLeafNodes": 2,
+           "x": 125,
+           "y": 99.2,
+           "width": 50,
+           "height": 67.2,
+           "sortKey": 32.000000000000014,
+           "linked": true,
+           "opposite": {"networkId": "debug5_0", "id": "debug5_0_module2_group-1_right--debug5_1_module2_group-1_left", "moduleId": "2"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.6000000000000001,
+         "numLeafNodes": 3,
+         "x": 125,
+         "y": 99.19999999999999,
+         "width": 50,
+         "height": 100.80000000000001,
+         "streamlineNodes": [
+          {
+           "id": "debug5_1_module2_group-1_right",
+           "sourceId": "debug5_1_module2_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.6000000000000001,
+           "numLeafNodes": 3,
+           "x": 125,
+           "y": 99.19999999999999,
+           "width": 50,
+           "height": 100.80000000000001,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "1",
+     "id": "debug5_1_module1",
+     "path": [1],
+     "moduleLevel": 1,
+     "maxModuleLevel": 2,
+     "index": 1,
+     "flow": 0.4,
+     "numLeafNodes": 2,
+     "meanNodeId": 41.5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 0,
+     "x": 125,
+     "y": -1.4210854715202004e-14,
+     "width": 50,
+     "height": 67.2,
+     "pass1": {"margin": 0, "index": 1, "x": 125, "y": -32.000000000000014, "width": 50, "height": 80},
+     "label": {
+      "shown": true,
+      "textAnchor": "start",
+      "namePosition": {"x": 195, "y": 33.59999999999999},
+      "idPosition": {"x": 150, "y": 33.59999999999999},
+      "customName": "",
+      "maxLines": 5,
+      "names": [
+       {"name": "node 1", "nodeId": 1, "stateId": null, "flow": 0.2},
+       {"name": "node 2", "nodeId": 82, "stateId": null, "flow": 0.2}
+      ],
+      "namesSingleLine": [
+       {"name": "node 1", "nodeId": 1, "stateId": null, "flow": 0.2},
+       {"name": "node 2", "nodeId": 82, "stateId": null, "flow": 0.2}
+      ]
+     },
+     "groups": [
+      {
+       "id": "debug5_1_module1_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.4,
+       "numLeafNodes": 2,
+       "x": 125,
+       "y": -1.4210854715202004e-14,
+       "width": 50,
+       "height": 67.2,
+       "pass1": {"x": 125, "y": -32.000000000000014, "width": 50, "height": 80},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.4,
+         "numLeafNodes": 2,
+         "x": 125,
+         "y": -1.4210854715202004e-14,
+         "width": 50,
+         "height": 67.2,
+         "streamlineNodes": [
+          {
+           "id": "debug5_1_module1_group-1_left--debug5_0_module1_group-1_right",
+           "sourceId": "debug5_1_module1_group-1_left",
+           "targetId": "debug5_0_module1_group-1_right",
+           "dangling": false,
+           "flow": 0.4,
+           "numLeafNodes": 2,
+           "x": 125,
+           "y": -1.4210854715202004e-14,
+           "width": 50,
+           "height": 67.2,
+           "sortKey": -79.99999999999999,
+           "linked": true,
+           "opposite": {"networkId": "debug5_0", "id": "debug5_0_module1_group-1_right--debug5_1_module1_group-1_left", "moduleId": "1"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.4,
+         "numLeafNodes": 2,
+         "x": 125,
+         "y": -1.4210854715202004e-14,
+         "width": 50,
+         "height": 67.2,
+         "streamlineNodes": [
+          {
+           "id": "debug5_1_module1_group-1_right",
+           "sourceId": "debug5_1_module1_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.4,
+           "numLeafNodes": 2,
+           "x": 125,
+           "y": -1.4210854715202004e-14,
+           "width": 50,
+           "height": 67.2,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "numLinksAboveZero": 0,
+   "links": [],
+   "hierarchy": [
+    {"type": "module", "moduleId": "2"},
+    {"type": "module", "moduleId": "1"}
+   ],
+   "identifiersUnique": true,
+   "leafColumns": ["identifier","nodeId","stateId","moduleId","moduleLevel","highlightIndex","insignificant"],
+   "leaves": [
+    ["1",1,null,"1",1,-1,false],
+    ["82",82,null,"1",1,-1,false],
+    ["144",144,null,"2",1,-1,false],
+    ["171",171,null,"2",1,-1,false],
+    ["179",179,null,"2",1,-1,false]
+   ]
+  }
+ ]
+}

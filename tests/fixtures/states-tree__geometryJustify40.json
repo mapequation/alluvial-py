@@ -1,0 +1,1177 @@
+{
+ "formatVersion": 1,
+ "scenario": "states-tree__geometryJustify40",
+ "group": "states-tree",
+ "variant": "geometryJustify40",
+ "description": "geometry options + flowThreshold=0.4 + justify (margin cap with justify and hidden modules)",
+ "inputs": {
+  "files": ["data/states_t0.tree","data/states_t1.tree"],
+  "formats": ["tree","tree"],
+  "networkIds": ["states_t0","states_t1"],
+  "networkNames": ["states_t0.tree","states_t1.tree"],
+  "identifier": "id",
+  "options": {
+   "height": 200,
+   "moduleWidth": 50,
+   "streamlineFraction": 1.5,
+   "streamlineThreshold": 1,
+   "flowThreshold": 0.4,
+   "marginExponent": 5,
+   "zeroMargins": false,
+   "verticalAlign": "justify",
+   "moduleSize": "flow",
+   "sortModulesBy": "flow"
+  },
+  "labelOptions": {"fontSize": 8, "adaptiveFontSize": false, "multilineModuleNames": true, "aggregateStateNames": true, "showModuleNames": true},
+  "colorScheme": "C3 Sinebow",
+  "operations": [
+   {"op": "setNetworks"}
+  ]
+ },
+ "diagram": {
+  "x": 0,
+  "y": 0,
+  "width": 175,
+  "height": 200,
+  "flow": 0,
+  "numNetworks": 2,
+  "maxNetworkFlow": 1,
+  "streamlineWidth": 75,
+  "networkWidth": 125,
+  "totalWidth": 175,
+  "totalMargins": [32,32],
+  "maxTotalMargin": 32,
+  "marginFractionOfHeight": 0.16,
+  "maxMarginFractionOfHeight": 0.2,
+  "marginCapped": false,
+  "moduleMarginScale": null,
+  "scaledTotalMargin": null,
+  "usableHeight": 168,
+  "visibleFlows": [0.7285707100000001,0.8118279],
+  "visibleModuleCounts": [2,2],
+  "updateLayoutCalls": 1,
+  "usableHeightCheckedModules": 4
+ },
+ "highlightColors": [],
+ "defaultHighlightColor": "#b6b69f",
+ "warnings": [],
+ "networks": [
+  {
+   "networkId": "states_t0",
+   "name": "states_t0.tree",
+   "index": 0,
+   "file": {
+    "path": "data/states_t0.tree",
+    "format": "tree",
+    "numTopModules": 4,
+    "numLevels": 2,
+    "isStateNetwork": true,
+    "directed": null,
+    "codelength": 4.1831,
+    "numNodes": 42
+   },
+   "x": 0,
+   "y": 0,
+   "width": 50,
+   "height": 200,
+   "flow": 0.9999990100000002,
+   "numLeafNodes": 42,
+   "moduleFlowThreshold": 0.29999970000000004,
+   "isCustomSorted": false,
+   "isHigherOrder": true,
+   "namePosition": {"x": 25, "y": 220},
+   "totalMargin": 32,
+   "visibleFlow": 0.7285707100000001,
+   "numVisibleModules": 2,
+   "numModules": 4,
+   "modules": [
+    {
+     "moduleId": "3",
+     "id": "states_t0_module3",
+     "path": [3],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 0,
+     "flow": 0.4285710100000001,
+     "numLeafNodes": 16,
+     "meanNodeId": 18.5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 77.60012071999999,
+     "x": 0,
+     "y": 128.00007032,
+     "width": 50,
+     "height": 71.99992968000001,
+     "pass1": {"margin": 32, "index": 0, "x": 0, "y": 114.28579799999999, "width": 50, "height": 85.71420200000001},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 164.00003515999998},
+      "idPosition": {"x": 25, "y": 164.00003515999998},
+      "customName": "",
+      "maxLines": 5,
+      "names": [
+       {"name": "p21", "nodeId": 21, "stateId": 211, "flow": 0.0428571},
+       {"name": "p17", "nodeId": 17, "stateId": 171, "flow": 0.0380952},
+       {"name": "p12", "nodeId": 12, "stateId": 121, "flow": 0.0333333},
+       {"name": "p25", "nodeId": 25, "stateId": 251, "flow": 0.0333333},
+       {"name": "p11", "nodeId": 11, "stateId": 111, "flow": 0.0285714}
+      ],
+      "namesSingleLine": [
+       {"name": "p21", "nodeId": 21, "stateId": 211, "flow": 0.0428571},
+       {"name": "p17", "nodeId": 17, "stateId": 171, "flow": 0.0380952},
+       {"name": "p12", "nodeId": 12, "stateId": 121, "flow": 0.0333333},
+       {"name": "p25", "nodeId": 25, "stateId": 251, "flow": 0.0333333},
+       {"name": "p11", "nodeId": 11, "stateId": 111, "flow": 0.0285714}
+      ]
+     },
+     "groups": [
+      {
+       "id": "states_t0_module3_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.4285710100000001,
+       "numLeafNodes": 16,
+       "x": 0,
+       "y": 128.00007032,
+       "width": 50,
+       "height": 71.99992968000001,
+       "pass1": {"x": 0, "y": 114.28579799999999, "width": 50, "height": 85.71420200000001},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.4285710100000001,
+         "numLeafNodes": 16,
+         "x": 0,
+         "y": 128.00007032,
+         "width": 50,
+         "height": 71.99992968000001,
+         "streamlineNodes": [
+          {
+           "id": "states_t0_module3_group-1_left",
+           "sourceId": "states_t0_module3_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.4285710100000001,
+           "numLeafNodes": 16,
+           "x": 0,
+           "y": 128.00007032,
+           "width": 50,
+           "height": 71.99992968000001,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.4285710100000001,
+         "numLeafNodes": 16,
+         "x": 0,
+         "y": 128.00007032,
+         "width": 50,
+         "height": 71.99992968000001,
+         "streamlineNodes": [
+          {
+           "id": "states_t0_module3_group-1_right",
+           "sourceId": "states_t0_module3_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.06190470000000001,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 189.6000104,
+           "width": 50,
+           "height": 10.399989600000001,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          },
+          {
+           "id": "states_t0_module3_group-1_right--states_t1_module1_group-1_left",
+           "sourceId": "states_t0_module3_group-1_right",
+           "targetId": "states_t1_module1_group-1_left",
+           "dangling": false,
+           "flow": 0.36666631000000005,
+           "numLeafNodes": 14,
+           "x": 0,
+           "y": 128.00007032,
+           "width": 50,
+           "height": 61.59994008000001,
+           "sortKey": -105.37631999999999,
+           "linked": true,
+           "opposite": {"networkId": "states_t1", "id": "states_t1_module1_group-1_left--states_t0_module3_group-1_right", "moduleId": "1"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "4",
+     "id": "states_t0_module4",
+     "path": [4],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 1,
+     "flow": 0.29999970000000004,
+     "numLeafNodes": 12,
+     "meanNodeId": 30.5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 0,
+     "x": 0,
+     "y": -7.105427357601002e-15,
+     "width": 50,
+     "height": 50.39994960000001,
+     "pass1": {"margin": 0, "index": 1, "x": 0, "y": 22.285857999999976, "width": 50, "height": 59.99994000000001},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 25.199974799999996},
+      "idPosition": {"x": 25, "y": 25.199974799999996},
+      "customName": "",
+      "maxLines": 3,
+      "names": [
+       {"name": "p27", "nodeId": 27, "stateId": 272, "flow": 0.0380952},
+       {"name": "p35", "nodeId": 35, "stateId": 352, "flow": 0.0380952},
+       {"name": "p28", "nodeId": 28, "stateId": 282, "flow": 0.0285714}
+      ],
+      "namesSingleLine": [
+       {"name": "p27", "nodeId": 27, "stateId": 272, "flow": 0.0380952},
+       {"name": "p35", "nodeId": 35, "stateId": 352, "flow": 0.0380952},
+       {"name": "p28", "nodeId": 28, "stateId": 282, "flow": 0.0285714},
+       {"name": "p29", "nodeId": 29, "stateId": 292, "flow": 0.0285714},
+       {"name": "p33", "nodeId": 33, "stateId": 332, "flow": 0.0285714}
+      ]
+     },
+     "groups": [
+      {
+       "id": "states_t0_module4_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.29999970000000004,
+       "numLeafNodes": 12,
+       "x": 0,
+       "y": -7.105427357601002e-15,
+       "width": 50,
+       "height": 50.39994960000001,
+       "pass1": {"x": 0, "y": 22.285857999999976, "width": 50, "height": 59.99994000000001},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.29999970000000004,
+         "numLeafNodes": 12,
+         "x": 0,
+         "y": -7.105427357601002e-15,
+         "width": 50,
+         "height": 50.39994960000001,
+         "streamlineNodes": [
+          {
+           "id": "states_t0_module4_group-1_left",
+           "sourceId": "states_t0_module4_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.29999970000000004,
+           "numLeafNodes": 12,
+           "x": 0,
+           "y": -7.105427357601002e-15,
+           "width": 50,
+           "height": 50.39994960000001,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.29999970000000004,
+         "numLeafNodes": 12,
+         "x": 0,
+         "y": -7.105427357601002e-15,
+         "width": 50,
+         "height": 50.39994960000001,
+         "streamlineNodes": [
+          {
+           "id": "states_t0_module4_group-1_right",
+           "sourceId": "states_t0_module4_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.0142857,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 47.999952,
+           "width": 50,
+           "height": 2.3999976,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          },
+          {
+           "id": "states_t0_module4_group-1_right--states_t1_module3_group-1_left",
+           "sourceId": "states_t0_module4_group-1_right",
+           "targetId": "states_t1_module3_group-1_left",
+           "dangling": false,
+           "flow": 0.285714,
+           "numLeafNodes": 11,
+           "x": 0,
+           "y": -7.105427357601002e-15,
+           "width": 50,
+           "height": 47.99995200000001,
+           "sortKey": -5.6344199999999915,
+           "linked": true,
+           "opposite": {"networkId": "states_t1", "id": "states_t1_module3_group-1_left--states_t0_module4_group-1_right", "moduleId": "3"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "1",
+     "id": "states_t0_module1",
+     "path": [1],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 0,
+     "flow": 0.0761904,
+     "numLeafNodes": 5,
+     "meanNodeId": 6.8,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": false,
+     "highlightIndex": -1,
+     "margin": 0,
+     "x": 0,
+     "y": 0,
+     "width": 0,
+     "height": 0,
+     "pass1": null,
+     "label": {
+      "shown": false,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 0},
+      "idPosition": {"x": 0, "y": 0},
+      "customName": "",
+      "maxLines": 0,
+      "names": [],
+      "namesSingleLine": [
+       {"name": "p12", "nodeId": 12, "stateId": 120, "flow": 0.0238095},
+       {"name": "p13", "nodeId": 13, "stateId": 130, "flow": 0.0190476},
+       {"name": "p1", "nodeId": 1, "stateId": 10, "flow": 0.0142857},
+       {"name": "p6", "nodeId": 6, "stateId": 60, "flow": 0.0142857},
+       {"name": "p2", "nodeId": 2, "stateId": 20, "flow": 0.0047619}
+      ]
+     },
+     "groups": [
+      {
+       "id": "states_t0_module1_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.0761904,
+       "numLeafNodes": 5,
+       "x": 0,
+       "y": 0,
+       "width": 0,
+       "height": 0,
+       "pass1": null,
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.0761904,
+         "numLeafNodes": 5,
+         "x": 0,
+         "y": 0,
+         "width": 0,
+         "height": 0,
+         "streamlineNodes": [
+          {
+           "id": "states_t0_module1_group-1_left",
+           "sourceId": "states_t0_module1_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.0761904,
+           "numLeafNodes": 5,
+           "x": 0,
+           "y": 0,
+           "width": 0,
+           "height": 0,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.0761904,
+         "numLeafNodes": 5,
+         "x": 0,
+         "y": 0,
+         "width": 0,
+         "height": 0,
+         "streamlineNodes": [
+          {
+           "id": "states_t0_module1_group-1_right",
+           "sourceId": "states_t0_module1_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.0190476,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 0,
+           "width": 0,
+           "height": 0,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          },
+          {
+           "id": "states_t0_module1_group-1_right--states_t1_module2_group-1_left",
+           "sourceId": "states_t0_module1_group-1_right",
+           "targetId": "states_t1_module2_group-1_left",
+           "dangling": false,
+           "flow": 0.0190476,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 0,
+           "width": 0,
+           "height": 0,
+           "sortKey": -Infinity,
+           "linked": true,
+           "opposite": {"networkId": "states_t1", "id": "states_t1_module2_group-1_left--states_t0_module1_group-1_right", "moduleId": "2"}
+          },
+          {
+           "id": "states_t0_module1_group-1_right--states_t1_module1_group-1_left",
+           "sourceId": "states_t0_module1_group-1_right",
+           "targetId": "states_t1_module1_group-1_left",
+           "dangling": false,
+           "flow": 0.0380952,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 0,
+           "width": 0,
+           "height": 0,
+           "sortKey": -105.37631999999999,
+           "linked": true,
+           "opposite": {"networkId": "states_t1", "id": "states_t1_module1_group-1_left--states_t0_module1_group-1_right", "moduleId": "1"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "2",
+     "id": "states_t0_module2",
+     "path": [2],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 1,
+     "flow": 0.19523790000000002,
+     "numLeafNodes": 9,
+     "meanNodeId": 7.888888888888889,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": false,
+     "highlightIndex": -1,
+     "margin": 0,
+     "x": 0,
+     "y": 0,
+     "width": 0,
+     "height": 0,
+     "pass1": null,
+     "label": {
+      "shown": false,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 0},
+      "idPosition": {"x": 0, "y": 0},
+      "customName": "",
+      "maxLines": 0,
+      "names": [],
+      "namesSingleLine": [
+       {"name": "p9", "nodeId": 9, "stateId": 90, "flow": 0.0333333},
+       {"name": "p3", "nodeId": 3, "stateId": 30, "flow": 0.0238095},
+       {"name": "p4", "nodeId": 4, "stateId": 40, "flow": 0.0238095},
+       {"name": "p7", "nodeId": 7, "stateId": 70, "flow": 0.0238095},
+       {"name": "p5", "nodeId": 5, "stateId": 50, "flow": 0.0190476}
+      ]
+     },
+     "groups": [
+      {
+       "id": "states_t0_module2_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.19523790000000002,
+       "numLeafNodes": 9,
+       "x": 0,
+       "y": 0,
+       "width": 0,
+       "height": 0,
+       "pass1": null,
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.19523790000000002,
+         "numLeafNodes": 9,
+         "x": 0,
+         "y": 0,
+         "width": 0,
+         "height": 0,
+         "streamlineNodes": [
+          {
+           "id": "states_t0_module2_group-1_left",
+           "sourceId": "states_t0_module2_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.19523790000000002,
+           "numLeafNodes": 9,
+           "x": 0,
+           "y": 0,
+           "width": 0,
+           "height": 0,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.19523790000000002,
+         "numLeafNodes": 9,
+         "x": 0,
+         "y": 0,
+         "width": 0,
+         "height": 0,
+         "streamlineNodes": [
+          {
+           "id": "states_t0_module2_group-1_right",
+           "sourceId": "states_t0_module2_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.0380952,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 0,
+           "width": 0,
+           "height": 0,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          },
+          {
+           "id": "states_t0_module2_group-1_right--states_t1_module2_group-1_left",
+           "sourceId": "states_t0_module2_group-1_right",
+           "targetId": "states_t1_module2_group-1_left",
+           "dangling": false,
+           "flow": 0.1333332,
+           "numLeafNodes": 6,
+           "x": 0,
+           "y": 0,
+           "width": 0,
+           "height": 0,
+           "sortKey": -Infinity,
+           "linked": true,
+           "opposite": {"networkId": "states_t1", "id": "states_t1_module2_group-1_left--states_t0_module2_group-1_right", "moduleId": "2"}
+          },
+          {
+           "id": "states_t0_module2_group-1_right--states_t1_module3_group-1_left",
+           "sourceId": "states_t0_module2_group-1_right",
+           "targetId": "states_t1_module3_group-1_left",
+           "dangling": false,
+           "flow": 0.0238095,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 0,
+           "width": 0,
+           "height": 0,
+           "sortKey": -5.6344199999999915,
+           "linked": true,
+           "opposite": {"networkId": "states_t1", "id": "states_t1_module3_group-1_left--states_t0_module2_group-1_right", "moduleId": "3"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "numLinksAboveZero": 2,
+   "links": [
+    {
+     "id": "states_t0_module3_group-1_right--states_t1_module1_group-1_left",
+     "left": {"networkId": "states_t0", "moduleId": "3", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "states_t0_module3_group-1_right--states_t1_module1_group-1_left"},
+     "right": {"networkId": "states_t1", "moduleId": "1", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "states_t1_module1_group-1_left--states_t0_module3_group-1_right"},
+     "x0": 50,
+     "y0": 128.00007032,
+     "h0": 61.59994008000001,
+     "x1": 125,
+     "y1": 120.51610879999998,
+     "h1": 63.225825600000015,
+     "avgHeight": 62.41288284000001,
+     "highlightIndex": -1,
+     "leftHighlightIndex": -1,
+     "rightHighlightIndex": -1,
+     "path": "M50,189.6000104C87.5,189.6000104,87.5,183.7419344,125,183.7419344L125,120.51610879999998C87.5,120.51610879999998,87.5,128.00007032,50,128.00007032Z"
+    },
+    {
+     "id": "states_t0_module4_group-1_right--states_t1_module3_group-1_left",
+     "left": {"networkId": "states_t0", "moduleId": "4", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "states_t0_module4_group-1_right--states_t1_module3_group-1_left"},
+     "right": {"networkId": "states_t1", "moduleId": "3", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "states_t1_module3_group-1_left--states_t0_module4_group-1_right"},
+     "x0": 50,
+     "y0": -7.105427357601002e-15,
+     "h0": 47.99995200000001,
+     "x1": 125,
+     "y1": -7.105427357601002e-15,
+     "h1": 45.161256,
+     "avgHeight": 46.58060400000001,
+     "highlightIndex": -1,
+     "leftHighlightIndex": -1,
+     "rightHighlightIndex": -1,
+     "path": "M50,47.99995200000001C87.5,47.99995200000001,87.5,45.161256,125,45.161256L125,0C87.5,0,87.5,0,50,0Z"
+    }
+   ],
+   "hierarchy": [
+    {"type": "module", "moduleId": "3"},
+    {"type": "module", "moduleId": "4"}
+   ],
+   "identifiersUnique": true,
+   "leafColumns": ["identifier","nodeId","stateId","moduleId","moduleLevel","highlightIndex","insignificant"],
+   "leaves": [
+    ["10",1,10,"1",1,-1,false],
+    ["20",2,20,"1",1,-1,false],
+    ["30",3,30,"2",1,-1,false],
+    ["40",4,40,"2",1,-1,false],
+    ["50",5,50,"2",1,-1,false],
+    ["60",6,60,"1",1,-1,false],
+    ["70",7,70,"2",1,-1,false],
+    ["80",8,80,"2",1,-1,false],
+    ["90",9,90,"2",1,-1,false],
+    ["100",10,100,"2",1,-1,false],
+    ["110",11,110,"2",1,-1,false],
+    ["111",11,111,"3",1,-1,false],
+    ["120",12,120,"1",1,-1,false],
+    ["121",12,121,"3",1,-1,false],
+    ["130",13,130,"1",1,-1,false],
+    ["131",13,131,"3",1,-1,false],
+    ["140",14,140,"2",1,-1,false],
+    ["141",14,141,"3",1,-1,false],
+    ["151",15,151,"3",1,-1,false],
+    ["161",16,161,"3",1,-1,false],
+    ["171",17,171,"3",1,-1,false],
+    ["181",18,181,"3",1,-1,false],
+    ["191",19,191,"3",1,-1,false],
+    ["201",20,201,"3",1,-1,false],
+    ["211",21,211,"3",1,-1,false],
+    ["221",22,221,"3",1,-1,false],
+    ["231",23,231,"3",1,-1,false],
+    ["241",24,241,"3",1,-1,false],
+    ["251",25,251,"3",1,-1,false],
+    ["252",25,252,"4",1,-1,false],
+    ["261",26,261,"3",1,-1,false],
+    ["262",26,262,"4",1,-1,false],
+    ["272",27,272,"4",1,-1,false],
+    ["282",28,282,"4",1,-1,false],
+    ["292",29,292,"4",1,-1,false],
+    ["302",30,302,"4",1,-1,false],
+    ["312",31,312,"4",1,-1,false],
+    ["322",32,322,"4",1,-1,false],
+    ["332",33,332,"4",1,-1,false],
+    ["342",34,342,"4",1,-1,false],
+    ["352",35,352,"4",1,-1,false],
+    ["362",36,362,"4",1,-1,false]
+   ]
+  },
+  {
+   "networkId": "states_t1",
+   "name": "states_t1.tree",
+   "index": 1,
+   "file": {
+    "path": "data/states_t1.tree",
+    "format": "tree",
+    "numTopModules": 3,
+    "numLevels": 2,
+    "isStateNetwork": true,
+    "directed": null,
+    "codelength": 4.48711,
+    "numNodes": 40
+   },
+   "x": 125,
+   "y": 0,
+   "width": 50,
+   "height": 200,
+   "flow": 1,
+   "numLeafNodes": 40,
+   "moduleFlowThreshold": 0.3387095,
+   "isCustomSorted": false,
+   "isHigherOrder": true,
+   "namePosition": {"x": 150, "y": 220},
+   "totalMargin": 32,
+   "visibleFlow": 0.8118279,
+   "numVisibleModules": 2,
+   "numModules": 3,
+   "modules": [
+    {
+     "moduleId": "1",
+     "id": "states_t1_module1",
+     "path": [1],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 0,
+     "flow": 0.47311840000000005,
+     "numLeafNodes": 18,
+     "meanNodeId": 15.38888888888889,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 63.61291279999999,
+     "x": 125,
+     "y": 120.51610879999998,
+     "width": 50,
+     "height": 79.4838912,
+     "pass1": {"margin": 32, "index": 0, "x": 125, "y": 105.37631999999999, "width": 50, "height": 94.62368000000001},
+     "label": {
+      "shown": true,
+      "textAnchor": "start",
+      "namePosition": {"x": 195, "y": 160.2580544},
+      "idPosition": {"x": 150, "y": 160.2580544},
+      "customName": "",
+      "maxLines": 5,
+      "names": [
+       {"name": "p12", "nodeId": 12, "stateId": 120, "flow": 0.0537634},
+       {"name": "p15", "nodeId": 15, "stateId": 151, "flow": 0.0483871},
+       {"name": "p17", "nodeId": 17, "stateId": 171, "flow": 0.0430108},
+       {"name": "p16", "nodeId": 16, "stateId": 161, "flow": 0.0376344},
+       {"name": "p23", "nodeId": 23, "stateId": 231, "flow": 0.0376344}
+      ],
+      "namesSingleLine": [
+       {"name": "p12", "nodeId": 12, "stateId": 120, "flow": 0.0537634},
+       {"name": "p15", "nodeId": 15, "stateId": 151, "flow": 0.0483871},
+       {"name": "p17", "nodeId": 17, "stateId": 171, "flow": 0.0430108},
+       {"name": "p16", "nodeId": 16, "stateId": 161, "flow": 0.0376344},
+       {"name": "p23", "nodeId": 23, "stateId": 231, "flow": 0.0376344}
+      ]
+     },
+     "groups": [
+      {
+       "id": "states_t1_module1_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.47311840000000005,
+       "numLeafNodes": 18,
+       "x": 125,
+       "y": 120.51610879999998,
+       "width": 50,
+       "height": 79.4838912,
+       "pass1": {"x": 125, "y": 105.37631999999999, "width": 50, "height": 94.62368000000001},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.47311840000000005,
+         "numLeafNodes": 18,
+         "x": 125,
+         "y": 120.51610879999998,
+         "width": 50,
+         "height": 79.4838912,
+         "streamlineNodes": [
+          {
+           "id": "states_t1_module1_group-1_left--states_t0_module1_group-1_right",
+           "sourceId": "states_t1_module1_group-1_left",
+           "targetId": "states_t0_module1_group-1_right",
+           "dangling": false,
+           "flow": 0.0483871,
+           "numLeafNodes": 2,
+           "x": 125,
+           "y": 191.8709672,
+           "width": 50,
+           "height": 8.129032800000001,
+           "sortKey": -Infinity,
+           "linked": true,
+           "opposite": {"networkId": "states_t0", "id": "states_t0_module1_group-1_right--states_t1_module1_group-1_left", "moduleId": "1"}
+          },
+          {
+           "id": "states_t1_module1_group-1_left",
+           "sourceId": "states_t1_module1_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.0483871,
+           "numLeafNodes": 2,
+           "x": 125,
+           "y": 183.7419344,
+           "width": 50,
+           "height": 8.129032800000001,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          },
+          {
+           "id": "states_t1_module1_group-1_left--states_t0_module3_group-1_right",
+           "sourceId": "states_t1_module1_group-1_left",
+           "targetId": "states_t0_module3_group-1_right",
+           "dangling": false,
+           "flow": 0.3763442000000001,
+           "numLeafNodes": 14,
+           "x": 125,
+           "y": 120.51610879999998,
+           "width": 50,
+           "height": 63.225825600000015,
+           "sortKey": -114.28579799999999,
+           "linked": true,
+           "opposite": {"networkId": "states_t0", "id": "states_t0_module3_group-1_right--states_t1_module1_group-1_left", "moduleId": "3"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.4731184000000001,
+         "numLeafNodes": 18,
+         "x": 125,
+         "y": 120.51610879999998,
+         "width": 50,
+         "height": 79.48389120000002,
+         "streamlineNodes": [
+          {
+           "id": "states_t1_module1_group-1_right",
+           "sourceId": "states_t1_module1_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.4731184000000001,
+           "numLeafNodes": 18,
+           "x": 125,
+           "y": 120.51610879999998,
+           "width": 50,
+           "height": 79.48389120000002,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "3",
+     "id": "states_t1_module3",
+     "path": [3],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 1,
+     "flow": 0.3387095,
+     "numLeafNodes": 14,
+     "meanNodeId": 27.571428571428573,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 0,
+     "x": 125,
+     "y": -1.4210854715202004e-14,
+     "width": 50,
+     "height": 56.903196,
+     "pass1": {"margin": 0, "index": 1, "x": 125, "y": 5.6344199999999915, "width": 50, "height": 67.7419},
+     "label": {
+      "shown": true,
+      "textAnchor": "start",
+      "namePosition": {"x": 195, "y": 28.451597999999986},
+      "idPosition": {"x": 150, "y": 28.451597999999986},
+      "customName": "",
+      "maxLines": 3,
+      "names": [
+       {"name": "p26", "nodeId": 26, "stateId": 262, "flow": 0.0376344},
+       {"name": "p32", "nodeId": 32, "stateId": 322, "flow": 0.0376344},
+       {"name": "p33", "nodeId": 33, "stateId": 332, "flow": 0.0376344}
+      ],
+      "namesSingleLine": [
+       {"name": "p26", "nodeId": 26, "stateId": 262, "flow": 0.0376344},
+       {"name": "p32", "nodeId": 32, "stateId": 322, "flow": 0.0376344},
+       {"name": "p33", "nodeId": 33, "stateId": 332, "flow": 0.0376344},
+       {"name": "p24", "nodeId": 24, "stateId": 242, "flow": 0.0322581},
+       {"name": "p25", "nodeId": 25, "stateId": 252, "flow": 0.0268817}
+      ]
+     },
+     "groups": [
+      {
+       "id": "states_t1_module3_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.3387095,
+       "numLeafNodes": 14,
+       "x": 125,
+       "y": -1.4210854715202004e-14,
+       "width": 50,
+       "height": 56.903196,
+       "pass1": {"x": 125, "y": 5.6344199999999915, "width": 50, "height": 67.7419},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.3387095,
+         "numLeafNodes": 14,
+         "x": 125,
+         "y": -7.105427357601002e-15,
+         "width": 50,
+         "height": 56.903196,
+         "streamlineNodes": [
+          {
+           "id": "states_t1_module3_group-1_left--states_t0_module2_group-1_right",
+           "sourceId": "states_t1_module3_group-1_left",
+           "targetId": "states_t0_module2_group-1_right",
+           "dangling": false,
+           "flow": 0.016129,
+           "numLeafNodes": 1,
+           "x": 125,
+           "y": 54.193524,
+           "width": 50,
+           "height": 2.7096720000000003,
+           "sortKey": -Infinity,
+           "linked": true,
+           "opposite": {"networkId": "states_t0", "id": "states_t0_module2_group-1_right--states_t1_module3_group-1_left", "moduleId": "2"}
+          },
+          {
+           "id": "states_t1_module3_group-1_left",
+           "sourceId": "states_t1_module3_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.0537635,
+           "numLeafNodes": 2,
+           "x": 125,
+           "y": 45.161255999999995,
+           "width": 50,
+           "height": 9.032268,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          },
+          {
+           "id": "states_t1_module3_group-1_left--states_t0_module4_group-1_right",
+           "sourceId": "states_t1_module3_group-1_left",
+           "targetId": "states_t0_module4_group-1_right",
+           "dangling": false,
+           "flow": 0.26881700000000003,
+           "numLeafNodes": 11,
+           "x": 125,
+           "y": -7.105427357601002e-15,
+           "width": 50,
+           "height": 45.161256,
+           "sortKey": -22.285857999999976,
+           "linked": true,
+           "opposite": {"networkId": "states_t0", "id": "states_t0_module4_group-1_right--states_t1_module3_group-1_left", "moduleId": "4"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.33870950000000005,
+         "numLeafNodes": 14,
+         "x": 125,
+         "y": -1.4210854715202004e-14,
+         "width": 50,
+         "height": 56.90319600000001,
+         "streamlineNodes": [
+          {
+           "id": "states_t1_module3_group-1_right",
+           "sourceId": "states_t1_module3_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.33870950000000005,
+           "numLeafNodes": 14,
+           "x": 125,
+           "y": -1.4210854715202004e-14,
+           "width": 50,
+           "height": 56.90319600000001,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "2",
+     "id": "states_t1_module2",
+     "path": [2],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 1,
+     "flow": 0.1881721,
+     "numLeafNodes": 8,
+     "meanNodeId": 7.125,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": false,
+     "highlightIndex": -1,
+     "margin": 0,
+     "x": 0,
+     "y": 0,
+     "width": 0,
+     "height": 0,
+     "pass1": null,
+     "label": {
+      "shown": false,
+      "textAnchor": "start",
+      "namePosition": {"x": 20, "y": 0},
+      "idPosition": {"x": 0, "y": 0},
+      "customName": "",
+      "maxLines": 0,
+      "names": [],
+      "namesSingleLine": [
+       {"name": "p2", "nodeId": 2, "stateId": 20, "flow": 0.0376344},
+       {"name": "p6", "nodeId": 6, "stateId": 60, "flow": 0.0376344},
+       {"name": "p9", "nodeId": 9, "stateId": 90, "flow": 0.0322581},
+       {"name": "p10", "nodeId": 10, "stateId": 100, "flow": 0.0215054},
+       {"name": "p11", "nodeId": 11, "stateId": 110, "flow": 0.0215054}
+      ]
+     },
+     "groups": [
+      {
+       "id": "states_t1_module2_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.1881721,
+       "numLeafNodes": 8,
+       "x": 0,
+       "y": 0,
+       "width": 0,
+       "height": 0,
+       "pass1": null,
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.1881721,
+         "numLeafNodes": 8,
+         "x": 0,
+         "y": 0,
+         "width": 0,
+         "height": 0,
+         "streamlineNodes": [
+          {
+           "id": "states_t1_module2_group-1_left--states_t0_module1_group-1_right",
+           "sourceId": "states_t1_module2_group-1_left",
+           "targetId": "states_t0_module1_group-1_right",
+           "dangling": false,
+           "flow": 0.0752688,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 0,
+           "width": 0,
+           "height": 0,
+           "sortKey": -Infinity,
+           "linked": true,
+           "opposite": {"networkId": "states_t0", "id": "states_t0_module1_group-1_right--states_t1_module2_group-1_left", "moduleId": "1"}
+          },
+          {
+           "id": "states_t1_module2_group-1_left--states_t0_module2_group-1_right",
+           "sourceId": "states_t1_module2_group-1_left",
+           "targetId": "states_t0_module2_group-1_right",
+           "dangling": false,
+           "flow": 0.11290330000000001,
+           "numLeafNodes": 6,
+           "x": 0,
+           "y": 0,
+           "width": 0,
+           "height": 0,
+           "sortKey": -Infinity,
+           "linked": true,
+           "opposite": {"networkId": "states_t0", "id": "states_t0_module2_group-1_right--states_t1_module2_group-1_left", "moduleId": "2"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.1881721,
+         "numLeafNodes": 8,
+         "x": 0,
+         "y": 0,
+         "width": 0,
+         "height": 0,
+         "streamlineNodes": [
+          {
+           "id": "states_t1_module2_group-1_right",
+           "sourceId": "states_t1_module2_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.1881721,
+           "numLeafNodes": 8,
+           "x": 0,
+           "y": 0,
+           "width": 0,
+           "height": 0,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "numLinksAboveZero": 0,
+   "links": [],
+   "hierarchy": [
+    {"type": "module", "moduleId": "1"},
+    {"type": "module", "moduleId": "3"}
+   ],
+   "identifiersUnique": true,
+   "leafColumns": ["identifier","nodeId","stateId","moduleId","moduleLevel","highlightIndex","insignificant"],
+   "leaves": [
+    ["10",1,10,"1",1,-1,false],
+    ["20",2,20,"2",1,-1,false],
+    ["30",3,30,"3",1,-1,false],
+    ["40",4,40,"2",1,-1,false],
+    ["60",6,60,"2",1,-1,false],
+    ["70",7,70,"2",1,-1,false],
+    ["80",8,80,"2",1,-1,false],
+    ["90",9,90,"2",1,-1,false],
+    ["91",9,91,"1",1,-1,false],
+    ["100",10,100,"2",1,-1,false],
+    ["101",10,101,"1",1,-1,false],
+    ["110",11,110,"2",1,-1,false],
+    ["111",11,111,"1",1,-1,false],
+    ["120",12,120,"1",1,-1,false],
+    ["121",12,121,"1",1,-1,false],
+    ["131",13,131,"1",1,-1,false],
+    ["141",14,141,"1",1,-1,false],
+    ["151",15,151,"1",1,-1,false],
+    ["161",16,161,"1",1,-1,false],
+    ["171",17,171,"1",1,-1,false],
+    ["181",18,181,"1",1,-1,false],
+    ["191",19,191,"1",1,-1,false],
+    ["201",20,201,"1",1,-1,false],
+    ["211",21,211,"1",1,-1,false],
+    ["221",22,221,"1",1,-1,false],
+    ["231",23,231,"1",1,-1,false],
+    ["232",23,232,"3",1,-1,false],
+    ["241",24,241,"1",1,-1,false],
+    ["242",24,242,"3",1,-1,false],
+    ["252",25,252,"3",1,-1,false],
+    ["262",26,262,"3",1,-1,false],
+    ["272",27,272,"3",1,-1,false],
+    ["282",28,282,"3",1,-1,false],
+    ["292",29,292,"3",1,-1,false],
+    ["312",31,312,"3",1,-1,false],
+    ["322",32,322,"3",1,-1,false],
+    ["332",33,332,"3",1,-1,false],
+    ["342",34,342,"3",1,-1,false],
+    ["352",35,352,"3",1,-1,false],
+    ["362",36,362,"3",1,-1,false]
+   ]
+  }
+ ]
+}

@@ -1,0 +1,16 @@
+# v2.0.0
+# ./Infomap fuzz --two-level
+# partitioned into 4 levels with 2 top modules
+# codelength 3.70819 bits
+# flow model directed
+# higher order
+# state level
+# path flow name state_id node_id
+1:1 2.000000000000e-01 "a-b" 1 2
+1:2; 3.000000000000e-01 "O'Brien" 3 3
+1:3: 1.000000000000e-01 "n5" 19 5
+2:1 3.000000000000e-01 "a-b" 2 2
+2:2; 1.000000000000e-01 "Zürich" 10 4
+2:3; 3.000000000000e-01 "Zürich" 11 4
+2:4 1.000000000000e-01 "Zürich" 18 4
+2:5 3.000000000000e-01 "n5" 20 5

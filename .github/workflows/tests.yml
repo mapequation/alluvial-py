@@ -1,0 +1,122 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10.3.0
+        with:
+          enable-cache: true
+      - run: uv run --locked --extra dev ruff check .
+      - run: uv run --locked --extra dev ruff format --check .
+
+  test:
+    name: pytest (${{ matrix.os }}, Python ${{ matrix.python-version }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        python-version: ["3.11", "3.12", "3.13", "3.14"]
+    env:
+      MPLBACKEND: Agg
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10.3.0
+        with:
+          python-version: ${{ matrix.python-version }}
+          enable-cache: true
+      # The differential fuzz tests need node and the TS sources; they run in the parity job.
+      - run: uv run --locked --extra dev pytest -q -m "not fuzz"
+
+  lowest:
+    name: pytest (lowest direct dependencies, Python 3.11)
+    runs-on: ubuntu-latest
+    env:
+      MPLBACKEND: Agg
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10.3.0
+        with:
+          python-version: "3.11"
+      - run: uv venv
+      # matplotlib 3.7.0 wheels are built against numpy 1.x.
+      - run: uv pip install --resolution lowest-direct -e ".[dev]" "numpy<2"
+      - run: uv run --no-sync pytest -q -m "not fuzz" -W ignore::DeprecationWarning
+
+  parity:
+    # The fixture check and the differential fuzz tests against the TS engine the fixtures were made from:
+    # mapequation/alluvial at the commit in tests/fixtures/provenance.txt (tools/ts-fixtures/README.md).
+    runs-on: ubuntu-latest
+    env:
+      MPLBACKEND: Agg
+      ALLUVIAL_TS_ROOT: ${{ github.workspace }}/alluvial-ts
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Read the TS commit of the fixtures
+        id: ts
+        run: echo "sha=$(sed -n 's/^ts_repo_head: //p' tests/fixtures/provenance.txt)" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/checkout@v7
+        with:
+          repository: mapequation/alluvial
+          ref: ${{ steps.ts.outputs.sha }}
+          path: alluvial-ts
+
+      - uses: pnpm/action-setup@v6
+        with:
+          package_json_file: alluvial-ts/package.json
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: pnpm
+          cache-dependency-path: alluvial-ts/pnpm-lock.yaml
+
+      - name: Install the TS repo
+        working-directory: alluvial-ts
+        run: pnpm install --frozen-lockfile
+
+      - uses: astral-sh/setup-uv@v10.3.0
+        with:
+          python-version: "3.14"
+          enable-cache: true
+
+      - name: Check that the TS engine regenerates the fixtures byte for byte
+        run: node tools/ts-fixtures/generate.mjs --check
+
+      - name: Fuzz against the TS engine
+        run: uv run --locked --extra dev pytest -q tests/test_fuzz_parity.py
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10.3.0
+      - run: uv build
+      - name: Wheel ships the colour data and no tests
+        run: |
+          unzip -l dist/*.whl > files.txt
+          grep -q "alluvial/data/color-schemes.json" files.txt
+          grep -q "alluvial/data/d3-interpolators.json" files.txt
+          if grep -E "(^|[ /])(tests|tools|fixtures)/" files.txt; then exit 1; fi
+      - name: Example runs from the installed wheel
+        run: |
+          uv venv /tmp/wheel-env
+          uv pip install --python /tmp/wheel-env/bin/python "$(ls dist/*.whl)[infomap]"
+          cd /tmp && MPLBACKEND=Agg /tmp/wheel-env/bin/python "$GITHUB_WORKSPACE/examples/quickstart.py"

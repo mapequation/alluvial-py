@@ -1,0 +1,3706 @@
+{
+ "formatVersion": 1,
+ "scenario": "mlayer-unsplit__colorByPhysicalId",
+ "group": "mlayer-unsplit",
+ "variant": "colorByPhysicalId",
+ "description": "colorByPhysicalId on the unsplit multilayer network",
+ "features": ["colorBy"],
+ "inputs": {
+  "files": ["data/mlayer_states.tree"],
+  "formats": ["tree"],
+  "networkIds": ["mlayer_states"],
+  "networkNames": ["mlayer_states.tree"],
+  "identifier": "id",
+  "options": {
+   "height": 600,
+   "moduleWidth": 80,
+   "streamlineFraction": 2,
+   "streamlineThreshold": 1,
+   "flowThreshold": 0.005,
+   "marginExponent": 4,
+   "zeroMargins": false,
+   "verticalAlign": "bottom",
+   "moduleSize": "flow",
+   "sortModulesBy": "flow"
+  },
+  "labelOptions": {"fontSize": 8, "adaptiveFontSize": false, "multilineModuleNames": true, "aggregateStateNames": true, "showModuleNames": true},
+  "colorScheme": "C3 Sinebow",
+  "operations": [
+   {"op": "setNetworks"},
+   {"op": "colorByPhysicalId"}
+  ]
+ },
+ "diagram": {
+  "x": 0,
+  "y": 0,
+  "width": 80,
+  "height": 600,
+  "flow": 0,
+  "numNetworks": 1,
+  "maxNetworkFlow": 1.00000008,
+  "streamlineWidth": 160,
+  "networkWidth": 240,
+  "totalWidth": 80,
+  "totalMargins": [80],
+  "maxTotalMargin": 80,
+  "marginFractionOfHeight": 0.13333333333333333,
+  "maxMarginFractionOfHeight": 0.2,
+  "marginCapped": false,
+  "moduleMarginScale": null,
+  "scaledTotalMargin": null,
+  "usableHeight": 520,
+  "visibleFlows": [1],
+  "visibleModuleCounts": [6],
+  "updateLayoutCalls": 2,
+  "usableHeightCheckedModules": 6
+ },
+ "highlightColors": ["#ea6c63","#3ac1c0","#5a8c3c","#977bd7","#cd9600","#507de1","#62a769","#de85b9","#ca6a37","#39a1f1","#6dc660","#9d66a9","#879b34","#8c99f9","#009d61","#e76484","#e98c74","#0098c1","#6cb156","#cb92fa","#877e00","#7389d0","#61b476","#be5b83","#d17b17","#68a6ff","#5a9859","#c67bbb","#90bc5a","#776cd0","#00a784","#e08287","#c36253","#00a7bc","#77bd59","#9c6cd9","#b39939","#89aaff","#34954b","#d4649d","#f18129","#4c88cb","#63ab5e","#d887d9","#769a0d"],
+ "defaultHighlightColor": "#b6b69f",
+ "warnings": [],
+ "networks": [
+  {
+   "networkId": "mlayer_states",
+   "name": "mlayer_states.tree",
+   "index": 0,
+   "file": {
+    "path": "data/mlayer_states.tree",
+    "format": "tree",
+    "numTopModules": 6,
+    "numLevels": 3,
+    "isStateNetwork": true,
+    "directed": null,
+    "codelength": 3.65442,
+    "numNodes": 157
+   },
+   "x": 0,
+   "y": 0,
+   "width": 80,
+   "height": 600,
+   "flow": 1.00000008,
+   "numLeafNodes": 157,
+   "moduleFlowThreshold": 0.01631216,
+   "isCustomSorted": false,
+   "isHigherOrder": true,
+   "namePosition": {"x": 40, "y": 620},
+   "totalMargin": 80,
+   "visibleFlow": 1,
+   "numVisibleModules": 6,
+   "numModules": 6,
+   "modules": [
+    {
+     "moduleId": "1",
+     "id": "mlayer_states_module1",
+     "path": [1],
+     "moduleLevel": 1,
+     "maxModuleLevel": 2,
+     "index": 0,
+     "flow": 0.33121021000000006,
+     "numLeafNodes": 52,
+     "meanNodeId": 38.19230769230769,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": 0,
+     "margin": 16,
+     "x": 0,
+     "y": 427.77070457834367,
+     "width": 80,
+     "height": 172.2292954216564,
+     "pass1": {"margin": 16, "index": 0, "x": 0, "y": 401.2738898980888, "width": 80, "height": 198.72611010191122},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 513.8853522891718},
+      "idPosition": {"x": 40, "y": 513.8853522891718},
+      "customName": "",
+      "maxLines": 11,
+      "names": [
+       {"name": "p45", "nodeId": 45, "stateId": 131, "flow": 0.030155539999999998},
+       {"name": "p32", "nodeId": 32, "stateId": 129, "flow": 0.02647395},
+       {"name": "p34", "nodeId": 34, "stateId": 121, "flow": 0.02528233},
+       {"name": "p39", "nodeId": 39, "stateId": 123, "flow": 0.025208059999999997},
+       {"name": "p43", "nodeId": 43, "stateId": 147, "flow": 0.02412146},
+       {"name": "p38", "nodeId": 38, "stateId": 120, "flow": 0.023042840000000002},
+       {"name": "p40", "nodeId": 40, "stateId": 122, "flow": 0.02252494},
+       {"name": "p41", "nodeId": 41, "stateId": 126, "flow": 0.022237279999999998},
+       {"name": "p36", "nodeId": 36, "stateId": 133, "flow": 0.021515339999999997},
+       {"name": "p33", "nodeId": 33, "stateId": 130, "flow": 0.020811760000000002},
+       {"name": "p35", "nodeId": 35, "stateId": 113, "flow": 0.02041037}
+      ],
+      "namesSingleLine": [
+       {"name": "p45", "nodeId": 45, "stateId": 131, "flow": 0.030155539999999998},
+       {"name": "p32", "nodeId": 32, "stateId": 129, "flow": 0.02647395},
+       {"name": "p34", "nodeId": 34, "stateId": 121, "flow": 0.02528233},
+       {"name": "p39", "nodeId": 39, "stateId": 123, "flow": 0.025208059999999997},
+       {"name": "p43", "nodeId": 43, "stateId": 147, "flow": 0.02412146}
+      ]
+     },
+     "groups": [
+      {
+       "id": "mlayer_states_module1_group0",
+       "highlightIndex": 0,
+       "insignificant": false,
+       "flow": 0.030155539999999998,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 584.3191204544704,
+       "width": 80,
+       "height": 15.680879545529637,
+       "pass1": {"x": 0, "y": 581.9066774474658, "width": 80, "height": 18.093322552534197},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.030155539999999998,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 584.3191204544704,
+         "width": 80,
+         "height": 15.680879545529637,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module1_group0_left",
+           "sourceId": "mlayer_states_module1_group0_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.030155539999999998,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 584.3191204544704,
+           "width": 80,
+           "height": 15.680879545529637,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.030155539999999998,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 584.3191204544704,
+         "width": 80,
+         "height": 15.680879545529637,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module1_group0_right",
+           "sourceId": "mlayer_states_module1_group0_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.030155539999999998,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 584.3191204544704,
+           "width": 80,
+           "height": 15.680879545529637,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module1_group1",
+       "highlightIndex": 1,
+       "insignificant": false,
+       "flow": 0.022237279999999998,
+       "numLeafNodes": 3,
+       "x": 0,
+       "y": 572.7557357795412,
+       "width": 80,
+       "height": 11.563384674929226,
+       "pass1": {"x": 0, "y": 568.5643105148552, "width": 80, "height": 13.342366932610645},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.022237279999999998,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": 572.7557357795412,
+         "width": 80,
+         "height": 11.563384674929226,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module1_group1_left",
+           "sourceId": "mlayer_states_module1_group1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.022237279999999998,
+           "numLeafNodes": 3,
+           "x": 0,
+           "y": 572.7557357795412,
+           "width": 80,
+           "height": 11.563384674929226,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.022237279999999998,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": 572.7557357795412,
+         "width": 80,
+         "height": 11.563384674929226,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module1_group1_right",
+           "sourceId": "mlayer_states_module1_group1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.022237279999999998,
+           "numLeafNodes": 3,
+           "x": 0,
+           "y": 572.7557357795412,
+           "width": 80,
+           "height": 11.563384674929226,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module1_group2",
+       "highlightIndex": 2,
+       "insignificant": false,
+       "flow": 0.02412146,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 560.2125775829938,
+       "width": 80,
+       "height": 12.543158196547346,
+       "pass1": {"x": 0, "y": 554.0914356726852, "width": 80, "height": 14.472874842170015},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.02412146,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 560.2125775829938,
+         "width": 80,
+         "height": 12.543158196547346,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module1_group2_left",
+           "sourceId": "mlayer_states_module1_group2_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.02412146,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 560.2125775829938,
+           "width": 80,
+           "height": 12.543158196547346,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.02412146,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 560.2125775829938,
+         "width": 80,
+         "height": 12.543158196547346,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module1_group2_right",
+           "sourceId": "mlayer_states_module1_group2_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.02412146,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 560.2125775829938,
+           "width": 80,
+           "height": 12.543158196547346,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module1_group3",
+       "highlightIndex": 3,
+       "insignificant": false,
+       "flow": 0.019877730000000003,
+       "numLeafNodes": 3,
+       "x": 0,
+       "y": 549.8761588099073,
+       "width": 80,
+       "height": 10.3364187730865,
+       "pass1": {"x": 0, "y": 542.1647986268162, "width": 80, "height": 11.926637045869038},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.019877730000000003,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": 549.8761588099073,
+         "width": 80,
+         "height": 10.3364187730865,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module1_group3_left",
+           "sourceId": "mlayer_states_module1_group3_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.019877730000000003,
+           "numLeafNodes": 3,
+           "x": 0,
+           "y": 549.8761588099073,
+           "width": 80,
+           "height": 10.3364187730865,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.019877730000000003,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": 549.8761588099073,
+         "width": 80,
+         "height": 10.3364187730865,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module1_group3_right",
+           "sourceId": "mlayer_states_module1_group3_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.019877730000000003,
+           "numLeafNodes": 3,
+           "x": 0,
+           "y": 549.8761588099073,
+           "width": 80,
+           "height": 10.3364187730865,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module1_group4",
+       "highlightIndex": 4,
+       "insignificant": false,
+       "flow": 0.018921390000000003,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 540.0370367970371,
+       "width": 80,
+       "height": 9.839122012870241,
+       "pass1": {"x": 0, "y": 530.8119655350428, "width": 80, "height": 11.352833091773356},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.018921390000000003,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 540.0370367970371,
+         "width": 80,
+         "height": 9.839122012870241,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module1_group4_left",
+           "sourceId": "mlayer_states_module1_group4_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.018921390000000003,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 540.0370367970371,
+           "width": 80,
+           "height": 9.839122012870241,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.018921390000000003,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 540.0370367970371,
+         "width": 80,
+         "height": 9.839122012870241,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module1_group4_right",
+           "sourceId": "mlayer_states_module1_group4_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.018921390000000003,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 540.0370367970371,
+           "width": 80,
+           "height": 9.839122012870241,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module1_group5",
+       "highlightIndex": 5,
+       "insignificant": false,
+       "flow": 0.02528233,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 526.8902262487819,
+       "width": 80,
+       "height": 13.146810548255155,
+       "pass1": {"x": 0, "y": 515.6425687485945, "width": 80, "height": 15.169396786448257},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.02528233,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 526.8902262487819,
+         "width": 80,
+         "height": 13.146810548255155,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module1_group5_left",
+           "sourceId": "mlayer_states_module1_group5_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.02528233,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 526.8902262487819,
+           "width": 80,
+           "height": 13.146810548255155,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.02528233,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 526.8902262487819,
+         "width": 80,
+         "height": 13.146810548255155,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module1_group5_right",
+           "sourceId": "mlayer_states_module1_group5_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.02528233,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 526.8902262487819,
+           "width": 80,
+           "height": 13.146810548255155,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module1_group6",
+       "highlightIndex": 6,
+       "insignificant": false,
+       "flow": 0.020811760000000002,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 516.0681119145511,
+       "width": 80,
+       "height": 10.822114334230855,
+       "pass1": {"x": 0, "y": 503.15551374755887, "width": 80, "height": 12.487055001035603},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.020811760000000002,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 516.0681119145511,
+         "width": 80,
+         "height": 10.822114334230855,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module1_group6_left",
+           "sourceId": "mlayer_states_module1_group6_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.020811760000000002,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 516.0681119145511,
+           "width": 80,
+           "height": 10.822114334230855,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.020811760000000002,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 516.0681119145511,
+         "width": 80,
+         "height": 10.822114334230855,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module1_group6_right",
+           "sourceId": "mlayer_states_module1_group6_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.020811760000000002,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 516.0681119145511,
+           "width": 80,
+           "height": 10.822114334230855,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module1_group7",
+       "highlightIndex": 7,
+       "insignificant": false,
+       "flow": 0.02252494,
+       "numLeafNodes": 3,
+       "x": 0,
+       "y": 504.3551440515885,
+       "width": 80,
+       "height": 11.712967862962573,
+       "pass1": {"x": 0, "y": 489.6405508287559, "width": 80, "height": 13.514962918802969},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.02252494,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": 504.3551440515885,
+         "width": 80,
+         "height": 11.712967862962573,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module1_group7_left",
+           "sourceId": "mlayer_states_module1_group7_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.02252494,
+           "numLeafNodes": 3,
+           "x": 0,
+           "y": 504.3551440515885,
+           "width": 80,
+           "height": 11.712967862962573,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.02252494,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": 504.3551440515885,
+         "width": 80,
+         "height": 11.712967862962573,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module1_group7_right",
+           "sourceId": "mlayer_states_module1_group7_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.02252494,
+           "numLeafNodes": 3,
+           "x": 0,
+           "y": 504.3551440515885,
+           "width": 80,
+           "height": 11.712967862962573,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module1_group8",
+       "highlightIndex": 8,
+       "insignificant": false,
+       "flow": 0.023042840000000002,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 492.37286821017057,
+       "width": 80,
+       "height": 11.982275841417936,
+       "pass1": {"x": 0, "y": 475.8148479348121, "width": 80, "height": 13.825702893943772},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.023042840000000002,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 492.37286821017057,
+         "width": 80,
+         "height": 11.982275841417936,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module1_group8_left",
+           "sourceId": "mlayer_states_module1_group8_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.023042840000000002,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 492.37286821017057,
+           "width": 80,
+           "height": 11.982275841417936,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.023042840000000002,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 492.37286821017057,
+         "width": 80,
+         "height": 11.982275841417936,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module1_group8_right",
+           "sourceId": "mlayer_states_module1_group8_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.023042840000000002,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 492.37286821017057,
+           "width": 80,
+           "height": 11.982275841417936,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module1_group9",
+       "highlightIndex": 9,
+       "insignificant": false,
+       "flow": 0.01626161,
+       "numLeafNodes": 2,
+       "x": 0,
+       "y": 483.9168316866535,
+       "width": 80,
+       "height": 8.456036523517078,
+       "pass1": {"x": 0, "y": 466.0578827153693, "width": 80, "height": 9.756965219442783},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.01626161,
+         "numLeafNodes": 2,
+         "x": 0,
+         "y": 483.9168316866535,
+         "width": 80,
+         "height": 8.456036523517078,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module1_group9_left",
+           "sourceId": "mlayer_states_module1_group9_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.01626161,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 483.9168316866535,
+           "width": 80,
+           "height": 8.456036523517078,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.01626161,
+         "numLeafNodes": 2,
+         "x": 0,
+         "y": 483.9168316866535,
+         "width": 80,
+         "height": 8.456036523517078,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module1_group9_right",
+           "sourceId": "mlayer_states_module1_group9_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.01626161,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 483.9168316866535,
+           "width": 80,
+           "height": 8.456036523517078,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module1_group10",
+       "highlightIndex": 10,
+       "insignificant": false,
+       "flow": 0.025208059999999997,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 470.8086415353087,
+       "width": 80,
+       "height": 13.108190151344788,
+       "pass1": {"x": 0, "y": 450.9330479253561, "width": 80, "height": 15.124834790013217},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.025208059999999997,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 470.8086415353087,
+         "width": 80,
+         "height": 13.108190151344788,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module1_group10_left",
+           "sourceId": "mlayer_states_module1_group10_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.025208059999999997,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 470.8086415353087,
+           "width": 80,
+           "height": 13.108190151344788,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.025208059999999997,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 470.8086415353087,
+         "width": 80,
+         "height": 13.108190151344788,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module1_group10_right",
+           "sourceId": "mlayer_states_module1_group10_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.025208059999999997,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 470.8086415353087,
+           "width": 80,
+           "height": 13.108190151344788,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module1_group11",
+       "highlightIndex": 11,
+       "insignificant": false,
+       "flow": 0.021515339999999997,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 459.62066563034676,
+       "width": 80,
+       "height": 11.187975904961927,
+       "pass1": {"x": 0, "y": 438.02384495809235, "width": 80, "height": 12.909202967263763},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.021515339999999997,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 459.62066563034676,
+         "width": 80,
+         "height": 11.187975904961927,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module1_group11_left",
+           "sourceId": "mlayer_states_module1_group11_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.021515339999999997,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 459.62066563034676,
+           "width": 80,
+           "height": 11.187975904961927,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.021515339999999997,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 459.62066563034676,
+         "width": 80,
+         "height": 11.187975904961927,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module1_group11_right",
+           "sourceId": "mlayer_states_module1_group11_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.021515339999999997,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 459.62066563034676,
+           "width": 80,
+           "height": 11.187975904961927,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module1_group12",
+       "highlightIndex": 12,
+       "insignificant": false,
+       "flow": 0.02647395,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 445.854212731663,
+       "width": 80,
+       "height": 13.766452898683768,
+       "pass1": {"x": 0, "y": 422.13947622884183, "width": 80, "height": 15.884368729250502},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.02647395,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 445.854212731663,
+         "width": 80,
+         "height": 13.766452898683768,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module1_group12_left",
+           "sourceId": "mlayer_states_module1_group12_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.02647395,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 445.854212731663,
+           "width": 80,
+           "height": 13.766452898683768,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.02647395,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 445.854212731663,
+         "width": 80,
+         "height": 13.766452898683768,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module1_group12_right",
+           "sourceId": "mlayer_states_module1_group12_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.02647395,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 445.854212731663,
+           "width": 80,
+           "height": 13.766452898683768,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module1_group13",
+       "highlightIndex": 13,
+       "insignificant": false,
+       "flow": 0.014365610000000001,
+       "numLeafNodes": 2,
+       "x": 0,
+       "y": 438.38409612927234,
+       "width": 80,
+       "height": 7.470116602390673,
+       "pass1": {"x": 0, "y": 413.520110918391, "width": 80, "height": 8.619365310450776},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.014365610000000001,
+         "numLeafNodes": 2,
+         "x": 0,
+         "y": 438.38409612927234,
+         "width": 80,
+         "height": 7.470116602390673,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module1_group13_left",
+           "sourceId": "mlayer_states_module1_group13_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.014365610000000001,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 438.38409612927234,
+           "width": 80,
+           "height": 7.470116602390673,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.014365610000000001,
+         "numLeafNodes": 2,
+         "x": 0,
+         "y": 438.38409612927234,
+         "width": 80,
+         "height": 7.470116602390673,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module1_group13_right",
+           "sourceId": "mlayer_states_module1_group13_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.014365610000000001,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 438.38409612927234,
+           "width": 80,
+           "height": 7.470116602390673,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module1_group14",
+       "highlightIndex": 14,
+       "insignificant": false,
+       "flow": 0.02041037,
+       "numLeafNodes": 3,
+       "x": 0,
+       "y": 427.77070457834367,
+       "width": 80,
+       "height": 10.613391550928677,
+       "pass1": {"x": 0, "y": 401.2738898980887, "width": 80, "height": 12.246221020302318},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.02041037,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": 427.77070457834367,
+         "width": 80,
+         "height": 10.613391550928677,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module1_group14_left",
+           "sourceId": "mlayer_states_module1_group14_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.02041037,
+           "numLeafNodes": 3,
+           "x": 0,
+           "y": 427.77070457834367,
+           "width": 80,
+           "height": 10.613391550928677,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.02041037,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": 427.77070457834367,
+         "width": 80,
+         "height": 10.613391550928677,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module1_group14_right",
+           "sourceId": "mlayer_states_module1_group14_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.02041037,
+           "numLeafNodes": 3,
+           "x": 0,
+           "y": 427.77070457834367,
+           "width": 80,
+           "height": 10.613391550928677,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "2",
+     "id": "mlayer_states_module2",
+     "path": [2],
+     "moduleLevel": 1,
+     "maxModuleLevel": 2,
+     "index": 1,
+     "flow": 0.3136111,
+     "numLeafNodes": 49,
+     "meanNodeId": 22.73469387755102,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": 18,
+     "margin": 16,
+     "x": 0,
+     "y": 248.69294562456443,
+     "width": 80,
+     "height": 163.0777589537793,
+     "pass1": {"margin": 16, "index": 1, "x": 0, "y": 197.1072449514203, "width": 80, "height": 188.1666449466684},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 330.2318251014541},
+      "idPosition": {"x": 40, "y": 330.2318251014541},
+      "customName": "",
+      "maxLines": 11,
+      "names": [
+       {"name": "p20", "nodeId": 20, "stateId": 29, "flow": 0.02796829},
+       {"name": "p19", "nodeId": 19, "stateId": 61, "flow": 0.026875529999999998},
+       {"name": "p16", "nodeId": 16, "stateId": 76, "flow": 0.026608800000000002},
+       {"name": "p21", "nodeId": 21, "stateId": 82, "flow": 0.02409106},
+       {"name": "p17", "nodeId": 17, "stateId": 72, "flow": 0.02126949},
+       {"name": "p29", "nodeId": 29, "stateId": 85, "flow": 0.021253710000000002},
+       {"name": "p26", "nodeId": 26, "stateId": 62, "flow": 0.021019219999999998},
+       {"name": "p30", "nodeId": 30, "stateId": 65, "flow": 0.02061005},
+       {"name": "p18", "nodeId": 18, "stateId": 73, "flow": 0.020242960000000004},
+       {"name": "p27", "nodeId": 27, "stateId": 96, "flow": 0.01837565},
+       {"name": "p25", "nodeId": 25, "stateId": 88, "flow": 0.0182017}
+      ],
+      "namesSingleLine": [
+       {"name": "p20", "nodeId": 20, "stateId": 29, "flow": 0.02796829},
+       {"name": "p19", "nodeId": 19, "stateId": 61, "flow": 0.026875529999999998},
+       {"name": "p16", "nodeId": 16, "stateId": 76, "flow": 0.026608800000000002},
+       {"name": "p21", "nodeId": 21, "stateId": 82, "flow": 0.02409106},
+       {"name": "p17", "nodeId": 17, "stateId": 72, "flow": 0.02126949}
+      ]
+     },
+     "groups": [
+      {
+       "id": "mlayer_states_module2_group15",
+       "highlightIndex": 15,
+       "insignificant": false,
+       "flow": 0.026608800000000002,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 397.9341296852697,
+       "width": 80,
+       "height": 13.83657489307401,
+       "pass1": {"x": 0, "y": 369.308611175311, "width": 80, "height": 15.965278722777704},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.026608800000000002,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 397.9341296852697,
+         "width": 80,
+         "height": 13.83657489307401,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module2_group15_left",
+           "sourceId": "mlayer_states_module2_group15_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.026608800000000002,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 397.9341296852697,
+           "width": 80,
+           "height": 13.83657489307401,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.026608800000000002,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 397.9341296852697,
+         "width": 80,
+         "height": 13.83657489307401,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module2_group15_right",
+           "sourceId": "mlayer_states_module2_group15_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.026608800000000002,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 397.9341296852697,
+           "width": 80,
+           "height": 13.83657489307401,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module2_group16",
+       "highlightIndex": 16,
+       "insignificant": false,
+       "flow": 0.026875529999999998,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 383.95885520329165,
+       "width": 80,
+       "height": 13.97527448197804,
+       "pass1": {"x": 0, "y": 353.18329446533636, "width": 80, "height": 16.125316709974662},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.026875529999999998,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 383.95885520329165,
+         "width": 80,
+         "height": 13.97527448197804,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module2_group16_left",
+           "sourceId": "mlayer_states_module2_group16_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.026875529999999998,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 383.95885520329165,
+           "width": 80,
+           "height": 13.97527448197804,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.026875529999999998,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 383.95885520329165,
+         "width": 80,
+         "height": 13.97527448197804,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module2_group16_right",
+           "sourceId": "mlayer_states_module2_group16_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.026875529999999998,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 383.95885520329165,
+           "width": 80,
+           "height": 13.97527448197804,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module2_group17",
+       "highlightIndex": 17,
+       "insignificant": false,
+       "flow": 0.02126949,
+       "numLeafNodes": 3,
+       "x": 0,
+       "y": 372.89872128810237,
+       "width": 80,
+       "height": 11.060133915189287,
+       "pass1": {"x": 0, "y": 340.4216014862718, "width": 80, "height": 12.761692979064561},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.02126949,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": 372.89872128810237,
+         "width": 80,
+         "height": 11.060133915189287,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module2_group17_left",
+           "sourceId": "mlayer_states_module2_group17_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.02126949,
+           "numLeafNodes": 3,
+           "x": 0,
+           "y": 372.89872128810237,
+           "width": 80,
+           "height": 11.060133915189287,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.02126949,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": 372.89872128810237,
+         "width": 80,
+         "height": 11.060133915189287,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module2_group17_right",
+           "sourceId": "mlayer_states_module2_group17_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.02126949,
+           "numLeafNodes": 3,
+           "x": 0,
+           "y": 372.89872128810237,
+           "width": 80,
+           "height": 11.060133915189287,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module2_group18",
+       "highlightIndex": 18,
+       "insignificant": false,
+       "flow": 0.02796829,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 358.35521165158315,
+       "width": 80,
+       "height": 14.543509636519229,
+       "pass1": {"x": 0, "y": 323.64062882874964, "width": 80, "height": 16.780972657522188},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.02796829,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 358.35521165158315,
+         "width": 80,
+         "height": 14.543509636519229,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module2_group18_left",
+           "sourceId": "mlayer_states_module2_group18_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.02796829,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 358.35521165158315,
+           "width": 80,
+           "height": 14.543509636519229,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.02796829,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 358.35521165158315,
+         "width": 80,
+         "height": 14.543509636519229,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module2_group18_right",
+           "sourceId": "mlayer_states_module2_group18_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.02796829,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 358.35521165158315,
+           "width": 80,
+           "height": 14.543509636519229,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module2_group19",
+       "highlightIndex": 19,
+       "insignificant": false,
+       "flow": 0.020242960000000004,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 347.8288732936902,
+       "width": 80,
+       "height": 10.526338357892936,
+       "pass1": {"x": 0, "y": 311.49485380041165, "width": 80, "height": 12.145775028338},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.020242960000000004,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 347.8288732936902,
+         "width": 80,
+         "height": 10.526338357892936,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module2_group19_left",
+           "sourceId": "mlayer_states_module2_group19_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.020242960000000004,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 347.8288732936902,
+           "width": 80,
+           "height": 10.526338357892936,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.020242960000000004,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 347.8288732936902,
+         "width": 80,
+         "height": 10.526338357892936,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module2_group19_right",
+           "sourceId": "mlayer_states_module2_group19_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.020242960000000004,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 347.8288732936902,
+           "width": 80,
+           "height": 10.526338357892936,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module2_group20",
+       "highlightIndex": 20,
+       "insignificant": false,
+       "flow": 0.02061005,
+       "numLeafNodes": 3,
+       "x": 0,
+       "y": 337.1116481510682,
+       "width": 80,
+       "height": 10.71722514262199,
+       "pass1": {"x": 0, "y": 299.12882478969397, "width": 80, "height": 12.36602901071768},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.02061005,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": 337.1116481510682,
+         "width": 80,
+         "height": 10.71722514262199,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module2_group20_left",
+           "sourceId": "mlayer_states_module2_group20_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.02061005,
+           "numLeafNodes": 3,
+           "x": 0,
+           "y": 337.1116481510682,
+           "width": 80,
+           "height": 10.71722514262199,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.02061005,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": 337.1116481510682,
+         "width": 80,
+         "height": 10.71722514262199,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module2_group20_right",
+           "sourceId": "mlayer_states_module2_group20_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.02061005,
+           "numLeafNodes": 3,
+           "x": 0,
+           "y": 337.1116481510682,
+           "width": 80,
+           "height": 10.71722514262199,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module2_group21",
+       "highlightIndex": 21,
+       "insignificant": false,
+       "flow": 0.021019219999999998,
+       "numLeafNodes": 3,
+       "x": 0,
+       "y": 326.1816546254677,
+       "width": 80,
+       "height": 10.929993525600517,
+       "pass1": {"x": 0, "y": 286.51729379861644, "width": 80, "height": 12.61153099107752},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.021019219999999998,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": 326.1816546254677,
+         "width": 80,
+         "height": 10.929993525600517,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module2_group21_left",
+           "sourceId": "mlayer_states_module2_group21_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.021019219999999998,
+           "numLeafNodes": 3,
+           "x": 0,
+           "y": 326.1816546254677,
+           "width": 80,
+           "height": 10.929993525600517,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.021019219999999998,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": 326.1816546254677,
+         "width": 80,
+         "height": 10.929993525600517,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module2_group21_right",
+           "sourceId": "mlayer_states_module2_group21_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.021019219999999998,
+           "numLeafNodes": 3,
+           "x": 0,
+           "y": 326.1816546254677,
+           "width": 80,
+           "height": 10.929993525600517,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module2_group22",
+       "highlightIndex": 22,
+       "insignificant": false,
+       "flow": 0.01534855,
+       "numLeafNodes": 3,
+       "x": 0,
+       "y": 318.2004092639673,
+       "width": 80,
+       "height": 7.981245361500372,
+       "pass1": {"x": 0, "y": 277.3081645353468, "width": 80, "height": 9.20912926326966},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.01534855,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": 318.2004092639673,
+         "width": 80,
+         "height": 7.981245361500372,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module2_group22_left",
+           "sourceId": "mlayer_states_module2_group22_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.01534855,
+           "numLeafNodes": 3,
+           "x": 0,
+           "y": 318.2004092639673,
+           "width": 80,
+           "height": 7.981245361500372,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.01534855,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": 318.2004092639673,
+         "width": 80,
+         "height": 7.981245361500372,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module2_group22_right",
+           "sourceId": "mlayer_states_module2_group22_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.01534855,
+           "numLeafNodes": 3,
+           "x": 0,
+           "y": 318.2004092639673,
+           "width": 80,
+           "height": 7.981245361500372,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module2_group23",
+       "highlightIndex": 23,
+       "insignificant": false,
+       "flow": 0.01837565,
+       "numLeafNodes": 3,
+       "x": 0,
+       "y": 308.6450720283943,
+       "width": 80,
+       "height": 9.555337235573022,
+       "pass1": {"x": 0, "y": 266.28277541737793, "width": 80, "height": 11.02538911796887},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.01837565,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": 308.6450720283943,
+         "width": 80,
+         "height": 9.555337235573022,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module2_group23_left",
+           "sourceId": "mlayer_states_module2_group23_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.01837565,
+           "numLeafNodes": 3,
+           "x": 0,
+           "y": 308.6450720283943,
+           "width": 80,
+           "height": 9.555337235573022,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.01837565,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": 308.6450720283943,
+         "width": 80,
+         "height": 9.555337235573022,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module2_group23_right",
+           "sourceId": "mlayer_states_module2_group23_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.01837565,
+           "numLeafNodes": 3,
+           "x": 0,
+           "y": 308.6450720283943,
+           "width": 80,
+           "height": 9.555337235573022,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module2_group24",
+       "highlightIndex": 24,
+       "insignificant": false,
+       "flow": 0.021253710000000002,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 297.59314371254857,
+       "width": 80,
+       "height": 11.051928315845736,
+       "pass1": {"x": 0, "y": 253.53055043755592, "width": 80, "height": 12.752224979822003},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.021253710000000002,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 297.59314371254857,
+         "width": 80,
+         "height": 11.051928315845736,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module2_group24_left",
+           "sourceId": "mlayer_states_module2_group24_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.021253710000000002,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 297.59314371254857,
+           "width": 80,
+           "height": 11.051928315845736,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.021253710000000002,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 297.59314371254857,
+         "width": 80,
+         "height": 11.051928315845736,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module2_group24_right",
+           "sourceId": "mlayer_states_module2_group24_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.021253710000000002,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 297.59314371254857,
+           "width": 80,
+           "height": 11.051928315845736,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module2_group25",
+       "highlightIndex": 25,
+       "insignificant": false,
+       "flow": 0.02409106,
+       "numLeafNodes": 3,
+       "x": 0,
+       "y": 285.0657935147366,
+       "width": 80,
+       "height": 12.527350197811986,
+       "pass1": {"x": 0, "y": 239.0759155939267, "width": 80, "height": 14.454634843629213},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.02409106,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": 285.0657935147366,
+         "width": 80,
+         "height": 12.527350197811986,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module2_group25_left",
+           "sourceId": "mlayer_states_module2_group25_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.02409106,
+           "numLeafNodes": 3,
+           "x": 0,
+           "y": 285.0657935147366,
+           "width": 80,
+           "height": 12.527350197811986,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.02409106,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": 285.0657935147366,
+         "width": 80,
+         "height": 12.527350197811986,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module2_group25_right",
+           "sourceId": "mlayer_states_module2_group25_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.02409106,
+           "numLeafNodes": 3,
+           "x": 0,
+           "y": 285.0657935147366,
+           "width": 80,
+           "height": 12.527350197811986,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module2_group26",
+       "highlightIndex": 26,
+       "insignificant": false,
+       "flow": 0.01730011,
+       "numLeafNodes": 2,
+       "x": 0,
+       "y": 276.0697370344211,
+       "width": 80,
+       "height": 8.996056480315483,
+       "pass1": {"x": 0, "y": 228.69585042433192, "width": 80, "height": 10.380065169594786},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.01730011,
+         "numLeafNodes": 2,
+         "x": 0,
+         "y": 276.0697370344211,
+         "width": 80,
+         "height": 8.996056480315483,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module2_group26_left",
+           "sourceId": "mlayer_states_module2_group26_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.01730011,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 276.0697370344211,
+           "width": 80,
+           "height": 8.996056480315483,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.01730011,
+         "numLeafNodes": 2,
+         "x": 0,
+         "y": 276.0697370344211,
+         "width": 80,
+         "height": 8.996056480315483,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module2_group26_right",
+           "sourceId": "mlayer_states_module2_group26_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.01730011,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 276.0697370344211,
+           "width": 80,
+           "height": 8.996056480315483,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module2_group27",
+       "highlightIndex": 27,
+       "insignificant": false,
+       "flow": 0.0182017,
+       "numLeafNodes": 3,
+       "x": 0,
+       "y": 266.6048537916118,
+       "width": 80,
+       "height": 9.464883242809343,
+       "pass1": {"x": 0, "y": 217.77483129801345, "width": 80, "height": 10.921019126318471},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.0182017,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": 266.6048537916118,
+         "width": 80,
+         "height": 9.464883242809343,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module2_group27_left",
+           "sourceId": "mlayer_states_module2_group27_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.0182017,
+           "numLeafNodes": 3,
+           "x": 0,
+           "y": 266.6048537916118,
+           "width": 80,
+           "height": 9.464883242809343,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.0182017,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": 266.6048537916118,
+         "width": 80,
+         "height": 9.464883242809343,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module2_group27_right",
+           "sourceId": "mlayer_states_module2_group27_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.0182017,
+           "numLeafNodes": 3,
+           "x": 0,
+           "y": 266.6048537916118,
+           "width": 80,
+           "height": 9.464883242809343,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module2_group28",
+       "highlightIndex": 28,
+       "insignificant": false,
+       "flow": 0.0171286,
+       "numLeafNodes": 3,
+       "x": 0,
+       "y": 257.6979825041615,
+       "width": 80,
+       "height": 8.906871287450297,
+       "pass1": {"x": 0, "y": 207.4976721201862, "width": 80, "height": 10.277159177827267},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.0171286,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": 257.6979825041615,
+         "width": 80,
+         "height": 8.906871287450297,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module2_group28_left",
+           "sourceId": "mlayer_states_module2_group28_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.0171286,
+           "numLeafNodes": 3,
+           "x": 0,
+           "y": 257.6979825041615,
+           "width": 80,
+           "height": 8.906871287450297,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.0171286,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": 257.6979825041615,
+         "width": 80,
+         "height": 8.906871287450297,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module2_group28_right",
+           "sourceId": "mlayer_states_module2_group28_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.0171286,
+           "numLeafNodes": 3,
+           "x": 0,
+           "y": 257.6979825041615,
+           "width": 80,
+           "height": 8.906871287450297,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module2_group29",
+       "highlightIndex": 29,
+       "insignificant": false,
+       "flow": 0.01731738,
+       "numLeafNodes": 3,
+       "x": 0,
+       "y": 248.69294562456443,
+       "width": 80,
+       "height": 9.00503687959705,
+       "pass1": {"x": 0, "y": 197.10724495142037, "width": 80, "height": 10.390427168765827},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.01731738,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": 248.69294562456443,
+         "width": 80,
+         "height": 9.00503687959705,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module2_group29_left",
+           "sourceId": "mlayer_states_module2_group29_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.01731738,
+           "numLeafNodes": 3,
+           "x": 0,
+           "y": 248.69294562456443,
+           "width": 80,
+           "height": 9.00503687959705,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.01731738,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": 248.69294562456443,
+         "width": 80,
+         "height": 9.00503687959705,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module2_group29_right",
+           "sourceId": "mlayer_states_module2_group29_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.01731738,
+           "numLeafNodes": 3,
+           "x": 0,
+           "y": 248.69294562456443,
+           "width": 80,
+           "height": 9.00503687959705,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "3",
+     "id": "mlayer_states_module3",
+     "path": [3],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 2,
+     "flow": 0.11914139000000001,
+     "numLeafNodes": 18,
+     "meanNodeId": 12.944444444444445,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": 32,
+     "margin": 16,
+     "x": 0,
+     "y": 170.73942778084586,
+     "width": 80,
+     "height": 61.95351784371858,
+     "pass1": {"margin": 16, "index": 2, "x": 0, "y": 109.62241667020662, "width": 80, "height": 71.48482828121375},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 201.71618670270516},
+      "idPosition": {"x": 40, "y": 201.71618670270516},
+      "customName": "",
+      "maxLines": 5,
+      "names": [
+       {"name": "p12", "nodeId": 12, "stateId": 37, "flow": 0.02991667},
+       {"name": "p15", "nodeId": 15, "stateId": 45, "flow": 0.029302510000000004},
+       {"name": "p11", "nodeId": 11, "stateId": 42, "flow": 0.02422129},
+       {"name": "p14", "nodeId": 14, "stateId": 15, "flow": 0.019861450000000003},
+       {"name": "p13", "nodeId": 13, "stateId": 16, "flow": 0.01583947}
+      ],
+      "namesSingleLine": [
+       {"name": "p12", "nodeId": 12, "stateId": 37, "flow": 0.02991667},
+       {"name": "p15", "nodeId": 15, "stateId": 45, "flow": 0.029302510000000004},
+       {"name": "p11", "nodeId": 11, "stateId": 42, "flow": 0.02422129},
+       {"name": "p14", "nodeId": 14, "stateId": 15, "flow": 0.019861450000000003},
+       {"name": "p13", "nodeId": 13, "stateId": 16, "flow": 0.01583947}
+      ]
+     },
+     "groups": [
+      {
+       "id": "mlayer_states_module3_group30",
+       "highlightIndex": 30,
+       "insignificant": false,
+       "flow": 0.019861450000000003,
+       "numLeafNodes": 3,
+       "x": 0,
+       "y": 222.36499245080068,
+       "width": 80,
+       "height": 10.327953173763749,
+       "pass1": {"x": 0, "y": 169.1903759047699, "width": 80, "height": 11.91686904665048},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.019861450000000003,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": 222.36499245080068,
+         "width": 80,
+         "height": 10.327953173763749,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module3_group30_left",
+           "sourceId": "mlayer_states_module3_group30_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.019861450000000003,
+           "numLeafNodes": 3,
+           "x": 0,
+           "y": 222.36499245080068,
+           "width": 80,
+           "height": 10.327953173763749,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.019861450000000003,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": 222.36499245080068,
+         "width": 80,
+         "height": 10.327953173763749,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module3_group30_right",
+           "sourceId": "mlayer_states_module3_group30_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.019861450000000003,
+           "numLeafNodes": 3,
+           "x": 0,
+           "y": 222.36499245080068,
+           "width": 80,
+           "height": 10.327953173763749,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module3_group31",
+       "highlightIndex": 31,
+       "insignificant": false,
+       "flow": 0.029302510000000004,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 207.127688469785,
+       "width": 80,
+       "height": 15.237303981015684,
+       "pass1": {"x": 0, "y": 151.60887131129027, "width": 80, "height": 17.581504593479636},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.029302510000000004,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 207.127688469785,
+         "width": 80,
+         "height": 15.237303981015684,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module3_group31_left",
+           "sourceId": "mlayer_states_module3_group31_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.029302510000000004,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 207.127688469785,
+           "width": 80,
+           "height": 15.237303981015684,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.029302510000000004,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 207.127688469785,
+         "width": 80,
+         "height": 15.237303981015684,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module3_group31_right",
+           "sourceId": "mlayer_states_module3_group31_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.029302510000000004,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 207.127688469785,
+           "width": 80,
+           "height": 15.237303981015684,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module3_group32",
+       "highlightIndex": 32,
+       "insignificant": false,
+       "flow": 0.02991667,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 191.57102131431836,
+       "width": 80,
+       "height": 15.556667155466629,
+       "pass1": {"x": 0, "y": 133.6588707472903, "width": 80, "height": 17.950000563999957},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.02991667,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 191.57102131431836,
+         "width": 80,
+         "height": 15.556667155466629,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module3_group32_left",
+           "sourceId": "mlayer_states_module3_group32_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.02991667,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 191.57102131431836,
+           "width": 80,
+           "height": 15.556667155466629,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.02991667,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 191.57102131431836,
+         "width": 80,
+         "height": 15.556667155466629,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module3_group32_right",
+           "sourceId": "mlayer_states_module3_group32_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.02991667,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 191.57102131431836,
+           "width": 80,
+           "height": 15.556667155466629,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module3_group33",
+       "highlightIndex": 33,
+       "insignificant": false,
+       "flow": 0.02422129,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 178.97595152192395,
+       "width": 80,
+       "height": 12.595069792394417,
+       "pass1": {"x": 0, "y": 119.12609790991213, "width": 80, "height": 14.532772837378173},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.02422129,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 178.97595152192395,
+         "width": 80,
+         "height": 12.595069792394417,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module3_group33_left",
+           "sourceId": "mlayer_states_module3_group33_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.02422129,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 178.97595152192395,
+           "width": 80,
+           "height": 12.595069792394417,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.02422129,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 178.97595152192395,
+         "width": 80,
+         "height": 12.595069792394417,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module3_group33_right",
+           "sourceId": "mlayer_states_module3_group33_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.02422129,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 178.97595152192395,
+           "width": 80,
+           "height": 12.595069792394417,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module3_group34",
+       "highlightIndex": 34,
+       "insignificant": false,
+       "flow": 0.01583947,
+       "numLeafNodes": 3,
+       "x": 0,
+       "y": 170.73942778084586,
+       "width": 80,
+       "height": 8.236523741078102,
+       "pass1": {"x": 0, "y": 109.62241667020663, "width": 80, "height": 9.503681239705502},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.01583947,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": 170.73942778084586,
+         "width": 80,
+         "height": 8.236523741078102,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module3_group34_left",
+           "sourceId": "mlayer_states_module3_group34_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.01583947,
+           "numLeafNodes": 3,
+           "x": 0,
+           "y": 170.73942778084586,
+           "width": 80,
+           "height": 8.236523741078102,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.01583947,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": 170.73942778084586,
+         "width": 80,
+         "height": 8.236523741078102,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module3_group34_right",
+           "sourceId": "mlayer_states_module3_group34_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.01583947,
+           "numLeafNodes": 3,
+           "x": 0,
+           "y": 170.73942778084586,
+           "width": 80,
+           "height": 8.236523741078102,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "4",
+     "id": "mlayer_states_module4",
+     "path": [4],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 3,
+     "flow": 0.11311744,
+     "numLeafNodes": 18,
+     "meanNodeId": 8.11111111111111,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": 37,
+     "margin": 16,
+     "x": 0,
+     "y": 95.91836368653098,
+     "width": 80,
+     "height": 58.82106409431488,
+     "pass1": {"margin": 16, "index": 3, "x": 0, "y": 25.75195809984332, "width": 80, "height": 67.87045857036331},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 125.32889573368843},
+      "idPosition": {"x": 40, "y": 125.32889573368843},
+      "customName": "",
+      "maxLines": 5,
+      "names": [
+       {"name": "p6", "nodeId": 6, "stateId": 41, "flow": 0.02913454},
+       {"name": "p8", "nodeId": 8, "stateId": 14, "flow": 0.025814319999999998},
+       {"name": "p10", "nodeId": 10, "stateId": 25, "flow": 0.024380780000000005},
+       {"name": "p9", "nodeId": 9, "stateId": 19, "flow": 0.018180460000000002},
+       {"name": "p7", "nodeId": 7, "stateId": 22, "flow": 0.01560734}
+      ],
+      "namesSingleLine": [
+       {"name": "p6", "nodeId": 6, "stateId": 41, "flow": 0.02913454},
+       {"name": "p8", "nodeId": 8, "stateId": 14, "flow": 0.025814319999999998},
+       {"name": "p10", "nodeId": 10, "stateId": 25, "flow": 0.024380780000000005},
+       {"name": "p9", "nodeId": 9, "stateId": 19, "flow": 0.018180460000000002},
+       {"name": "p7", "nodeId": 7, "stateId": 22, "flow": 0.01560734}
+      ]
+     },
+     "groups": [
+      {
+       "id": "mlayer_states_module4_group35",
+       "highlightIndex": 35,
+       "insignificant": false,
+       "flow": 0.025814319999999998,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 141.31598245472148,
+       "width": 80,
+       "height": 13.423445326124375,
+       "pass1": {"x": 0, "y": 78.13382590929389, "width": 80, "height": 15.48859076091274},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.025814319999999998,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 141.31598245472148,
+         "width": 80,
+         "height": 13.423445326124375,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module4_group35_left",
+           "sourceId": "mlayer_states_module4_group35_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.025814319999999998,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 141.31598245472148,
+           "width": 80,
+           "height": 13.423445326124375,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.025814319999999998,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 141.31598245472148,
+         "width": 80,
+         "height": 13.423445326124375,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module4_group35_right",
+           "sourceId": "mlayer_states_module4_group35_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.025814319999999998,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 141.31598245472148,
+           "width": 80,
+           "height": 13.423445326124375,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module4_group36",
+       "highlightIndex": 36,
+       "insignificant": false,
+       "flow": 0.024380780000000005,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 128.63797786896185,
+       "width": 80,
+       "height": 12.678004585759636,
+       "pass1": {"x": 0, "y": 63.505359079571235, "width": 80, "height": 14.628466829722656},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.024380780000000005,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 128.63797786896185,
+         "width": 80,
+         "height": 12.678004585759636,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module4_group36_left",
+           "sourceId": "mlayer_states_module4_group36_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.024380780000000005,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 128.63797786896185,
+           "width": 80,
+           "height": 12.678004585759636,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.024380780000000005,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 128.63797786896185,
+         "width": 80,
+         "height": 12.678004585759636,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module4_group36_right",
+           "sourceId": "mlayer_states_module4_group36_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.024380780000000005,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 128.63797786896185,
+           "width": 80,
+           "height": 12.678004585759636,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module4_group37",
+       "highlightIndex": 37,
+       "insignificant": false,
+       "flow": 0.02913454,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 113.48801828095863,
+       "width": 80,
+       "height": 15.149959588003233,
+       "pass1": {"x": 0, "y": 46.02463647802904, "width": 80, "height": 17.480722601542194},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.02913454,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 113.48801828095863,
+         "width": 80,
+         "height": 15.149959588003233,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module4_group37_left",
+           "sourceId": "mlayer_states_module4_group37_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.02913454,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 113.48801828095863,
+           "width": 80,
+           "height": 15.149959588003233,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.02913454,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 113.48801828095863,
+         "width": 80,
+         "height": 15.149959588003233,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module4_group37_right",
+           "sourceId": "mlayer_states_module4_group37_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.02913454,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 113.48801828095863,
+           "width": 80,
+           "height": 15.149959588003233,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module4_group38",
+       "highlightIndex": 38,
+       "insignificant": false,
+       "flow": 0.01560734,
+       "numLeafNodes": 2,
+       "x": 0,
+       "y": 105.37220213022391,
+       "width": 80,
+       "height": 8.115816150734709,
+       "pass1": {"x": 0, "y": 36.660233227181294, "width": 80, "height": 9.36440325084774},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.01560734,
+         "numLeafNodes": 2,
+         "x": 0,
+         "y": 105.37220213022391,
+         "width": 80,
+         "height": 8.115816150734709,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module4_group38_left",
+           "sourceId": "mlayer_states_module4_group38_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.01560734,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 105.37220213022391,
+           "width": 80,
+           "height": 8.115816150734709,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.01560734,
+         "numLeafNodes": 2,
+         "x": 0,
+         "y": 105.37220213022391,
+         "width": 80,
+         "height": 8.115816150734709,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module4_group38_right",
+           "sourceId": "mlayer_states_module4_group38_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.01560734,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 105.37220213022391,
+           "width": 80,
+           "height": 8.115816150734709,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module4_group39",
+       "highlightIndex": 39,
+       "insignificant": false,
+       "flow": 0.018180460000000002,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 95.91836368653098,
+       "width": 80,
+       "height": 9.453838443692927,
+       "pass1": {"x": 0, "y": 25.7519580998433, "width": 80, "height": 10.908275127337992},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.018180460000000002,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 95.91836368653098,
+         "width": 80,
+         "height": 9.453838443692927,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module4_group39_left",
+           "sourceId": "mlayer_states_module4_group39_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.018180460000000002,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 95.91836368653098,
+           "width": 80,
+           "height": 9.453838443692927,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.018180460000000002,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 95.91836368653098,
+         "width": 80,
+         "height": 9.453838443692927,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module4_group39_right",
+           "sourceId": "mlayer_states_module4_group39_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.018180460000000002,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 95.91836368653098,
+           "width": 80,
+           "height": 9.453838443692927,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "5",
+     "id": "mlayer_states_module5",
+     "path": [5],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 4,
+     "flow": 0.10660777999999999,
+     "numLeafNodes": 17,
+     "meanNodeId": 2.7058823529411766,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": 41,
+     "margin": 16,
+     "x": 0,
+     "y": 24.482322521414268,
+     "width": 80,
+     "height": 55.436041165116706,
+     "pass1": {"margin": 16, "index": 4, "x": 0, "y": -54.212704782983664, "width": 80, "height": 63.964662882826964},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 52.20034310397262},
+      "idPosition": {"x": 40, "y": 52.20034310397262},
+      "customName": "",
+      "maxLines": 3,
+      "names": [
+       {"name": "p3", "nodeId": 3, "stateId": 11, "flow": 0.029228629999999995},
+       {"name": "p1", "nodeId": 1, "stateId": 20, "flow": 0.02766839},
+       {"name": "p2", "nodeId": 2, "stateId": 1, "flow": 0.02268139}
+      ],
+      "namesSingleLine": [
+       {"name": "p3", "nodeId": 3, "stateId": 11, "flow": 0.029228629999999995},
+       {"name": "p1", "nodeId": 1, "stateId": 20, "flow": 0.02766839},
+       {"name": "p2", "nodeId": 2, "stateId": 1, "flow": 0.02268139},
+       {"name": "p4", "nodeId": 4, "stateId": 5, "flow": 0.01640001},
+       {"name": "p5", "nodeId": 5, "stateId": 13, "flow": 0.010629360000000001}
+      ]
+     },
+     "groups": [
+      {
+       "id": "mlayer_states_module5_group40",
+       "highlightIndex": 40,
+       "insignificant": false,
+       "flow": 0.02766839,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 65.5308020375359,
+       "width": 80,
+       "height": 14.387561648995069,
+       "pass1": {"x": 0, "y": -6.849074572074095, "width": 80, "height": 16.601032671917388},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.02766839,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 65.5308020375359,
+         "width": 80,
+         "height": 14.387561648995069,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module5_group40_left",
+           "sourceId": "mlayer_states_module5_group40_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.02766839,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 65.5308020375359,
+           "width": 80,
+           "height": 14.387561648995069,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.02766839,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 65.5308020375359,
+         "width": 80,
+         "height": 14.387561648995069,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module5_group40_right",
+           "sourceId": "mlayer_states_module5_group40_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.02766839,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 65.5308020375359,
+           "width": 80,
+           "height": 14.387561648995069,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module5_group41",
+       "highlightIndex": 41,
+       "insignificant": false,
+       "flow": 0.029228629999999995,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 50.33191565344682,
+       "width": 80,
+       "height": 15.198886384089088,
+       "pass1": {"x": 0, "y": -24.386251169099964, "width": 80, "height": 17.53717659702587},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.029228629999999995,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 50.33191565344682,
+         "width": 80,
+         "height": 15.198886384089088,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module5_group41_left",
+           "sourceId": "mlayer_states_module5_group41_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.029228629999999995,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 50.33191565344682,
+           "width": 80,
+           "height": 15.198886384089088,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.029228629999999995,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 50.33191565344682,
+         "width": 80,
+         "height": 15.198886384089088,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module5_group41_right",
+           "sourceId": "mlayer_states_module5_group41_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.029228629999999995,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 50.33191565344682,
+           "width": 80,
+           "height": 15.198886384089088,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module5_group42",
+       "highlightIndex": 42,
+       "insignificant": false,
+       "flow": 0.02268139,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 38.53759379699257,
+       "width": 80,
+       "height": 11.794321856454252,
+       "pass1": {"x": 0, "y": -37.995084080393326, "width": 80, "height": 13.608832911293366},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.02268139,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 38.53759379699257,
+         "width": 80,
+         "height": 11.794321856454252,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module5_group42_left",
+           "sourceId": "mlayer_states_module5_group42_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.02268139,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 38.53759379699257,
+           "width": 80,
+           "height": 11.794321856454252,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.02268139,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 38.53759379699257,
+         "width": 80,
+         "height": 11.794321856454252,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module5_group42_right",
+           "sourceId": "mlayer_states_module5_group42_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.02268139,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 38.53759379699257,
+           "width": 80,
+           "height": 11.794321856454252,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module5_group43",
+       "highlightIndex": 43,
+       "insignificant": false,
+       "flow": 0.01640001,
+       "numLeafNodes": 3,
+       "x": 0,
+       "y": 30.009589279232927,
+       "width": 80,
+       "height": 8.528004517759639,
+       "pass1": {"x": 0, "y": -47.83508929319291, "width": 80, "height": 9.840005212799582},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.01640001,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": 30.009589279232927,
+         "width": 80,
+         "height": 8.528004517759639,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module5_group43_left",
+           "sourceId": "mlayer_states_module5_group43_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.01640001,
+           "numLeafNodes": 3,
+           "x": 0,
+           "y": 30.009589279232927,
+           "width": 80,
+           "height": 8.528004517759639,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.01640001,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": 30.009589279232927,
+         "width": 80,
+         "height": 8.528004517759639,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module5_group43_right",
+           "sourceId": "mlayer_states_module5_group43_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.01640001,
+           "numLeafNodes": 3,
+           "x": 0,
+           "y": 30.009589279232927,
+           "width": 80,
+           "height": 8.528004517759639,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module5_group44",
+       "highlightIndex": 44,
+       "insignificant": false,
+       "flow": 0.010629360000000001,
+       "numLeafNodes": 2,
+       "x": 0,
+       "y": 24.482322521414268,
+       "width": 80,
+       "height": 5.52726675781866,
+       "pass1": {"x": 0, "y": -54.21270478298367, "width": 80, "height": 6.377615489790762},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.010629360000000001,
+         "numLeafNodes": 2,
+         "x": 0,
+         "y": 24.482322521414268,
+         "width": 80,
+         "height": 5.52726675781866,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module5_group44_left",
+           "sourceId": "mlayer_states_module5_group44_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.010629360000000001,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 24.482322521414268,
+           "width": 80,
+           "height": 5.52726675781866,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.010629360000000001,
+         "numLeafNodes": 2,
+         "x": 0,
+         "y": 24.482322521414268,
+         "width": 80,
+         "height": 5.52726675781866,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module5_group44_right",
+           "sourceId": "mlayer_states_module5_group44_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.010629360000000001,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 24.482322521414268,
+           "width": 80,
+           "height": 5.52726675781866,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "6",
+     "id": "mlayer_states_module6",
+     "path": [6],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 5,
+     "flow": 0.01631216,
+     "numLeafNodes": 3,
+     "meanNodeId": 22,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": 25,
+     "margin": 0,
+     "x": 0,
+     "y": 6.972200594645983e-14,
+     "width": 80,
+     "height": 8.482322521414197,
+     "pass1": {"margin": 0, "index": 5, "x": 0, "y": -80.00000000000006, "width": 80, "height": 9.787295217016382},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 4.241161260707168},
+      "idPosition": {"x": 40, "y": 4.241161260707168},
+      "customName": "",
+      "maxLines": 1,
+      "names": [
+       {"name": "p21", "nodeId": 21, "stateId": 56, "flow": 0.00566103}
+      ],
+      "namesSingleLine": [
+       {"name": "p21", "nodeId": 21, "stateId": 56, "flow": 0.00566103},
+       {"name": "p22", "nodeId": 22, "stateId": 58, "flow": 0.00547691},
+       {"name": "p23", "nodeId": 23, "stateId": 54, "flow": 0.00517422}
+      ]
+     },
+     "groups": [
+      {
+       "id": "mlayer_states_module6_group25",
+       "highlightIndex": 25,
+       "insignificant": false,
+       "flow": 0.00566103,
+       "numLeafNodes": 1,
+       "x": 0,
+       "y": 5.538587156913097,
+       "width": 80,
+       "height": 2.943735364501171,
+       "pass1": {"x": 0, "y": -73.60932251125426, "width": 80, "height": 3.396617728270582},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.00566103,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 5.538587156913097,
+         "width": 80,
+         "height": 2.943735364501171,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module6_group25_left",
+           "sourceId": "mlayer_states_module6_group25_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.00566103,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 5.538587156913097,
+           "width": 80,
+           "height": 2.943735364501171,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.00566103,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 5.538587156913097,
+         "width": 80,
+         "height": 2.943735364501171,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module6_group25_right",
+           "sourceId": "mlayer_states_module6_group25_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.00566103,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 5.538587156913097,
+           "width": 80,
+           "height": 2.943735364501171,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module6_group26",
+       "highlightIndex": 26,
+       "insignificant": false,
+       "flow": 0.00517422,
+       "numLeafNodes": 1,
+       "x": 0,
+       "y": 2.8479929721606316,
+       "width": 80,
+       "height": 2.6905941847524657,
+       "pass1": {"x": 0, "y": -76.71385426289173, "width": 80, "height": 3.1045317516374604},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.00517422,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 2.8479929721606316,
+         "width": 80,
+         "height": 2.6905941847524657,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module6_group26_left",
+           "sourceId": "mlayer_states_module6_group26_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.00517422,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 2.8479929721606316,
+           "width": 80,
+           "height": 2.6905941847524657,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.00517422,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 2.8479929721606316,
+         "width": 80,
+         "height": 2.6905941847524657,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module6_group26_right",
+           "sourceId": "mlayer_states_module6_group26_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.00517422,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 2.8479929721606316,
+           "width": 80,
+           "height": 2.6905941847524657,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module6_group28",
+       "highlightIndex": 28,
+       "insignificant": false,
+       "flow": 0.00547691,
+       "numLeafNodes": 1,
+       "x": 0,
+       "y": 6.972200594645983e-14,
+       "width": 80,
+       "height": 2.847992972160562,
+       "pass1": {"x": 0, "y": -80.00000000000007, "width": 80, "height": 3.286145737108341},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.00547691,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 6.972200594645983e-14,
+         "width": 80,
+         "height": 2.847992972160562,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module6_group28_left",
+           "sourceId": "mlayer_states_module6_group28_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.00547691,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 6.972200594645983e-14,
+           "width": 80,
+           "height": 2.847992972160562,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.00547691,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 6.972200594645983e-14,
+         "width": 80,
+         "height": 2.847992972160562,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module6_group28_right",
+           "sourceId": "mlayer_states_module6_group28_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.00547691,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 6.972200594645983e-14,
+           "width": 80,
+           "height": 2.847992972160562,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "numLinksAboveZero": 0,
+   "links": [],
+   "hierarchy": [
+    {"type": "module", "moduleId": "1"},
+    {"type": "module", "moduleId": "2"},
+    {"type": "module", "moduleId": "3"},
+    {"type": "module", "moduleId": "4"},
+    {"type": "module", "moduleId": "5"},
+    {"type": "module", "moduleId": "6"}
+   ],
+   "identifiersUnique": true,
+   "leafColumns": ["identifier","nodeId","stateId","moduleId","moduleLevel","highlightIndex","insignificant"],
+   "leaves": [
+    ["0",1,0,"5",1,40,false],
+    ["1",2,1,"5",1,42,false],
+    ["2",3,2,"5",1,41,false],
+    ["3",5,3,"5",1,44,false],
+    ["4",3,4,"5",1,41,false],
+    ["5",4,5,"5",1,43,false],
+    ["6",10,6,"4",1,36,false],
+    ["7",2,7,"5",1,42,false],
+    ["8",3,8,"5",1,41,false],
+    ["9",6,9,"4",1,37,false],
+    ["10",2,10,"5",1,42,false],
+    ["11",3,11,"5",1,41,false],
+    ["12",4,12,"5",1,43,false],
+    ["13",5,13,"5",1,44,false],
+    ["14",8,14,"4",1,35,false],
+    ["15",14,15,"3",1,30,false],
+    ["16",13,16,"3",1,34,false],
+    ["17",1,17,"5",1,40,false],
+    ["18",4,18,"5",1,43,false],
+    ["19",9,19,"4",1,39,false],
+    ["20",1,20,"5",1,40,false],
+    ["21",6,21,"4",1,37,false],
+    ["22",7,22,"4",1,38,false],
+    ["23",1,23,"5",1,40,false],
+    ["24",2,24,"5",1,42,false],
+    ["25",10,25,"4",1,36,false],
+    ["26",6,26,"4",1,37,false],
+    ["27",8,27,"4",1,35,false],
+    ["28",9,28,"4",1,39,false],
+    ["29",20,29,"2",1,18,false],
+    ["30",8,30,"4",1,35,false],
+    ["31",9,31,"4",1,39,false],
+    ["32",11,32,"3",1,33,false],
+    ["33",7,33,"4",1,38,false],
+    ["34",15,34,"3",1,31,false],
+    ["35",9,35,"4",1,39,false],
+    ["36",10,36,"4",1,36,false],
+    ["37",12,37,"3",1,32,false],
+    ["38",10,38,"4",1,36,false],
+    ["39",12,39,"3",1,32,false],
+    ["40",8,40,"4",1,35,false],
+    ["41",6,41,"4",1,37,false],
+    ["42",11,42,"3",1,33,false],
+    ["43",11,43,"3",1,33,false],
+    ["44",12,44,"3",1,32,false],
+    ["45",15,45,"3",1,31,false],
+    ["46",14,46,"3",1,30,false],
+    ["47",15,47,"3",1,31,false],
+    ["48",15,48,"3",1,31,false],
+    ["49",14,49,"3",1,30,false],
+    ["50",22,50,"2",1,28,false],
+    ["51",13,51,"3",1,34,false],
+    ["52",13,52,"3",1,34,false],
+    ["53",11,53,"3",1,33,false],
+    ["54",23,54,"6",1,26,false],
+    ["55",12,55,"3",1,32,false],
+    ["56",21,56,"6",1,25,false],
+    ["57",29,57,"2",1,24,false],
+    ["58",22,58,"6",1,28,false],
+    ["59",16,59,"2",1,15,false],
+    ["60",17,60,"2",1,17,false],
+    ["61",19,61,"2",1,16,false],
+    ["62",26,62,"2",1,21,false],
+    ["63",18,63,"2",1,19,false],
+    ["64",20,64,"2",1,18,false],
+    ["65",30,65,"2",1,20,false],
+    ["66",17,66,"2",1,17,false],
+    ["67",18,67,"2",1,19,false],
+    ["68",19,68,"2",1,16,false],
+    ["69",20,69,"2",1,18,false],
+    ["70",23,70,"2",1,26,false],
+    ["71",30,71,"2",1,20,false],
+    ["72",17,72,"2",1,17,false],
+    ["73",18,73,"2",1,19,false],
+    ["74",19,74,"2",1,16,false],
+    ["75",18,75,"2",1,19,false],
+    ["76",16,76,"2",1,15,false],
+    ["77",21,77,"2",1,25,false],
+    ["78",16,78,"2",1,15,false],
+    ["79",20,79,"2",1,18,false],
+    ["80",27,80,"2",1,23,false],
+    ["81",16,81,"2",1,15,false],
+    ["82",21,82,"2",1,25,false],
+    ["83",21,83,"2",1,25,false],
+    ["84",24,84,"2",1,29,false],
+    ["85",29,85,"2",1,24,false],
+    ["86",26,86,"2",1,21,false],
+    ["87",24,87,"2",1,29,false],
+    ["88",25,88,"2",1,27,false],
+    ["89",19,89,"2",1,16,false],
+    ["90",30,90,"2",1,20,false],
+    ["91",22,91,"2",1,28,false],
+    ["92",23,92,"2",1,26,false],
+    ["93",22,93,"2",1,28,false],
+    ["94",24,94,"2",1,29,false],
+    ["95",25,95,"2",1,27,false],
+    ["96",27,96,"2",1,23,false],
+    ["97",28,97,"2",1,22,false],
+    ["98",25,98,"2",1,27,false],
+    ["99",28,99,"2",1,22,false],
+    ["100",27,100,"2",1,23,false],
+    ["101",28,101,"2",1,22,false],
+    ["102",29,102,"2",1,24,false],
+    ["103",29,103,"2",1,24,false],
+    ["104",26,104,"2",1,21,false],
+    ["105",31,105,"1",1,13,false],
+    ["106",32,106,"1",1,12,false],
+    ["107",33,107,"1",1,6,false],
+    ["108",34,108,"1",1,5,false],
+    ["109",35,109,"1",1,14,false],
+    ["110",42,110,"1",1,3,false],
+    ["111",32,111,"1",1,12,false],
+    ["112",34,112,"1",1,5,false],
+    ["113",35,113,"1",1,14,false],
+    ["114",40,114,"1",1,7,false],
+    ["115",31,115,"1",1,13,false],
+    ["116",33,116,"1",1,6,false],
+    ["117",33,117,"1",1,6,false],
+    ["118",34,118,"1",1,5,false],
+    ["119",35,119,"1",1,14,false],
+    ["120",38,120,"1",1,8,false],
+    ["121",34,121,"1",1,5,false],
+    ["122",40,122,"1",1,7,false],
+    ["123",39,123,"1",1,10,false],
+    ["124",32,124,"1",1,12,false],
+    ["125",45,125,"1",1,0,false],
+    ["126",41,126,"1",1,1,false],
+    ["127",42,127,"1",1,3,false],
+    ["128",37,128,"1",1,9,false],
+    ["129",32,129,"1",1,12,false],
+    ["130",33,130,"1",1,6,false],
+    ["131",45,131,"1",1,0,false],
+    ["132",45,132,"1",1,0,false],
+    ["133",36,133,"1",1,11,false],
+    ["134",45,134,"1",1,0,false],
+    ["135",36,135,"1",1,11,false],
+    ["136",39,136,"1",1,10,false],
+    ["137",37,137,"1",1,9,false],
+    ["138",38,138,"1",1,8,false],
+    ["139",41,139,"1",1,1,false],
+    ["140",38,140,"1",1,8,false],
+    ["141",39,141,"1",1,10,false],
+    ["142",38,142,"1",1,8,false],
+    ["143",36,143,"1",1,11,false],
+    ["144",39,144,"1",1,10,false],
+    ["145",40,145,"1",1,7,false],
+    ["146",36,146,"1",1,11,false],
+    ["147",43,147,"1",1,2,false],
+    ["148",43,148,"1",1,2,false],
+    ["149",44,149,"1",1,4,false],
+    ["150",43,150,"1",1,2,false],
+    ["151",44,151,"1",1,4,false],
+    ["152",42,152,"1",1,3,false],
+    ["153",41,153,"1",1,1,false],
+    ["154",44,154,"1",1,4,false],
+    ["155",44,155,"1",1,4,false],
+    ["156",43,156,"1",1,2,false]
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1391 @@
+{
+ "formatVersion": 1,
+ "scenario": "zeroflow-tree__sortNodeId",
+ "group": "zeroflow-tree",
+ "variant": "sortNodeId",
+ "description": "sortModulesBy=\"nodeId\" (mean leaf node id)",
+ "inputs": {
+  "files": ["data/zeroflow_t0.tree","data/zeroflow_t1.tree","data/zeroflow_t2.tree"],
+  "formats": ["tree","tree","tree"],
+  "networkIds": ["zeroflow_t0","zeroflow_t1","zeroflow_t2"],
+  "networkNames": ["zeroflow_t0.tree","zeroflow_t1.tree","zeroflow_t2.tree"],
+  "identifier": "id",
+  "options": {
+   "height": 600,
+   "moduleWidth": 80,
+   "streamlineFraction": 2,
+   "streamlineThreshold": 1,
+   "flowThreshold": 0.005,
+   "marginExponent": 4,
+   "zeroMargins": false,
+   "verticalAlign": "bottom",
+   "moduleSize": "flow",
+   "sortModulesBy": "nodeId"
+  },
+  "labelOptions": {"fontSize": 8, "adaptiveFontSize": false, "multilineModuleNames": true, "aggregateStateNames": true, "showModuleNames": true},
+  "colorScheme": "C3 Sinebow",
+  "operations": [
+   {"op": "setNetworks"}
+  ]
+ },
+ "diagram": {
+  "x": 0,
+  "y": 0,
+  "width": 560,
+  "height": 600,
+  "flow": 0,
+  "numNetworks": 3,
+  "maxNetworkFlow": 1,
+  "streamlineWidth": 160,
+  "networkWidth": 240,
+  "totalWidth": 560,
+  "totalMargins": [32,32,0],
+  "maxTotalMargin": 32,
+  "marginFractionOfHeight": 0.05333333333333334,
+  "maxMarginFractionOfHeight": 0.2,
+  "marginCapped": false,
+  "moduleMarginScale": null,
+  "scaledTotalMargin": null,
+  "usableHeight": 568,
+  "visibleFlows": [1,1,0],
+  "visibleModuleCounts": [3,3,0],
+  "updateLayoutCalls": 1,
+  "usableHeightCheckedModules": 6
+ },
+ "highlightColors": [],
+ "defaultHighlightColor": "#b6b69f",
+ "warnings": [],
+ "networks": [
+  {
+   "networkId": "zeroflow_t0",
+   "name": "zeroflow_t0.tree",
+   "index": 0,
+   "file": {
+    "path": "data/zeroflow_t0.tree",
+    "format": "tree",
+    "numTopModules": 4,
+    "numLevels": 2,
+    "isStateNetwork": false,
+    "directed": null,
+    "codelength": null,
+    "numNodes": 9
+   },
+   "x": 0,
+   "y": 0,
+   "width": 80,
+   "height": 600,
+   "flow": 1,
+   "numLeafNodes": 9,
+   "moduleFlowThreshold": 0.25,
+   "isCustomSorted": false,
+   "isHigherOrder": false,
+   "namePosition": {"x": 40, "y": 620},
+   "totalMargin": 32,
+   "visibleFlow": 1,
+   "numVisibleModules": 3,
+   "numModules": 4,
+   "modules": [
+    {
+     "moduleId": "3",
+     "id": "zeroflow_t0_module3",
+     "path": [3],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 0,
+     "flow": 0.25,
+     "numLeafNodes": 2,
+     "meanNodeId": 7.5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 16,
+     "x": 0,
+     "y": 458,
+     "width": 80,
+     "height": 142,
+     "pass1": {"margin": 16, "index": 0, "x": 0, "y": 450, "width": 80, "height": 150},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 529},
+      "idPosition": {"x": 40, "y": 529},
+      "customName": "",
+      "maxLines": 9,
+      "names": [
+       {"name": "g", "nodeId": 7, "stateId": null, "flow": 0.25},
+       {"name": "h", "nodeId": 8, "stateId": null, "flow": 0}
+      ],
+      "namesSingleLine": [
+       {"name": "g", "nodeId": 7, "stateId": null, "flow": 0.25},
+       {"name": "h", "nodeId": 8, "stateId": null, "flow": 0}
+      ]
+     },
+     "groups": [
+      {
+       "id": "zeroflow_t0_module3_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.25,
+       "numLeafNodes": 2,
+       "x": 0,
+       "y": 458,
+       "width": 80,
+       "height": 142,
+       "pass1": {"x": 0, "y": 450, "width": 80, "height": 150},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.25,
+         "numLeafNodes": 2,
+         "x": 0,
+         "y": 458,
+         "width": 80,
+         "height": 142,
+         "streamlineNodes": [
+          {
+           "id": "zeroflow_t0_module3_group-1_left",
+           "sourceId": "zeroflow_t0_module3_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.25,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 458,
+           "width": 80,
+           "height": 142,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.25,
+         "numLeafNodes": 2,
+         "x": 0,
+         "y": 458,
+         "width": 80,
+         "height": 142,
+         "streamlineNodes": [
+          {
+           "id": "zeroflow_t0_module3_group-1_right--zeroflow_t1_module1_group-1_left",
+           "sourceId": "zeroflow_t0_module3_group-1_right",
+           "targetId": "zeroflow_t1_module1_group-1_left",
+           "dangling": false,
+           "flow": 0,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 600,
+           "width": 80,
+           "height": 0,
+           "sortKey": -194,
+           "linked": true,
+           "opposite": {"networkId": "zeroflow_t1", "id": "zeroflow_t1_module1_group-1_left--zeroflow_t0_module3_group-1_right", "moduleId": "1"}
+          },
+          {
+           "id": "zeroflow_t0_module3_group-1_right--zeroflow_t1_module2_group-1_left",
+           "sourceId": "zeroflow_t0_module3_group-1_right",
+           "targetId": "zeroflow_t1_module2_group-1_left",
+           "dangling": false,
+           "flow": 0.25,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 458,
+           "width": 80,
+           "height": 142,
+           "sortKey": 32,
+           "linked": true,
+           "opposite": {"networkId": "zeroflow_t1", "id": "zeroflow_t1_module2_group-1_left--zeroflow_t0_module3_group-1_right", "moduleId": "2"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "2",
+     "id": "zeroflow_t0_module2",
+     "path": [2],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 1,
+     "flow": 0.45,
+     "numLeafNodes": 3,
+     "meanNodeId": 5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 16,
+     "x": 0,
+     "y": 186.39999999999998,
+     "width": 80,
+     "height": 255.6,
+     "pass1": {"margin": 16, "index": 1, "x": 0, "y": 164, "width": 80, "height": 270},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 314.2},
+      "idPosition": {"x": 40, "y": 314.2},
+      "customName": "",
+      "maxLines": 17,
+      "names": [
+       {"name": "d", "nodeId": 4, "stateId": null, "flow": 0.25},
+       {"name": "f", "nodeId": 6, "stateId": null, "flow": 0.2},
+       {"name": "e", "nodeId": 5, "stateId": null, "flow": 0}
+      ],
+      "namesSingleLine": [
+       {"name": "d", "nodeId": 4, "stateId": null, "flow": 0.25},
+       {"name": "f", "nodeId": 6, "stateId": null, "flow": 0.2},
+       {"name": "e", "nodeId": 5, "stateId": null, "flow": 0}
+      ]
+     },
+     "groups": [
+      {
+       "id": "zeroflow_t0_module2_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.45,
+       "numLeafNodes": 3,
+       "x": 0,
+       "y": 186.39999999999998,
+       "width": 80,
+       "height": 255.6,
+       "pass1": {"x": 0, "y": 164, "width": 80, "height": 270},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.45,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": 186.4,
+         "width": 80,
+         "height": 255.6,
+         "streamlineNodes": [
+          {
+           "id": "zeroflow_t0_module2_group-1_left",
+           "sourceId": "zeroflow_t0_module2_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.45,
+           "numLeafNodes": 3,
+           "x": 0,
+           "y": 186.4,
+           "width": 80,
+           "height": 255.6,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.45,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": 186.39999999999998,
+         "width": 80,
+         "height": 255.6,
+         "streamlineNodes": [
+          {
+           "id": "zeroflow_t0_module2_group-1_right",
+           "sourceId": "zeroflow_t0_module2_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.2,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 328.4,
+           "width": 80,
+           "height": 113.60000000000001,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          },
+          {
+           "id": "zeroflow_t0_module2_group-1_right--zeroflow_t1_module3_group-1_left",
+           "sourceId": "zeroflow_t0_module2_group-1_right",
+           "targetId": "zeroflow_t1_module3_group-1_left",
+           "dangling": false,
+           "flow": 0.25,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 186.39999999999998,
+           "width": 80,
+           "height": 142,
+           "sortKey": -450,
+           "linked": true,
+           "opposite": {"networkId": "zeroflow_t1", "id": "zeroflow_t1_module3_group-1_left--zeroflow_t0_module2_group-1_right", "moduleId": "3"}
+          },
+          {
+           "id": "zeroflow_t0_module2_group-1_right--zeroflow_t1_module1_group-1_left",
+           "sourceId": "zeroflow_t0_module2_group-1_right",
+           "targetId": "zeroflow_t1_module1_group-1_left",
+           "dangling": false,
+           "flow": 0,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 186.39999999999998,
+           "width": 80,
+           "height": 0,
+           "sortKey": -194,
+           "linked": true,
+           "opposite": {"networkId": "zeroflow_t1", "id": "zeroflow_t1_module1_group-1_left--zeroflow_t0_module2_group-1_right", "moduleId": "1"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "1",
+     "id": "zeroflow_t0_module1",
+     "path": [1],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 2,
+     "flow": 0.3,
+     "numLeafNodes": 3,
+     "meanNodeId": 2,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 0,
+     "x": 0,
+     "y": -2.842170943040401e-14,
+     "width": 80,
+     "height": 170.4,
+     "pass1": {"margin": 0, "index": 2, "x": 0, "y": -32, "width": 80, "height": 180},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 85.19999999999997},
+      "idPosition": {"x": 40, "y": 85.19999999999997},
+      "customName": "",
+      "maxLines": 11,
+      "names": [
+       {"name": "a", "nodeId": 1, "stateId": null, "flow": 0.3},
+       {"name": "b", "nodeId": 2, "stateId": null, "flow": 0},
+       {"name": "c", "nodeId": 3, "stateId": null, "flow": 0}
+      ],
+      "namesSingleLine": [
+       {"name": "a", "nodeId": 1, "stateId": null, "flow": 0.3},
+       {"name": "b", "nodeId": 2, "stateId": null, "flow": 0},
+       {"name": "c", "nodeId": 3, "stateId": null, "flow": 0}
+      ]
+     },
+     "groups": [
+      {
+       "id": "zeroflow_t0_module1_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.3,
+       "numLeafNodes": 3,
+       "x": 0,
+       "y": -2.842170943040401e-14,
+       "width": 80,
+       "height": 170.4,
+       "pass1": {"x": 0, "y": -32, "width": 80, "height": 180},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.3,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": -2.842170943040401e-14,
+         "width": 80,
+         "height": 170.4,
+         "streamlineNodes": [
+          {
+           "id": "zeroflow_t0_module1_group-1_left",
+           "sourceId": "zeroflow_t0_module1_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.3,
+           "numLeafNodes": 3,
+           "x": 0,
+           "y": -2.842170943040401e-14,
+           "width": 80,
+           "height": 170.4,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.3,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": -2.842170943040401e-14,
+         "width": 80,
+         "height": 170.4,
+         "streamlineNodes": [
+          {
+           "id": "zeroflow_t0_module1_group-1_right--zeroflow_t1_module1_group-1_left",
+           "sourceId": "zeroflow_t0_module1_group-1_right",
+           "targetId": "zeroflow_t1_module1_group-1_left",
+           "dangling": false,
+           "flow": 0.3,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": -2.842170943040401e-14,
+           "width": 80,
+           "height": 170.4,
+           "sortKey": -194,
+           "linked": true,
+           "opposite": {"networkId": "zeroflow_t1", "id": "zeroflow_t1_module1_group-1_left--zeroflow_t0_module1_group-1_right", "moduleId": "1"}
+          },
+          {
+           "id": "zeroflow_t0_module1_group-1_right--zeroflow_t1_module2_group-1_left",
+           "sourceId": "zeroflow_t0_module1_group-1_right",
+           "targetId": "zeroflow_t1_module2_group-1_left",
+           "dangling": false,
+           "flow": 0,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": -2.842170943040401e-14,
+           "width": 80,
+           "height": 0,
+           "sortKey": 32,
+           "linked": true,
+           "opposite": {"networkId": "zeroflow_t1", "id": "zeroflow_t1_module2_group-1_left--zeroflow_t0_module1_group-1_right", "moduleId": "2"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "4",
+     "id": "zeroflow_t0_module4",
+     "path": [4],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 3,
+     "flow": 0,
+     "numLeafNodes": 1,
+     "meanNodeId": 9,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": false,
+     "highlightIndex": -1,
+     "margin": 0,
+     "x": 0,
+     "y": 0,
+     "width": 0,
+     "height": 0,
+     "pass1": null,
+     "label": {
+      "shown": false,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 0},
+      "idPosition": {"x": 0, "y": 0},
+      "customName": "",
+      "maxLines": 0,
+      "names": [],
+      "namesSingleLine": [
+       {"name": "i", "nodeId": 9, "stateId": null, "flow": 0}
+      ]
+     },
+     "groups": [
+      {
+       "id": "zeroflow_t0_module4_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0,
+       "numLeafNodes": 1,
+       "x": 0,
+       "y": 0,
+       "width": 0,
+       "height": 0,
+       "pass1": null,
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 0,
+         "width": 0,
+         "height": 0,
+         "streamlineNodes": [
+          {
+           "id": "zeroflow_t0_module4_group-1_left",
+           "sourceId": "zeroflow_t0_module4_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 0,
+           "width": 0,
+           "height": 0,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 0,
+         "width": 0,
+         "height": 0,
+         "streamlineNodes": [
+          {
+           "id": "zeroflow_t0_module4_group-1_right--zeroflow_t1_module3_group-1_left",
+           "sourceId": "zeroflow_t0_module4_group-1_right",
+           "targetId": "zeroflow_t1_module3_group-1_left",
+           "dangling": false,
+           "flow": 0,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 0,
+           "width": 0,
+           "height": 0,
+           "sortKey": -450,
+           "linked": true,
+           "opposite": {"networkId": "zeroflow_t1", "id": "zeroflow_t1_module3_group-1_left--zeroflow_t0_module4_group-1_right", "moduleId": "3"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "numLinksAboveZero": 3,
+   "links": [
+    {
+     "id": "zeroflow_t0_module1_group-1_right--zeroflow_t1_module1_group-1_left",
+     "left": {"networkId": "zeroflow_t0", "moduleId": "1", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "zeroflow_t0_module1_group-1_right--zeroflow_t1_module1_group-1_left"},
+     "right": {"networkId": "zeroflow_t1", "moduleId": "1", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "zeroflow_t1_module1_group-1_left--zeroflow_t0_module1_group-1_right"},
+     "x0": 80,
+     "y0": -2.842170943040401e-14,
+     "h0": 170.4,
+     "x1": 240,
+     "y1": 214.79999999999998,
+     "h1": 227.20000000000002,
+     "avgHeight": 198.8,
+     "highlightIndex": -1,
+     "leftHighlightIndex": -1,
+     "rightHighlightIndex": -1,
+     "path": "M80,170.4C160,170.4,160,442,240,442L240,214.79999999999998C160,214.79999999999998,160,0,80,0Z"
+    },
+    {
+     "id": "zeroflow_t0_module3_group-1_right--zeroflow_t1_module2_group-1_left",
+     "left": {"networkId": "zeroflow_t0", "moduleId": "3", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "zeroflow_t0_module3_group-1_right--zeroflow_t1_module2_group-1_left"},
+     "right": {"networkId": "zeroflow_t1", "moduleId": "2", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "zeroflow_t1_module2_group-1_left--zeroflow_t0_module3_group-1_right"},
+     "x0": 80,
+     "y0": 458,
+     "h0": 142,
+     "x1": 240,
+     "y1": 0,
+     "h1": 198.79999999999998,
+     "avgHeight": 170.39999999999998,
+     "highlightIndex": -1,
+     "leftHighlightIndex": -1,
+     "rightHighlightIndex": -1,
+     "path": "M80,600C160,600,160,198.79999999999998,240,198.79999999999998L240,0C160,0,160,458,80,458Z"
+    },
+    {
+     "id": "zeroflow_t0_module2_group-1_right--zeroflow_t1_module3_group-1_left",
+     "left": {"networkId": "zeroflow_t0", "moduleId": "2", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "zeroflow_t0_module2_group-1_right--zeroflow_t1_module3_group-1_left"},
+     "right": {"networkId": "zeroflow_t1", "moduleId": "3", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "zeroflow_t1_module3_group-1_left--zeroflow_t0_module2_group-1_right"},
+     "x0": 80,
+     "y0": 186.39999999999998,
+     "h0": 142,
+     "x1": 240,
+     "y1": 458,
+     "h1": 142,
+     "avgHeight": 142,
+     "highlightIndex": -1,
+     "leftHighlightIndex": -1,
+     "rightHighlightIndex": -1,
+     "path": "M80,328.4C160,328.4,160,600,240,600L240,458C160,458,160,186.39999999999998,80,186.39999999999998Z"
+    }
+   ],
+   "hierarchy": [
+    {"type": "module", "moduleId": "3"},
+    {"type": "module", "moduleId": "2"},
+    {"type": "module", "moduleId": "1"}
+   ],
+   "identifiersUnique": true,
+   "leafColumns": ["identifier","nodeId","stateId","moduleId","moduleLevel","highlightIndex","insignificant"],
+   "leaves": [
+    ["1",1,null,"1",1,-1,false],
+    ["2",2,null,"1",1,-1,false],
+    ["3",3,null,"1",1,-1,false],
+    ["4",4,null,"2",1,-1,false],
+    ["5",5,null,"2",1,-1,false],
+    ["6",6,null,"2",1,-1,false],
+    ["7",7,null,"3",1,-1,false],
+    ["8",8,null,"3",1,-1,false],
+    ["9",9,null,"4",1,-1,false]
+   ]
+  },
+  {
+   "networkId": "zeroflow_t1",
+   "name": "zeroflow_t1.tree",
+   "index": 1,
+   "file": {
+    "path": "data/zeroflow_t1.tree",
+    "format": "tree",
+    "numTopModules": 3,
+    "numLevels": 2,
+    "isStateNetwork": false,
+    "directed": null,
+    "codelength": null,
+    "numNodes": 9
+   },
+   "x": 240,
+   "y": 0,
+   "width": 80,
+   "height": 600,
+   "flow": 1,
+   "numLeafNodes": 9,
+   "moduleFlowThreshold": 0.25,
+   "isCustomSorted": false,
+   "isHigherOrder": false,
+   "namePosition": {"x": 280, "y": 620},
+   "totalMargin": 32,
+   "visibleFlow": 1,
+   "numVisibleModules": 3,
+   "numModules": 3,
+   "modules": [
+    {
+     "moduleId": "3",
+     "id": "zeroflow_t1_module3",
+     "path": [3],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 0,
+     "flow": 0.25,
+     "numLeafNodes": 3,
+     "meanNodeId": 7.666666666666667,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 16,
+     "x": 240,
+     "y": 458,
+     "width": 80,
+     "height": 142,
+     "pass1": {"margin": 16, "index": 0, "x": 240, "y": 450, "width": 80, "height": 150},
+     "label": {
+      "shown": false,
+      "textAnchor": null,
+      "namePosition": {"x": 280, "y": 529},
+      "idPosition": {"x": 280, "y": 529},
+      "customName": "",
+      "maxLines": 9,
+      "names": [
+       {"name": "d", "nodeId": 4, "stateId": null, "flow": 0.25},
+       {"name": "i", "nodeId": 9, "stateId": null, "flow": 0},
+       {"name": "j", "nodeId": 10, "stateId": null, "flow": 0}
+      ],
+      "namesSingleLine": [
+       {"name": "d", "nodeId": 4, "stateId": null, "flow": 0.25},
+       {"name": "i", "nodeId": 9, "stateId": null, "flow": 0},
+       {"name": "j", "nodeId": 10, "stateId": null, "flow": 0}
+      ]
+     },
+     "groups": [
+      {
+       "id": "zeroflow_t1_module3_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.25,
+       "numLeafNodes": 3,
+       "x": 240,
+       "y": 458,
+       "width": 80,
+       "height": 142,
+       "pass1": {"x": 240, "y": 450, "width": 80, "height": 150},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.25,
+         "numLeafNodes": 3,
+         "x": 240,
+         "y": 458,
+         "width": 80,
+         "height": 142,
+         "streamlineNodes": [
+          {
+           "id": "zeroflow_t1_module3_group-1_left--zeroflow_t0_module4_group-1_right",
+           "sourceId": "zeroflow_t1_module3_group-1_left",
+           "targetId": "zeroflow_t0_module4_group-1_right",
+           "dangling": false,
+           "flow": 0,
+           "numLeafNodes": 1,
+           "x": 240,
+           "y": 600,
+           "width": 80,
+           "height": 0,
+           "sortKey": -Infinity,
+           "linked": true,
+           "opposite": {"networkId": "zeroflow_t0", "id": "zeroflow_t0_module4_group-1_right--zeroflow_t1_module3_group-1_left", "moduleId": "4"}
+          },
+          {
+           "id": "zeroflow_t1_module3_group-1_left",
+           "sourceId": "zeroflow_t1_module3_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0,
+           "numLeafNodes": 1,
+           "x": 240,
+           "y": 600,
+           "width": 80,
+           "height": 0,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          },
+          {
+           "id": "zeroflow_t1_module3_group-1_left--zeroflow_t0_module2_group-1_right",
+           "sourceId": "zeroflow_t1_module3_group-1_left",
+           "targetId": "zeroflow_t0_module2_group-1_right",
+           "dangling": false,
+           "flow": 0.25,
+           "numLeafNodes": 1,
+           "x": 240,
+           "y": 458,
+           "width": 80,
+           "height": 142,
+           "sortKey": -164,
+           "linked": true,
+           "opposite": {"networkId": "zeroflow_t0", "id": "zeroflow_t0_module2_group-1_right--zeroflow_t1_module3_group-1_left", "moduleId": "2"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.25,
+         "numLeafNodes": 3,
+         "x": 240,
+         "y": 458,
+         "width": 80,
+         "height": 142,
+         "streamlineNodes": [
+          {
+           "id": "zeroflow_t1_module3_group-1_right",
+           "sourceId": "zeroflow_t1_module3_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0,
+           "numLeafNodes": 2,
+           "x": 240,
+           "y": 600,
+           "width": 80,
+           "height": 0,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          },
+          {
+           "id": "zeroflow_t1_module3_group-1_right--zeroflow_t2_module2_group-1_left",
+           "sourceId": "zeroflow_t1_module3_group-1_right",
+           "targetId": "zeroflow_t2_module2_group-1_left",
+           "dangling": false,
+           "flow": 0.25,
+           "numLeafNodes": 1,
+           "x": 240,
+           "y": 458,
+           "width": 80,
+           "height": 142,
+           "sortKey": -Infinity,
+           "linked": true,
+           "opposite": {"networkId": "zeroflow_t2", "id": "zeroflow_t2_module2_group-1_left--zeroflow_t1_module3_group-1_right", "moduleId": "2"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "1",
+     "id": "zeroflow_t1_module1",
+     "path": [1],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 1,
+     "flow": 0.4,
+     "numLeafNodes": 3,
+     "meanNodeId": 4.666666666666667,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 16,
+     "x": 240,
+     "y": 214.79999999999998,
+     "width": 80,
+     "height": 227.20000000000002,
+     "pass1": {"margin": 16, "index": 1, "x": 240, "y": 194, "width": 80, "height": 240},
+     "label": {
+      "shown": false,
+      "textAnchor": null,
+      "namePosition": {"x": 280, "y": 328.4},
+      "idPosition": {"x": 280, "y": 328.4},
+      "customName": "",
+      "maxLines": 15,
+      "names": [
+       {"name": "a", "nodeId": 1, "stateId": null, "flow": 0.4},
+       {"name": "h", "nodeId": 8, "stateId": null, "flow": 0},
+       {"name": "e", "nodeId": 5, "stateId": null, "flow": 0}
+      ],
+      "namesSingleLine": [
+       {"name": "a", "nodeId": 1, "stateId": null, "flow": 0.4},
+       {"name": "h", "nodeId": 8, "stateId": null, "flow": 0},
+       {"name": "e", "nodeId": 5, "stateId": null, "flow": 0}
+      ]
+     },
+     "groups": [
+      {
+       "id": "zeroflow_t1_module1_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.4,
+       "numLeafNodes": 3,
+       "x": 240,
+       "y": 214.79999999999998,
+       "width": 80,
+       "height": 227.20000000000002,
+       "pass1": {"x": 240, "y": 194, "width": 80, "height": 240},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.4,
+         "numLeafNodes": 3,
+         "x": 240,
+         "y": 214.79999999999998,
+         "width": 80,
+         "height": 227.20000000000002,
+         "streamlineNodes": [
+          {
+           "id": "zeroflow_t1_module1_group-1_left--zeroflow_t0_module3_group-1_right",
+           "sourceId": "zeroflow_t1_module1_group-1_left",
+           "targetId": "zeroflow_t0_module3_group-1_right",
+           "dangling": false,
+           "flow": 0,
+           "numLeafNodes": 1,
+           "x": 240,
+           "y": 442,
+           "width": 80,
+           "height": 0,
+           "sortKey": -450,
+           "linked": true,
+           "opposite": {"networkId": "zeroflow_t0", "id": "zeroflow_t0_module3_group-1_right--zeroflow_t1_module1_group-1_left", "moduleId": "3"}
+          },
+          {
+           "id": "zeroflow_t1_module1_group-1_left--zeroflow_t0_module2_group-1_right",
+           "sourceId": "zeroflow_t1_module1_group-1_left",
+           "targetId": "zeroflow_t0_module2_group-1_right",
+           "dangling": false,
+           "flow": 0,
+           "numLeafNodes": 1,
+           "x": 240,
+           "y": 442,
+           "width": 80,
+           "height": 0,
+           "sortKey": -164,
+           "linked": true,
+           "opposite": {"networkId": "zeroflow_t0", "id": "zeroflow_t0_module2_group-1_right--zeroflow_t1_module1_group-1_left", "moduleId": "2"}
+          },
+          {
+           "id": "zeroflow_t1_module1_group-1_left--zeroflow_t0_module1_group-1_right",
+           "sourceId": "zeroflow_t1_module1_group-1_left",
+           "targetId": "zeroflow_t0_module1_group-1_right",
+           "dangling": false,
+           "flow": 0.4,
+           "numLeafNodes": 1,
+           "x": 240,
+           "y": 214.79999999999998,
+           "width": 80,
+           "height": 227.20000000000002,
+           "sortKey": 32,
+           "linked": true,
+           "opposite": {"networkId": "zeroflow_t0", "id": "zeroflow_t0_module1_group-1_right--zeroflow_t1_module1_group-1_left", "moduleId": "1"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.4,
+         "numLeafNodes": 3,
+         "x": 240,
+         "y": 214.79999999999998,
+         "width": 80,
+         "height": 227.20000000000002,
+         "streamlineNodes": [
+          {
+           "id": "zeroflow_t1_module1_group-1_right",
+           "sourceId": "zeroflow_t1_module1_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0,
+           "numLeafNodes": 2,
+           "x": 240,
+           "y": 442,
+           "width": 80,
+           "height": 0,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          },
+          {
+           "id": "zeroflow_t1_module1_group-1_right--zeroflow_t2_module1_group-1_left",
+           "sourceId": "zeroflow_t1_module1_group-1_right",
+           "targetId": "zeroflow_t2_module1_group-1_left",
+           "dangling": false,
+           "flow": 0.4,
+           "numLeafNodes": 1,
+           "x": 240,
+           "y": 214.79999999999998,
+           "width": 80,
+           "height": 227.20000000000002,
+           "sortKey": -Infinity,
+           "linked": true,
+           "opposite": {"networkId": "zeroflow_t2", "id": "zeroflow_t2_module1_group-1_left--zeroflow_t1_module1_group-1_right", "moduleId": "1"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "2",
+     "id": "zeroflow_t1_module2",
+     "path": [2],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 2,
+     "flow": 0.35,
+     "numLeafNodes": 3,
+     "meanNodeId": 4,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 0,
+     "x": 240,
+     "y": 0,
+     "width": 80,
+     "height": 198.79999999999998,
+     "pass1": {"margin": 0, "index": 2, "x": 240, "y": -32, "width": 80, "height": 210},
+     "label": {
+      "shown": false,
+      "textAnchor": null,
+      "namePosition": {"x": 280, "y": 99.39999999999999},
+      "idPosition": {"x": 280, "y": 99.39999999999999},
+      "customName": "",
+      "maxLines": 13,
+      "names": [
+       {"name": "g", "nodeId": 7, "stateId": null, "flow": 0.35},
+       {"name": "b", "nodeId": 2, "stateId": null, "flow": 0},
+       {"name": "c", "nodeId": 3, "stateId": null, "flow": 0}
+      ],
+      "namesSingleLine": [
+       {"name": "g", "nodeId": 7, "stateId": null, "flow": 0.35},
+       {"name": "b", "nodeId": 2, "stateId": null, "flow": 0},
+       {"name": "c", "nodeId": 3, "stateId": null, "flow": 0}
+      ]
+     },
+     "groups": [
+      {
+       "id": "zeroflow_t1_module2_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.35,
+       "numLeafNodes": 3,
+       "x": 240,
+       "y": 0,
+       "width": 80,
+       "height": 198.79999999999998,
+       "pass1": {"x": 240, "y": -32, "width": 80, "height": 210},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.35,
+         "numLeafNodes": 3,
+         "x": 240,
+         "y": 0,
+         "width": 80,
+         "height": 198.79999999999998,
+         "streamlineNodes": [
+          {
+           "id": "zeroflow_t1_module2_group-1_left--zeroflow_t0_module3_group-1_right",
+           "sourceId": "zeroflow_t1_module2_group-1_left",
+           "targetId": "zeroflow_t0_module3_group-1_right",
+           "dangling": false,
+           "flow": 0.35,
+           "numLeafNodes": 1,
+           "x": 240,
+           "y": 0,
+           "width": 80,
+           "height": 198.79999999999998,
+           "sortKey": -450,
+           "linked": true,
+           "opposite": {"networkId": "zeroflow_t0", "id": "zeroflow_t0_module3_group-1_right--zeroflow_t1_module2_group-1_left", "moduleId": "3"}
+          },
+          {
+           "id": "zeroflow_t1_module2_group-1_left--zeroflow_t0_module1_group-1_right",
+           "sourceId": "zeroflow_t1_module2_group-1_left",
+           "targetId": "zeroflow_t0_module1_group-1_right",
+           "dangling": false,
+           "flow": 0,
+           "numLeafNodes": 2,
+           "x": 240,
+           "y": 0,
+           "width": 80,
+           "height": 0,
+           "sortKey": 32,
+           "linked": true,
+           "opposite": {"networkId": "zeroflow_t0", "id": "zeroflow_t0_module1_group-1_right--zeroflow_t1_module2_group-1_left", "moduleId": "1"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.35,
+         "numLeafNodes": 3,
+         "x": 240,
+         "y": 0,
+         "width": 80,
+         "height": 198.79999999999998,
+         "streamlineNodes": [
+          {
+           "id": "zeroflow_t1_module2_group-1_right",
+           "sourceId": "zeroflow_t1_module2_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.35,
+           "numLeafNodes": 2,
+           "x": 240,
+           "y": 0,
+           "width": 80,
+           "height": 198.79999999999998,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          },
+          {
+           "id": "zeroflow_t1_module2_group-1_right--zeroflow_t2_module1_group-1_left",
+           "sourceId": "zeroflow_t1_module2_group-1_right",
+           "targetId": "zeroflow_t2_module1_group-1_left",
+           "dangling": false,
+           "flow": 0,
+           "numLeafNodes": 1,
+           "x": 240,
+           "y": 0,
+           "width": 80,
+           "height": 0,
+           "sortKey": -Infinity,
+           "linked": true,
+           "opposite": {"networkId": "zeroflow_t2", "id": "zeroflow_t2_module1_group-1_left--zeroflow_t1_module2_group-1_right", "moduleId": "1"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "numLinksAboveZero": 0,
+   "links": [],
+   "hierarchy": [
+    {"type": "module", "moduleId": "3"},
+    {"type": "module", "moduleId": "1"},
+    {"type": "module", "moduleId": "2"}
+   ],
+   "identifiersUnique": true,
+   "leafColumns": ["identifier","nodeId","stateId","moduleId","moduleLevel","highlightIndex","insignificant"],
+   "leaves": [
+    ["1",1,null,"1",1,-1,false],
+    ["2",2,null,"2",1,-1,false],
+    ["3",3,null,"2",1,-1,false],
+    ["4",4,null,"3",1,-1,false],
+    ["5",5,null,"1",1,-1,false],
+    ["7",7,null,"2",1,-1,false],
+    ["8",8,null,"1",1,-1,false],
+    ["9",9,null,"3",1,-1,false],
+    ["10",10,null,"3",1,-1,false]
+   ]
+  },
+  {
+   "networkId": "zeroflow_t2",
+   "name": "zeroflow_t2.tree",
+   "index": 2,
+   "file": {
+    "path": "data/zeroflow_t2.tree",
+    "format": "tree",
+    "numTopModules": 2,
+    "numLevels": 2,
+    "isStateNetwork": false,
+    "directed": null,
+    "codelength": null,
+    "numNodes": 3
+   },
+   "x": 480,
+   "y": 0,
+   "width": 80,
+   "height": 600,
+   "flow": 0,
+   "numLeafNodes": 3,
+   "moduleFlowThreshold": Infinity,
+   "isCustomSorted": false,
+   "isHigherOrder": false,
+   "namePosition": {"x": 520, "y": 620},
+   "totalMargin": 0,
+   "visibleFlow": 0,
+   "numVisibleModules": 0,
+   "numModules": 2,
+   "modules": [
+    {
+     "moduleId": "1",
+     "id": "zeroflow_t2_module1",
+     "path": [1],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 0,
+     "flow": 0,
+     "numLeafNodes": 2,
+     "meanNodeId": 1.5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": false,
+     "highlightIndex": -1,
+     "margin": 0,
+     "x": 0,
+     "y": 0,
+     "width": 0,
+     "height": 0,
+     "pass1": null,
+     "label": {
+      "shown": false,
+      "textAnchor": "start",
+      "namePosition": {"x": 20, "y": 0},
+      "idPosition": {"x": 0, "y": 0},
+      "customName": "",
+      "maxLines": 0,
+      "names": [],
+      "namesSingleLine": [
+       {"name": "a", "nodeId": 1, "stateId": null, "flow": 0},
+       {"name": "b", "nodeId": 2, "stateId": null, "flow": 0}
+      ]
+     },
+     "groups": [
+      {
+       "id": "zeroflow_t2_module1_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0,
+       "numLeafNodes": 2,
+       "x": 0,
+       "y": 0,
+       "width": 0,
+       "height": 0,
+       "pass1": null,
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0,
+         "numLeafNodes": 2,
+         "x": 0,
+         "y": 0,
+         "width": 0,
+         "height": 0,
+         "streamlineNodes": [
+          {
+           "id": "zeroflow_t2_module1_group-1_left--zeroflow_t1_module1_group-1_right",
+           "sourceId": "zeroflow_t2_module1_group-1_left",
+           "targetId": "zeroflow_t1_module1_group-1_right",
+           "dangling": false,
+           "flow": 0,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 0,
+           "width": 0,
+           "height": 0,
+           "sortKey": -194,
+           "linked": true,
+           "opposite": {"networkId": "zeroflow_t1", "id": "zeroflow_t1_module1_group-1_right--zeroflow_t2_module1_group-1_left", "moduleId": "1"}
+          },
+          {
+           "id": "zeroflow_t2_module1_group-1_left--zeroflow_t1_module2_group-1_right",
+           "sourceId": "zeroflow_t2_module1_group-1_left",
+           "targetId": "zeroflow_t1_module2_group-1_right",
+           "dangling": false,
+           "flow": 0,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 0,
+           "width": 0,
+           "height": 0,
+           "sortKey": 32,
+           "linked": true,
+           "opposite": {"networkId": "zeroflow_t1", "id": "zeroflow_t1_module2_group-1_right--zeroflow_t2_module1_group-1_left", "moduleId": "2"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0,
+         "numLeafNodes": 2,
+         "x": 0,
+         "y": 0,
+         "width": 0,
+         "height": 0,
+         "streamlineNodes": [
+          {
+           "id": "zeroflow_t2_module1_group-1_right",
+           "sourceId": "zeroflow_t2_module1_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 0,
+           "width": 0,
+           "height": 0,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "2",
+     "id": "zeroflow_t2_module2",
+     "path": [2],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 1,
+     "flow": 0,
+     "numLeafNodes": 1,
+     "meanNodeId": 4,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": false,
+     "highlightIndex": -1,
+     "margin": 0,
+     "x": 0,
+     "y": 0,
+     "width": 0,
+     "height": 0,
+     "pass1": null,
+     "label": {
+      "shown": false,
+      "textAnchor": "start",
+      "namePosition": {"x": 20, "y": 0},
+      "idPosition": {"x": 0, "y": 0},
+      "customName": "",
+      "maxLines": 0,
+      "names": [],
+      "namesSingleLine": [
+       {"name": "d", "nodeId": 4, "stateId": null, "flow": 0}
+      ]
+     },
+     "groups": [
+      {
+       "id": "zeroflow_t2_module2_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0,
+       "numLeafNodes": 1,
+       "x": 0,
+       "y": 0,
+       "width": 0,
+       "height": 0,
+       "pass1": null,
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 0,
+         "width": 0,
+         "height": 0,
+         "streamlineNodes": [
+          {
+           "id": "zeroflow_t2_module2_group-1_left--zeroflow_t1_module3_group-1_right",
+           "sourceId": "zeroflow_t2_module2_group-1_left",
+           "targetId": "zeroflow_t1_module3_group-1_right",
+           "dangling": false,
+           "flow": 0,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 0,
+           "width": 0,
+           "height": 0,
+           "sortKey": -450,
+           "linked": true,
+           "opposite": {"networkId": "zeroflow_t1", "id": "zeroflow_t1_module3_group-1_right--zeroflow_t2_module2_group-1_left", "moduleId": "3"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 0,
+         "width": 0,
+         "height": 0,
+         "streamlineNodes": [
+          {
+           "id": "zeroflow_t2_module2_group-1_right",
+           "sourceId": "zeroflow_t2_module2_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 0,
+           "width": 0,
+           "height": 0,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "numLinksAboveZero": 0,
+   "links": [],
+   "hierarchy": [],
+   "identifiersUnique": true,
+   "leafColumns": ["identifier","nodeId","stateId","moduleId","moduleLevel","highlightIndex","insignificant"],
+   "leaves": [
+    ["1",1,null,"1",1,-1,false],
+    ["2",2,null,"1",1,-1,false],
+    ["4",4,null,"2",1,-1,false]
+   ]
+  }
+ ]
+}

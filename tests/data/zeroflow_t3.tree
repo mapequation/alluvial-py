@@ -1,0 +1,5 @@
+# hand-written: all flows zero
+# path flow name node_id
+1:1 0 "a" 1
+2:1 0 "b" 2
+2:2 0 "c" 3

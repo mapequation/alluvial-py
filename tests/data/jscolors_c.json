@@ -1,0 +1,8 @@
+{
+  "colors": {"1": "#f00"},
+  "nodes": [
+    {"path": [1, 1], "flow": 0.4, "name": "a", "id": 1, "color": "#00f"},
+    {"path": [1, 2], "flow": 0.3, "name": "c", "id": 3, "color": "#f00"},
+    {"path": [2, 1], "flow": 0.3, "name": "e", "id": 5}
+  ]
+}

@@ -1,0 +1,1730 @@
+{
+ "formatVersion": 1,
+ "scenario": "fuzz1347__level4",
+ "group": "fuzz1347",
+ "variant": "level4",
+ "description": "fuzz1347 options + moduleLevel 4: mixed-depth refusal, zero flows, zero margins",
+ "features": ["hierarchy"],
+ "inputs": {
+  "files": ["data/fuzz1347_net0.stree","data/fuzz1347_net1.stree","data/fuzz1347_net2.stree","data/fuzz1347_net3.stree","data/fuzz1347_net4.stree"],
+  "formats": ["stree","stree","stree","stree","stree"],
+  "networkIds": ["fuzz1347_net0","fuzz1347_net1","fuzz1347_net2","fuzz1347_net3","fuzz1347_net4"],
+  "networkNames": ["fuzz1347_net0.stree","fuzz1347_net1.stree","fuzz1347_net2.stree","fuzz1347_net3.stree","fuzz1347_net4.stree"],
+  "identifier": "id",
+  "options": {
+   "height": 600,
+   "moduleWidth": 333.3,
+   "streamlineFraction": 2,
+   "streamlineThreshold": 1,
+   "flowThreshold": 0,
+   "marginExponent": 8.074328676568566,
+   "zeroMargins": true,
+   "verticalAlign": "justify",
+   "moduleSize": "flow",
+   "sortModulesBy": "flow"
+  },
+  "labelOptions": {"fontSize": 8, "adaptiveFontSize": false, "multilineModuleNames": true, "aggregateStateNames": true, "showModuleNames": true},
+  "colorScheme": "C3 Sinebow",
+  "operations": [
+   {"op": "setNetworks"},
+   {
+    "op": "setModuleLevel",
+    "levels": [4,4,4,4,4]
+   }
+  ],
+  "macros": [
+   {
+    "atOperation": 1,
+    "numOperations": 1,
+    "op": {"op": "moduleLevel", "levels": 4}
+   }
+  ]
+ },
+ "diagram": {
+  "x": 0,
+  "y": 0,
+  "width": 4332.9,
+  "height": 600,
+  "flow": 0,
+  "numNetworks": 5,
+  "maxNetworkFlow": 1.7,
+  "streamlineWidth": 666.6,
+  "networkWidth": 999.9000000000001,
+  "totalWidth": 4332.9,
+  "totalMargins": [0,0,0,0,0],
+  "maxTotalMargin": 0,
+  "marginFractionOfHeight": 0,
+  "maxMarginFractionOfHeight": 0,
+  "marginCapped": false,
+  "moduleMarginScale": null,
+  "scaledTotalMargin": null,
+  "usableHeight": 600,
+  "visibleFlows": [0.5882352941181329,1,0.5882352941175882,0.5882352942076471,0.5882352941176471],
+  "visibleModuleCounts": [3,2,2,2,1],
+  "updateLayoutCalls": 2,
+  "usableHeightCheckedModules": 10
+ },
+ "highlightColors": [],
+ "defaultHighlightColor": "#b6b69f",
+ "warnings": [],
+ "networks": [
+  {
+   "networkId": "fuzz1347_net0",
+   "name": "fuzz1347_net0.stree",
+   "index": 0,
+   "file": {
+    "path": "data/fuzz1347_net0.stree",
+    "format": "stree",
+    "numTopModules": 3,
+    "numLevels": 3,
+    "isStateNetwork": true,
+    "directed": null,
+    "codelength": null,
+    "numNodes": 7
+   },
+   "x": 0,
+   "y": 0,
+   "width": 333.3,
+   "height": 600,
+   "flow": 1.000000000000826,
+   "numLeafNodes": 7,
+   "moduleFlowThreshold": 8.26e-301,
+   "isCustomSorted": false,
+   "isHigherOrder": true,
+   "namePosition": {"x": 166.65, "y": 620},
+   "totalMargin": 0,
+   "visibleFlow": 0.5882352941181329,
+   "numVisibleModules": 3,
+   "numModules": 3,
+   "modules": [
+    {
+     "moduleId": "3",
+     "id": "fuzz1347_net0_module3",
+     "path": [3],
+     "moduleLevel": 1,
+     "maxModuleLevel": 2,
+     "index": 0,
+     "flow": 1.000000000000826,
+     "numLeafNodes": 4,
+     "meanNodeId": 2.75,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 0,
+     "x": 0,
+     "y": 247.05882352912025,
+     "width": 333.3,
+     "height": 352.9411764708797,
+     "pass1": {"margin": 0, "index": 0, "x": 0, "y": 247.05882352912027, "width": 333.3, "height": 352.9411764708797},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 423.5294117645601},
+      "idPosition": {"x": 166.65, "y": 423.5294117645601},
+      "customName": "",
+      "maxLines": 25,
+      "names": [
+       {"name": "n5", "nodeId": 5, "stateId": 10, "flow": 0.673},
+       {"name": "a-b", "nodeId": 2, "stateId": 1, "flow": 0.327000000000826}
+      ],
+      "namesSingleLine": [
+       {"name": "n5", "nodeId": 5, "stateId": 10, "flow": 0.673},
+       {"name": "a-b", "nodeId": 2, "stateId": 1, "flow": 0.327000000000826}
+      ]
+     },
+     "groups": [
+      {
+       "id": "fuzz1347_net0_module3_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 1.000000000000826,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 247.05882352912025,
+       "width": 333.3,
+       "height": 352.9411764708797,
+       "pass1": {"x": 0, "y": 247.05882352912027, "width": 333.3, "height": 352.9411764708797},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 1.000000000000826,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 247.05882352912027,
+         "width": 333.3,
+         "height": 352.9411764708797,
+         "streamlineNodes": [
+          {
+           "id": "fuzz1347_net0_module3_group-1_left",
+           "sourceId": "fuzz1347_net0_module3_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 1.000000000000826,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 247.05882352912027,
+           "width": 333.3,
+           "height": 352.9411764708797,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 1.000000000000826,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 247.05882352912025,
+         "width": 333.3,
+         "height": 352.9411764708797,
+         "streamlineNodes": [
+          {
+           "id": "fuzz1347_net0_module3_group-1_right",
+           "sourceId": "fuzz1347_net0_module3_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.327,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 484.5882352941177,
+           "width": 333.3,
+           "height": 115.41176470588235,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          },
+          {
+           "id": "fuzz1347_net0_module3_group-1_right--fuzz1347_net1_module2_group-1_left",
+           "sourceId": "fuzz1347_net0_module3_group-1_right",
+           "targetId": "fuzz1347_net1_module2_group-1_left",
+           "dangling": false,
+           "flow": 0.673,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 247.05882352941177,
+           "width": 333.3,
+           "height": 237.5294117647059,
+           "sortKey": -211.76470588235298,
+           "linked": true,
+           "opposite": {"networkId": "fuzz1347_net1", "id": "fuzz1347_net1_module2_group-1_left--fuzz1347_net0_module3_group-1_right", "moduleId": "2"}
+          },
+          {
+           "id": "fuzz1347_net0_module3_group-1_right--fuzz1347_net1_module1_group-1_left",
+           "sourceId": "fuzz1347_net0_module3_group-1_right",
+           "targetId": "fuzz1347_net1_module1_group-1_left",
+           "dangling": false,
+           "flow": 8.26e-13,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 247.05882352912025,
+           "width": 333.3,
+           "height": 2.9152941176470586e-10,
+           "sortKey": 0,
+           "linked": true,
+           "opposite": {"networkId": "fuzz1347_net1", "id": "fuzz1347_net1_module1_group-1_left--fuzz1347_net0_module3_group-1_right", "moduleId": "1"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "4",
+     "id": "fuzz1347_net0_module4",
+     "path": [4],
+     "moduleLevel": 1,
+     "maxModuleLevel": 2,
+     "index": 1,
+     "flow": 1.652e-300,
+     "numLeafNodes": 2,
+     "meanNodeId": 5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 0,
+     "x": 0,
+     "y": 247.05882352912025,
+     "width": 333.3,
+     "height": 5.830588235294117e-298,
+     "pass1": {"margin": 0, "index": 1, "x": 0, "y": 247.05882352912027, "width": 333.3, "height": 5.830588235294117e-298},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 247.05882352912025},
+      "idPosition": {"x": 166.65, "y": 247.05882352912025},
+      "customName": "",
+      "maxLines": 1,
+      "names": [
+       {"name": "n5", "nodeId": 5, "stateId": 11, "flow": 1.652e-300}
+      ],
+      "namesSingleLine": [
+       {"name": "n5", "nodeId": 5, "stateId": 11, "flow": 1.652e-300}
+      ]
+     },
+     "groups": [
+      {
+       "id": "fuzz1347_net0_module4_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 1.652e-300,
+       "numLeafNodes": 2,
+       "x": 0,
+       "y": 247.05882352912025,
+       "width": 333.3,
+       "height": 5.830588235294117e-298,
+       "pass1": {"x": 0, "y": 247.05882352912027, "width": 333.3, "height": 5.830588235294117e-298},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 1.652e-300,
+         "numLeafNodes": 2,
+         "x": 0,
+         "y": 247.05882352912025,
+         "width": 333.3,
+         "height": 5.830588235294117e-298,
+         "streamlineNodes": [
+          {
+           "id": "fuzz1347_net0_module4_group-1_left",
+           "sourceId": "fuzz1347_net0_module4_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 1.652e-300,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 247.05882352912025,
+           "width": 333.3,
+           "height": 5.830588235294117e-298,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 1.652e-300,
+         "numLeafNodes": 2,
+         "x": 0,
+         "y": 247.05882352912025,
+         "width": 333.3,
+         "height": 5.830588235294117e-298,
+         "streamlineNodes": [
+          {
+           "id": "fuzz1347_net0_module4_group-1_right--fuzz1347_net1_module2_group-1_left",
+           "sourceId": "fuzz1347_net0_module4_group-1_right",
+           "targetId": "fuzz1347_net1_module2_group-1_left",
+           "dangling": false,
+           "flow": 1.652e-300,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 247.05882352912025,
+           "width": 333.3,
+           "height": 5.830588235294117e-298,
+           "sortKey": -211.76470588235298,
+           "linked": true,
+           "opposite": {"networkId": "fuzz1347_net1", "id": "fuzz1347_net1_module2_group-1_left--fuzz1347_net0_module4_group-1_right", "moduleId": "2"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "1:1",
+     "id": "fuzz1347_net0_module1:1",
+     "path": [1,1],
+     "moduleLevel": 2,
+     "maxModuleLevel": 2,
+     "index": 2,
+     "flow": 8.26e-301,
+     "numLeafNodes": 1,
+     "meanNodeId": 2,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 0,
+     "x": 0,
+     "y": 247.05882352912025,
+     "width": 333.3,
+     "height": 2.9152941176470586e-298,
+     "pass1": {"margin": 0, "index": 2, "x": 0, "y": 247.05882352912027, "width": 333.3, "height": 2.9152941176470586e-298},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 247.05882352912025},
+      "idPosition": {"x": 166.65, "y": 247.05882352912025},
+      "customName": "",
+      "maxLines": 1,
+      "names": [
+       {"name": "a-b", "nodeId": 2, "stateId": 2, "flow": 8.26e-301}
+      ],
+      "namesSingleLine": [
+       {"name": "a-b", "nodeId": 2, "stateId": 2, "flow": 8.26e-301}
+      ]
+     },
+     "groups": [
+      {
+       "id": "fuzz1347_net0_module1:1_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 8.26e-301,
+       "numLeafNodes": 1,
+       "x": 0,
+       "y": 247.05882352912025,
+       "width": 333.3,
+       "height": 2.9152941176470586e-298,
+       "pass1": {"x": 0, "y": 247.05882352912027, "width": 333.3, "height": 2.9152941176470586e-298},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 8.26e-301,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 247.05882352912025,
+         "width": 333.3,
+         "height": 2.9152941176470586e-298,
+         "streamlineNodes": [
+          {
+           "id": "fuzz1347_net0_module1:1_group-1_left",
+           "sourceId": "fuzz1347_net0_module1:1_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 8.26e-301,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 247.05882352912025,
+           "width": 333.3,
+           "height": 2.9152941176470586e-298,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 8.26e-301,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 247.05882352912025,
+         "width": 333.3,
+         "height": 2.9152941176470586e-298,
+         "streamlineNodes": [
+          {
+           "id": "fuzz1347_net0_module1:1_group-1_right--fuzz1347_net1_module2_group-1_left",
+           "sourceId": "fuzz1347_net0_module1:1_group-1_right",
+           "targetId": "fuzz1347_net1_module2_group-1_left",
+           "dangling": false,
+           "flow": 8.26e-301,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 247.05882352912025,
+           "width": 333.3,
+           "height": 2.9152941176470586e-298,
+           "sortKey": -211.76470588235298,
+           "linked": true,
+           "opposite": {"networkId": "fuzz1347_net1", "id": "fuzz1347_net1_module2_group-1_left--fuzz1347_net0_module1:1_group-1_right", "moduleId": "2"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "numLinksAboveZero": 4,
+   "links": [
+    {
+     "id": "fuzz1347_net0_module3_group-1_right--fuzz1347_net1_module2_group-1_left",
+     "left": {"networkId": "fuzz1347_net0", "moduleId": "3", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "fuzz1347_net0_module3_group-1_right--fuzz1347_net1_module2_group-1_left"},
+     "right": {"networkId": "fuzz1347_net1", "moduleId": "2", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "fuzz1347_net1_module2_group-1_left--fuzz1347_net0_module3_group-1_right"},
+     "x0": 333.3,
+     "y0": 247.05882352941177,
+     "h0": 237.5294117647059,
+     "x1": 999.9000000000001,
+     "y1": 317.6470588235294,
+     "h1": 35.294117647058826,
+     "avgHeight": 136.41176470588238,
+     "highlightIndex": -1,
+     "leftHighlightIndex": -1,
+     "rightHighlightIndex": -1,
+     "path": "M333.3,484.5882352941177C666.6,484.5882352941177,666.6,352.94117647058823,999.9000000000001,352.94117647058823L999.9000000000001,317.6470588235294C666.6,317.6470588235294,666.6,247.05882352941177,333.3,247.05882352941177Z"
+    },
+    {
+     "id": "fuzz1347_net0_module4_group-1_right--fuzz1347_net1_module2_group-1_left",
+     "left": {"networkId": "fuzz1347_net0", "moduleId": "4", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "fuzz1347_net0_module4_group-1_right--fuzz1347_net1_module2_group-1_left"},
+     "right": {"networkId": "fuzz1347_net1", "moduleId": "2", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "fuzz1347_net1_module2_group-1_left--fuzz1347_net0_module4_group-1_right"},
+     "x0": 333.3,
+     "y0": 247.05882352912025,
+     "h0": 5.830588235294117e-298,
+     "x1": 999.9000000000001,
+     "y1": 352.94117647058823,
+     "h1": 141.1764705882353,
+     "avgHeight": 70.58823529411765,
+     "highlightIndex": -1,
+     "leftHighlightIndex": -1,
+     "rightHighlightIndex": -1,
+     "path": "M333.3,247.05882352912025C666.6,247.05882352912025,666.6,494.11764705882354,999.9000000000001,494.11764705882354L999.9000000000001,352.94117647058823C666.6,352.94117647058823,666.6,247.05882352912025,333.3,247.05882352912025Z"
+    },
+    {
+     "id": "fuzz1347_net0_module1:1_group-1_right--fuzz1347_net1_module2_group-1_left",
+     "left": {"networkId": "fuzz1347_net0", "moduleId": "1:1", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "fuzz1347_net0_module1:1_group-1_right--fuzz1347_net1_module2_group-1_left"},
+     "right": {"networkId": "fuzz1347_net1", "moduleId": "2", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "fuzz1347_net1_module2_group-1_left--fuzz1347_net0_module1:1_group-1_right"},
+     "x0": 333.3,
+     "y0": 247.05882352912025,
+     "h0": 2.9152941176470586e-298,
+     "x1": 999.9000000000001,
+     "y1": 211.76470588235293,
+     "h1": 105.88235294117648,
+     "avgHeight": 52.94117647058824,
+     "highlightIndex": -1,
+     "leftHighlightIndex": -1,
+     "rightHighlightIndex": -1,
+     "path": "M333.3,247.05882352912025C666.6,247.05882352912025,666.6,317.6470588235294,999.9000000000001,317.6470588235294L999.9000000000001,211.76470588235293C666.6,211.76470588235293,666.6,247.05882352912025,333.3,247.05882352912025Z"
+    },
+    {
+     "id": "fuzz1347_net0_module3_group-1_right--fuzz1347_net1_module1_group-1_left",
+     "left": {"networkId": "fuzz1347_net0", "moduleId": "3", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "fuzz1347_net0_module3_group-1_right--fuzz1347_net1_module1_group-1_left"},
+     "right": {"networkId": "fuzz1347_net1", "moduleId": "1", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "fuzz1347_net1_module1_group-1_left--fuzz1347_net0_module3_group-1_right"},
+     "x0": 333.3,
+     "y0": 247.05882352912025,
+     "h0": 2.9152941176470586e-10,
+     "x1": 999.9000000000001,
+     "y1": -2.842170943040401e-14,
+     "h1": 70.58823529411765,
+     "avgHeight": 35.294117647204594,
+     "highlightIndex": -1,
+     "leftHighlightIndex": -1,
+     "rightHighlightIndex": -1,
+     "path": "M333.3,247.05882352941177C666.6,247.05882352941177,666.6,70.58823529411765,999.9000000000001,70.58823529411765L999.9000000000001,0C666.6,0,666.6,247.05882352912025,333.3,247.05882352912025Z"
+    }
+   ],
+   "hierarchy": [
+    {
+     "type": "tree",
+     "path": "1",
+     "moduleLevel": 1,
+     "isLeaf": false,
+     "maxModuleLevel": 2,
+     "x": 0,
+     "y": 247.05882352912025,
+     "width": 333.3,
+     "height": 2.9152941176470586e-298
+    },
+    {"type": "module", "moduleId": "3"},
+    {"type": "module", "moduleId": "4"},
+    {"type": "module", "moduleId": "1:1"}
+   ],
+   "identifiersUnique": false,
+   "leafColumns": ["identifier","nodeId","stateId","moduleId","moduleLevel","highlightIndex","insignificant"],
+   "leaves": [
+    ["1",2,1,"3",1,-1,false],
+    ["2",2,2,"1:1",2,-1,false],
+    ["9",2,9,"3",1,-1,false],
+    ["9",2,9,"3",1,-1,false],
+    ["10",5,10,"3",1,-1,false],
+    ["11",5,11,"4",1,-1,false],
+    ["18",5,18,"4",1,-1,false]
+   ]
+  },
+  {
+   "networkId": "fuzz1347_net1",
+   "name": "fuzz1347_net1.stree",
+   "index": 1,
+   "file": {
+    "path": "data/fuzz1347_net1.stree",
+    "format": "stree",
+    "numTopModules": 2,
+    "numLevels": 2,
+    "isStateNetwork": true,
+    "directed": null,
+    "codelength": 3.70819,
+    "numNodes": 8
+   },
+   "x": 999.9000000000001,
+   "y": 0,
+   "width": 333.3,
+   "height": 600,
+   "flow": 1.7,
+   "numLeafNodes": 8,
+   "moduleFlowThreshold": 0.6000000000000001,
+   "isCustomSorted": false,
+   "isHigherOrder": true,
+   "namePosition": {"x": 1166.5500000000002, "y": 620},
+   "totalMargin": 0,
+   "visibleFlow": 1,
+   "numVisibleModules": 2,
+   "numModules": 2,
+   "modules": [
+    {
+     "moduleId": "2",
+     "id": "fuzz1347_net1_module2",
+     "path": [2],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 0,
+     "flow": 1.0999999999999999,
+     "numLeafNodes": 5,
+     "meanNodeId": 3.8,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 0,
+     "x": 999.9000000000001,
+     "y": 211.76470588235293,
+     "width": 333.3,
+     "height": 388.235294117647,
+     "pass1": {"margin": 0, "index": 0, "x": 999.9000000000001, "y": 211.76470588235298, "width": 333.3, "height": 388.235294117647},
+     "label": {
+      "shown": false,
+      "textAnchor": null,
+      "namePosition": {"x": 1166.5500000000002, "y": 405.88235294117646},
+      "idPosition": {"x": 1166.5500000000002, "y": 405.88235294117646},
+      "customName": "",
+      "maxLines": 27,
+      "names": [
+       {"name": "Zürich", "nodeId": 4, "stateId": 11, "flow": 0.5},
+       {"name": "n5", "nodeId": 5, "stateId": 20, "flow": 0.3},
+       {"name": "a-b", "nodeId": 2, "stateId": 2, "flow": 0.3}
+      ],
+      "namesSingleLine": [
+       {"name": "Zürich", "nodeId": 4, "stateId": 11, "flow": 0.5},
+       {"name": "n5", "nodeId": 5, "stateId": 20, "flow": 0.3},
+       {"name": "a-b", "nodeId": 2, "stateId": 2, "flow": 0.3}
+      ]
+     },
+     "groups": [
+      {
+       "id": "fuzz1347_net1_module2_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 1.0999999999999999,
+       "numLeafNodes": 5,
+       "x": 999.9000000000001,
+       "y": 211.76470588235293,
+       "width": 333.3,
+       "height": 388.235294117647,
+       "pass1": {"x": 999.9000000000001, "y": 211.76470588235298, "width": 333.3, "height": 388.235294117647},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 1.0999999999999999,
+         "numLeafNodes": 5,
+         "x": 999.9000000000001,
+         "y": 211.76470588235293,
+         "width": 333.3,
+         "height": 388.235294117647,
+         "streamlineNodes": [
+          {
+           "id": "fuzz1347_net1_module2_group-1_left",
+           "sourceId": "fuzz1347_net1_module2_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.3,
+           "numLeafNodes": 1,
+           "x": 999.9000000000001,
+           "y": 494.11764705882354,
+           "width": 333.3,
+           "height": 105.88235294117648,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          },
+          {
+           "id": "fuzz1347_net1_module2_group-1_left--fuzz1347_net0_module4_group-1_right",
+           "sourceId": "fuzz1347_net1_module2_group-1_left",
+           "targetId": "fuzz1347_net0_module4_group-1_right",
+           "dangling": false,
+           "flow": 0.4,
+           "numLeafNodes": 2,
+           "x": 999.9000000000001,
+           "y": 352.94117647058823,
+           "width": 333.3,
+           "height": 141.1764705882353,
+           "sortKey": -247.05882352912027,
+           "linked": true,
+           "opposite": {"networkId": "fuzz1347_net0", "id": "fuzz1347_net0_module4_group-1_right--fuzz1347_net1_module2_group-1_left", "moduleId": "4"}
+          },
+          {
+           "id": "fuzz1347_net1_module2_group-1_left--fuzz1347_net0_module3_group-1_right",
+           "sourceId": "fuzz1347_net1_module2_group-1_left",
+           "targetId": "fuzz1347_net0_module3_group-1_right",
+           "dangling": false,
+           "flow": 0.1,
+           "numLeafNodes": 1,
+           "x": 999.9000000000001,
+           "y": 317.6470588235294,
+           "width": 333.3,
+           "height": 35.294117647058826,
+           "sortKey": -247.05882352912027,
+           "linked": true,
+           "opposite": {"networkId": "fuzz1347_net0", "id": "fuzz1347_net0_module3_group-1_right--fuzz1347_net1_module2_group-1_left", "moduleId": "3"}
+          },
+          {
+           "id": "fuzz1347_net1_module2_group-1_left--fuzz1347_net0_module1:1_group-1_right",
+           "sourceId": "fuzz1347_net1_module2_group-1_left",
+           "targetId": "fuzz1347_net0_module1:1_group-1_right",
+           "dangling": false,
+           "flow": 0.3,
+           "numLeafNodes": 1,
+           "x": 999.9000000000001,
+           "y": 211.76470588235293,
+           "width": 333.3,
+           "height": 105.88235294117648,
+           "sortKey": -247.05882352912027,
+           "linked": true,
+           "opposite": {"networkId": "fuzz1347_net0", "id": "fuzz1347_net0_module1:1_group-1_right--fuzz1347_net1_module2_group-1_left", "moduleId": "1:1"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 1.0999999999999999,
+         "numLeafNodes": 5,
+         "x": 999.9000000000001,
+         "y": 211.76470588235293,
+         "width": 333.3,
+         "height": 388.235294117647,
+         "streamlineNodes": [
+          {
+           "id": "fuzz1347_net1_module2_group-1_right",
+           "sourceId": "fuzz1347_net1_module2_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.7999999999999999,
+           "numLeafNodes": 4,
+           "x": 999.9000000000001,
+           "y": 317.6470588235294,
+           "width": 333.3,
+           "height": 282.3529411764706,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          },
+          {
+           "id": "fuzz1347_net1_module2_group-1_right--fuzz1347_net2_module1_group-1_left",
+           "sourceId": "fuzz1347_net1_module2_group-1_right",
+           "targetId": "fuzz1347_net2_module1_group-1_left",
+           "dangling": false,
+           "flow": 0.3,
+           "numLeafNodes": 1,
+           "x": 999.9000000000001,
+           "y": 211.76470588235293,
+           "width": 333.3,
+           "height": 105.88235294117648,
+           "sortKey": -247.05882352944704,
+           "linked": true,
+           "opposite": {"networkId": "fuzz1347_net2", "id": "fuzz1347_net2_module1_group-1_left--fuzz1347_net1_module2_group-1_right", "moduleId": "1"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "1",
+     "id": "fuzz1347_net1_module1",
+     "path": [1],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 1,
+     "flow": 0.6000000000000001,
+     "numLeafNodes": 3,
+     "meanNodeId": 3.3333333333333335,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 0,
+     "x": 999.9000000000001,
+     "y": 2.842170943040401e-14,
+     "width": 333.3,
+     "height": 211.76470588235298,
+     "pass1": {"margin": 0, "index": 1, "x": 999.9000000000001, "y": 0, "width": 333.3, "height": 211.76470588235298},
+     "label": {
+      "shown": false,
+      "textAnchor": null,
+      "namePosition": {"x": 1166.5500000000002, "y": 105.88235294117652},
+      "idPosition": {"x": 1166.5500000000002, "y": 105.88235294117652},
+      "customName": "",
+      "maxLines": 15,
+      "names": [
+       {"name": "O'Brien", "nodeId": 3, "stateId": 3, "flow": 0.3},
+       {"name": "a-b", "nodeId": 2, "stateId": 1, "flow": 0.2},
+       {"name": "n5", "nodeId": 5, "stateId": 19, "flow": 0.1}
+      ],
+      "namesSingleLine": [
+       {"name": "O'Brien", "nodeId": 3, "stateId": 3, "flow": 0.3},
+       {"name": "a-b", "nodeId": 2, "stateId": 1, "flow": 0.2},
+       {"name": "n5", "nodeId": 5, "stateId": 19, "flow": 0.1}
+      ]
+     },
+     "groups": [
+      {
+       "id": "fuzz1347_net1_module1_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.6000000000000001,
+       "numLeafNodes": 3,
+       "x": 999.9000000000001,
+       "y": 2.842170943040401e-14,
+       "width": 333.3,
+       "height": 211.76470588235298,
+       "pass1": {"x": 999.9000000000001, "y": 0, "width": 333.3, "height": 211.76470588235298},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.6000000000000001,
+         "numLeafNodes": 3,
+         "x": 999.9000000000001,
+         "y": -2.842170943040401e-14,
+         "width": 333.3,
+         "height": 211.76470588235298,
+         "streamlineNodes": [
+          {
+           "id": "fuzz1347_net1_module1_group-1_left",
+           "sourceId": "fuzz1347_net1_module1_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.4,
+           "numLeafNodes": 2,
+           "x": 999.9000000000001,
+           "y": 70.58823529411762,
+           "width": 333.3,
+           "height": 141.1764705882353,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          },
+          {
+           "id": "fuzz1347_net1_module1_group-1_left--fuzz1347_net0_module3_group-1_right",
+           "sourceId": "fuzz1347_net1_module1_group-1_left",
+           "targetId": "fuzz1347_net0_module3_group-1_right",
+           "dangling": false,
+           "flow": 0.2,
+           "numLeafNodes": 1,
+           "x": 999.9000000000001,
+           "y": -2.842170943040401e-14,
+           "width": 333.3,
+           "height": 70.58823529411765,
+           "sortKey": -247.05882352912027,
+           "linked": true,
+           "opposite": {"networkId": "fuzz1347_net0", "id": "fuzz1347_net0_module3_group-1_right--fuzz1347_net1_module1_group-1_left", "moduleId": "3"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.6,
+         "numLeafNodes": 3,
+         "x": 999.9000000000001,
+         "y": 2.842170943040401e-14,
+         "width": 333.3,
+         "height": 211.76470588235296,
+         "streamlineNodes": [
+          {
+           "id": "fuzz1347_net1_module1_group-1_right",
+           "sourceId": "fuzz1347_net1_module1_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.1,
+           "numLeafNodes": 1,
+           "x": 999.9000000000001,
+           "y": 176.47058823529414,
+           "width": 333.3,
+           "height": 35.294117647058826,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          },
+          {
+           "id": "fuzz1347_net1_module1_group-1_right--fuzz1347_net2_module3_group-1_left",
+           "sourceId": "fuzz1347_net1_module1_group-1_right",
+           "targetId": "fuzz1347_net2_module3_group-1_left",
+           "dangling": false,
+           "flow": 0.5,
+           "numLeafNodes": 2,
+           "x": 999.9000000000001,
+           "y": 2.842170943040401e-14,
+           "width": 333.3,
+           "height": 176.47058823529412,
+           "sortKey": -364.7058823529647,
+           "linked": true,
+           "opposite": {"networkId": "fuzz1347_net2", "id": "fuzz1347_net2_module3_group-1_left--fuzz1347_net1_module1_group-1_right", "moduleId": "3"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "numLinksAboveZero": 2,
+   "links": [
+    {
+     "id": "fuzz1347_net1_module1_group-1_right--fuzz1347_net2_module3_group-1_left",
+     "left": {"networkId": "fuzz1347_net1", "moduleId": "1", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "fuzz1347_net1_module1_group-1_right--fuzz1347_net2_module3_group-1_left"},
+     "right": {"networkId": "fuzz1347_net2", "moduleId": "3", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "fuzz1347_net2_module3_group-1_left--fuzz1347_net1_module1_group-1_right"},
+     "x0": 1333.2,
+     "y0": 2.842170943040401e-14,
+     "h0": 176.47058823529412,
+     "x1": 1999.8000000000002,
+     "y1": 364.7058823529647,
+     "h1": 235.2941176470353,
+     "avgHeight": 205.8823529411647,
+     "highlightIndex": -1,
+     "leftHighlightIndex": -1,
+     "rightHighlightIndex": -1,
+     "path": "M1333.2,176.47058823529412C1666.5,176.47058823529412,1666.5,600,1999.8000000000002,600L1999.8000000000002,364.7058823529647C1666.5,364.7058823529647,1666.5,0,1333.2,0Z"
+    },
+    {
+     "id": "fuzz1347_net1_module2_group-1_right--fuzz1347_net2_module1_group-1_left",
+     "left": {"networkId": "fuzz1347_net1", "moduleId": "2", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "fuzz1347_net1_module2_group-1_right--fuzz1347_net2_module1_group-1_left"},
+     "right": {"networkId": "fuzz1347_net2", "moduleId": "1", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "fuzz1347_net2_module1_group-1_left--fuzz1347_net1_module2_group-1_right"},
+     "x0": 1333.2,
+     "y0": 211.76470588235293,
+     "h0": 105.88235294117648,
+     "x1": 1999.8000000000002,
+     "y1": 247.05882352944698,
+     "h1": 117.64705882351765,
+     "avgHeight": 111.76470588234707,
+     "highlightIndex": -1,
+     "leftHighlightIndex": -1,
+     "rightHighlightIndex": -1,
+     "path": "M1333.2,317.6470588235294C1666.5,317.6470588235294,1666.5,364.70588235296464,1999.8000000000002,364.70588235296464L1999.8000000000002,247.05882352944698C1666.5,247.05882352944698,1666.5,211.76470588235293,1333.2,211.76470588235293Z"
+    }
+   ],
+   "hierarchy": [
+    {"type": "module", "moduleId": "2"},
+    {"type": "module", "moduleId": "1"}
+   ],
+   "identifiersUnique": true,
+   "leafColumns": ["identifier","nodeId","stateId","moduleId","moduleLevel","highlightIndex","insignificant"],
+   "leaves": [
+    ["1",2,1,"1",1,-1,false],
+    ["2",2,2,"2",1,-1,false],
+    ["3",3,3,"1",1,-1,false],
+    ["10",4,10,"2",1,-1,false],
+    ["11",4,11,"2",1,-1,false],
+    ["18",4,18,"2",1,-1,false],
+    ["19",5,19,"1",1,-1,false],
+    ["20",5,20,"2",1,-1,false]
+   ]
+  },
+  {
+   "networkId": "fuzz1347_net2",
+   "name": "fuzz1347_net2.stree",
+   "index": 2,
+   "file": {
+    "path": "data/fuzz1347_net2.stree",
+    "format": "stree",
+    "numTopModules": 2,
+    "numLevels": 3,
+    "isStateNetwork": true,
+    "directed": null,
+    "codelength": 1.84171,
+    "numNodes": 3
+   },
+   "x": 1999.8000000000002,
+   "y": 0,
+   "width": 333.3,
+   "height": 600,
+   "flow": 0.9999999999999001,
+   "numLeafNodes": 3,
+   "moduleFlowThreshold": 0.3333333333333,
+   "isCustomSorted": false,
+   "isHigherOrder": true,
+   "namePosition": {"x": 2166.4500000000003, "y": 620},
+   "totalMargin": 0,
+   "visibleFlow": 0.5882352941175882,
+   "numVisibleModules": 2,
+   "numModules": 2,
+   "modules": [
+    {
+     "moduleId": "3",
+     "id": "fuzz1347_net2_module3",
+     "path": [3],
+     "moduleLevel": 1,
+     "maxModuleLevel": 2,
+     "index": 0,
+     "flow": 0.6666666666666,
+     "numLeafNodes": 2,
+     "meanNodeId": 2,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 0,
+     "x": 1999.8000000000002,
+     "y": 364.70588235296464,
+     "width": 333.3,
+     "height": 235.2941176470353,
+     "pass1": {"margin": 0, "index": 0, "x": 1999.8000000000002, "y": 364.7058823529647, "width": 333.3, "height": 235.2941176470353},
+     "label": {
+      "shown": false,
+      "textAnchor": null,
+      "namePosition": {"x": 2166.4500000000003, "y": 482.3529411764823},
+      "idPosition": {"x": 2166.4500000000003, "y": 482.3529411764823},
+      "customName": "",
+      "maxLines": 17,
+      "names": [
+       {"name": "a-b", "nodeId": 2, "stateId": 1, "flow": 0.6666666666666}
+      ],
+      "namesSingleLine": [
+       {"name": "a-b", "nodeId": 2, "stateId": 1, "flow": 0.6666666666666}
+      ]
+     },
+     "groups": [
+      {
+       "id": "fuzz1347_net2_module3_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.6666666666666,
+       "numLeafNodes": 2,
+       "x": 1999.8000000000002,
+       "y": 364.70588235296464,
+       "width": 333.3,
+       "height": 235.2941176470353,
+       "pass1": {"x": 1999.8000000000002, "y": 364.7058823529647, "width": 333.3, "height": 235.2941176470353},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.6666666666666,
+         "numLeafNodes": 2,
+         "x": 1999.8000000000002,
+         "y": 364.7058823529647,
+         "width": 333.3,
+         "height": 235.2941176470353,
+         "streamlineNodes": [
+          {
+           "id": "fuzz1347_net2_module3_group-1_left--fuzz1347_net1_module1_group-1_right",
+           "sourceId": "fuzz1347_net2_module3_group-1_left",
+           "targetId": "fuzz1347_net1_module1_group-1_right",
+           "dangling": false,
+           "flow": 0.6666666666666,
+           "numLeafNodes": 2,
+           "x": 1999.8000000000002,
+           "y": 364.7058823529647,
+           "width": 333.3,
+           "height": 235.2941176470353,
+           "sortKey": 0,
+           "linked": true,
+           "opposite": {"networkId": "fuzz1347_net1", "id": "fuzz1347_net1_module1_group-1_right--fuzz1347_net2_module3_group-1_left", "moduleId": "1"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.6666666666666,
+         "numLeafNodes": 2,
+         "x": 1999.8000000000002,
+         "y": 364.70588235296464,
+         "width": 333.3,
+         "height": 235.2941176470353,
+         "streamlineNodes": [
+          {
+           "id": "fuzz1347_net2_module3_group-1_right",
+           "sourceId": "fuzz1347_net2_module3_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.3333333333333,
+           "numLeafNodes": 1,
+           "x": 1999.8000000000002,
+           "y": 482.3529411764823,
+           "width": 333.3,
+           "height": 117.64705882351765,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          },
+          {
+           "id": "fuzz1347_net2_module3_group-1_right--fuzz1347_net3_module10:2_groupi-1_left",
+           "sourceId": "fuzz1347_net2_module3_group-1_right",
+           "targetId": "fuzz1347_net3_module10:2_groupi-1_left",
+           "dangling": false,
+           "flow": 0.3333333333333,
+           "numLeafNodes": 1,
+           "x": 1999.8000000000002,
+           "y": 364.70588235296464,
+           "width": 333.3,
+           "height": 117.64705882351765,
+           "sortKey": -247.05882347541177,
+           "linked": true,
+           "opposite": {"networkId": "fuzz1347_net3", "id": "fuzz1347_net3_module10:2_groupi-1_left--fuzz1347_net2_module3_group-1_right", "moduleId": "10:2"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "1",
+     "id": "fuzz1347_net2_module1",
+     "path": [1],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 1,
+     "flow": 0.3333333333333,
+     "numLeafNodes": 1,
+     "meanNodeId": 2,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 0,
+     "x": 1999.8000000000002,
+     "y": 247.05882352944698,
+     "width": 333.3,
+     "height": 117.64705882351765,
+     "pass1": {"margin": 0, "index": 1, "x": 1999.8000000000002, "y": 247.05882352944704, "width": 333.3, "height": 117.64705882351765},
+     "label": {
+      "shown": false,
+      "textAnchor": null,
+      "namePosition": {"x": 2166.4500000000003, "y": 305.8823529412058},
+      "idPosition": {"x": 2166.4500000000003, "y": 305.8823529412058},
+      "customName": "",
+      "maxLines": 9,
+      "names": [
+       {"name": "a-b", "nodeId": 2, "stateId": 2, "flow": 0.3333333333333}
+      ],
+      "namesSingleLine": [
+       {"name": "a-b", "nodeId": 2, "stateId": 2, "flow": 0.3333333333333}
+      ]
+     },
+     "groups": [
+      {
+       "id": "fuzz1347_net2_module1_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.3333333333333,
+       "numLeafNodes": 1,
+       "x": 1999.8000000000002,
+       "y": 247.05882352944698,
+       "width": 333.3,
+       "height": 117.64705882351765,
+       "pass1": {"x": 1999.8000000000002, "y": 247.05882352944704, "width": 333.3, "height": 117.64705882351765},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.3333333333333,
+         "numLeafNodes": 1,
+         "x": 1999.8000000000002,
+         "y": 247.05882352944698,
+         "width": 333.3,
+         "height": 117.64705882351765,
+         "streamlineNodes": [
+          {
+           "id": "fuzz1347_net2_module1_group-1_left--fuzz1347_net1_module2_group-1_right",
+           "sourceId": "fuzz1347_net2_module1_group-1_left",
+           "targetId": "fuzz1347_net1_module2_group-1_right",
+           "dangling": false,
+           "flow": 0.3333333333333,
+           "numLeafNodes": 1,
+           "x": 1999.8000000000002,
+           "y": 247.05882352944698,
+           "width": 333.3,
+           "height": 117.64705882351765,
+           "sortKey": -211.76470588235298,
+           "linked": true,
+           "opposite": {"networkId": "fuzz1347_net1", "id": "fuzz1347_net1_module2_group-1_right--fuzz1347_net2_module1_group-1_left", "moduleId": "2"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.3333333333333,
+         "numLeafNodes": 1,
+         "x": 1999.8000000000002,
+         "y": 247.05882352944698,
+         "width": 333.3,
+         "height": 117.64705882351765,
+         "streamlineNodes": [
+          {
+           "id": "fuzz1347_net2_module1_group-1_right--fuzz1347_net3_module8_group-1_left",
+           "sourceId": "fuzz1347_net2_module1_group-1_right",
+           "targetId": "fuzz1347_net3_module8_group-1_left",
+           "dangling": false,
+           "flow": 0.3333333333333,
+           "numLeafNodes": 1,
+           "x": 1999.8000000000002,
+           "y": 247.05882352944698,
+           "width": 333.3,
+           "height": 117.64705882351765,
+           "sortKey": -Infinity,
+           "linked": true,
+           "opposite": {"networkId": "fuzz1347_net3", "id": "fuzz1347_net3_module8_group-1_left--fuzz1347_net2_module1_group-1_right", "moduleId": "8"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "numLinksAboveZero": 1,
+   "links": [
+    {
+     "id": "fuzz1347_net2_module3_group-1_right--fuzz1347_net3_module10:2_groupi-1_left",
+     "left": {"networkId": "fuzz1347_net2", "moduleId": "3", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "fuzz1347_net2_module3_group-1_right--fuzz1347_net3_module10:2_groupi-1_left"},
+     "right": {"networkId": "fuzz1347_net3", "moduleId": "10:2", "groupHighlightIndex": -1, "groupInsignificant": true, "streamlineNodeId": "fuzz1347_net3_module10:2_groupi-1_left--fuzz1347_net2_module3_group-1_right"},
+     "x0": 2333.1000000000004,
+     "y0": 364.70588235296464,
+     "h0": 117.64705882351765,
+     "x1": 2999.7000000000003,
+     "y1": 247.05882347541177,
+     "h1": 135.1764705882353,
+     "avgHeight": 126.41176470587648,
+     "highlightIndex": -1,
+     "leftHighlightIndex": -1,
+     "rightHighlightIndex": -1,
+     "path": "M2333.1000000000004,482.3529411764823C2666.4000000000005,482.3529411764823,2666.4000000000005,382.2352940636471,2999.7000000000003,382.2352940636471L2999.7000000000003,247.05882347541177C2666.4000000000005,247.05882347541177,2666.4000000000005,364.70588235296464,2333.1000000000004,364.70588235296464Z"
+    }
+   ],
+   "hierarchy": [
+    {"type": "module", "moduleId": "3"},
+    {"type": "module", "moduleId": "1"}
+   ],
+   "identifiersUnique": true,
+   "leafColumns": ["identifier","nodeId","stateId","moduleId","moduleLevel","highlightIndex","insignificant"],
+   "leaves": [
+    ["1",2,1,"3",1,-1,false],
+    ["2",2,2,"1",1,-1,false],
+    ["3",2,3,"3",1,-1,false]
+   ]
+  },
+  {
+   "networkId": "fuzz1347_net3",
+   "name": "fuzz1347_net3.stree",
+   "index": 3,
+   "file": {
+    "path": "data/fuzz1347_net3.stree",
+    "format": "stree",
+    "numTopModules": 3,
+    "numLevels": 3,
+    "isStateNetwork": true,
+    "directed": null,
+    "codelength": null,
+    "numNodes": 4
+   },
+   "x": 2999.7000000000003,
+   "y": 0,
+   "width": 333.3,
+   "height": 600,
+   "flow": 1.0000000001529998,
+   "numLeafNodes": 4,
+   "moduleFlowThreshold": 0.383,
+   "isCustomSorted": false,
+   "isHigherOrder": true,
+   "namePosition": {"x": 3166.3500000000004, "y": 620},
+   "totalMargin": 0,
+   "visibleFlow": 0.5882352942076471,
+   "numVisibleModules": 2,
+   "numModules": 3,
+   "modules": [
+    {
+     "moduleId": "7",
+     "id": "fuzz1347_net3_module7",
+     "path": [7],
+     "moduleLevel": 1,
+     "maxModuleLevel": 2,
+     "index": 0,
+     "flow": 0.6170000001529999,
+     "numLeafNodes": 2,
+     "meanNodeId": 5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 0,
+     "x": 2999.7000000000003,
+     "y": 382.2352940636471,
+     "width": 333.3,
+     "height": 217.76470593635293,
+     "pass1": {"margin": 0, "index": 0, "x": 2999.7000000000003, "y": 382.2352940636471, "width": 333.3, "height": 217.76470593635293},
+     "label": {
+      "shown": false,
+      "textAnchor": null,
+      "namePosition": {"x": 3166.3500000000004, "y": 491.11764703182354},
+      "idPosition": {"x": 3166.3500000000004, "y": 491.11764703182354},
+      "customName": "",
+      "maxLines": 15,
+      "names": [
+       {"name": "n5", "nodeId": 5, "stateId": 9, "flow": 0.6170000001529999}
+      ],
+      "namesSingleLine": [
+       {"name": "n5", "nodeId": 5, "stateId": 9, "flow": 0.6170000001529999}
+      ]
+     },
+     "groups": [
+      {
+       "id": "fuzz1347_net3_module7_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.6170000001529999,
+       "numLeafNodes": 2,
+       "x": 2999.7000000000003,
+       "y": 382.2352940636471,
+       "width": 333.3,
+       "height": 217.76470593635293,
+       "pass1": {"x": 2999.7000000000003, "y": 382.2352940636471, "width": 333.3, "height": 217.76470593635293},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.6170000001529999,
+         "numLeafNodes": 2,
+         "x": 2999.7000000000003,
+         "y": 382.2352940636471,
+         "width": 333.3,
+         "height": 217.76470593635293,
+         "streamlineNodes": [
+          {
+           "id": "fuzz1347_net3_module7_group-1_left",
+           "sourceId": "fuzz1347_net3_module7_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.6170000001529999,
+           "numLeafNodes": 2,
+           "x": 2999.7000000000003,
+           "y": 382.2352940636471,
+           "width": 333.3,
+           "height": 217.76470593635293,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.6170000001529999,
+         "numLeafNodes": 2,
+         "x": 2999.7000000000003,
+         "y": 382.2352940636471,
+         "width": 333.3,
+         "height": 217.76470593635293,
+         "streamlineNodes": [
+          {
+           "id": "fuzz1347_net3_module7_group-1_right",
+           "sourceId": "fuzz1347_net3_module7_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.6170000001529999,
+           "numLeafNodes": 2,
+           "x": 2999.7000000000003,
+           "y": 382.2352940636471,
+           "width": 333.3,
+           "height": 217.76470593635293,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "10:2",
+     "id": "fuzz1347_net3_module10:2",
+     "path": [10,2],
+     "moduleLevel": 2,
+     "maxModuleLevel": 2,
+     "index": 1,
+     "flow": 0.383,
+     "numLeafNodes": 1,
+     "meanNodeId": 1,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 0,
+     "x": 2999.7000000000003,
+     "y": 247.05882347541177,
+     "width": 333.3,
+     "height": 135.1764705882353,
+     "pass1": {"margin": 0, "index": 1, "x": 2999.7000000000003, "y": 247.05882347541177, "width": 333.3, "height": 135.1764705882353},
+     "label": {
+      "shown": false,
+      "textAnchor": null,
+      "namePosition": {"x": 3166.3500000000004, "y": 314.6470587695294},
+      "idPosition": {"x": 3166.3500000000004, "y": 314.6470587695294},
+      "customName": "",
+      "maxLines": 9,
+      "names": [
+       {"name": "a-b", "nodeId": 1, "stateId": 1, "flow": 0.383}
+      ],
+      "namesSingleLine": [
+       {"name": "a-b", "nodeId": 1, "stateId": 1, "flow": 0.383}
+      ]
+     },
+     "groups": [
+      {
+       "id": "fuzz1347_net3_module10:2_groupi-1",
+       "highlightIndex": -1,
+       "insignificant": true,
+       "flow": 0.383,
+       "numLeafNodes": 1,
+       "x": 2999.7000000000003,
+       "y": 247.05882347541177,
+       "width": 333.3,
+       "height": 135.1764705882353,
+       "pass1": {"x": 2999.7000000000003, "y": 247.05882347541177, "width": 333.3, "height": 135.1764705882353},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.383,
+         "numLeafNodes": 1,
+         "x": 2999.7000000000003,
+         "y": 247.05882347541177,
+         "width": 333.3,
+         "height": 135.1764705882353,
+         "streamlineNodes": [
+          {
+           "id": "fuzz1347_net3_module10:2_groupi-1_left--fuzz1347_net2_module3_group-1_right",
+           "sourceId": "fuzz1347_net3_module10:2_groupi-1_left",
+           "targetId": "fuzz1347_net2_module3_group-1_right",
+           "dangling": false,
+           "flow": 0.383,
+           "numLeafNodes": 1,
+           "x": 2999.7000000000003,
+           "y": 247.05882347541177,
+           "width": 333.3,
+           "height": 135.1764705882353,
+           "sortKey": -364.7058823529647,
+           "linked": true,
+           "opposite": {"networkId": "fuzz1347_net2", "id": "fuzz1347_net2_module3_group-1_right--fuzz1347_net3_module10:2_groupi-1_left", "moduleId": "3"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.383,
+         "numLeafNodes": 1,
+         "x": 2999.7000000000003,
+         "y": 247.05882347541177,
+         "width": 333.3,
+         "height": 135.1764705882353,
+         "streamlineNodes": [
+          {
+           "id": "fuzz1347_net3_module10:2_groupi-1_right--fuzz1347_net4_module1_group-1_left",
+           "sourceId": "fuzz1347_net3_module10:2_groupi-1_right",
+           "targetId": "fuzz1347_net4_module1_group-1_left",
+           "dangling": false,
+           "flow": 0.383,
+           "numLeafNodes": 1,
+           "x": 2999.7000000000003,
+           "y": 247.05882347541177,
+           "width": 333.3,
+           "height": 135.1764705882353,
+           "sortKey": -247.05882352941177,
+           "linked": true,
+           "opposite": {"networkId": "fuzz1347_net4", "id": "fuzz1347_net4_module1_group-1_left--fuzz1347_net3_module10:2_groupi-1_right", "moduleId": "1"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "8",
+     "id": "fuzz1347_net3_module8",
+     "path": [8],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 2,
+     "flow": 0,
+     "numLeafNodes": 1,
+     "meanNodeId": 5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": false,
+     "highlightIndex": -1,
+     "margin": 0,
+     "x": 0,
+     "y": 0,
+     "width": 0,
+     "height": 0,
+     "pass1": null,
+     "label": {
+      "shown": false,
+      "textAnchor": null,
+      "namePosition": {"x": 0, "y": 0},
+      "idPosition": {"x": 0, "y": 0},
+      "customName": "",
+      "maxLines": 0,
+      "names": [],
+      "namesSingleLine": [
+       {"name": "n5", "nodeId": 5, "stateId": 2, "flow": 0}
+      ]
+     },
+     "groups": [
+      {
+       "id": "fuzz1347_net3_module8_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0,
+       "numLeafNodes": 1,
+       "x": 0,
+       "y": 0,
+       "width": 0,
+       "height": 0,
+       "pass1": null,
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 0,
+         "width": 0,
+         "height": 0,
+         "streamlineNodes": [
+          {
+           "id": "fuzz1347_net3_module8_group-1_left--fuzz1347_net2_module1_group-1_right",
+           "sourceId": "fuzz1347_net3_module8_group-1_left",
+           "targetId": "fuzz1347_net2_module1_group-1_right",
+           "dangling": false,
+           "flow": 0,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 0,
+           "width": 0,
+           "height": 0,
+           "sortKey": -247.05882352944704,
+           "linked": true,
+           "opposite": {"networkId": "fuzz1347_net2", "id": "fuzz1347_net2_module1_group-1_right--fuzz1347_net3_module8_group-1_left", "moduleId": "1"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 0,
+         "width": 0,
+         "height": 0,
+         "streamlineNodes": [
+          {
+           "id": "fuzz1347_net3_module8_group-1_right",
+           "sourceId": "fuzz1347_net3_module8_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 0,
+           "width": 0,
+           "height": 0,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "numLinksAboveZero": 1,
+   "links": [
+    {
+     "id": "fuzz1347_net3_module10:2_groupi-1_right--fuzz1347_net4_module1_group-1_left",
+     "left": {"networkId": "fuzz1347_net3", "moduleId": "10:2", "groupHighlightIndex": -1, "groupInsignificant": true, "streamlineNodeId": "fuzz1347_net3_module10:2_groupi-1_right--fuzz1347_net4_module1_group-1_left"},
+     "right": {"networkId": "fuzz1347_net4", "moduleId": "1", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "fuzz1347_net4_module1_group-1_left--fuzz1347_net3_module10:2_groupi-1_right"},
+     "x0": 3333.0000000000005,
+     "y0": 247.05882347541177,
+     "h0": 135.1764705882353,
+     "x1": 3999.6000000000004,
+     "y1": 247.05882352941177,
+     "h1": 352.94117647058823,
+     "avgHeight": 244.05882352941177,
+     "highlightIndex": -1,
+     "leftHighlightIndex": -1,
+     "rightHighlightIndex": -1,
+     "path": "M3333.0000000000005,382.2352940636471C3666.3,382.2352940636471,3666.3,600,3999.6000000000004,600L3999.6000000000004,247.05882352941177C3666.3,247.05882352941177,3666.3,247.05882347541177,3333.0000000000005,247.05882347541177Z"
+    }
+   ],
+   "hierarchy": [
+    {
+     "type": "tree",
+     "path": "10",
+     "moduleLevel": 1,
+     "isLeaf": false,
+     "maxModuleLevel": 2,
+     "x": 2999.7000000000003,
+     "y": 247.05882347541177,
+     "width": 333.3,
+     "height": 135.1764705882353
+    },
+    {"type": "module", "moduleId": "7"},
+    {"type": "module", "moduleId": "10:2"}
+   ],
+   "identifiersUnique": false,
+   "leafColumns": ["identifier","nodeId","stateId","moduleId","moduleLevel","highlightIndex","insignificant"],
+   "leaves": [
+    ["1",1,1,"10:2",2,-1,true],
+    ["2",5,2,"7",1,-1,false],
+    ["2",5,2,"8",1,-1,false],
+    ["9",5,9,"7",1,-1,false]
+   ]
+  },
+  {
+   "networkId": "fuzz1347_net4",
+   "name": "fuzz1347_net4.stree",
+   "index": 4,
+   "file": {
+    "path": "data/fuzz1347_net4.stree",
+    "format": "stree",
+    "numTopModules": 1,
+    "numLevels": 2,
+    "isStateNetwork": true,
+    "directed": null,
+    "codelength": null,
+    "numNodes": 1
+   },
+   "x": 3999.6000000000004,
+   "y": 0,
+   "width": 333.3,
+   "height": 600,
+   "flow": 1,
+   "numLeafNodes": 1,
+   "moduleFlowThreshold": 1,
+   "isCustomSorted": false,
+   "isHigherOrder": true,
+   "namePosition": {"x": 4166.25, "y": 620},
+   "totalMargin": 0,
+   "visibleFlow": 0.5882352941176471,
+   "numVisibleModules": 1,
+   "numModules": 1,
+   "modules": [
+    {
+     "moduleId": "1",
+     "id": "fuzz1347_net4_module1",
+     "path": [1],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 0,
+     "flow": 1,
+     "numLeafNodes": 1,
+     "meanNodeId": 2,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 0,
+     "x": 3999.6000000000004,
+     "y": 247.05882352941177,
+     "width": 333.3,
+     "height": 352.94117647058823,
+     "pass1": {"margin": 0, "index": 0, "x": 3999.6000000000004, "y": 247.05882352941177, "width": 333.3, "height": 352.94117647058823},
+     "label": {
+      "shown": true,
+      "textAnchor": "start",
+      "namePosition": {"x": 4352.900000000001, "y": 423.52941176470586},
+      "idPosition": {"x": 4166.25, "y": 423.52941176470586},
+      "customName": "",
+      "maxLines": 25,
+      "names": [
+       {"name": "a-b", "nodeId": 2, "stateId": 1, "flow": 1}
+      ],
+      "namesSingleLine": [
+       {"name": "a-b", "nodeId": 2, "stateId": 1, "flow": 1}
+      ]
+     },
+     "groups": [
+      {
+       "id": "fuzz1347_net4_module1_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 1,
+       "numLeafNodes": 1,
+       "x": 3999.6000000000004,
+       "y": 247.05882352941177,
+       "width": 333.3,
+       "height": 352.94117647058823,
+       "pass1": {"x": 3999.6000000000004, "y": 247.05882352941177, "width": 333.3, "height": 352.94117647058823},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 1,
+         "numLeafNodes": 1,
+         "x": 3999.6000000000004,
+         "y": 247.05882352941177,
+         "width": 333.3,
+         "height": 352.94117647058823,
+         "streamlineNodes": [
+          {
+           "id": "fuzz1347_net4_module1_group-1_left--fuzz1347_net3_module10:2_groupi-1_right",
+           "sourceId": "fuzz1347_net4_module1_group-1_left",
+           "targetId": "fuzz1347_net3_module10:2_groupi-1_right",
+           "dangling": false,
+           "flow": 1,
+           "numLeafNodes": 1,
+           "x": 3999.6000000000004,
+           "y": 247.05882352941177,
+           "width": 333.3,
+           "height": 352.94117647058823,
+           "sortKey": -247.05882347541177,
+           "linked": true,
+           "opposite": {"networkId": "fuzz1347_net3", "id": "fuzz1347_net3_module10:2_groupi-1_right--fuzz1347_net4_module1_group-1_left", "moduleId": "10:2"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 1,
+         "numLeafNodes": 1,
+         "x": 3999.6000000000004,
+         "y": 247.05882352941177,
+         "width": 333.3,
+         "height": 352.94117647058823,
+         "streamlineNodes": [
+          {
+           "id": "fuzz1347_net4_module1_group-1_right",
+           "sourceId": "fuzz1347_net4_module1_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 1,
+           "numLeafNodes": 1,
+           "x": 3999.6000000000004,
+           "y": 247.05882352941177,
+           "width": 333.3,
+           "height": 352.94117647058823,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "numLinksAboveZero": 0,
+   "links": [],
+   "hierarchy": [
+    {"type": "module", "moduleId": "1"}
+   ],
+   "identifiersUnique": true,
+   "leafColumns": ["identifier","nodeId","stateId","moduleId","moduleLevel","highlightIndex","insignificant"],
+   "leaves": [
+    ["1",2,1,"1",1,-1,false]
+   ]
+  }
+ ]
+}

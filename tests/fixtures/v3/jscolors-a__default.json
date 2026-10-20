@@ -1,0 +1,487 @@
+{
+ "formatVersion": 1,
+ "scenario": "jscolors-a__default",
+ "group": "jscolors-a",
+ "variant": "default",
+ "description": "top-level colors list, nodes carry highlightIndex (5 is out of range)",
+ "features": ["jsColors","json"],
+ "inputs": {
+  "files": ["data/jscolors_a.json"],
+  "formats": ["json"],
+  "networkIds": ["jscolors_a"],
+  "networkNames": ["A"],
+  "identifier": "id",
+  "options": {
+   "height": 600,
+   "moduleWidth": 80,
+   "streamlineFraction": 2,
+   "streamlineThreshold": 1,
+   "flowThreshold": 0.005,
+   "marginExponent": 4,
+   "zeroMargins": false,
+   "verticalAlign": "bottom",
+   "moduleSize": "flow",
+   "sortModulesBy": "flow"
+  },
+  "labelOptions": {"fontSize": 8, "adaptiveFontSize": false, "multilineModuleNames": true, "aggregateStateNames": true, "showModuleNames": true},
+  "colorScheme": "C3 Sinebow",
+  "operations": [
+   {"op": "setNetworks"}
+  ]
+ },
+ "diagram": {
+  "x": 0,
+  "y": 0,
+  "width": 80,
+  "height": 600,
+  "flow": 0,
+  "numNetworks": 1,
+  "maxNetworkFlow": 1,
+  "streamlineWidth": 160,
+  "networkWidth": 240,
+  "totalWidth": 80,
+  "totalMargins": [32],
+  "maxTotalMargin": 32,
+  "marginFractionOfHeight": 0.05333333333333334,
+  "maxMarginFractionOfHeight": 0.2,
+  "marginCapped": false,
+  "moduleMarginScale": null,
+  "scaledTotalMargin": null,
+  "usableHeight": 568,
+  "visibleFlows": [1],
+  "visibleModuleCounts": [3],
+  "updateLayoutCalls": 1,
+  "usableHeightCheckedModules": 3
+ },
+ "highlightColors": ["#f00","#0f0"],
+ "defaultHighlightColor": "#b6b69f",
+ "warnings": [],
+ "networks": [
+  {
+   "networkId": "jscolors_a",
+   "name": "A",
+   "index": 0,
+   "file": {
+    "path": "data/jscolors_a.json",
+    "format": "json",
+    "numTopModules": 3,
+    "numLevels": 2,
+    "isStateNetwork": false,
+    "directed": null,
+    "codelength": null,
+    "numNodes": 5
+   },
+   "x": 0,
+   "y": 0,
+   "width": 80,
+   "height": 600,
+   "flow": 1,
+   "numLeafNodes": 5,
+   "moduleFlowThreshold": 0.1,
+   "isCustomSorted": false,
+   "isHigherOrder": false,
+   "namePosition": {"x": 40, "y": 620},
+   "totalMargin": 32,
+   "visibleFlow": 1,
+   "numVisibleModules": 3,
+   "numModules": 3,
+   "modules": [
+    {
+     "moduleId": "1",
+     "id": "jscolors_a_module1",
+     "path": [1],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 0,
+     "flow": 0.5,
+     "numLeafNodes": 2,
+     "meanNodeId": 1.5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": 1,
+     "margin": 16,
+     "x": 0,
+     "y": 316,
+     "width": 80,
+     "height": 284,
+     "pass1": {"margin": 16, "index": 0, "x": 0, "y": 300, "width": 80, "height": 300},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 458},
+      "idPosition": {"x": 40, "y": 458},
+      "customName": "",
+      "maxLines": 19,
+      "names": [
+       {"name": "a", "nodeId": 1, "stateId": null, "flow": 0.3},
+       {"name": "b", "nodeId": 2, "stateId": null, "flow": 0.2}
+      ],
+      "namesSingleLine": [
+       {"name": "a", "nodeId": 1, "stateId": null, "flow": 0.3},
+       {"name": "b", "nodeId": 2, "stateId": null, "flow": 0.2}
+      ]
+     },
+     "groups": [
+      {
+       "id": "jscolors_a_module1_group1",
+       "highlightIndex": 1,
+       "insignificant": false,
+       "flow": 0.5,
+       "numLeafNodes": 2,
+       "x": 0,
+       "y": 316,
+       "width": 80,
+       "height": 284,
+       "pass1": {"x": 0, "y": 300, "width": 80, "height": 300},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.5,
+         "numLeafNodes": 2,
+         "x": 0,
+         "y": 316,
+         "width": 80,
+         "height": 284,
+         "streamlineNodes": [
+          {
+           "id": "jscolors_a_module1_group1_left",
+           "sourceId": "jscolors_a_module1_group1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.5,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 316,
+           "width": 80,
+           "height": 284,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.5,
+         "numLeafNodes": 2,
+         "x": 0,
+         "y": 316,
+         "width": 80,
+         "height": 284,
+         "streamlineNodes": [
+          {
+           "id": "jscolors_a_module1_group1_right",
+           "sourceId": "jscolors_a_module1_group1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.5,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 316,
+           "width": 80,
+           "height": 284,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "2",
+     "id": "jscolors_a_module2",
+     "path": [2],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 1,
+     "flow": 0.4,
+     "numLeafNodes": 2,
+     "meanNodeId": 3.5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": 5,
+     "margin": 16,
+     "x": 0,
+     "y": 72.80000000000001,
+     "width": 80,
+     "height": 227.20000000000002,
+     "pass1": {"margin": 16, "index": 1, "x": 0, "y": 44, "width": 80, "height": 240},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 186.40000000000003},
+      "idPosition": {"x": 40, "y": 186.40000000000003},
+      "customName": "",
+      "maxLines": 15,
+      "names": [
+       {"name": "c", "nodeId": 3, "stateId": null, "flow": 0.25},
+       {"name": "d", "nodeId": 4, "stateId": null, "flow": 0.15}
+      ],
+      "namesSingleLine": [
+       {"name": "c", "nodeId": 3, "stateId": null, "flow": 0.25},
+       {"name": "d", "nodeId": 4, "stateId": null, "flow": 0.15}
+      ]
+     },
+     "groups": [
+      {
+       "id": "jscolors_a_module2_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.15,
+       "numLeafNodes": 1,
+       "x": 0,
+       "y": 214.8,
+       "width": 80,
+       "height": 85.2,
+       "pass1": {"x": 0, "y": 194, "width": 80, "height": 90},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.15,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 214.8,
+         "width": 80,
+         "height": 85.2,
+         "streamlineNodes": [
+          {
+           "id": "jscolors_a_module2_group-1_left",
+           "sourceId": "jscolors_a_module2_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.15,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 214.8,
+           "width": 80,
+           "height": 85.2,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.15,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 214.8,
+         "width": 80,
+         "height": 85.2,
+         "streamlineNodes": [
+          {
+           "id": "jscolors_a_module2_group-1_right",
+           "sourceId": "jscolors_a_module2_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.15,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 214.8,
+           "width": 80,
+           "height": 85.2,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "jscolors_a_module2_group5",
+       "highlightIndex": 5,
+       "insignificant": false,
+       "flow": 0.25,
+       "numLeafNodes": 1,
+       "x": 0,
+       "y": 72.80000000000001,
+       "width": 80,
+       "height": 142,
+       "pass1": {"x": 0, "y": 44, "width": 80, "height": 150},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.25,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 72.80000000000001,
+         "width": 80,
+         "height": 142,
+         "streamlineNodes": [
+          {
+           "id": "jscolors_a_module2_group5_left",
+           "sourceId": "jscolors_a_module2_group5_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.25,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 72.80000000000001,
+           "width": 80,
+           "height": 142,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.25,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 72.80000000000001,
+         "width": 80,
+         "height": 142,
+         "streamlineNodes": [
+          {
+           "id": "jscolors_a_module2_group5_right",
+           "sourceId": "jscolors_a_module2_group5_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.25,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 72.80000000000001,
+           "width": 80,
+           "height": 142,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "3",
+     "id": "jscolors_a_module3",
+     "path": [3],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 2,
+     "flow": 0.1,
+     "numLeafNodes": 1,
+     "meanNodeId": 5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 0,
+     "x": 0,
+     "y": 7.105427357601002e-15,
+     "width": 80,
+     "height": 56.800000000000004,
+     "pass1": {"margin": 0, "index": 2, "x": 0, "y": -32, "width": 80, "height": 60},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 28.40000000000001},
+      "idPosition": {"x": 40, "y": 28.40000000000001},
+      "customName": "",
+      "maxLines": 3,
+      "names": [
+       {"name": "e", "nodeId": 5, "stateId": null, "flow": 0.1}
+      ],
+      "namesSingleLine": [
+       {"name": "e", "nodeId": 5, "stateId": null, "flow": 0.1}
+      ]
+     },
+     "groups": [
+      {
+       "id": "jscolors_a_module3_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.1,
+       "numLeafNodes": 1,
+       "x": 0,
+       "y": 7.105427357601002e-15,
+       "width": 80,
+       "height": 56.800000000000004,
+       "pass1": {"x": 0, "y": -32, "width": 80, "height": 60},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.1,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 7.105427357601002e-15,
+         "width": 80,
+         "height": 56.800000000000004,
+         "streamlineNodes": [
+          {
+           "id": "jscolors_a_module3_group-1_left",
+           "sourceId": "jscolors_a_module3_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.1,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 7.105427357601002e-15,
+           "width": 80,
+           "height": 56.800000000000004,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.1,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 7.105427357601002e-15,
+         "width": 80,
+         "height": 56.800000000000004,
+         "streamlineNodes": [
+          {
+           "id": "jscolors_a_module3_group-1_right",
+           "sourceId": "jscolors_a_module3_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.1,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 7.105427357601002e-15,
+           "width": 80,
+           "height": 56.800000000000004,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "numLinksAboveZero": 0,
+   "links": [],
+   "hierarchy": [
+    {"type": "module", "moduleId": "1"},
+    {"type": "module", "moduleId": "2"},
+    {"type": "module", "moduleId": "3"}
+   ],
+   "identifiersUnique": true,
+   "leafColumns": ["identifier","nodeId","stateId","moduleId","moduleLevel","highlightIndex","insignificant"],
+   "leaves": [
+    ["1",1,null,"1",1,1,false],
+    ["2",2,null,"1",1,1,false],
+    ["3",3,null,"2",1,5,false],
+    ["4",4,null,"2",1,-1,false],
+    ["5",5,null,"3",1,-1,false]
+   ]
+  }
+ ]
+}

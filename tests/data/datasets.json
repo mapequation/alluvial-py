@@ -1,0 +1,582 @@
+{
+  "generator": "tools/ts-fixtures/make_datasets.py",
+  "infomap_version": "2.15.1",
+  "python": "3.14.2",
+  "header_normalization": {
+    "# started at": "1970-01-01 00:00:00",
+    "# completed in": "0 s"
+  },
+  "copied_from_web_app": {
+    "source": "apps/web/public/data/ in the TS alluvial repo",
+    "files": [
+      "debug5_0.tree",
+      "debug5_1.tree",
+      "debug5_0.stree",
+      "debug5_1.stree",
+      "science2001_2y.stree",
+      "science2003_2y.stree",
+      "science2005_2y.stree",
+      "science2007_2y.stree"
+    ]
+  },
+  "datasets": {
+    "planted_t0": {
+      "kind": "planted partition time slice (undirected, unweighted)",
+      "files": [
+        "planted_t0.ftree",
+        "planted_t0.tree",
+        "planted_t0.clu"
+      ],
+      "graph_seed": 1001,
+      "p_in": 0.3,
+      "p_out": 0.01,
+      "groups": {
+        "A": [
+          1,
+          30,
+          30
+        ],
+        "B": [
+          31,
+          60,
+          30
+        ],
+        "C": [
+          61,
+          90,
+          30
+        ],
+        "D": [
+          91,
+          110,
+          20
+        ]
+      },
+      "num_nodes": 110,
+      "num_links": 497,
+      "node_names": "v<node_id>",
+      "infomap_kwargs": {
+        "two_level": true,
+        "num_trials": 10,
+        "seed": 123,
+        "silent": true
+      },
+      "infomap_args": "./Infomap  --silent --two-level --num-trials 10",
+      "num_top_modules": 4,
+      "max_depth": 2,
+      "codelength": 5.485688222662866
+    },
+    "planted_t1": {
+      "kind": "planted partition time slice (undirected, unweighted)",
+      "files": [
+        "planted_t1.ftree",
+        "planted_t1.tree",
+        "planted_t1.clu"
+      ],
+      "graph_seed": 1002,
+      "p_in": 0.3,
+      "p_out": 0.01,
+      "groups": {
+        "A": [
+          9,
+          30,
+          22
+        ],
+        "B": [
+          31,
+          60,
+          30
+        ],
+        "C": [
+          61,
+          75,
+          15
+        ],
+        "D": [
+          76,
+          120,
+          45
+        ]
+      },
+      "num_nodes": 112,
+      "num_links": 581,
+      "node_names": "v<node_id>",
+      "infomap_kwargs": {
+        "two_level": true,
+        "num_trials": 10,
+        "seed": 123,
+        "silent": true
+      },
+      "infomap_args": "./Infomap  --silent --two-level --num-trials 10",
+      "num_top_modules": 4,
+      "max_depth": 2,
+      "codelength": 5.5292360203123385
+    },
+    "planted_t2": {
+      "kind": "planted partition time slice (undirected, unweighted)",
+      "files": [
+        "planted_t2.ftree",
+        "planted_t2.tree",
+        "planted_t2.clu"
+      ],
+      "graph_seed": 1003,
+      "p_in": 0.3,
+      "p_out": 0.01,
+      "groups": {
+        "AB": [
+          9,
+          60,
+          52
+        ],
+        "C": [
+          61,
+          75,
+          15
+        ],
+        "D": [
+          76,
+          120,
+          35
+        ],
+        "E": [
+          121,
+          135,
+          15
+        ]
+      },
+      "num_nodes": 117,
+      "num_links": 721,
+      "node_names": "v<node_id>",
+      "infomap_kwargs": {
+        "two_level": true,
+        "num_trials": 10,
+        "seed": 123,
+        "silent": true
+      },
+      "infomap_args": "./Infomap  --silent --two-level --num-trials 10",
+      "num_top_modules": 4,
+      "max_depth": 2,
+      "codelength": 5.724903536856399
+    },
+    "states_t0": {
+      "kind": "state network slice (undirected, states=True outputs)",
+      "files": [
+        "states_t0.tree",
+        "states_t0.ftree",
+        "states_t0.clu"
+      ],
+      "graph_seed": 2001,
+      "p_in": 0.35,
+      "p_out": 0.02,
+      "topics": {
+        "0": [
+          1,
+          14
+        ],
+        "1": [
+          11,
+          26
+        ],
+        "2": [
+          25,
+          36
+        ]
+      },
+      "dropped_physical_nodes": [],
+      "state_id_formula": "10 * node_id + topic",
+      "node_names": "p<node_id> (physical name shared by its state nodes)",
+      "num_state_nodes": 42,
+      "num_links": 105,
+      "infomap_kwargs": {
+        "two_level": true,
+        "num_trials": 10,
+        "seed": 123,
+        "silent": true
+      },
+      "infomap_args": "./Infomap  --silent --two-level --num-trials 10",
+      "num_top_modules": 4,
+      "max_depth": 2,
+      "codelength": 4.183104189988306
+    },
+    "states_t1": {
+      "kind": "state network slice (undirected, states=True outputs)",
+      "files": [
+        "states_t1.tree",
+        "states_t1.ftree",
+        "states_t1.clu"
+      ],
+      "graph_seed": 2002,
+      "p_in": 0.35,
+      "p_out": 0.02,
+      "topics": {
+        "0": [
+          1,
+          12
+        ],
+        "1": [
+          9,
+          24
+        ],
+        "2": [
+          23,
+          36
+        ]
+      },
+      "dropped_physical_nodes": [
+        5,
+        30
+      ],
+      "state_id_formula": "10 * node_id + topic",
+      "node_names": "p<node_id> (physical name shared by its state nodes)",
+      "num_state_nodes": 40,
+      "num_links": 93,
+      "infomap_kwargs": {
+        "two_level": true,
+        "num_trials": 10,
+        "seed": 123,
+        "silent": true
+      },
+      "infomap_args": "./Infomap  --silent --two-level --num-trials 10",
+      "num_top_modules": 3,
+      "max_depth": 2,
+      "codelength": 4.487105563967293
+    },
+    "multilevel_t0": {
+      "kind": "hierarchical planted partition slice (undirected, multilevel)",
+      "files": [
+        "multilevel_t0.tree",
+        "multilevel_t0.ftree"
+      ],
+      "graph_seed": 3001,
+      "super_groups": 4,
+      "sub_groups_per_super": 3,
+      "nodes_per_sub_group": 9,
+      "p_sub": 0.7,
+      "p_super": 0.08,
+      "p_out": 0.004,
+      "drop_fraction": 0.08,
+      "t2_moves_sub_group": null,
+      "node_names": "m<node_id>",
+      "num_nodes": 100,
+      "num_links": 326,
+      "infomap_kwargs": {
+        "num_trials": 10,
+        "seed": 123,
+        "silent": true
+      },
+      "infomap_args": "./Infomap  --silent --num-trials 10",
+      "num_top_modules": 4,
+      "max_depth": 3,
+      "codelength": 4.424011110986149
+    },
+    "multilevel_t1": {
+      "kind": "hierarchical planted partition slice (undirected, multilevel)",
+      "files": [
+        "multilevel_t1.tree",
+        "multilevel_t1.ftree"
+      ],
+      "graph_seed": 3002,
+      "super_groups": 4,
+      "sub_groups_per_super": 3,
+      "nodes_per_sub_group": 9,
+      "p_sub": 0.7,
+      "p_super": 0.08,
+      "p_out": 0.004,
+      "drop_fraction": 0.08,
+      "t2_moves_sub_group": null,
+      "node_names": "m<node_id>",
+      "num_nodes": 94,
+      "num_links": 302,
+      "infomap_kwargs": {
+        "num_trials": 10,
+        "seed": 123,
+        "silent": true
+      },
+      "infomap_args": "./Infomap  --silent --num-trials 10",
+      "num_top_modules": 3,
+      "max_depth": 4,
+      "codelength": 4.505040188855661
+    },
+    "multilevel_t2": {
+      "kind": "hierarchical planted partition slice (undirected, multilevel)",
+      "files": [
+        "multilevel_t2.tree",
+        "multilevel_t2.ftree"
+      ],
+      "graph_seed": 3003,
+      "super_groups": 4,
+      "sub_groups_per_super": 3,
+      "nodes_per_sub_group": 9,
+      "p_sub": 0.7,
+      "p_super": 0.08,
+      "p_out": 0.004,
+      "drop_fraction": 0.08,
+      "t2_moves_sub_group": "(super 0, sub 2) -> super 1",
+      "node_names": "m<node_id>",
+      "num_nodes": 95,
+      "num_links": 308,
+      "infomap_kwargs": {
+        "num_trials": 10,
+        "seed": 123,
+        "silent": true
+      },
+      "infomap_args": "./Infomap  --silent --num-trials 10",
+      "num_top_modules": 4,
+      "max_depth": 3,
+      "codelength": 4.293445084369947
+    },
+    "directed_t0": {
+      "kind": "directed planted slice (weighted, directed flow model)",
+      "files": [
+        "directed_t0.ftree",
+        "directed_t0.tree"
+      ],
+      "graph_seed": 4001,
+      "p_in": 0.15,
+      "p_out": 0.012,
+      "groups": {
+        "A": [
+          1,
+          25,
+          25
+        ],
+        "B": [
+          26,
+          50,
+          25
+        ],
+        "C": [
+          51,
+          75,
+          25
+        ]
+      },
+      "weights": "cycle links 1.0, random links 1 + U(0,1)",
+      "node_names": "d<node_id>",
+      "num_nodes": 75,
+      "num_links": 385,
+      "infomap_kwargs": {
+        "directed": true,
+        "two_level": true,
+        "num_trials": 10,
+        "seed": 123,
+        "silent": true
+      },
+      "infomap_args": "./Infomap  --silent --two-level --directed --num-trials 10",
+      "num_top_modules": 3,
+      "max_depth": 2,
+      "codelength": 5.1767465579438685
+    },
+    "directed_t1": {
+      "kind": "directed planted slice (weighted, directed flow model)",
+      "files": [
+        "directed_t1.ftree",
+        "directed_t1.tree"
+      ],
+      "graph_seed": 4002,
+      "p_in": 0.15,
+      "p_out": 0.012,
+      "groups": {
+        "A": [
+          1,
+          30,
+          30
+        ],
+        "B": [
+          31,
+          50,
+          20
+        ],
+        "C": [
+          51,
+          80,
+          30
+        ]
+      },
+      "weights": "cycle links 1.0, random links 1 + U(0,1)",
+      "node_names": "d<node_id>",
+      "num_nodes": 80,
+      "num_links": 446,
+      "infomap_kwargs": {
+        "directed": true,
+        "two_level": true,
+        "num_trials": 10,
+        "seed": 123,
+        "silent": true
+      },
+      "infomap_args": "./Infomap  --silent --two-level --directed --num-trials 10",
+      "num_top_modules": 3,
+      "max_depth": 2,
+      "codelength": 5.19431464142264
+    }
+  },
+  "v2_datasets": {
+    "planted_t0.json": {
+      "kind": "write_json of planted_t0 (same run)",
+      "files": [
+        "planted_t0.json"
+      ]
+    },
+    "planted_t1.json": {
+      "kind": "write_json of planted_t1 (same run)",
+      "files": [
+        "planted_t1.json"
+      ]
+    },
+    "planted_t2.json": {
+      "kind": "write_json of planted_t2 (same run)",
+      "files": [
+        "planted_t2.json"
+      ]
+    },
+    "states_t0.json": {
+      "kind": "write_json(states=True) of states_t0 (same run)",
+      "files": [
+        "states_t0.json"
+      ]
+    },
+    "states_t1.json": {
+      "kind": "write_json(states=True) of states_t1 (same run)",
+      "files": [
+        "states_t1.json"
+      ]
+    },
+    "mlayer_states": {
+      "kind": "multilayer state network, intra-layer links only, layers added in the order 3, 1, 4, 2 (states=True)",
+      "files": [
+        "mlayer_states.tree",
+        "mlayer_states.json"
+      ],
+      "layers_added": [
+        3,
+        1,
+        4,
+        2
+      ],
+      "graph_seed": 5001,
+      "groups": "3 super x 3 sub x 5 physical nodes",
+      "p_sub": 0.8,
+      "p_super": 0.1,
+      "p_out": 0.002,
+      "drop_fraction_per_layer": 0.12,
+      "num_links": 288,
+      "node_names": "p<node_id>",
+      "infomap_kwargs": {
+        "num_trials": 5,
+        "seed": 123,
+        "silent": true
+      },
+      "num_state_nodes": 157,
+      "infomap_args": "./Infomap  --silent --num-trials 5",
+      "num_top_modules": 6,
+      "max_depth": 3,
+      "codelength": 3.6544226706979392
+    },
+    "mlayer_named": {
+      "kind": "mlayer_states.json plus a hand-made `layers` list (layer id \"4\" is a string: no strict match)",
+      "files": [
+        "mlayer_named.json"
+      ],
+      "layers": [
+        {
+          "id": 1,
+          "name": "Alpha"
+        },
+        {
+          "id": 3,
+          "name": "Gamma"
+        },
+        {
+          "id": "4",
+          "name": "not matched"
+        }
+      ]
+    },
+    "mlayer_flat": {
+      "kind": "mlayer_states links summed over layers, first order (same physical node ids)",
+      "files": [
+        "mlayer_flat.tree"
+      ],
+      "graph_seed": 5001,
+      "groups": "3 super x 3 sub x 5 physical nodes",
+      "p_sub": 0.8,
+      "p_super": 0.1,
+      "p_out": 0.002,
+      "drop_fraction_per_layer": 0.12,
+      "num_links": 288,
+      "node_names": "p<node_id>",
+      "infomap_kwargs": {
+        "num_trials": 5,
+        "seed": 123,
+        "silent": true
+      },
+      "num_nodes": 45,
+      "infomap_args": "./Infomap  --silent --num-trials 5",
+      "num_top_modules": 5,
+      "max_depth": 3,
+      "codelength": 3.6748159859252434
+    },
+    "prefix_t0": {
+      "kind": "synthetic prefix tree (no Infomap): top module 1 has 11 sub-modules x 2 sub-sub-modules x 2-3 leaves (4-level paths), top modules 2-12 have 2 sub-modules x 2 leaves (3-level paths)",
+      "files": [
+        "prefix_t0.tree"
+      ],
+      "weight_seed": 6001,
+      "shape_seed": 6001,
+      "flows": "(0.5 + U(0,1)) normalized to sum 1, 6 significant digits, no ties",
+      "node_names": "x<node_id>",
+      "num_nodes": 102,
+      "num_top_modules": 12,
+      "max_depth": 4
+    },
+    "prefix_t1": {
+      "kind": "synthetic prefix tree (no Infomap): top module 1 has 11 sub-modules x 2 sub-sub-modules x 2-3 leaves (4-level paths), top modules 2-12 have 2 sub-modules x 2 leaves (3-level paths)",
+      "files": [
+        "prefix_t1.tree"
+      ],
+      "weight_seed": 6002,
+      "shape_seed": 6001,
+      "flows": "(0.5 + U(0,1)) normalized to sum 1, 6 significant digits, no ties",
+      "node_names": "x<node_id>",
+      "num_nodes": 102,
+      "num_top_modules": 12,
+      "max_depth": 4
+    },
+    "hlskip": {
+      "kind": "hand-written, see HLSKIP in make_datasets.py",
+      "files": [
+        "hlskip_t0.tree",
+        "hlskip_t1.tree",
+        "hlskip_t2.tree"
+      ]
+    },
+    "dupname": {
+      "kind": "hand-written, see DUPNAME in make_datasets.py",
+      "files": [
+        "dupname_t0.tree",
+        "dupname_t1.tree"
+      ]
+    },
+    "abcchain": {
+      "kind": "hand-written, see ABCCHAIN in make_datasets.py",
+      "files": [
+        "abcchain_t0.tree",
+        "abcchain_t1.tree",
+        "abcchain_t2.tree"
+      ]
+    },
+    "multilevel_mixed": {
+      "kind": "derived from multilevel_t0.tree, see make_mixedlevel in make_datasets.py",
+      "files": [
+        "multilevel_mixed_t0.json"
+      ]
+    },
+    "bipartite": {
+      "kind": "hand-written, see BIPARTITE in make_datasets.py",
+      "files": [
+        "bipartite_t0.json",
+        "bipartite_t1.json"
+      ]
+    }
+  }
+}

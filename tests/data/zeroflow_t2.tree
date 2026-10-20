@@ -1,0 +1,5 @@
+# hand-written: all flows zero (module flow threshold Infinity, every module hidden)
+# path flow name node_id
+1:1 0 "a" 1
+1:2 0 "b" 2
+2:1 0 "d" 4

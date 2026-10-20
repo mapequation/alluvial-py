@@ -1,0 +1,1058 @@
+{
+ "formatVersion": 1,
+ "scenario": "jscolors-abc__colored",
+ "group": "jscolors-abc",
+ "variant": "colored",
+ "description": "as default, then colorMatchingModulesInAllNetworks() replaces the palette with the scheme",
+ "features": ["jsColors","json"],
+ "inputs": {
+  "files": ["data/jscolors_a.json","data/jscolors_b.json","data/jscolors_c.json"],
+  "formats": ["json","json","json"],
+  "networkIds": ["jscolors_a","jscolors_b","jscolors_c"],
+  "networkNames": ["A","jscolors_b.json","jscolors_c.json"],
+  "identifier": "id",
+  "options": {
+   "height": 600,
+   "moduleWidth": 80,
+   "streamlineFraction": 2,
+   "streamlineThreshold": 1,
+   "flowThreshold": 0.005,
+   "marginExponent": 4,
+   "zeroMargins": false,
+   "verticalAlign": "bottom",
+   "moduleSize": "flow",
+   "sortModulesBy": "flow"
+  },
+  "labelOptions": {"fontSize": 8, "adaptiveFontSize": false, "multilineModuleNames": true, "aggregateStateNames": true, "showModuleNames": true},
+  "colorScheme": "C3 Sinebow",
+  "operations": [
+   {"op": "setNetworks"},
+   {"op": "colorMatchingModulesInAllNetworks"}
+  ]
+ },
+ "diagram": {
+  "x": 0,
+  "y": 0,
+  "width": 560,
+  "height": 600,
+  "flow": 0,
+  "numNetworks": 3,
+  "maxNetworkFlow": 1,
+  "streamlineWidth": 160,
+  "networkWidth": 240,
+  "totalWidth": 560,
+  "totalMargins": [32,16,16],
+  "maxTotalMargin": 32,
+  "marginFractionOfHeight": 0.05333333333333334,
+  "maxMarginFractionOfHeight": 0.2,
+  "marginCapped": false,
+  "moduleMarginScale": null,
+  "scaledTotalMargin": null,
+  "usableHeight": 568,
+  "visibleFlows": [1,1,1],
+  "visibleModuleCounts": [3,2,2],
+  "updateLayoutCalls": 2,
+  "usableHeightCheckedModules": 7
+ },
+ "highlightColors": ["#ea6c63","#3ac1c0"],
+ "defaultHighlightColor": "#b6b69f",
+ "warnings": [],
+ "networks": [
+  {
+   "networkId": "jscolors_a",
+   "name": "A",
+   "index": 0,
+   "file": {
+    "path": "data/jscolors_a.json",
+    "format": "json",
+    "numTopModules": 3,
+    "numLevels": 2,
+    "isStateNetwork": false,
+    "directed": null,
+    "codelength": null,
+    "numNodes": 5
+   },
+   "x": 0,
+   "y": 0,
+   "width": 80,
+   "height": 600,
+   "flow": 1,
+   "numLeafNodes": 5,
+   "moduleFlowThreshold": 0.1,
+   "isCustomSorted": false,
+   "isHigherOrder": false,
+   "namePosition": {"x": 40, "y": 620},
+   "totalMargin": 32,
+   "visibleFlow": 1,
+   "numVisibleModules": 3,
+   "numModules": 3,
+   "modules": [
+    {
+     "moduleId": "1",
+     "id": "jscolors_a_module1",
+     "path": [1],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 0,
+     "flow": 0.5,
+     "numLeafNodes": 2,
+     "meanNodeId": 1.5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": 0,
+     "margin": 16,
+     "x": 0,
+     "y": 316,
+     "width": 80,
+     "height": 284,
+     "pass1": {"margin": 16, "index": 0, "x": 0, "y": 300, "width": 80, "height": 300},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 458},
+      "idPosition": {"x": 40, "y": 458},
+      "customName": "",
+      "maxLines": 19,
+      "names": [
+       {"name": "a", "nodeId": 1, "stateId": null, "flow": 0.3},
+       {"name": "b", "nodeId": 2, "stateId": null, "flow": 0.2}
+      ],
+      "namesSingleLine": [
+       {"name": "a", "nodeId": 1, "stateId": null, "flow": 0.3},
+       {"name": "b", "nodeId": 2, "stateId": null, "flow": 0.2}
+      ]
+     },
+     "groups": [
+      {
+       "id": "jscolors_a_module1_group0",
+       "highlightIndex": 0,
+       "insignificant": false,
+       "flow": 0.5,
+       "numLeafNodes": 2,
+       "x": 0,
+       "y": 316,
+       "width": 80,
+       "height": 284,
+       "pass1": {"x": 0, "y": 300, "width": 80, "height": 300},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.5,
+         "numLeafNodes": 2,
+         "x": 0,
+         "y": 316,
+         "width": 80,
+         "height": 284,
+         "streamlineNodes": [
+          {
+           "id": "jscolors_a_module1_group0_left",
+           "sourceId": "jscolors_a_module1_group0_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.5,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 316,
+           "width": 80,
+           "height": 284,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.5,
+         "numLeafNodes": 2,
+         "x": 0,
+         "y": 316,
+         "width": 80,
+         "height": 284,
+         "streamlineNodes": [
+          {
+           "id": "jscolors_a_module1_group0_right--jscolors_b_module1_group0_left",
+           "sourceId": "jscolors_a_module1_group0_right",
+           "targetId": "jscolors_b_module1_group0_left",
+           "dangling": false,
+           "flow": 0.5,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 316,
+           "width": 80,
+           "height": 284,
+           "sortKey": -300,
+           "linked": true,
+           "opposite": {"networkId": "jscolors_b", "id": "jscolors_b_module1_group0_left--jscolors_a_module1_group0_right", "moduleId": "1"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "2",
+     "id": "jscolors_a_module2",
+     "path": [2],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 1,
+     "flow": 0.4,
+     "numLeafNodes": 2,
+     "meanNodeId": 3.5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": 1,
+     "margin": 16,
+     "x": 0,
+     "y": 72.79999999999998,
+     "width": 80,
+     "height": 227.20000000000002,
+     "pass1": {"margin": 16, "index": 1, "x": 0, "y": 44, "width": 80, "height": 240},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 186.39999999999998},
+      "idPosition": {"x": 40, "y": 186.39999999999998},
+      "customName": "",
+      "maxLines": 15,
+      "names": [
+       {"name": "c", "nodeId": 3, "stateId": null, "flow": 0.25},
+       {"name": "d", "nodeId": 4, "stateId": null, "flow": 0.15}
+      ],
+      "namesSingleLine": [
+       {"name": "c", "nodeId": 3, "stateId": null, "flow": 0.25},
+       {"name": "d", "nodeId": 4, "stateId": null, "flow": 0.15}
+      ]
+     },
+     "groups": [
+      {
+       "id": "jscolors_a_module2_group1",
+       "highlightIndex": 1,
+       "insignificant": false,
+       "flow": 0.4,
+       "numLeafNodes": 2,
+       "x": 0,
+       "y": 72.79999999999998,
+       "width": 80,
+       "height": 227.20000000000002,
+       "pass1": {"x": 0, "y": 44, "width": 80, "height": 240},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.4,
+         "numLeafNodes": 2,
+         "x": 0,
+         "y": 72.79999999999998,
+         "width": 80,
+         "height": 227.20000000000002,
+         "streamlineNodes": [
+          {
+           "id": "jscolors_a_module2_group1_left",
+           "sourceId": "jscolors_a_module2_group1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.4,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 72.79999999999998,
+           "width": 80,
+           "height": 227.20000000000002,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.4,
+         "numLeafNodes": 2,
+         "x": 0,
+         "y": 72.79999999999998,
+         "width": 80,
+         "height": 227.20000000000002,
+         "streamlineNodes": [
+          {
+           "id": "jscolors_a_module2_group1_right--jscolors_b_module2_group1_left",
+           "sourceId": "jscolors_a_module2_group1_right",
+           "targetId": "jscolors_b_module2_group1_left",
+           "dangling": false,
+           "flow": 0.4,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 72.79999999999998,
+           "width": 80,
+           "height": 227.20000000000002,
+           "sortKey": 16,
+           "linked": true,
+           "opposite": {"networkId": "jscolors_b", "id": "jscolors_b_module2_group1_left--jscolors_a_module2_group1_right", "moduleId": "2"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "3",
+     "id": "jscolors_a_module3",
+     "path": [3],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 2,
+     "flow": 0.1,
+     "numLeafNodes": 1,
+     "meanNodeId": 5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 0,
+     "x": 0,
+     "y": -2.1316282072803006e-14,
+     "width": 80,
+     "height": 56.800000000000004,
+     "pass1": {"margin": 0, "index": 2, "x": 0, "y": -32, "width": 80, "height": 60},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 28.39999999999998},
+      "idPosition": {"x": 40, "y": 28.39999999999998},
+      "customName": "",
+      "maxLines": 3,
+      "names": [
+       {"name": "e", "nodeId": 5, "stateId": null, "flow": 0.1}
+      ],
+      "namesSingleLine": [
+       {"name": "e", "nodeId": 5, "stateId": null, "flow": 0.1}
+      ]
+     },
+     "groups": [
+      {
+       "id": "jscolors_a_module3_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.1,
+       "numLeafNodes": 1,
+       "x": 0,
+       "y": -2.1316282072803006e-14,
+       "width": 80,
+       "height": 56.800000000000004,
+       "pass1": {"x": 0, "y": -32, "width": 80, "height": 60},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.1,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": -2.1316282072803006e-14,
+         "width": 80,
+         "height": 56.800000000000004,
+         "streamlineNodes": [
+          {
+           "id": "jscolors_a_module3_group-1_left",
+           "sourceId": "jscolors_a_module3_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.1,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": -2.1316282072803006e-14,
+           "width": 80,
+           "height": 56.800000000000004,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.1,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": -2.1316282072803006e-14,
+         "width": 80,
+         "height": 56.800000000000004,
+         "streamlineNodes": [
+          {
+           "id": "jscolors_a_module3_group-1_right",
+           "sourceId": "jscolors_a_module3_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.1,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": -2.1316282072803006e-14,
+           "width": 80,
+           "height": 56.800000000000004,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "numLinksAboveZero": 2,
+   "links": [
+    {
+     "id": "jscolors_a_module1_group0_right--jscolors_b_module1_group0_left",
+     "left": {"networkId": "jscolors_a", "moduleId": "1", "groupHighlightIndex": 0, "groupInsignificant": false, "streamlineNodeId": "jscolors_a_module1_group0_right--jscolors_b_module1_group0_left"},
+     "right": {"networkId": "jscolors_b", "moduleId": "1", "groupHighlightIndex": 0, "groupInsignificant": false, "streamlineNodeId": "jscolors_b_module1_group0_left--jscolors_a_module1_group0_right"},
+     "x0": 80,
+     "y0": 316,
+     "h0": 284,
+     "x1": 240,
+     "y1": 316,
+     "h1": 284,
+     "avgHeight": 284,
+     "highlightIndex": 0,
+     "leftHighlightIndex": 0,
+     "rightHighlightIndex": 0,
+     "path": "M80,600C160,600,160,600,240,600L240,316C160,316,160,316,80,316Z"
+    },
+    {
+     "id": "jscolors_a_module2_group1_right--jscolors_b_module2_group1_left",
+     "left": {"networkId": "jscolors_a", "moduleId": "2", "groupHighlightIndex": 1, "groupInsignificant": false, "streamlineNodeId": "jscolors_a_module2_group1_right--jscolors_b_module2_group1_left"},
+     "right": {"networkId": "jscolors_b", "moduleId": "2", "groupHighlightIndex": 1, "groupInsignificant": false, "streamlineNodeId": "jscolors_b_module2_group1_left--jscolors_a_module2_group1_right"},
+     "x0": 80,
+     "y0": 72.79999999999998,
+     "h0": 227.20000000000002,
+     "x1": 240,
+     "y1": 15.999999999999972,
+     "h1": 227.20000000000002,
+     "avgHeight": 227.20000000000002,
+     "highlightIndex": 1,
+     "leftHighlightIndex": 1,
+     "rightHighlightIndex": 1,
+     "path": "M80,300C160,300,160,243.2,240,243.2L240,15.999999999999972C160,15.999999999999972,160,72.79999999999998,80,72.79999999999998Z"
+    }
+   ],
+   "hierarchy": [
+    {"type": "module", "moduleId": "1"},
+    {"type": "module", "moduleId": "2"},
+    {"type": "module", "moduleId": "3"}
+   ],
+   "identifiersUnique": true,
+   "leafColumns": ["identifier","nodeId","stateId","moduleId","moduleLevel","highlightIndex","insignificant"],
+   "leaves": [
+    ["1",1,null,"1",1,0,false],
+    ["2",2,null,"1",1,0,false],
+    ["3",3,null,"2",1,1,false],
+    ["4",4,null,"2",1,1,false],
+    ["5",5,null,"3",1,-1,false]
+   ]
+  },
+  {
+   "networkId": "jscolors_b",
+   "name": "jscolors_b.json",
+   "index": 1,
+   "file": {
+    "path": "data/jscolors_b.json",
+    "format": "json",
+    "numTopModules": 2,
+    "numLevels": 2,
+    "isStateNetwork": false,
+    "directed": null,
+    "codelength": null,
+    "numNodes": 5
+   },
+   "x": 240,
+   "y": 0,
+   "width": 80,
+   "height": 600,
+   "flow": 1,
+   "numLeafNodes": 5,
+   "moduleFlowThreshold": 0.5,
+   "isCustomSorted": false,
+   "isHigherOrder": false,
+   "namePosition": {"x": 280, "y": 620},
+   "totalMargin": 16,
+   "visibleFlow": 1,
+   "numVisibleModules": 2,
+   "numModules": 2,
+   "modules": [
+    {
+     "moduleId": "1",
+     "id": "jscolors_b_module1",
+     "path": [1],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 0,
+     "flow": 0.5,
+     "numLeafNodes": 2,
+     "meanNodeId": 1.5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": 0,
+     "margin": 16,
+     "x": 240,
+     "y": 316,
+     "width": 80,
+     "height": 284,
+     "pass1": {"margin": 16, "index": 0, "x": 240, "y": 300, "width": 80, "height": 300},
+     "label": {
+      "shown": false,
+      "textAnchor": null,
+      "namePosition": {"x": 280, "y": 458},
+      "idPosition": {"x": 280, "y": 458},
+      "customName": "",
+      "maxLines": 19,
+      "names": [
+       {"name": "a", "nodeId": 1, "stateId": null, "flow": 0.3},
+       {"name": "b", "nodeId": 2, "stateId": null, "flow": 0.2}
+      ],
+      "namesSingleLine": [
+       {"name": "a", "nodeId": 1, "stateId": null, "flow": 0.3},
+       {"name": "b", "nodeId": 2, "stateId": null, "flow": 0.2}
+      ]
+     },
+     "groups": [
+      {
+       "id": "jscolors_b_module1_group0",
+       "highlightIndex": 0,
+       "insignificant": false,
+       "flow": 0.5,
+       "numLeafNodes": 2,
+       "x": 240,
+       "y": 316,
+       "width": 80,
+       "height": 284,
+       "pass1": {"x": 240, "y": 300, "width": 80, "height": 300},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.5,
+         "numLeafNodes": 2,
+         "x": 240,
+         "y": 316,
+         "width": 80,
+         "height": 284,
+         "streamlineNodes": [
+          {
+           "id": "jscolors_b_module1_group0_left--jscolors_a_module1_group0_right",
+           "sourceId": "jscolors_b_module1_group0_left",
+           "targetId": "jscolors_a_module1_group0_right",
+           "dangling": false,
+           "flow": 0.5,
+           "numLeafNodes": 2,
+           "x": 240,
+           "y": 316,
+           "width": 80,
+           "height": 284,
+           "sortKey": -300,
+           "linked": true,
+           "opposite": {"networkId": "jscolors_a", "id": "jscolors_a_module1_group0_right--jscolors_b_module1_group0_left", "moduleId": "1"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.5,
+         "numLeafNodes": 2,
+         "x": 240,
+         "y": 316,
+         "width": 80,
+         "height": 284,
+         "streamlineNodes": [
+          {
+           "id": "jscolors_b_module1_group0_right",
+           "sourceId": "jscolors_b_module1_group0_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.2,
+           "numLeafNodes": 1,
+           "x": 240,
+           "y": 486.4,
+           "width": 80,
+           "height": 113.60000000000001,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          },
+          {
+           "id": "jscolors_b_module1_group0_right--jscolors_c_module1_group0_left",
+           "sourceId": "jscolors_b_module1_group0_right",
+           "targetId": "jscolors_c_module1_group0_left",
+           "dangling": false,
+           "flow": 0.3,
+           "numLeafNodes": 1,
+           "x": 240,
+           "y": 316,
+           "width": 80,
+           "height": 170.4,
+           "sortKey": -180,
+           "linked": true,
+           "opposite": {"networkId": "jscolors_c", "id": "jscolors_c_module1_group0_left--jscolors_b_module1_group0_right", "moduleId": "1"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "2",
+     "id": "jscolors_b_module2",
+     "path": [2],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 1,
+     "flow": 0.5,
+     "numLeafNodes": 3,
+     "meanNodeId": 4.333333333333333,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": 1,
+     "margin": 0,
+     "x": 240,
+     "y": 16,
+     "width": 80,
+     "height": 284,
+     "pass1": {"margin": 0, "index": 1, "x": 240, "y": -16, "width": 80, "height": 300},
+     "label": {
+      "shown": false,
+      "textAnchor": null,
+      "namePosition": {"x": 280, "y": 158},
+      "idPosition": {"x": 280, "y": 158},
+      "customName": "",
+      "maxLines": 19,
+      "names": [
+       {"name": "c", "nodeId": 3, "stateId": null, "flow": 0.25},
+       {"name": "d", "nodeId": 4, "stateId": null, "flow": 0.15},
+       {"name": "f", "nodeId": 6, "stateId": null, "flow": 0.1}
+      ],
+      "namesSingleLine": [
+       {"name": "c", "nodeId": 3, "stateId": null, "flow": 0.25},
+       {"name": "d", "nodeId": 4, "stateId": null, "flow": 0.15},
+       {"name": "f", "nodeId": 6, "stateId": null, "flow": 0.1}
+      ]
+     },
+     "groups": [
+      {
+       "id": "jscolors_b_module2_group1",
+       "highlightIndex": 1,
+       "insignificant": false,
+       "flow": 0.5,
+       "numLeafNodes": 3,
+       "x": 240,
+       "y": 16,
+       "width": 80,
+       "height": 284,
+       "pass1": {"x": 240, "y": -16, "width": 80, "height": 300},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.5,
+         "numLeafNodes": 3,
+         "x": 240,
+         "y": 15.999999999999972,
+         "width": 80,
+         "height": 284,
+         "streamlineNodes": [
+          {
+           "id": "jscolors_b_module2_group1_left",
+           "sourceId": "jscolors_b_module2_group1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.1,
+           "numLeafNodes": 1,
+           "x": 240,
+           "y": 243.2,
+           "width": 80,
+           "height": 56.800000000000004,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          },
+          {
+           "id": "jscolors_b_module2_group1_left--jscolors_a_module2_group1_right",
+           "sourceId": "jscolors_b_module2_group1_left",
+           "targetId": "jscolors_a_module2_group1_right",
+           "dangling": false,
+           "flow": 0.4,
+           "numLeafNodes": 2,
+           "x": 240,
+           "y": 15.999999999999972,
+           "width": 80,
+           "height": 227.20000000000002,
+           "sortKey": -44,
+           "linked": true,
+           "opposite": {"networkId": "jscolors_a", "id": "jscolors_a_module2_group1_right--jscolors_b_module2_group1_left", "moduleId": "2"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.5,
+         "numLeafNodes": 3,
+         "x": 240,
+         "y": 16,
+         "width": 80,
+         "height": 284,
+         "streamlineNodes": [
+          {
+           "id": "jscolors_b_module2_group1_right",
+           "sourceId": "jscolors_b_module2_group1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.25,
+           "numLeafNodes": 2,
+           "x": 240,
+           "y": 158,
+           "width": 80,
+           "height": 142,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          },
+          {
+           "id": "jscolors_b_module2_group1_right--jscolors_c_module1_group0_left",
+           "sourceId": "jscolors_b_module2_group1_right",
+           "targetId": "jscolors_c_module1_group0_left",
+           "dangling": false,
+           "flow": 0.25,
+           "numLeafNodes": 1,
+           "x": 240,
+           "y": 16,
+           "width": 80,
+           "height": 142,
+           "sortKey": -180,
+           "linked": true,
+           "opposite": {"networkId": "jscolors_c", "id": "jscolors_c_module1_group0_left--jscolors_b_module2_group1_right", "moduleId": "1"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "numLinksAboveZero": 2,
+   "links": [
+    {
+     "id": "jscolors_b_module1_group0_right--jscolors_c_module1_group0_left",
+     "left": {"networkId": "jscolors_b", "moduleId": "1", "groupHighlightIndex": 0, "groupInsignificant": false, "streamlineNodeId": "jscolors_b_module1_group0_right--jscolors_c_module1_group0_left"},
+     "right": {"networkId": "jscolors_c", "moduleId": "1", "groupHighlightIndex": 0, "groupInsignificant": false, "streamlineNodeId": "jscolors_c_module1_group0_left--jscolors_b_module1_group0_right"},
+     "x0": 320,
+     "y0": 316,
+     "h0": 170.4,
+     "x1": 480,
+     "y1": 372.79999999999995,
+     "h1": 227.20000000000002,
+     "avgHeight": 198.8,
+     "highlightIndex": 0,
+     "leftHighlightIndex": 0,
+     "rightHighlightIndex": 0,
+     "path": "M320,486.4C400,486.4,400,600,480,600L480,372.79999999999995C400,372.79999999999995,400,316,320,316Z"
+    },
+    {
+     "id": "jscolors_b_module2_group1_right--jscolors_c_module1_group0_left",
+     "left": {"networkId": "jscolors_b", "moduleId": "2", "groupHighlightIndex": 1, "groupInsignificant": false, "streamlineNodeId": "jscolors_b_module2_group1_right--jscolors_c_module1_group0_left"},
+     "right": {"networkId": "jscolors_c", "moduleId": "1", "groupHighlightIndex": 0, "groupInsignificant": false, "streamlineNodeId": "jscolors_c_module1_group0_left--jscolors_b_module2_group1_right"},
+     "x0": 320,
+     "y0": 16,
+     "h0": 142,
+     "x1": 480,
+     "y1": 202.39999999999995,
+     "h1": 170.4,
+     "avgHeight": 156.2,
+     "highlightIndex": 1,
+     "leftHighlightIndex": 1,
+     "rightHighlightIndex": 0,
+     "path": "M320,158C400,158,400,372.79999999999995,480,372.79999999999995L480,202.39999999999995C400,202.39999999999995,400,16,320,16Z"
+    }
+   ],
+   "hierarchy": [
+    {"type": "module", "moduleId": "1"},
+    {"type": "module", "moduleId": "2"}
+   ],
+   "identifiersUnique": true,
+   "leafColumns": ["identifier","nodeId","stateId","moduleId","moduleLevel","highlightIndex","insignificant"],
+   "leaves": [
+    ["1",1,null,"1",1,0,false],
+    ["2",2,null,"1",1,0,false],
+    ["3",3,null,"2",1,1,false],
+    ["4",4,null,"2",1,1,false],
+    ["6",6,null,"2",1,1,false]
+   ]
+  },
+  {
+   "networkId": "jscolors_c",
+   "name": "jscolors_c.json",
+   "index": 2,
+   "file": {
+    "path": "data/jscolors_c.json",
+    "format": "json",
+    "numTopModules": 2,
+    "numLevels": 2,
+    "isStateNetwork": false,
+    "directed": null,
+    "codelength": null,
+    "numNodes": 3
+   },
+   "x": 480,
+   "y": 0,
+   "width": 80,
+   "height": 600,
+   "flow": 1,
+   "numLeafNodes": 3,
+   "moduleFlowThreshold": 0.3,
+   "isCustomSorted": false,
+   "isHigherOrder": false,
+   "namePosition": {"x": 520, "y": 620},
+   "totalMargin": 16,
+   "visibleFlow": 1,
+   "numVisibleModules": 2,
+   "numModules": 2,
+   "modules": [
+    {
+     "moduleId": "1",
+     "id": "jscolors_c_module1",
+     "path": [1],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 0,
+     "flow": 0.7,
+     "numLeafNodes": 2,
+     "meanNodeId": 2,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": 0,
+     "margin": 16,
+     "x": 480,
+     "y": 202.39999999999992,
+     "width": 80,
+     "height": 397.59999999999997,
+     "pass1": {"margin": 16, "index": 0, "x": 480, "y": 180, "width": 80, "height": 420},
+     "label": {
+      "shown": true,
+      "textAnchor": "start",
+      "namePosition": {"x": 580, "y": 401.19999999999993},
+      "idPosition": {"x": 520, "y": 401.19999999999993},
+      "customName": "",
+      "maxLines": 27,
+      "names": [
+       {"name": "a", "nodeId": 1, "stateId": null, "flow": 0.4},
+       {"name": "c", "nodeId": 3, "stateId": null, "flow": 0.3}
+      ],
+      "namesSingleLine": [
+       {"name": "a", "nodeId": 1, "stateId": null, "flow": 0.4},
+       {"name": "c", "nodeId": 3, "stateId": null, "flow": 0.3}
+      ]
+     },
+     "groups": [
+      {
+       "id": "jscolors_c_module1_group0",
+       "highlightIndex": 0,
+       "insignificant": false,
+       "flow": 0.7,
+       "numLeafNodes": 2,
+       "x": 480,
+       "y": 202.39999999999992,
+       "width": 80,
+       "height": 397.59999999999997,
+       "pass1": {"x": 480, "y": 180, "width": 80, "height": 420},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.7,
+         "numLeafNodes": 2,
+         "x": 480,
+         "y": 202.39999999999995,
+         "width": 80,
+         "height": 397.59999999999997,
+         "streamlineNodes": [
+          {
+           "id": "jscolors_c_module1_group0_left--jscolors_b_module1_group0_right",
+           "sourceId": "jscolors_c_module1_group0_left",
+           "targetId": "jscolors_b_module1_group0_right",
+           "dangling": false,
+           "flow": 0.4,
+           "numLeafNodes": 1,
+           "x": 480,
+           "y": 372.79999999999995,
+           "width": 80,
+           "height": 227.20000000000002,
+           "sortKey": -300,
+           "linked": true,
+           "opposite": {"networkId": "jscolors_b", "id": "jscolors_b_module1_group0_right--jscolors_c_module1_group0_left", "moduleId": "1"}
+          },
+          {
+           "id": "jscolors_c_module1_group0_left--jscolors_b_module2_group1_right",
+           "sourceId": "jscolors_c_module1_group0_left",
+           "targetId": "jscolors_b_module2_group1_right",
+           "dangling": false,
+           "flow": 0.3,
+           "numLeafNodes": 1,
+           "x": 480,
+           "y": 202.39999999999995,
+           "width": 80,
+           "height": 170.4,
+           "sortKey": 16,
+           "linked": true,
+           "opposite": {"networkId": "jscolors_b", "id": "jscolors_b_module2_group1_right--jscolors_c_module1_group0_left", "moduleId": "2"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.7,
+         "numLeafNodes": 2,
+         "x": 480,
+         "y": 202.39999999999992,
+         "width": 80,
+         "height": 397.59999999999997,
+         "streamlineNodes": [
+          {
+           "id": "jscolors_c_module1_group0_right",
+           "sourceId": "jscolors_c_module1_group0_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.7,
+           "numLeafNodes": 2,
+           "x": 480,
+           "y": 202.39999999999992,
+           "width": 80,
+           "height": 397.59999999999997,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "2",
+     "id": "jscolors_c_module2",
+     "path": [2],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 1,
+     "flow": 0.3,
+     "numLeafNodes": 1,
+     "meanNodeId": 5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 0,
+     "x": 480,
+     "y": 15.999999999999915,
+     "width": 80,
+     "height": 170.4,
+     "pass1": {"margin": 0, "index": 1, "x": 480, "y": -16, "width": 80, "height": 180},
+     "label": {
+      "shown": true,
+      "textAnchor": "start",
+      "namePosition": {"x": 580, "y": 101.19999999999992},
+      "idPosition": {"x": 520, "y": 101.19999999999992},
+      "customName": "",
+      "maxLines": 11,
+      "names": [
+       {"name": "e", "nodeId": 5, "stateId": null, "flow": 0.3}
+      ],
+      "namesSingleLine": [
+       {"name": "e", "nodeId": 5, "stateId": null, "flow": 0.3}
+      ]
+     },
+     "groups": [
+      {
+       "id": "jscolors_c_module2_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.3,
+       "numLeafNodes": 1,
+       "x": 480,
+       "y": 15.999999999999915,
+       "width": 80,
+       "height": 170.4,
+       "pass1": {"x": 480, "y": -16, "width": 80, "height": 180},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.3,
+         "numLeafNodes": 1,
+         "x": 480,
+         "y": 15.999999999999915,
+         "width": 80,
+         "height": 170.4,
+         "streamlineNodes": [
+          {
+           "id": "jscolors_c_module2_group-1_left",
+           "sourceId": "jscolors_c_module2_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.3,
+           "numLeafNodes": 1,
+           "x": 480,
+           "y": 15.999999999999915,
+           "width": 80,
+           "height": 170.4,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.3,
+         "numLeafNodes": 1,
+         "x": 480,
+         "y": 15.999999999999915,
+         "width": 80,
+         "height": 170.4,
+         "streamlineNodes": [
+          {
+           "id": "jscolors_c_module2_group-1_right",
+           "sourceId": "jscolors_c_module2_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.3,
+           "numLeafNodes": 1,
+           "x": 480,
+           "y": 15.999999999999915,
+           "width": 80,
+           "height": 170.4,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "numLinksAboveZero": 0,
+   "links": [],
+   "hierarchy": [
+    {"type": "module", "moduleId": "1"},
+    {"type": "module", "moduleId": "2"}
+   ],
+   "identifiersUnique": true,
+   "leafColumns": ["identifier","nodeId","stateId","moduleId","moduleLevel","highlightIndex","insignificant"],
+   "leaves": [
+    ["1",1,null,"1",1,0,false],
+    ["3",3,null,"1",1,0,false],
+    ["5",5,null,"2",1,-1,false]
+   ]
+  }
+ ]
+}

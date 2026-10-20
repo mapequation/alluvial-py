@@ -1,0 +1,517 @@
+{
+ "formatVersion": 1,
+ "scenario": "jscolors-b__default",
+ "group": "jscolors-b",
+ "variant": "default",
+ "description": "colors: true, nodes carry color strings",
+ "features": ["jsColors","json"],
+ "inputs": {
+  "files": ["data/jscolors_b.json"],
+  "formats": ["json"],
+  "networkIds": ["jscolors_b"],
+  "networkNames": ["jscolors_b.json"],
+  "identifier": "id",
+  "options": {
+   "height": 600,
+   "moduleWidth": 80,
+   "streamlineFraction": 2,
+   "streamlineThreshold": 1,
+   "flowThreshold": 0.005,
+   "marginExponent": 4,
+   "zeroMargins": false,
+   "verticalAlign": "bottom",
+   "moduleSize": "flow",
+   "sortModulesBy": "flow"
+  },
+  "labelOptions": {"fontSize": 8, "adaptiveFontSize": false, "multilineModuleNames": true, "aggregateStateNames": true, "showModuleNames": true},
+  "colorScheme": "C3 Sinebow",
+  "operations": [
+   {"op": "setNetworks"}
+  ]
+ },
+ "diagram": {
+  "x": 0,
+  "y": 0,
+  "width": 80,
+  "height": 600,
+  "flow": 0,
+  "numNetworks": 1,
+  "maxNetworkFlow": 1,
+  "streamlineWidth": 160,
+  "networkWidth": 240,
+  "totalWidth": 80,
+  "totalMargins": [16],
+  "maxTotalMargin": 16,
+  "marginFractionOfHeight": 0.02666666666666667,
+  "maxMarginFractionOfHeight": 0.2,
+  "marginCapped": false,
+  "moduleMarginScale": null,
+  "scaledTotalMargin": null,
+  "usableHeight": 584,
+  "visibleFlows": [1],
+  "visibleModuleCounts": [2],
+  "updateLayoutCalls": 1,
+  "usableHeightCheckedModules": 2
+ },
+ "highlightColors": ["#0f0","#00f"],
+ "defaultHighlightColor": "#b6b69f",
+ "warnings": [],
+ "networks": [
+  {
+   "networkId": "jscolors_b",
+   "name": "jscolors_b.json",
+   "index": 0,
+   "file": {
+    "path": "data/jscolors_b.json",
+    "format": "json",
+    "numTopModules": 2,
+    "numLevels": 2,
+    "isStateNetwork": false,
+    "directed": null,
+    "codelength": null,
+    "numNodes": 5
+   },
+   "x": 0,
+   "y": 0,
+   "width": 80,
+   "height": 600,
+   "flow": 1,
+   "numLeafNodes": 5,
+   "moduleFlowThreshold": 0.5,
+   "isCustomSorted": false,
+   "isHigherOrder": false,
+   "namePosition": {"x": 40, "y": 620},
+   "totalMargin": 16,
+   "visibleFlow": 1,
+   "numVisibleModules": 2,
+   "numModules": 2,
+   "modules": [
+    {
+     "moduleId": "1",
+     "id": "jscolors_b_module1",
+     "path": [1],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 0,
+     "flow": 0.5,
+     "numLeafNodes": 2,
+     "meanNodeId": 1.5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": 0,
+     "margin": 16,
+     "x": 0,
+     "y": 308,
+     "width": 80,
+     "height": 292,
+     "pass1": {"margin": 16, "index": 0, "x": 0, "y": 300, "width": 80, "height": 300},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 454},
+      "idPosition": {"x": 40, "y": 454},
+      "customName": "",
+      "maxLines": 21,
+      "names": [
+       {"name": "a", "nodeId": 1, "stateId": null, "flow": 0.3},
+       {"name": "b", "nodeId": 2, "stateId": null, "flow": 0.2}
+      ],
+      "namesSingleLine": [
+       {"name": "a", "nodeId": 1, "stateId": null, "flow": 0.3},
+       {"name": "b", "nodeId": 2, "stateId": null, "flow": 0.2}
+      ]
+     },
+     "groups": [
+      {
+       "id": "jscolors_b_module1_group0",
+       "highlightIndex": 0,
+       "insignificant": false,
+       "flow": 0.3,
+       "numLeafNodes": 1,
+       "x": 0,
+       "y": 424.8,
+       "width": 80,
+       "height": 175.2,
+       "pass1": {"x": 0, "y": 420, "width": 80, "height": 180},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.3,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 424.8,
+         "width": 80,
+         "height": 175.2,
+         "streamlineNodes": [
+          {
+           "id": "jscolors_b_module1_group0_left",
+           "sourceId": "jscolors_b_module1_group0_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.3,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 424.8,
+           "width": 80,
+           "height": 175.2,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.3,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 424.8,
+         "width": 80,
+         "height": 175.2,
+         "streamlineNodes": [
+          {
+           "id": "jscolors_b_module1_group0_right",
+           "sourceId": "jscolors_b_module1_group0_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.3,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 424.8,
+           "width": 80,
+           "height": 175.2,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "jscolors_b_module1_group1",
+       "highlightIndex": 1,
+       "insignificant": false,
+       "flow": 0.2,
+       "numLeafNodes": 1,
+       "x": 0,
+       "y": 308,
+       "width": 80,
+       "height": 116.80000000000001,
+       "pass1": {"x": 0, "y": 300, "width": 80, "height": 120},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.2,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 308,
+         "width": 80,
+         "height": 116.80000000000001,
+         "streamlineNodes": [
+          {
+           "id": "jscolors_b_module1_group1_left",
+           "sourceId": "jscolors_b_module1_group1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.2,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 308,
+           "width": 80,
+           "height": 116.80000000000001,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.2,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 308,
+         "width": 80,
+         "height": 116.80000000000001,
+         "streamlineNodes": [
+          {
+           "id": "jscolors_b_module1_group1_right",
+           "sourceId": "jscolors_b_module1_group1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.2,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 308,
+           "width": 80,
+           "height": 116.80000000000001,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "2",
+     "id": "jscolors_b_module2",
+     "path": [2],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 1,
+     "flow": 0.5,
+     "numLeafNodes": 3,
+     "meanNodeId": 4.333333333333333,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": 4,
+     "margin": 0,
+     "x": 0,
+     "y": 0,
+     "width": 80,
+     "height": 292,
+     "pass1": {"margin": 0, "index": 1, "x": 0, "y": -16, "width": 80, "height": 300},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 146},
+      "idPosition": {"x": 40, "y": 146},
+      "customName": "",
+      "maxLines": 21,
+      "names": [
+       {"name": "c", "nodeId": 3, "stateId": null, "flow": 0.25},
+       {"name": "d", "nodeId": 4, "stateId": null, "flow": 0.15},
+       {"name": "f", "nodeId": 6, "stateId": null, "flow": 0.1}
+      ],
+      "namesSingleLine": [
+       {"name": "c", "nodeId": 3, "stateId": null, "flow": 0.25},
+       {"name": "d", "nodeId": 4, "stateId": null, "flow": 0.15},
+       {"name": "f", "nodeId": 6, "stateId": null, "flow": 0.1}
+      ]
+     },
+     "groups": [
+      {
+       "id": "jscolors_b_module2_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.1,
+       "numLeafNodes": 1,
+       "x": 0,
+       "y": 233.6,
+       "width": 80,
+       "height": 58.400000000000006,
+       "pass1": {"x": 0, "y": 224, "width": 80, "height": 60},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.1,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 233.6,
+         "width": 80,
+         "height": 58.400000000000006,
+         "streamlineNodes": [
+          {
+           "id": "jscolors_b_module2_group-1_left",
+           "sourceId": "jscolors_b_module2_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.1,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 233.6,
+           "width": 80,
+           "height": 58.400000000000006,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.1,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 233.6,
+         "width": 80,
+         "height": 58.400000000000006,
+         "streamlineNodes": [
+          {
+           "id": "jscolors_b_module2_group-1_right",
+           "sourceId": "jscolors_b_module2_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.1,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 233.6,
+           "width": 80,
+           "height": 58.400000000000006,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "jscolors_b_module2_group0",
+       "highlightIndex": 0,
+       "insignificant": false,
+       "flow": 0.15,
+       "numLeafNodes": 1,
+       "x": 0,
+       "y": 146,
+       "width": 80,
+       "height": 87.6,
+       "pass1": {"x": 0, "y": 134, "width": 80, "height": 90},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.15,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 146,
+         "width": 80,
+         "height": 87.6,
+         "streamlineNodes": [
+          {
+           "id": "jscolors_b_module2_group0_left",
+           "sourceId": "jscolors_b_module2_group0_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.15,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 146,
+           "width": 80,
+           "height": 87.6,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.15,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 146,
+         "width": 80,
+         "height": 87.6,
+         "streamlineNodes": [
+          {
+           "id": "jscolors_b_module2_group0_right",
+           "sourceId": "jscolors_b_module2_group0_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.15,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 146,
+           "width": 80,
+           "height": 87.6,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "jscolors_b_module2_group4",
+       "highlightIndex": 4,
+       "insignificant": false,
+       "flow": 0.25,
+       "numLeafNodes": 1,
+       "x": 0,
+       "y": 0,
+       "width": 80,
+       "height": 146,
+       "pass1": {"x": 0, "y": -16, "width": 80, "height": 150},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.25,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 0,
+         "width": 80,
+         "height": 146,
+         "streamlineNodes": [
+          {
+           "id": "jscolors_b_module2_group4_left",
+           "sourceId": "jscolors_b_module2_group4_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.25,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 0,
+           "width": 80,
+           "height": 146,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.25,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 0,
+         "width": 80,
+         "height": 146,
+         "streamlineNodes": [
+          {
+           "id": "jscolors_b_module2_group4_right",
+           "sourceId": "jscolors_b_module2_group4_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.25,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 0,
+           "width": 80,
+           "height": 146,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "numLinksAboveZero": 0,
+   "links": [],
+   "hierarchy": [
+    {"type": "module", "moduleId": "1"},
+    {"type": "module", "moduleId": "2"}
+   ],
+   "identifiersUnique": true,
+   "leafColumns": ["identifier","nodeId","stateId","moduleId","moduleLevel","highlightIndex","insignificant"],
+   "leaves": [
+    ["1",1,null,"1",1,0,false],
+    ["2",2,null,"1",1,1,false],
+    ["3",3,null,"2",1,4,false],
+    ["4",4,null,"2",1,0,false],
+    ["6",6,null,"2",1,-1,false]
+   ]
+  }
+ ]
+}

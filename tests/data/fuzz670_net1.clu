@@ -1,0 +1,9 @@
+# v2.0.0
+# ./Infomap fuzz --two-level
+# partitioned into 2 levels with 2 top modules
+# flow model undirected
+# higher order
+# state level
+# state_id module flow node_id
+8 4 0e0 705
+1 1 1 409

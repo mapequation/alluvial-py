@@ -1,0 +1,3141 @@
+{
+ "formatVersion": 1,
+ "scenario": "prefix-tree__default",
+ "group": "prefix-tree",
+ "variant": "default",
+ "description": "DiagramStore defaults",
+ "inputs": {
+  "files": ["data/prefix_t0.tree","data/prefix_t1.tree"],
+  "formats": ["tree","tree"],
+  "networkIds": ["prefix_t0","prefix_t1"],
+  "networkNames": ["prefix_t0.tree","prefix_t1.tree"],
+  "identifier": "id",
+  "options": {
+   "height": 600,
+   "moduleWidth": 80,
+   "streamlineFraction": 2,
+   "streamlineThreshold": 1,
+   "flowThreshold": 0.005,
+   "marginExponent": 4,
+   "zeroMargins": false,
+   "verticalAlign": "bottom",
+   "moduleSize": "flow",
+   "sortModulesBy": "flow"
+  },
+  "labelOptions": {"fontSize": 8, "adaptiveFontSize": false, "multilineModuleNames": true, "aggregateStateNames": true, "showModuleNames": true},
+  "colorScheme": "C3 Sinebow",
+  "operations": [
+   {"op": "setNetworks"}
+  ]
+ },
+ "diagram": {
+  "x": 0,
+  "y": 0,
+  "width": 320,
+  "height": 600,
+  "flow": 0,
+  "numNetworks": 2,
+  "maxNetworkFlow": 1.0000003,
+  "streamlineWidth": 160,
+  "networkWidth": 240,
+  "totalWidth": 320,
+  "totalMargins": [176,176],
+  "maxTotalMargin": 176,
+  "marginFractionOfHeight": 0.29333333333333333,
+  "maxMarginFractionOfHeight": 0.2,
+  "marginCapped": true,
+  "moduleMarginScale": 0.6818181818181818,
+  "scaledTotalMargin": 119.99999999999999,
+  "usableHeight": 480,
+  "visibleFlows": [0.9999997400000782,1],
+  "visibleModuleCounts": [12,12],
+  "updateLayoutCalls": 1,
+  "usableHeightCheckedModules": 24
+ },
+ "highlightColors": [],
+ "defaultHighlightColor": "#b6b69f",
+ "warnings": [],
+ "networks": [
+  {
+   "networkId": "prefix_t0",
+   "name": "prefix_t0.tree",
+   "index": 0,
+   "file": {
+    "path": "data/prefix_t0.tree",
+    "format": "tree",
+    "numTopModules": 12,
+    "numLevels": 4,
+    "isStateNetwork": false,
+    "directed": null,
+    "codelength": null,
+    "numNodes": 102
+   },
+   "x": 0,
+   "y": 0,
+   "width": 80,
+   "height": 600,
+   "flow": 1.00000004,
+   "numLeafNodes": 102,
+   "moduleFlowThreshold": 0.02956139,
+   "isCustomSorted": false,
+   "isHigherOrder": false,
+   "namePosition": {"x": 40, "y": 620},
+   "totalMargin": 176,
+   "visibleFlow": 0.9999997400000782,
+   "numVisibleModules": 12,
+   "numModules": 12,
+   "modules": [
+    {
+     "moduleId": "1",
+     "id": "prefix_t0_module1",
+     "path": [1],
+     "moduleLevel": 1,
+     "maxModuleLevel": 3,
+     "index": 0,
+     "flow": 0.5753816400000001,
+     "numLeafNodes": 58,
+     "meanNodeId": 29.5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 10.909090909090908,
+     "x": 0,
+     "y": 323.8168956549312,
+     "width": 80,
+     "height": 276.1831043450688,
+     "pass1": {"margin": 16, "index": 0, "x": 0, "y": 254.771119568664, "width": 80, "height": 345.228880431336},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 461.9084478274656},
+      "idPosition": {"x": 40, "y": 461.9084478274656},
+      "customName": "",
+      "maxLines": 19,
+      "names": [
+       {"name": "x42", "nodeId": 42, "stateId": null, "flow": 0.0143144},
+       {"name": "x11", "nodeId": 11, "stateId": null, "flow": 0.0142411},
+       {"name": "x8", "nodeId": 8, "stateId": null, "flow": 0.0142133},
+       {"name": "x31", "nodeId": 31, "stateId": null, "flow": 0.0138333},
+       {"name": "x28", "nodeId": 28, "stateId": null, "flow": 0.0138074},
+       {"name": "x1", "nodeId": 1, "stateId": null, "flow": 0.0136423},
+       {"name": "x27", "nodeId": 27, "stateId": null, "flow": 0.013549},
+       {"name": "x3", "nodeId": 3, "stateId": null, "flow": 0.0135284},
+       {"name": "x52", "nodeId": 52, "stateId": null, "flow": 0.0134936},
+       {"name": "x39", "nodeId": 39, "stateId": null, "flow": 0.0132992},
+       {"name": "x15", "nodeId": 15, "stateId": null, "flow": 0.0131603},
+       {"name": "x34", "nodeId": 34, "stateId": null, "flow": 0.0124306},
+       {"name": "x17", "nodeId": 17, "stateId": null, "flow": 0.0122694},
+       {"name": "x19", "nodeId": 19, "stateId": null, "flow": 0.0120957},
+       {"name": "x14", "nodeId": 14, "stateId": null, "flow": 0.0119833},
+       {"name": "x2", "nodeId": 2, "stateId": null, "flow": 0.01196},
+       {"name": "x43", "nodeId": 43, "stateId": null, "flow": 0.0119582},
+       {"name": "x7", "nodeId": 7, "stateId": null, "flow": 0.0112669},
+       {"name": "x6", "nodeId": 6, "stateId": null, "flow": 0.0112103}
+      ],
+      "namesSingleLine": [
+       {"name": "x42", "nodeId": 42, "stateId": null, "flow": 0.0143144},
+       {"name": "x11", "nodeId": 11, "stateId": null, "flow": 0.0142411},
+       {"name": "x8", "nodeId": 8, "stateId": null, "flow": 0.0142133},
+       {"name": "x31", "nodeId": 31, "stateId": null, "flow": 0.0138333},
+       {"name": "x28", "nodeId": 28, "stateId": null, "flow": 0.0138074}
+      ]
+     },
+     "groups": [
+      {
+       "id": "prefix_t0_module1_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.5753816400000001,
+       "numLeafNodes": 58,
+       "x": 0,
+       "y": 323.8168956549312,
+       "width": 80,
+       "height": 276.1831043450688,
+       "pass1": {"x": 0, "y": 254.771119568664, "width": 80, "height": 345.228880431336},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.5753816400000001,
+         "numLeafNodes": 58,
+         "x": 0,
+         "y": 323.8168956549312,
+         "width": 80,
+         "height": 276.1831043450688,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t0_module1_group-1_left",
+           "sourceId": "prefix_t0_module1_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.5753816400000001,
+           "numLeafNodes": 58,
+           "x": 0,
+           "y": 323.8168956549312,
+           "width": 80,
+           "height": 276.1831043450688,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.5753816400000001,
+         "numLeafNodes": 58,
+         "x": 0,
+         "y": 323.8168956549312,
+         "width": 80,
+         "height": 276.1831043450688,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t0_module1_group-1_right--prefix_t1_module1_group-1_left",
+           "sourceId": "prefix_t0_module1_group-1_right",
+           "targetId": "prefix_t1_module1_group-1_left",
+           "dangling": false,
+           "flow": 0.5753816400000001,
+           "numLeafNodes": 58,
+           "x": 0,
+           "y": 323.8168956549312,
+           "width": 80,
+           "height": 276.1831043450688,
+           "sortKey": -256.7657109702867,
+           "linked": true,
+           "opposite": {"networkId": "prefix_t1", "id": "prefix_t1_module1_group-1_left--prefix_t0_module1_group-1_right", "moduleId": "1"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "4",
+     "id": "prefix_t0_module4",
+     "path": [4],
+     "moduleLevel": 1,
+     "maxModuleLevel": 2,
+     "index": 1,
+     "flow": 0.04930843,
+     "numLeafNodes": 4,
+     "meanNodeId": 68.5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 10.909090909090908,
+     "x": 0,
+     "y": 289.2397654462521,
+     "width": 80,
+     "height": 23.668039299588212,
+     "pass1": {"margin": 16, "index": 1, "x": 0, "y": 209.18607044417874, "width": 80, "height": 29.585049124485266},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 301.0737850960462},
+      "idPosition": {"x": 40, "y": 301.0737850960462},
+      "customName": "",
+      "maxLines": 1,
+      "names": [
+       {"name": "x67", "nodeId": 67, "stateId": null, "flow": 0.0133048}
+      ],
+      "namesSingleLine": [
+       {"name": "x67", "nodeId": 67, "stateId": null, "flow": 0.0133048},
+       {"name": "x70", "nodeId": 70, "stateId": null, "flow": 0.0132561},
+       {"name": "x69", "nodeId": 69, "stateId": null, "flow": 0.0129178},
+       {"name": "x68", "nodeId": 68, "stateId": null, "flow": 0.00982973}
+      ]
+     },
+     "groups": [
+      {
+       "id": "prefix_t0_module4_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.04930843,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 289.2397654462521,
+       "width": 80,
+       "height": 23.668039299588212,
+       "pass1": {"x": 0, "y": 209.18607044417874, "width": 80, "height": 29.585049124485266},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.04930843,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 289.2397654462521,
+         "width": 80,
+         "height": 23.668039299588212,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t0_module4_group-1_left",
+           "sourceId": "prefix_t0_module4_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.04930843,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 289.2397654462521,
+           "width": 80,
+           "height": 23.668039299588212,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.04930843,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 289.2397654462521,
+         "width": 80,
+         "height": 23.668039299588212,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t0_module4_group-1_right--prefix_t1_module4_group-1_left",
+           "sourceId": "prefix_t0_module4_group-1_right",
+           "targetId": "prefix_t1_module4_group-1_left",
+           "dangling": false,
+           "flow": 0.04930843,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 289.2397654462521,
+           "width": 80,
+           "height": 23.668039299588212,
+           "sortKey": 31.332928200121565,
+           "linked": true,
+           "opposite": {"networkId": "prefix_t1", "id": "prefix_t1_module4_group-1_left--prefix_t0_module4_group-1_right", "moduleId": "4"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "2",
+     "id": "prefix_t0_module2",
+     "path": [2],
+     "moduleLevel": 1,
+     "maxModuleLevel": 2,
+     "index": 2,
+     "flow": 0.04736539,
+     "numLeafNodes": 4,
+     "meanNodeId": 60.5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 10.909090909090908,
+     "x": 0,
+     "y": 255.59529415777524,
+     "width": 80,
+     "height": 22.735380379385887,
+     "pass1": {"margin": 16, "index": 2, "x": 0, "y": 164.7668449699464, "width": 80, "height": 28.41922547423236},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 266.9629843474682},
+      "idPosition": {"x": 40, "y": 266.9629843474682},
+      "customName": "",
+      "maxLines": 1,
+      "names": [
+       {"name": "x59", "nodeId": 59, "stateId": null, "flow": 0.0144333}
+      ],
+      "namesSingleLine": [
+       {"name": "x59", "nodeId": 59, "stateId": null, "flow": 0.0144333},
+       {"name": "x60", "nodeId": 60, "stateId": null, "flow": 0.0137063},
+       {"name": "x61", "nodeId": 61, "stateId": null, "flow": 0.0118224},
+       {"name": "x62", "nodeId": 62, "stateId": null, "flow": 0.00740339}
+      ]
+     },
+     "groups": [
+      {
+       "id": "prefix_t0_module2_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.04736539,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 255.59529415777524,
+       "width": 80,
+       "height": 22.735380379385887,
+       "pass1": {"x": 0, "y": 164.76684496994642, "width": 80, "height": 28.41922547423236},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.04736539,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 255.59529415777524,
+         "width": 80,
+         "height": 22.735380379385887,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t0_module2_group-1_left",
+           "sourceId": "prefix_t0_module2_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.04736539,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 255.59529415777524,
+           "width": 80,
+           "height": 22.735380379385887,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.04736539,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 255.59529415777524,
+         "width": 80,
+         "height": 22.735380379385887,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t0_module2_group-1_right--prefix_t1_module2_group-1_left",
+           "sourceId": "prefix_t0_module2_group-1_right",
+           "targetId": "prefix_t1_module2_group-1_left",
+           "dangling": false,
+           "flow": 0.04736539,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 255.59529415777524,
+           "width": 80,
+           "height": 22.735380379385887,
+           "sortKey": 176.00000000000003,
+           "linked": true,
+           "opposite": {"networkId": "prefix_t1", "id": "prefix_t1_module2_group-1_left--prefix_t0_module2_group-1_right", "moduleId": "2"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "8",
+     "id": "prefix_t0_module8",
+     "path": [8],
+     "moduleLevel": 1,
+     "maxModuleLevel": 2,
+     "index": 3,
+     "flow": 0.04624721,
+     "numLeafNodes": 4,
+     "meanNodeId": 84.5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 10.909090909090908,
+     "x": 0,
+     "y": 222.48754910828058,
+     "width": 80,
+     "height": 22.198654140403757,
+     "pass1": {"margin": 16, "index": 3, "x": 0, "y": 121.01852729444172, "width": 80, "height": 27.748317675504698},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 233.58687617848244},
+      "idPosition": {"x": 40, "y": 233.58687617848244},
+      "customName": "",
+      "maxLines": 1,
+      "names": [
+       {"name": "x85", "nodeId": 85, "stateId": null, "flow": 0.0137476}
+      ],
+      "namesSingleLine": [
+       {"name": "x85", "nodeId": 85, "stateId": null, "flow": 0.0137476},
+       {"name": "x83", "nodeId": 83, "stateId": null, "flow": 0.0133051},
+       {"name": "x84", "nodeId": 84, "stateId": null, "flow": 0.0112523},
+       {"name": "x86", "nodeId": 86, "stateId": null, "flow": 0.00794221}
+      ]
+     },
+     "groups": [
+      {
+       "id": "prefix_t0_module8_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.04624721,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 222.48754910828058,
+       "width": 80,
+       "height": 22.198654140403757,
+       "pass1": {"x": 0, "y": 121.01852729444172, "width": 80, "height": 27.748317675504698},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.04624721,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 222.48754910828058,
+         "width": 80,
+         "height": 22.198654140403757,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t0_module8_group-1_left",
+           "sourceId": "prefix_t0_module8_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.04624721,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 222.48754910828058,
+           "width": 80,
+           "height": 22.198654140403757,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.04624721,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 222.48754910828058,
+         "width": 80,
+         "height": 22.198654140403757,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t0_module8_group-1_right--prefix_t1_module8_group-1_left",
+           "sourceId": "prefix_t0_module8_group-1_right",
+           "targetId": "prefix_t1_module8_group-1_left",
+           "dangling": false,
+           "flow": 0.04624721,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 222.48754910828058,
+           "width": 80,
+           "height": 22.198654140403757,
+           "sortKey": 106.29314331205703,
+           "linked": true,
+           "opposite": {"networkId": "prefix_t1", "id": "prefix_t1_module8_group-1_left--prefix_t0_module8_group-1_right", "moduleId": "8"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "5",
+     "id": "prefix_t0_module5",
+     "path": [5],
+     "moduleLevel": 1,
+     "maxModuleLevel": 2,
+     "index": 4,
+     "flow": 0.041813649999999994,
+     "numLeafNodes": 4,
+     "meanNodeId": 72.5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 10.909090909090908,
+     "x": 0,
+     "y": 191.50791222035346,
+     "width": 80,
+     "height": 20.070545978836204,
+     "pass1": {"margin": 16, "index": 4, "x": 0, "y": 79.93034482089647, "width": 80, "height": 25.088182473545253},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 201.54318520977156},
+      "idPosition": {"x": 40, "y": 201.54318520977156},
+      "customName": "",
+      "maxLines": 1,
+      "names": [
+       {"name": "x72", "nodeId": 72, "stateId": null, "flow": 0.0140249}
+      ],
+      "namesSingleLine": [
+       {"name": "x72", "nodeId": 72, "stateId": null, "flow": 0.0140249},
+       {"name": "x71", "nodeId": 71, "stateId": null, "flow": 0.00960888},
+       {"name": "x73", "nodeId": 73, "stateId": null, "flow": 0.00922198},
+       {"name": "x74", "nodeId": 74, "stateId": null, "flow": 0.00895789}
+      ]
+     },
+     "groups": [
+      {
+       "id": "prefix_t0_module5_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.041813649999999994,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 191.50791222035346,
+       "width": 80,
+       "height": 20.070545978836204,
+       "pass1": {"x": 0, "y": 79.93034482089647, "width": 80, "height": 25.088182473545253},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.041813649999999994,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 191.50791222035346,
+         "width": 80,
+         "height": 20.070545978836204,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t0_module5_group-1_left",
+           "sourceId": "prefix_t0_module5_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.041813649999999994,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 191.50791222035346,
+           "width": 80,
+           "height": 20.070545978836204,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.041813649999999994,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 191.50791222035346,
+         "width": 80,
+         "height": 20.070545978836204,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t0_module5_group-1_right--prefix_t1_module5_group-1_left",
+           "sourceId": "prefix_t0_module5_group-1_right",
+           "targetId": "prefix_t1_module5_group-1_left",
+           "dangling": false,
+           "flow": 0.041813649999999994,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 191.50791222035346,
+           "width": 80,
+           "height": 20.070545978836204,
+           "sortKey": -211.04950788514762,
+           "linked": true,
+           "opposite": {"networkId": "prefix_t1", "id": "prefix_t1_module5_group-1_left--prefix_t0_module5_group-1_right", "moduleId": "5"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "3",
+     "id": "prefix_t0_module3",
+     "path": [3],
+     "moduleLevel": 1,
+     "maxModuleLevel": 2,
+     "index": 5,
+     "flow": 0.03993567,
+     "numLeafNodes": 4,
+     "meanNodeId": 64.5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 10.909090909090908,
+     "x": 0,
+     "y": 161.42970546199732,
+     "width": 80,
+     "height": 19.169115849265246,
+     "pass1": {"margin": 16, "index": 5, "x": 0, "y": 39.96895000931491, "width": 80, "height": 23.961394811581556},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 171.01426338662995},
+      "idPosition": {"x": 40, "y": 171.01426338662995},
+      "customName": "",
+      "maxLines": 1,
+      "names": [
+       {"name": "x65", "nodeId": 65, "stateId": null, "flow": 0.013617}
+      ],
+      "namesSingleLine": [
+       {"name": "x65", "nodeId": 65, "stateId": null, "flow": 0.013617},
+       {"name": "x63", "nodeId": 63, "stateId": null, "flow": 0.0127543},
+       {"name": "x64", "nodeId": 64, "stateId": null, "flow": 0.00693303},
+       {"name": "x66", "nodeId": 66, "stateId": null, "flow": 0.00663134}
+      ]
+     },
+     "groups": [
+      {
+       "id": "prefix_t0_module3_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.03993567,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 161.42970546199732,
+       "width": 80,
+       "height": 19.169115849265246,
+       "pass1": {"x": 0, "y": 39.96895000931491, "width": 80, "height": 23.961394811581556},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.03993567,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 161.42970546199732,
+         "width": 80,
+         "height": 19.169115849265246,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t0_module3_group-1_left",
+           "sourceId": "prefix_t0_module3_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.03993567,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 161.42970546199732,
+           "width": 80,
+           "height": 19.169115849265246,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.03993567,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 161.42970546199732,
+         "width": 80,
+         "height": 19.169115849265246,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t0_module3_group-1_right--prefix_t1_module3_group-1_left",
+           "sourceId": "prefix_t0_module3_group-1_right",
+           "targetId": "prefix_t1_module3_group-1_left",
+           "dangling": false,
+           "flow": 0.03993567,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 161.42970546199732,
+           "width": 80,
+           "height": 19.169115849265246,
+           "sortKey": -7.800028859991322,
+           "linked": true,
+           "opposite": {"networkId": "prefix_t1", "id": "prefix_t1_module3_group-1_left--prefix_t0_module3_group-1_right", "moduleId": "3"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "9",
+     "id": "prefix_t0_module9",
+     "path": [9],
+     "moduleLevel": 1,
+     "maxModuleLevel": 2,
+     "index": 6,
+     "flow": 0.03805241,
+     "numLeafNodes": 4,
+     "meanNodeId": 88.5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 10.909090909090908,
+     "x": 0,
+     "y": 132.2554632324518,
+     "width": 80,
+     "height": 18.265151320454606,
+     "pass1": {"margin": 16, "index": 6, "x": 0, "y": 1.1375108587466514, "width": 80, "height": 22.831439150568258},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 141.3880388926791},
+      "idPosition": {"x": 40, "y": 141.3880388926791},
+      "customName": "",
+      "maxLines": 1,
+      "names": [
+       {"name": "x89", "nodeId": 89, "stateId": null, "flow": 0.0142128}
+      ],
+      "namesSingleLine": [
+       {"name": "x89", "nodeId": 89, "stateId": null, "flow": 0.0142128},
+       {"name": "x90", "nodeId": 90, "stateId": null, "flow": 0.009959},
+       {"name": "x87", "nodeId": 87, "stateId": null, "flow": 0.00791889},
+       {"name": "x88", "nodeId": 88, "stateId": null, "flow": 0.00596172}
+      ]
+     },
+     "groups": [
+      {
+       "id": "prefix_t0_module9_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.03805241,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 132.2554632324518,
+       "width": 80,
+       "height": 18.265151320454606,
+       "pass1": {"x": 0, "y": 1.1375108587466514, "width": 80, "height": 22.831439150568258},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.03805241,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 132.2554632324518,
+         "width": 80,
+         "height": 18.265151320454606,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t0_module9_group-1_left",
+           "sourceId": "prefix_t0_module9_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.03805241,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 132.2554632324518,
+           "width": 80,
+           "height": 18.265151320454606,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.03805241,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 132.2554632324518,
+         "width": 80,
+         "height": 18.265151320454606,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t0_module9_group-1_right--prefix_t1_module9_group-1_left",
+           "sourceId": "prefix_t0_module9_group-1_right",
+           "targetId": "prefix_t1_module9_group-1_left",
+           "dangling": false,
+           "flow": 0.03805241,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 132.2554632324518,
+           "width": 80,
+           "height": 18.265151320454606,
+           "sortKey": -126.94685551594333,
+           "linked": true,
+           "opposite": {"networkId": "prefix_t1", "id": "prefix_t1_module9_group-1_left--prefix_t0_module9_group-1_right", "moduleId": "9"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "6",
+     "id": "prefix_t0_module6",
+     "path": [6],
+     "moduleLevel": 1,
+     "maxModuleLevel": 2,
+     "index": 7,
+     "flow": 0.03608726,
+     "numLeafNodes": 4,
+     "meanNodeId": 76.5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 10.909090909090908,
+     "x": 0,
+     "y": 104.02449271992478,
+     "width": 80,
+     "height": 17.321879603436123,
+     "pass1": {"margin": 16, "index": 7, "x": 0, "y": -36.5148386455485, "width": 80, "height": 21.652349504295152},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 112.68543252164284},
+      "idPosition": {"x": 40, "y": 112.68543252164284},
+      "customName": "",
+      "maxLines": 1,
+      "names": [
+       {"name": "x76", "nodeId": 76, "stateId": null, "flow": 0.0122763}
+      ],
+      "namesSingleLine": [
+       {"name": "x76", "nodeId": 76, "stateId": null, "flow": 0.0122763},
+       {"name": "x75", "nodeId": 75, "stateId": null, "flow": 0.00954891},
+       {"name": "x77", "nodeId": 77, "stateId": null, "flow": 0.00753448},
+       {"name": "x78", "nodeId": 78, "stateId": null, "flow": 0.00672757}
+      ]
+     },
+     "groups": [
+      {
+       "id": "prefix_t0_module6_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.03608726,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 104.02449271992478,
+       "width": 80,
+       "height": 17.321879603436123,
+       "pass1": {"x": 0, "y": -36.5148386455485, "width": 80, "height": 21.652349504295152},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.03608726,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 104.02449271992478,
+         "width": 80,
+         "height": 17.321879603436123,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t0_module6_group-1_left",
+           "sourceId": "prefix_t0_module6_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.03608726,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 104.02449271992478,
+           "width": 80,
+           "height": 17.321879603436123,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.03608726,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 104.02449271992478,
+         "width": 80,
+         "height": 17.321879603436123,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t0_module6_group-1_right--prefix_t1_module6_group-1_left",
+           "sourceId": "prefix_t0_module6_group-1_right",
+           "targetId": "prefix_t1_module6_group-1_left",
+           "dangling": false,
+           "flow": 0.03608726,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 104.02449271992478,
+           "width": 80,
+           "height": 17.321879603436123,
+           "sortKey": -86.95485471354357,
+           "linked": true,
+           "opposite": {"networkId": "prefix_t1", "id": "prefix_t1_module6_group-1_left--prefix_t0_module6_group-1_right", "moduleId": "6"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "10",
+     "id": "prefix_t0_module10",
+     "path": [10],
+     "moduleLevel": 1,
+     "maxModuleLevel": 2,
+     "index": 8,
+     "flow": 0.0333597,
+     "numLeafNodes": 4,
+     "meanNodeId": 92.5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 10.909090909090908,
+     "x": 0,
+     "y": 77.10275061462923,
+     "width": 80,
+     "height": 16.01265119620464,
+     "pass1": {"margin": 16, "index": 8, "x": 0, "y": -72.5306526408043, "width": 80, "height": 20.0158139952558},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 85.10907621273155},
+      "idPosition": {"x": 40, "y": 85.10907621273155},
+      "customName": "",
+      "maxLines": 1,
+      "names": [
+       {"name": "x91", "nodeId": 91, "stateId": null, "flow": 0.00912698}
+      ],
+      "namesSingleLine": [
+       {"name": "x91", "nodeId": 91, "stateId": null, "flow": 0.00912698},
+       {"name": "x93", "nodeId": 93, "stateId": null, "flow": 0.00894876},
+       {"name": "x92", "nodeId": 92, "stateId": null, "flow": 0.00795205},
+       {"name": "x94", "nodeId": 94, "stateId": null, "flow": 0.00733191}
+      ]
+     },
+     "groups": [
+      {
+       "id": "prefix_t0_module10_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.0333597,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 77.10275061462923,
+       "width": 80,
+       "height": 16.01265119620464,
+       "pass1": {"x": 0, "y": -72.5306526408043, "width": 80, "height": 20.0158139952558},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.0333597,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 77.10275061462923,
+         "width": 80,
+         "height": 16.01265119620464,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t0_module10_group-1_left",
+           "sourceId": "prefix_t0_module10_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.0333597,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 77.10275061462923,
+           "width": 80,
+           "height": 16.01265119620464,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.0333597,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 77.10275061462923,
+         "width": 80,
+         "height": 16.01265119620464,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t0_module10_group-1_right--prefix_t1_module10_group-1_left",
+           "sourceId": "prefix_t0_module10_group-1_right",
+           "targetId": "prefix_t1_module10_group-1_left",
+           "dangling": false,
+           "flow": 0.0333597,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 77.10275061462923,
+           "width": 80,
+           "height": 16.01265119620464,
+           "sortKey": -167.64295610711315,
+           "linked": true,
+           "opposite": {"networkId": "prefix_t1", "id": "prefix_t1_module10_group-1_left--prefix_t0_module10_group-1_right", "moduleId": "10"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "7",
+     "id": "prefix_t0_module7",
+     "path": [7],
+     "moduleLevel": 1,
+     "maxModuleLevel": 2,
+     "index": 9,
+     "flow": 0.03241257,
+     "numLeafNodes": 4,
+     "meanNodeId": 80.5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 10.909090909090908,
+     "x": 0,
+     "y": 50.635630772947,
+     "width": 80,
+     "height": 15.558028932591322,
+     "pass1": {"margin": 16, "index": 9, "x": 0, "y": -107.97818880654346, "width": 80, "height": 19.44753616573915},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 58.41464523924267},
+      "idPosition": {"x": 40, "y": 58.41464523924267},
+      "customName": "",
+      "maxLines": 1,
+      "names": [
+       {"name": "x81", "nodeId": 81, "stateId": null, "flow": 0.0116459}
+      ],
+      "namesSingleLine": [
+       {"name": "x81", "nodeId": 81, "stateId": null, "flow": 0.0116459},
+       {"name": "x80", "nodeId": 80, "stateId": null, "flow": 0.00791199},
+       {"name": "x82", "nodeId": 82, "stateId": null, "flow": 0.00720923},
+       {"name": "x79", "nodeId": 79, "stateId": null, "flow": 0.00564545}
+      ]
+     },
+     "groups": [
+      {
+       "id": "prefix_t0_module7_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.03241257,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 50.635630772947,
+       "width": 80,
+       "height": 15.558028932591322,
+       "pass1": {"x": 0, "y": -107.97818880654346, "width": 80, "height": 19.44753616573915},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.03241257,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 50.635630772947,
+         "width": 80,
+         "height": 15.558028932591322,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t0_module7_group-1_left",
+           "sourceId": "prefix_t0_module7_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.03241257,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 50.635630772947,
+           "width": 80,
+           "height": 15.558028932591322,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.03241257,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 50.635630772947,
+         "width": 80,
+         "height": 15.558028932591322,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t0_module7_group-1_right--prefix_t1_module7_group-1_left",
+           "sourceId": "prefix_t0_module7_group-1_right",
+           "targetId": "prefix_t1_module7_group-1_left",
+           "dangling": false,
+           "flow": 0.03241257,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 50.635630772947,
+           "width": 80,
+           "height": 15.558028932591322,
+           "sortKey": 70.14631935610421,
+           "linked": true,
+           "opposite": {"networkId": "prefix_t1", "id": "prefix_t1_module7_group-1_left--prefix_t0_module7_group-1_right", "moduleId": "7"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "11",
+     "id": "prefix_t0_module11",
+     "path": [11],
+     "moduleLevel": 1,
+     "maxModuleLevel": 2,
+     "index": 10,
+     "flow": 0.03047472,
+     "numLeafNodes": 4,
+     "meanNodeId": 96.5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 10.909090909090908,
+     "x": 0,
+     "y": 25.09867865221446,
+     "width": 80,
+     "height": 14.627861211641637,
+     "pass1": {"margin": 16, "index": 10, "x": 0, "y": -142.2630153210955, "width": 80, "height": 18.284826514552044},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 32.412609258035275},
+      "idPosition": {"x": 40, "y": 32.412609258035275},
+      "customName": "",
+      "maxLines": 1,
+      "names": [
+       {"name": "x97", "nodeId": 97, "stateId": null, "flow": 0.0116035}
+      ],
+      "namesSingleLine": [
+       {"name": "x97", "nodeId": 97, "stateId": null, "flow": 0.0116035},
+       {"name": "x98", "nodeId": 98, "stateId": null, "flow": 0.007334},
+       {"name": "x96", "nodeId": 96, "stateId": null, "flow": 0.00664814},
+       {"name": "x95", "nodeId": 95, "stateId": null, "flow": 0.00488908}
+      ]
+     },
+     "groups": [
+      {
+       "id": "prefix_t0_module11_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.03047472,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 25.09867865221446,
+       "width": 80,
+       "height": 14.627861211641637,
+       "pass1": {"x": 0, "y": -142.2630153210955, "width": 80, "height": 18.284826514552044},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.03047472,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 25.09867865221446,
+         "width": 80,
+         "height": 14.627861211641637,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t0_module11_group-1_left",
+           "sourceId": "prefix_t0_module11_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.03047472,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 25.09867865221446,
+           "width": 80,
+           "height": 14.627861211641637,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.03047472,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 25.09867865221446,
+         "width": 80,
+         "height": 14.627861211641637,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t0_module11_group-1_right--prefix_t1_module11_group-1_left",
+           "sourceId": "prefix_t0_module11_group-1_right",
+           "targetId": "prefix_t1_module11_group-1_left",
+           "dangling": false,
+           "flow": 0.03047472,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 25.09867865221446,
+           "width": 80,
+           "height": 14.627861211641637,
+           "sortKey": -47.14489385653182,
+           "linked": true,
+           "opposite": {"networkId": "prefix_t1", "id": "prefix_t1_module11_group-1_left--prefix_t0_module11_group-1_right", "moduleId": "11"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "12",
+     "id": "prefix_t0_module12",
+     "path": [12],
+     "moduleLevel": 1,
+     "maxModuleLevel": 2,
+     "index": 11,
+     "flow": 0.02956139,
+     "numLeafNodes": 4,
+     "meanNodeId": 100.5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 0,
+     "x": 0,
+     "y": 0.0001247999624354179,
+     "width": 80,
+     "height": 14.189462943161116,
+     "pass1": {"margin": 0, "index": 11, "x": 0, "y": -175.9998440000469, "width": 80, "height": 17.736828678951397},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 7.0948562715429935},
+      "idPosition": {"x": 40, "y": 7.0948562715429935},
+      "customName": "",
+      "maxLines": 1,
+      "names": [
+       {"name": "x101", "nodeId": 101, "stateId": null, "flow": 0.00895542}
+      ],
+      "namesSingleLine": [
+       {"name": "x101", "nodeId": 101, "stateId": null, "flow": 0.00895542},
+       {"name": "x102", "nodeId": 102, "stateId": null, "flow": 0.00837698},
+       {"name": "x99", "nodeId": 99, "stateId": null, "flow": 0.00623112},
+       {"name": "x100", "nodeId": 100, "stateId": null, "flow": 0.00599787}
+      ]
+     },
+     "groups": [
+      {
+       "id": "prefix_t0_module12_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.02956139,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 0.0001247999624354179,
+       "width": 80,
+       "height": 14.189462943161116,
+       "pass1": {"x": 0, "y": -175.9998440000469, "width": 80, "height": 17.736828678951397},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.02956139,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 0.0001247999624354179,
+         "width": 80,
+         "height": 14.189462943161116,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t0_module12_group-1_left",
+           "sourceId": "prefix_t0_module12_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.02956139,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 0.0001247999624354179,
+           "width": 80,
+           "height": 14.189462943161116,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.02956139,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 0.0001247999624354179,
+         "width": 80,
+         "height": 14.189462943161116,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t0_module12_group-1_right--prefix_t1_module12_group-1_left",
+           "sourceId": "prefix_t0_module12_group-1_right",
+           "targetId": "prefix_t1_module12_group-1_left",
+           "dangling": false,
+           "flow": 0.02956139,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 0.0001247999624354179,
+           "width": 80,
+           "height": 14.189462943161116,
+           "sortKey": 141.15399965380013,
+           "linked": true,
+           "opposite": {"networkId": "prefix_t1", "id": "prefix_t1_module12_group-1_left--prefix_t0_module12_group-1_right", "moduleId": "12"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "numLinksAboveZero": 12,
+   "links": [
+    {
+     "id": "prefix_t0_module1_group-1_right--prefix_t1_module1_group-1_left",
+     "left": {"networkId": "prefix_t0", "moduleId": "1", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "prefix_t0_module1_group-1_right--prefix_t1_module1_group-1_left"},
+     "right": {"networkId": "prefix_t1", "moduleId": "1", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "prefix_t1_module1_group-1_left--prefix_t0_module1_group-1_right"},
+     "x0": 80,
+     "y0": 323.8168956549312,
+     "h0": 276.1831043450688,
+     "x1": 240,
+     "y1": 325.41256877622936,
+     "h1": 274.58743122377064,
+     "avgHeight": 275.38526778441974,
+     "highlightIndex": -1,
+     "leftHighlightIndex": -1,
+     "rightHighlightIndex": -1,
+     "path": "M80,600C160,600,160,600,240,600L240,325.41256877622936C160,325.41256877622936,160,323.8168956549312,80,323.8168956549312Z"
+    },
+    {
+     "id": "prefix_t0_module5_group-1_right--prefix_t1_module5_group-1_left",
+     "left": {"networkId": "prefix_t0", "moduleId": "5", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "prefix_t0_module5_group-1_right--prefix_t1_module5_group-1_left"},
+     "right": {"networkId": "prefix_t1", "moduleId": "5", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "prefix_t1_module5_group-1_left--prefix_t0_module5_group-1_right"},
+     "x0": 80,
+     "y0": 191.50791222035346,
+     "h0": 20.070545978836204,
+     "x1": 240,
+     "y1": 290.7305153990272,
+     "h1": 23.77296246811126,
+     "avgHeight": 21.921754223473734,
+     "highlightIndex": -1,
+     "leftHighlightIndex": -1,
+     "rightHighlightIndex": -1,
+     "path": "M80,211.57845819918967C160,211.57845819918967,160,314.50347786713843,240,314.50347786713843L240,290.7305153990272C160,290.7305153990272,160,191.50791222035346,80,191.50791222035346Z"
+    },
+    {
+     "id": "prefix_t0_module4_group-1_right--prefix_t1_module4_group-1_left",
+     "left": {"networkId": "prefix_t0", "moduleId": "4", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "prefix_t0_module4_group-1_right--prefix_t1_module4_group-1_left"},
+     "right": {"networkId": "prefix_t1", "moduleId": "4", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "prefix_t1_module4_group-1_left--prefix_t0_module4_group-1_right"},
+     "x0": 80,
+     "y0": 289.2397654462521,
+     "h0": 23.668039299588212,
+     "x1": 240,
+     "y1": 108.17002107626635,
+     "h1": 18.50636564809031,
+     "avgHeight": 21.087202473839262,
+     "highlightIndex": -1,
+     "leftHighlightIndex": -1,
+     "rightHighlightIndex": -1,
+     "path": "M80,312.9078047458403C160,312.9078047458403,160,126.67638672435666,240,126.67638672435666L240,108.17002107626635C160,108.17002107626635,160,289.2397654462521,80,289.2397654462521Z"
+    },
+    {
+     "id": "prefix_t0_module8_group-1_right--prefix_t1_module8_group-1_left",
+     "left": {"networkId": "prefix_t0", "moduleId": "8", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "prefix_t0_module8_group-1_right--prefix_t1_module8_group-1_left"},
+     "right": {"networkId": "prefix_t1", "moduleId": "8", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "prefix_t1_module8_group-1_left--prefix_t0_module8_group-1_right"},
+     "x0": 80,
+     "y0": 222.48754910828058,
+     "h0": 22.198654140403757,
+     "x1": 240,
+     "y1": 51.98366716853616,
+     "h1": 16.11745916476225,
+     "avgHeight": 19.158056652583003,
+     "highlightIndex": -1,
+     "leftHighlightIndex": -1,
+     "rightHighlightIndex": -1,
+     "path": "M80,244.68620324868434C160,244.68620324868434,160,68.10112633329841,240,68.10112633329841L240,51.98366716853616C160,51.98366716853616,160,222.48754910828058,80,222.48754910828058Z"
+    },
+    {
+     "id": "prefix_t0_module9_group-1_right--prefix_t1_module9_group-1_left",
+     "left": {"networkId": "prefix_t0", "moduleId": "9", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "prefix_t0_module9_group-1_right--prefix_t1_module9_group-1_left"},
+     "right": {"networkId": "prefix_t1", "moduleId": "9", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "prefix_t1_module9_group-1_left--prefix_t0_module9_group-1_right"},
+     "x0": 80,
+     "y0": 132.2554632324518,
+     "h0": 18.265151320454606,
+     "x1": 240,
+     "y1": 227.2302116854819,
+     "h1": 19.756880472935862,
+     "avgHeight": 19.011015896695234,
+     "highlightIndex": -1,
+     "leftHighlightIndex": -1,
+     "rightHighlightIndex": -1,
+     "path": "M80,150.5206145529064C160,150.5206145529064,160,246.98709215841774,240,246.98709215841774L240,227.2302116854819C160,227.2302116854819,160,132.2554632324518,80,132.2554632324518Z"
+    },
+    {
+     "id": "prefix_t0_module10_group-1_right--prefix_t1_module10_group-1_left",
+     "left": {"networkId": "prefix_t0", "moduleId": "10", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "prefix_t0_module10_group-1_right--prefix_t1_module10_group-1_left"},
+     "right": {"networkId": "prefix_t1", "moduleId": "10", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "prefix_t1_module10_group-1_left--prefix_t0_module10_group-1_right"},
+     "x0": 80,
+     "y0": 77.10275061462923,
+     "h0": 16.01265119620464,
+     "x1": 240,
+     "y1": 257.8961830675087,
+     "h1": 21.925241422427572,
+     "avgHeight": 18.968946309316106,
+     "highlightIndex": -1,
+     "leftHighlightIndex": -1,
+     "rightHighlightIndex": -1,
+     "path": "M80,93.11540181083387C160,93.11540181083387,160,279.82142448993625,240,279.82142448993625L240,257.8961830675087C160,257.8961830675087,160,77.10275061462923,80,77.10275061462923Z"
+    },
+    {
+     "id": "prefix_t0_module3_group-1_right--prefix_t1_module3_group-1_left",
+     "left": {"networkId": "prefix_t0", "moduleId": "3", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "prefix_t0_module3_group-1_right--prefix_t1_module3_group-1_left"},
+     "right": {"networkId": "prefix_t1", "moduleId": "3", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "prefix_t1_module3_group-1_left--prefix_t0_module3_group-1_right"},
+     "x0": 80,
+     "y0": 161.42970546199732,
+     "h0": 19.169115849265246,
+     "x1": 240,
+     "y1": 137.58547763344757,
+     "h1": 18.6758919972324,
+     "avgHeight": 18.922503923248826,
+     "highlightIndex": -1,
+     "leftHighlightIndex": -1,
+     "rightHighlightIndex": -1,
+     "path": "M80,180.59882131126255C160,180.59882131126255,160,156.26136963067998,240,156.26136963067998L240,137.58547763344757C160,137.58547763344757,160,161.42970546199732,80,161.42970546199732Z"
+    },
+    {
+     "id": "prefix_t0_module2_group-1_right--prefix_t1_module2_group-1_left",
+     "left": {"networkId": "prefix_t0", "moduleId": "2", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "prefix_t0_module2_group-1_right--prefix_t1_module2_group-1_left"},
+     "right": {"networkId": "prefix_t1", "moduleId": "2", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "prefix_t1_module2_group-1_left--prefix_t0_module2_group-1_right"},
+     "x0": 80,
+     "y0": 255.59529415777524,
+     "h0": 22.735380379385887,
+     "x1": 240,
+     "y1": -5.5067062021407764e-14,
+     "h1": 15.076800276959919,
+     "avgHeight": 18.9060903281729,
+     "highlightIndex": -1,
+     "leftHighlightIndex": -1,
+     "rightHighlightIndex": -1,
+     "path": "M80,278.33067453716114C160,278.33067453716114,160,15.076800276959919,240,15.076800276959919L240,0C160,0,160,255.59529415777524,80,255.59529415777524Z"
+    },
+    {
+     "id": "prefix_t0_module6_group-1_right--prefix_t1_module6_group-1_left",
+     "left": {"networkId": "prefix_t0", "moduleId": "6", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "prefix_t0_module6_group-1_right--prefix_t1_module6_group-1_left"},
+     "right": {"networkId": "prefix_t1", "moduleId": "6", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "prefix_t1_module6_group-1_left--prefix_t0_module6_group-1_right"},
+     "x0": 80,
+     "y0": 104.02449271992478,
+     "h0": 17.321879603436123,
+     "x1": 240,
+     "y1": 197.12752013447118,
+     "h1": 19.193600641919804,
+     "avgHeight": 18.257740122677966,
+     "highlightIndex": -1,
+     "leftHighlightIndex": -1,
+     "rightHighlightIndex": -1,
+     "path": "M80,121.3463723233609C160,121.3463723233609,160,216.32112077639098,240,216.32112077639098L240,197.12752013447118C160,197.12752013447118,160,104.02449271992478,80,104.02449271992478Z"
+    },
+    {
+     "id": "prefix_t0_module7_group-1_right--prefix_t1_module7_group-1_left",
+     "left": {"networkId": "prefix_t0", "moduleId": "7", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "prefix_t0_module7_group-1_right--prefix_t1_module7_group-1_left"},
+     "right": {"networkId": "prefix_t1", "moduleId": "7", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "prefix_t1_module7_group-1_left--prefix_t0_module7_group-1_right"},
+     "x0": 80,
+     "y0": 50.635630772947,
+     "h0": 15.558028932591322,
+     "x1": 240,
+     "y1": 79.01021724238932,
+     "h1": 18.250712924786125,
+     "avgHeight": 16.904370928688724,
+     "highlightIndex": -1,
+     "leftHighlightIndex": -1,
+     "rightHighlightIndex": -1,
+     "path": "M80,66.19365970553832C160,66.19365970553832,160,97.26093016717545,240,97.26093016717545L240,79.01021724238932C160,79.01021724238932,160,50.635630772947,80,50.635630772947Z"
+    },
+    {
+     "id": "prefix_t0_module11_group-1_right--prefix_t1_module11_group-1_left",
+     "left": {"networkId": "prefix_t0", "moduleId": "11", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "prefix_t0_module11_group-1_right--prefix_t1_module11_group-1_left"},
+     "right": {"networkId": "prefix_t1", "moduleId": "11", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "prefix_t1_module11_group-1_left--prefix_t0_module11_group-1_right"},
+     "x0": 80,
+     "y0": 25.09867865221446,
+     "h0": 14.627861211641637,
+     "x1": 240,
+     "y1": 167.1704605397709,
+     "h1": 19.047968685609398,
+     "avgHeight": 16.837914948625517,
+     "highlightIndex": -1,
+     "leftHighlightIndex": -1,
+     "rightHighlightIndex": -1,
+     "path": "M80,39.7265398638561C160,39.7265398638561,160,186.21842922538028,240,186.21842922538028L240,167.1704605397709C160,167.1704605397709,160,25.09867865221446,80,25.09867865221446Z"
+    },
+    {
+     "id": "prefix_t0_module12_group-1_right--prefix_t1_module12_group-1_left",
+     "left": {"networkId": "prefix_t0", "moduleId": "12", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "prefix_t0_module12_group-1_right--prefix_t1_module12_group-1_left"},
+     "right": {"networkId": "prefix_t1", "moduleId": "12", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "prefix_t1_module12_group-1_left--prefix_t0_module12_group-1_right"},
+     "x0": 80,
+     "y0": 0.0001247999624354179,
+     "h0": 14.189462943161116,
+     "x1": 240,
+     "y1": 25.98589118605077,
+     "h1": 15.08868507339448,
+     "avgHeight": 14.639074008277799,
+     "highlightIndex": -1,
+     "leftHighlightIndex": -1,
+     "rightHighlightIndex": -1,
+     "path": "M80,14.189587743123552C160,14.189587743123552,160,41.07457625944525,240,41.07457625944525L240,25.98589118605077C160,25.98589118605077,160,0.0001247999624354179,80,0.0001247999624354179Z"
+    }
+   ],
+   "hierarchy": [
+    {"type": "module", "moduleId": "1"},
+    {"type": "module", "moduleId": "4"},
+    {"type": "module", "moduleId": "2"},
+    {"type": "module", "moduleId": "8"},
+    {"type": "module", "moduleId": "5"},
+    {"type": "module", "moduleId": "3"},
+    {"type": "module", "moduleId": "9"},
+    {"type": "module", "moduleId": "6"},
+    {"type": "module", "moduleId": "10"},
+    {"type": "module", "moduleId": "7"},
+    {"type": "module", "moduleId": "11"},
+    {"type": "module", "moduleId": "12"}
+   ],
+   "identifiersUnique": true,
+   "leafColumns": ["identifier","nodeId","stateId","moduleId","moduleLevel","highlightIndex","insignificant"],
+   "leaves": [
+    ["1",1,null,"1",1,-1,false],
+    ["2",2,null,"1",1,-1,false],
+    ["3",3,null,"1",1,-1,false],
+    ["4",4,null,"1",1,-1,false],
+    ["5",5,null,"1",1,-1,false],
+    ["6",6,null,"1",1,-1,false],
+    ["7",7,null,"1",1,-1,false],
+    ["8",8,null,"1",1,-1,false],
+    ["9",9,null,"1",1,-1,false],
+    ["10",10,null,"1",1,-1,false],
+    ["11",11,null,"1",1,-1,false],
+    ["12",12,null,"1",1,-1,false],
+    ["13",13,null,"1",1,-1,false],
+    ["14",14,null,"1",1,-1,false],
+    ["15",15,null,"1",1,-1,false],
+    ["16",16,null,"1",1,-1,false],
+    ["17",17,null,"1",1,-1,false],
+    ["18",18,null,"1",1,-1,false],
+    ["19",19,null,"1",1,-1,false],
+    ["20",20,null,"1",1,-1,false],
+    ["21",21,null,"1",1,-1,false],
+    ["22",22,null,"1",1,-1,false],
+    ["23",23,null,"1",1,-1,false],
+    ["24",24,null,"1",1,-1,false],
+    ["25",25,null,"1",1,-1,false],
+    ["26",26,null,"1",1,-1,false],
+    ["27",27,null,"1",1,-1,false],
+    ["28",28,null,"1",1,-1,false],
+    ["29",29,null,"1",1,-1,false],
+    ["30",30,null,"1",1,-1,false],
+    ["31",31,null,"1",1,-1,false],
+    ["32",32,null,"1",1,-1,false],
+    ["33",33,null,"1",1,-1,false],
+    ["34",34,null,"1",1,-1,false],
+    ["35",35,null,"1",1,-1,false],
+    ["36",36,null,"1",1,-1,false],
+    ["37",37,null,"1",1,-1,false],
+    ["38",38,null,"1",1,-1,false],
+    ["39",39,null,"1",1,-1,false],
+    ["40",40,null,"1",1,-1,false],
+    ["41",41,null,"1",1,-1,false],
+    ["42",42,null,"1",1,-1,false],
+    ["43",43,null,"1",1,-1,false],
+    ["44",44,null,"1",1,-1,false],
+    ["45",45,null,"1",1,-1,false],
+    ["46",46,null,"1",1,-1,false],
+    ["47",47,null,"1",1,-1,false],
+    ["48",48,null,"1",1,-1,false],
+    ["49",49,null,"1",1,-1,false],
+    ["50",50,null,"1",1,-1,false],
+    ["51",51,null,"1",1,-1,false],
+    ["52",52,null,"1",1,-1,false],
+    ["53",53,null,"1",1,-1,false],
+    ["54",54,null,"1",1,-1,false],
+    ["55",55,null,"1",1,-1,false],
+    ["56",56,null,"1",1,-1,false],
+    ["57",57,null,"1",1,-1,false],
+    ["58",58,null,"1",1,-1,false],
+    ["59",59,null,"2",1,-1,false],
+    ["60",60,null,"2",1,-1,false],
+    ["61",61,null,"2",1,-1,false],
+    ["62",62,null,"2",1,-1,false],
+    ["63",63,null,"3",1,-1,false],
+    ["64",64,null,"3",1,-1,false],
+    ["65",65,null,"3",1,-1,false],
+    ["66",66,null,"3",1,-1,false],
+    ["67",67,null,"4",1,-1,false],
+    ["68",68,null,"4",1,-1,false],
+    ["69",69,null,"4",1,-1,false],
+    ["70",70,null,"4",1,-1,false],
+    ["71",71,null,"5",1,-1,false],
+    ["72",72,null,"5",1,-1,false],
+    ["73",73,null,"5",1,-1,false],
+    ["74",74,null,"5",1,-1,false],
+    ["75",75,null,"6",1,-1,false],
+    ["76",76,null,"6",1,-1,false],
+    ["77",77,null,"6",1,-1,false],
+    ["78",78,null,"6",1,-1,false],
+    ["79",79,null,"7",1,-1,false],
+    ["80",80,null,"7",1,-1,false],
+    ["81",81,null,"7",1,-1,false],
+    ["82",82,null,"7",1,-1,false],
+    ["83",83,null,"8",1,-1,false],
+    ["84",84,null,"8",1,-1,false],
+    ["85",85,null,"8",1,-1,false],
+    ["86",86,null,"8",1,-1,false],
+    ["87",87,null,"9",1,-1,false],
+    ["88",88,null,"9",1,-1,false],
+    ["89",89,null,"9",1,-1,false],
+    ["90",90,null,"9",1,-1,false],
+    ["91",91,null,"10",1,-1,false],
+    ["92",92,null,"10",1,-1,false],
+    ["93",93,null,"10",1,-1,false],
+    ["94",94,null,"10",1,-1,false],
+    ["95",95,null,"11",1,-1,false],
+    ["96",96,null,"11",1,-1,false],
+    ["97",97,null,"11",1,-1,false],
+    ["98",98,null,"11",1,-1,false],
+    ["99",99,null,"12",1,-1,false],
+    ["100",100,null,"12",1,-1,false],
+    ["101",101,null,"12",1,-1,false],
+    ["102",102,null,"12",1,-1,false]
+   ]
+  },
+  {
+   "networkId": "prefix_t1",
+   "name": "prefix_t1.tree",
+   "index": 1,
+   "file": {
+    "path": "data/prefix_t1.tree",
+    "format": "tree",
+    "numTopModules": 12,
+    "numLevels": 4,
+    "isStateNetwork": false,
+    "directed": null,
+    "codelength": null,
+    "numNodes": 102
+   },
+   "x": 240,
+   "y": 0,
+   "width": 80,
+   "height": 600,
+   "flow": 1.0000003,
+   "numLeafNodes": 102,
+   "moduleFlowThreshold": 0.03141001,
+   "isCustomSorted": false,
+   "isHigherOrder": false,
+   "namePosition": {"x": 280, "y": 620},
+   "totalMargin": 176,
+   "visibleFlow": 1,
+   "numVisibleModules": 12,
+   "numModules": 12,
+   "modules": [
+    {
+     "moduleId": "1",
+     "id": "prefix_t1_module1",
+     "path": [1],
+     "moduleLevel": 1,
+     "maxModuleLevel": 3,
+     "index": 0,
+     "flow": 0.57205732,
+     "numLeafNodes": 58,
+     "meanNodeId": 29.5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 10.909090909090908,
+     "x": 240,
+     "y": 325.41256877622936,
+     "width": 80,
+     "height": 274.58743122377064,
+     "pass1": {"margin": 16, "index": 0, "x": 240, "y": 256.7657109702867, "width": 80, "height": 343.2342890297133},
+     "label": {
+      "shown": true,
+      "textAnchor": "start",
+      "namePosition": {"x": 340, "y": 462.7062843881147},
+      "idPosition": {"x": 280, "y": 462.7062843881147},
+      "customName": "",
+      "maxLines": 19,
+      "names": [
+       {"name": "x19", "nodeId": 19, "stateId": null, "flow": 0.0144468},
+       {"name": "x21", "nodeId": 21, "stateId": null, "flow": 0.0143842},
+       {"name": "x38", "nodeId": 38, "stateId": null, "flow": 0.0143083},
+       {"name": "x42", "nodeId": 42, "stateId": null, "flow": 0.0141593},
+       {"name": "x26", "nodeId": 26, "stateId": null, "flow": 0.0140637},
+       {"name": "x9", "nodeId": 9, "stateId": null, "flow": 0.0140064},
+       {"name": "x11", "nodeId": 11, "stateId": null, "flow": 0.0139028},
+       {"name": "x36", "nodeId": 36, "stateId": null, "flow": 0.0134813},
+       {"name": "x52", "nodeId": 52, "stateId": null, "flow": 0.0132771},
+       {"name": "x55", "nodeId": 55, "stateId": null, "flow": 0.0132325},
+       {"name": "x53", "nodeId": 53, "stateId": null, "flow": 0.0131826},
+       {"name": "x16", "nodeId": 16, "stateId": null, "flow": 0.0130589},
+       {"name": "x32", "nodeId": 32, "stateId": null, "flow": 0.013014},
+       {"name": "x10", "nodeId": 10, "stateId": null, "flow": 0.0130008},
+       {"name": "x43", "nodeId": 43, "stateId": null, "flow": 0.0125018},
+       {"name": "x1", "nodeId": 1, "stateId": null, "flow": 0.0124672},
+       {"name": "x51", "nodeId": 51, "stateId": null, "flow": 0.012428},
+       {"name": "x8", "nodeId": 8, "stateId": null, "flow": 0.0122715},
+       {"name": "x6", "nodeId": 6, "stateId": null, "flow": 0.0119625}
+      ],
+      "namesSingleLine": [
+       {"name": "x19", "nodeId": 19, "stateId": null, "flow": 0.0144468},
+       {"name": "x21", "nodeId": 21, "stateId": null, "flow": 0.0143842},
+       {"name": "x38", "nodeId": 38, "stateId": null, "flow": 0.0143083},
+       {"name": "x42", "nodeId": 42, "stateId": null, "flow": 0.0141593},
+       {"name": "x26", "nodeId": 26, "stateId": null, "flow": 0.0140637}
+      ]
+     },
+     "groups": [
+      {
+       "id": "prefix_t1_module1_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.57205732,
+       "numLeafNodes": 58,
+       "x": 240,
+       "y": 325.41256877622936,
+       "width": 80,
+       "height": 274.58743122377064,
+       "pass1": {"x": 240, "y": 256.7657109702867, "width": 80, "height": 343.2342890297133},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.57205732,
+         "numLeafNodes": 58,
+         "x": 240,
+         "y": 325.41256877622936,
+         "width": 80,
+         "height": 274.58743122377064,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t1_module1_group-1_left--prefix_t0_module1_group-1_right",
+           "sourceId": "prefix_t1_module1_group-1_left",
+           "targetId": "prefix_t0_module1_group-1_right",
+           "dangling": false,
+           "flow": 0.57205732,
+           "numLeafNodes": 58,
+           "x": 240,
+           "y": 325.41256877622936,
+           "width": 80,
+           "height": 274.58743122377064,
+           "sortKey": -254.771119568664,
+           "linked": true,
+           "opposite": {"networkId": "prefix_t0", "id": "prefix_t0_module1_group-1_right--prefix_t1_module1_group-1_left", "moduleId": "1"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.57205732,
+         "numLeafNodes": 58,
+         "x": 240,
+         "y": 325.41256877622936,
+         "width": 80,
+         "height": 274.58743122377064,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t1_module1_group-1_right",
+           "sourceId": "prefix_t1_module1_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.57205732,
+           "numLeafNodes": 58,
+           "x": 240,
+           "y": 325.41256877622936,
+           "width": 80,
+           "height": 274.58743122377064,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "5",
+     "id": "prefix_t1_module5",
+     "path": [5],
+     "moduleLevel": 1,
+     "maxModuleLevel": 2,
+     "index": 1,
+     "flow": 0.04952702,
+     "numLeafNodes": 4,
+     "meanNodeId": 72.5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 10.909090909090908,
+     "x": 240,
+     "y": 290.7305153990272,
+     "width": 80,
+     "height": 23.77296246811126,
+     "pass1": {"margin": 16, "index": 1, "x": 240, "y": 211.04950788514762, "width": 80, "height": 29.716203085139075},
+     "label": {
+      "shown": true,
+      "textAnchor": "start",
+      "namePosition": {"x": 340, "y": 302.6169966330828},
+      "idPosition": {"x": 280, "y": 302.6169966330828},
+      "customName": "",
+      "maxLines": 1,
+      "names": [
+       {"name": "x73", "nodeId": 73, "stateId": null, "flow": 0.0143004}
+      ],
+      "namesSingleLine": [
+       {"name": "x73", "nodeId": 73, "stateId": null, "flow": 0.0143004},
+       {"name": "x72", "nodeId": 72, "stateId": null, "flow": 0.0139161},
+       {"name": "x74", "nodeId": 74, "stateId": null, "flow": 0.0123913},
+       {"name": "x71", "nodeId": 71, "stateId": null, "flow": 0.00891922}
+      ]
+     },
+     "groups": [
+      {
+       "id": "prefix_t1_module5_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.04952702,
+       "numLeafNodes": 4,
+       "x": 240,
+       "y": 290.7305153990272,
+       "width": 80,
+       "height": 23.77296246811126,
+       "pass1": {"x": 240, "y": 211.04950788514762, "width": 80, "height": 29.716203085139075},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.04952702,
+         "numLeafNodes": 4,
+         "x": 240,
+         "y": 290.7305153990272,
+         "width": 80,
+         "height": 23.77296246811126,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t1_module5_group-1_left--prefix_t0_module5_group-1_right",
+           "sourceId": "prefix_t1_module5_group-1_left",
+           "targetId": "prefix_t0_module5_group-1_right",
+           "dangling": false,
+           "flow": 0.04952702,
+           "numLeafNodes": 4,
+           "x": 240,
+           "y": 290.7305153990272,
+           "width": 80,
+           "height": 23.77296246811126,
+           "sortKey": -79.93034482089647,
+           "linked": true,
+           "opposite": {"networkId": "prefix_t0", "id": "prefix_t0_module5_group-1_right--prefix_t1_module5_group-1_left", "moduleId": "5"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.04952702,
+         "numLeafNodes": 4,
+         "x": 240,
+         "y": 290.7305153990272,
+         "width": 80,
+         "height": 23.77296246811126,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t1_module5_group-1_right",
+           "sourceId": "prefix_t1_module5_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.04952702,
+           "numLeafNodes": 4,
+           "x": 240,
+           "y": 290.7305153990272,
+           "width": 80,
+           "height": 23.77296246811126,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "10",
+     "id": "prefix_t1_module10",
+     "path": [10],
+     "moduleLevel": 1,
+     "maxModuleLevel": 2,
+     "index": 2,
+     "flow": 0.0456776,
+     "numLeafNodes": 4,
+     "meanNodeId": 92.5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 10.909090909090908,
+     "x": 240,
+     "y": 257.8961830675087,
+     "width": 80,
+     "height": 21.925241422427572,
+     "pass1": {"margin": 16, "index": 2, "x": 240, "y": 167.64295610711315, "width": 80, "height": 27.406551778034466},
+     "label": {
+      "shown": true,
+      "textAnchor": "start",
+      "namePosition": {"x": 340, "y": 268.85880377872246},
+      "idPosition": {"x": 280, "y": 268.85880377872246},
+      "customName": "",
+      "maxLines": 1,
+      "names": [
+       {"name": "x92", "nodeId": 92, "stateId": null, "flow": 0.0141742}
+      ],
+      "namesSingleLine": [
+       {"name": "x92", "nodeId": 92, "stateId": null, "flow": 0.0141742},
+       {"name": "x94", "nodeId": 94, "stateId": null, "flow": 0.0133391},
+       {"name": "x93", "nodeId": 93, "stateId": null, "flow": 0.0112855},
+       {"name": "x91", "nodeId": 91, "stateId": null, "flow": 0.0068788}
+      ]
+     },
+     "groups": [
+      {
+       "id": "prefix_t1_module10_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.0456776,
+       "numLeafNodes": 4,
+       "x": 240,
+       "y": 257.8961830675087,
+       "width": 80,
+       "height": 21.925241422427572,
+       "pass1": {"x": 240, "y": 167.64295610711315, "width": 80, "height": 27.406551778034466},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.0456776,
+         "numLeafNodes": 4,
+         "x": 240,
+         "y": 257.8961830675087,
+         "width": 80,
+         "height": 21.925241422427572,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t1_module10_group-1_left--prefix_t0_module10_group-1_right",
+           "sourceId": "prefix_t1_module10_group-1_left",
+           "targetId": "prefix_t0_module10_group-1_right",
+           "dangling": false,
+           "flow": 0.0456776,
+           "numLeafNodes": 4,
+           "x": 240,
+           "y": 257.8961830675087,
+           "width": 80,
+           "height": 21.925241422427572,
+           "sortKey": 72.5306526408043,
+           "linked": true,
+           "opposite": {"networkId": "prefix_t0", "id": "prefix_t0_module10_group-1_right--prefix_t1_module10_group-1_left", "moduleId": "10"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.0456776,
+         "numLeafNodes": 4,
+         "x": 240,
+         "y": 257.8961830675087,
+         "width": 80,
+         "height": 21.925241422427572,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t1_module10_group-1_right",
+           "sourceId": "prefix_t1_module10_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.0456776,
+           "numLeafNodes": 4,
+           "x": 240,
+           "y": 257.8961830675087,
+           "width": 80,
+           "height": 21.925241422427572,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "9",
+     "id": "prefix_t1_module9",
+     "path": [9],
+     "moduleLevel": 1,
+     "maxModuleLevel": 2,
+     "index": 3,
+     "flow": 0.041160180000000005,
+     "numLeafNodes": 4,
+     "meanNodeId": 88.5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 10.909090909090908,
+     "x": 240,
+     "y": 227.2302116854819,
+     "width": 80,
+     "height": 19.756880472935862,
+     "pass1": {"margin": 16, "index": 3, "x": 240, "y": 126.94685551594333, "width": 80, "height": 24.696100591169827},
+     "label": {
+      "shown": true,
+      "textAnchor": "start",
+      "namePosition": {"x": 340, "y": 237.10865192194981},
+      "idPosition": {"x": 280, "y": 237.10865192194981},
+      "customName": "",
+      "maxLines": 1,
+      "names": [
+       {"name": "x88", "nodeId": 88, "stateId": null, "flow": 0.0140159}
+      ],
+      "namesSingleLine": [
+       {"name": "x88", "nodeId": 88, "stateId": null, "flow": 0.0140159},
+       {"name": "x87", "nodeId": 87, "stateId": null, "flow": 0.0110193},
+       {"name": "x90", "nodeId": 90, "stateId": null, "flow": 0.00899528},
+       {"name": "x89", "nodeId": 89, "stateId": null, "flow": 0.0071297}
+      ]
+     },
+     "groups": [
+      {
+       "id": "prefix_t1_module9_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.041160180000000005,
+       "numLeafNodes": 4,
+       "x": 240,
+       "y": 227.2302116854819,
+       "width": 80,
+       "height": 19.756880472935862,
+       "pass1": {"x": 240, "y": 126.94685551594333, "width": 80, "height": 24.696100591169827},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.041160180000000005,
+         "numLeafNodes": 4,
+         "x": 240,
+         "y": 227.2302116854819,
+         "width": 80,
+         "height": 19.756880472935862,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t1_module9_group-1_left--prefix_t0_module9_group-1_right",
+           "sourceId": "prefix_t1_module9_group-1_left",
+           "targetId": "prefix_t0_module9_group-1_right",
+           "dangling": false,
+           "flow": 0.041160180000000005,
+           "numLeafNodes": 4,
+           "x": 240,
+           "y": 227.2302116854819,
+           "width": 80,
+           "height": 19.756880472935862,
+           "sortKey": -1.1375108587466514,
+           "linked": true,
+           "opposite": {"networkId": "prefix_t0", "id": "prefix_t0_module9_group-1_right--prefix_t1_module9_group-1_left", "moduleId": "9"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.041160180000000005,
+         "numLeafNodes": 4,
+         "x": 240,
+         "y": 227.2302116854819,
+         "width": 80,
+         "height": 19.756880472935862,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t1_module9_group-1_right",
+           "sourceId": "prefix_t1_module9_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.041160180000000005,
+           "numLeafNodes": 4,
+           "x": 240,
+           "y": 227.2302116854819,
+           "width": 80,
+           "height": 19.756880472935862,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "6",
+     "id": "prefix_t1_module6",
+     "path": [6],
+     "moduleLevel": 1,
+     "maxModuleLevel": 2,
+     "index": 4,
+     "flow": 0.03998668,
+     "numLeafNodes": 4,
+     "meanNodeId": 76.5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 10.909090909090908,
+     "x": 240,
+     "y": 197.12752013447118,
+     "width": 80,
+     "height": 19.193600641919804,
+     "pass1": {"margin": 16, "index": 4, "x": 240, "y": 86.95485471354357, "width": 80, "height": 23.992000802399758},
+     "label": {
+      "shown": true,
+      "textAnchor": "start",
+      "namePosition": {"x": 340, "y": 206.7243204554311},
+      "idPosition": {"x": 280, "y": 206.7243204554311},
+      "customName": "",
+      "maxLines": 1,
+      "names": [
+       {"name": "x78", "nodeId": 78, "stateId": null, "flow": 0.0134752}
+      ],
+      "namesSingleLine": [
+       {"name": "x78", "nodeId": 78, "stateId": null, "flow": 0.0134752},
+       {"name": "x76", "nodeId": 76, "stateId": null, "flow": 0.0103133},
+       {"name": "x77", "nodeId": 77, "stateId": null, "flow": 0.00818886},
+       {"name": "x75", "nodeId": 75, "stateId": null, "flow": 0.00800932}
+      ]
+     },
+     "groups": [
+      {
+       "id": "prefix_t1_module6_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.03998668,
+       "numLeafNodes": 4,
+       "x": 240,
+       "y": 197.12752013447118,
+       "width": 80,
+       "height": 19.193600641919804,
+       "pass1": {"x": 240, "y": 86.95485471354357, "width": 80, "height": 23.992000802399758},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.03998668,
+         "numLeafNodes": 4,
+         "x": 240,
+         "y": 197.12752013447118,
+         "width": 80,
+         "height": 19.193600641919804,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t1_module6_group-1_left--prefix_t0_module6_group-1_right",
+           "sourceId": "prefix_t1_module6_group-1_left",
+           "targetId": "prefix_t0_module6_group-1_right",
+           "dangling": false,
+           "flow": 0.03998668,
+           "numLeafNodes": 4,
+           "x": 240,
+           "y": 197.12752013447118,
+           "width": 80,
+           "height": 19.193600641919804,
+           "sortKey": 36.5148386455485,
+           "linked": true,
+           "opposite": {"networkId": "prefix_t0", "id": "prefix_t0_module6_group-1_right--prefix_t1_module6_group-1_left", "moduleId": "6"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.03998668,
+         "numLeafNodes": 4,
+         "x": 240,
+         "y": 197.12752013447118,
+         "width": 80,
+         "height": 19.193600641919804,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t1_module6_group-1_right",
+           "sourceId": "prefix_t1_module6_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.03998668,
+           "numLeafNodes": 4,
+           "x": 240,
+           "y": 197.12752013447118,
+           "width": 80,
+           "height": 19.193600641919804,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "11",
+     "id": "prefix_t1_module11",
+     "path": [11],
+     "moduleLevel": 1,
+     "maxModuleLevel": 2,
+     "index": 5,
+     "flow": 0.03968328,
+     "numLeafNodes": 4,
+     "meanNodeId": 96.5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 10.909090909090908,
+     "x": 240,
+     "y": 167.1704605397709,
+     "width": 80,
+     "height": 19.047968685609398,
+     "pass1": {"margin": 16, "index": 5, "x": 240, "y": 47.14489385653182, "width": 80, "height": 23.809960857011745},
+     "label": {
+      "shown": true,
+      "textAnchor": "start",
+      "namePosition": {"x": 340, "y": 176.6944448825756},
+      "idPosition": {"x": 280, "y": 176.6944448825756},
+      "customName": "",
+      "maxLines": 1,
+      "names": [
+       {"name": "x97", "nodeId": 97, "stateId": null, "flow": 0.0138195}
+      ],
+      "namesSingleLine": [
+       {"name": "x97", "nodeId": 97, "stateId": null, "flow": 0.0138195},
+       {"name": "x98", "nodeId": 98, "stateId": null, "flow": 0.011998},
+       {"name": "x96", "nodeId": 96, "stateId": null, "flow": 0.00770081},
+       {"name": "x95", "nodeId": 95, "stateId": null, "flow": 0.00616497}
+      ]
+     },
+     "groups": [
+      {
+       "id": "prefix_t1_module11_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.03968328,
+       "numLeafNodes": 4,
+       "x": 240,
+       "y": 167.1704605397709,
+       "width": 80,
+       "height": 19.047968685609398,
+       "pass1": {"x": 240, "y": 47.14489385653182, "width": 80, "height": 23.809960857011745},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.03968328,
+         "numLeafNodes": 4,
+         "x": 240,
+         "y": 167.1704605397709,
+         "width": 80,
+         "height": 19.047968685609398,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t1_module11_group-1_left--prefix_t0_module11_group-1_right",
+           "sourceId": "prefix_t1_module11_group-1_left",
+           "targetId": "prefix_t0_module11_group-1_right",
+           "dangling": false,
+           "flow": 0.03968328,
+           "numLeafNodes": 4,
+           "x": 240,
+           "y": 167.1704605397709,
+           "width": 80,
+           "height": 19.047968685609398,
+           "sortKey": 142.2630153210955,
+           "linked": true,
+           "opposite": {"networkId": "prefix_t0", "id": "prefix_t0_module11_group-1_right--prefix_t1_module11_group-1_left", "moduleId": "11"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.03968328,
+         "numLeafNodes": 4,
+         "x": 240,
+         "y": 167.1704605397709,
+         "width": 80,
+         "height": 19.047968685609398,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t1_module11_group-1_right",
+           "sourceId": "prefix_t1_module11_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.03968328,
+           "numLeafNodes": 4,
+           "x": 240,
+           "y": 167.1704605397709,
+           "width": 80,
+           "height": 19.047968685609398,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "3",
+     "id": "prefix_t1_module3",
+     "path": [3],
+     "moduleLevel": 1,
+     "maxModuleLevel": 2,
+     "index": 6,
+     "flow": 0.038908120000000004,
+     "numLeafNodes": 4,
+     "meanNodeId": 64.5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 10.909090909090908,
+     "x": 240,
+     "y": 137.58547763344757,
+     "width": 80,
+     "height": 18.6758919972324,
+     "pass1": {"margin": 16, "index": 6, "x": 240, "y": 7.800028859991322, "width": 80, "height": 23.3448649965405},
+     "label": {
+      "shown": true,
+      "textAnchor": "start",
+      "namePosition": {"x": 340, "y": 146.92342363206376},
+      "idPosition": {"x": 280, "y": 146.92342363206376},
+      "customName": "",
+      "maxLines": 1,
+      "names": [
+       {"name": "x64", "nodeId": 64, "stateId": null, "flow": 0.0113555}
+      ],
+      "namesSingleLine": [
+       {"name": "x64", "nodeId": 64, "stateId": null, "flow": 0.0113555},
+       {"name": "x65", "nodeId": 65, "stateId": null, "flow": 0.0111591},
+       {"name": "x66", "nodeId": 66, "stateId": null, "flow": 0.00891544},
+       {"name": "x63", "nodeId": 63, "stateId": null, "flow": 0.00747808}
+      ]
+     },
+     "groups": [
+      {
+       "id": "prefix_t1_module3_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.038908120000000004,
+       "numLeafNodes": 4,
+       "x": 240,
+       "y": 137.58547763344757,
+       "width": 80,
+       "height": 18.6758919972324,
+       "pass1": {"x": 240, "y": 7.800028859991322, "width": 80, "height": 23.3448649965405},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.038908120000000004,
+         "numLeafNodes": 4,
+         "x": 240,
+         "y": 137.58547763344757,
+         "width": 80,
+         "height": 18.6758919972324,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t1_module3_group-1_left--prefix_t0_module3_group-1_right",
+           "sourceId": "prefix_t1_module3_group-1_left",
+           "targetId": "prefix_t0_module3_group-1_right",
+           "dangling": false,
+           "flow": 0.038908120000000004,
+           "numLeafNodes": 4,
+           "x": 240,
+           "y": 137.58547763344757,
+           "width": 80,
+           "height": 18.6758919972324,
+           "sortKey": -39.96895000931491,
+           "linked": true,
+           "opposite": {"networkId": "prefix_t0", "id": "prefix_t0_module3_group-1_right--prefix_t1_module3_group-1_left", "moduleId": "3"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.038908120000000004,
+         "numLeafNodes": 4,
+         "x": 240,
+         "y": 137.58547763344757,
+         "width": 80,
+         "height": 18.6758919972324,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t1_module3_group-1_right",
+           "sourceId": "prefix_t1_module3_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.038908120000000004,
+           "numLeafNodes": 4,
+           "x": 240,
+           "y": 137.58547763344757,
+           "width": 80,
+           "height": 18.6758919972324,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "4",
+     "id": "prefix_t1_module4",
+     "path": [4],
+     "moduleLevel": 1,
+     "maxModuleLevel": 2,
+     "index": 7,
+     "flow": 0.03855494,
+     "numLeafNodes": 4,
+     "meanNodeId": 68.5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 10.909090909090908,
+     "x": 240,
+     "y": 108.17002107626635,
+     "width": 80,
+     "height": 18.50636564809031,
+     "pass1": {"margin": 16, "index": 7, "x": 240, "y": -31.332928200121565, "width": 80, "height": 23.132957060112886},
+     "label": {
+      "shown": true,
+      "textAnchor": "start",
+      "namePosition": {"x": 340, "y": 117.4232039003115},
+      "idPosition": {"x": 280, "y": 117.4232039003115},
+      "customName": "",
+      "maxLines": 1,
+      "names": [
+       {"name": "x70", "nodeId": 70, "stateId": null, "flow": 0.0128857}
+      ],
+      "namesSingleLine": [
+       {"name": "x70", "nodeId": 70, "stateId": null, "flow": 0.0128857},
+       {"name": "x68", "nodeId": 68, "stateId": null, "flow": 0.00965107},
+       {"name": "x67", "nodeId": 67, "stateId": null, "flow": 0.00898763},
+       {"name": "x69", "nodeId": 69, "stateId": null, "flow": 0.00703054}
+      ]
+     },
+     "groups": [
+      {
+       "id": "prefix_t1_module4_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.03855494,
+       "numLeafNodes": 4,
+       "x": 240,
+       "y": 108.17002107626635,
+       "width": 80,
+       "height": 18.50636564809031,
+       "pass1": {"x": 240, "y": -31.332928200121565, "width": 80, "height": 23.132957060112886},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.03855494,
+         "numLeafNodes": 4,
+         "x": 240,
+         "y": 108.17002107626635,
+         "width": 80,
+         "height": 18.50636564809031,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t1_module4_group-1_left--prefix_t0_module4_group-1_right",
+           "sourceId": "prefix_t1_module4_group-1_left",
+           "targetId": "prefix_t0_module4_group-1_right",
+           "dangling": false,
+           "flow": 0.03855494,
+           "numLeafNodes": 4,
+           "x": 240,
+           "y": 108.17002107626635,
+           "width": 80,
+           "height": 18.50636564809031,
+           "sortKey": -209.18607044417874,
+           "linked": true,
+           "opposite": {"networkId": "prefix_t0", "id": "prefix_t0_module4_group-1_right--prefix_t1_module4_group-1_left", "moduleId": "4"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.03855494,
+         "numLeafNodes": 4,
+         "x": 240,
+         "y": 108.17002107626635,
+         "width": 80,
+         "height": 18.50636564809031,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t1_module4_group-1_right",
+           "sourceId": "prefix_t1_module4_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.03855494,
+           "numLeafNodes": 4,
+           "x": 240,
+           "y": 108.17002107626635,
+           "width": 80,
+           "height": 18.50636564809031,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "7",
+     "id": "prefix_t1_module7",
+     "path": [7],
+     "moduleLevel": 1,
+     "maxModuleLevel": 2,
+     "index": 8,
+     "flow": 0.03802233,
+     "numLeafNodes": 4,
+     "meanNodeId": 80.5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 10.909090909090908,
+     "x": 240,
+     "y": 79.01021724238932,
+     "width": 80,
+     "height": 18.250712924786125,
+     "pass1": {"margin": 16, "index": 8, "x": 240, "y": -70.14631935610421, "width": 80, "height": 22.813391155982657},
+     "label": {
+      "shown": true,
+      "textAnchor": "start",
+      "namePosition": {"x": 340, "y": 88.13557370478237},
+      "idPosition": {"x": 280, "y": 88.13557370478237},
+      "customName": "",
+      "maxLines": 1,
+      "names": [
+       {"name": "x81", "nodeId": 81, "stateId": null, "flow": 0.0137879}
+      ],
+      "namesSingleLine": [
+       {"name": "x81", "nodeId": 81, "stateId": null, "flow": 0.0137879},
+       {"name": "x80", "nodeId": 80, "stateId": null, "flow": 0.00954458},
+       {"name": "x82", "nodeId": 82, "stateId": null, "flow": 0.00942847},
+       {"name": "x79", "nodeId": 79, "stateId": null, "flow": 0.00526138}
+      ]
+     },
+     "groups": [
+      {
+       "id": "prefix_t1_module7_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.03802233,
+       "numLeafNodes": 4,
+       "x": 240,
+       "y": 79.01021724238932,
+       "width": 80,
+       "height": 18.250712924786125,
+       "pass1": {"x": 240, "y": -70.14631935610421, "width": 80, "height": 22.813391155982657},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.03802233,
+         "numLeafNodes": 4,
+         "x": 240,
+         "y": 79.01021724238932,
+         "width": 80,
+         "height": 18.250712924786125,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t1_module7_group-1_left--prefix_t0_module7_group-1_right",
+           "sourceId": "prefix_t1_module7_group-1_left",
+           "targetId": "prefix_t0_module7_group-1_right",
+           "dangling": false,
+           "flow": 0.03802233,
+           "numLeafNodes": 4,
+           "x": 240,
+           "y": 79.01021724238932,
+           "width": 80,
+           "height": 18.250712924786125,
+           "sortKey": 107.97818880654346,
+           "linked": true,
+           "opposite": {"networkId": "prefix_t0", "id": "prefix_t0_module7_group-1_right--prefix_t1_module7_group-1_left", "moduleId": "7"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.03802233,
+         "numLeafNodes": 4,
+         "x": 240,
+         "y": 79.01021724238932,
+         "width": 80,
+         "height": 18.250712924786125,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t1_module7_group-1_right",
+           "sourceId": "prefix_t1_module7_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.03802233,
+           "numLeafNodes": 4,
+           "x": 240,
+           "y": 79.01021724238932,
+           "width": 80,
+           "height": 18.250712924786125,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "8",
+     "id": "prefix_t1_module8",
+     "path": [8],
+     "moduleLevel": 1,
+     "maxModuleLevel": 2,
+     "index": 9,
+     "flow": 0.03357805,
+     "numLeafNodes": 4,
+     "meanNodeId": 84.5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 10.909090909090908,
+     "x": 240,
+     "y": 51.98366716853616,
+     "width": 80,
+     "height": 16.11745916476225,
+     "pass1": {"margin": 16, "index": 9, "x": 240, "y": -106.29314331205703, "width": 80, "height": 20.14682395595281},
+     "label": {
+      "shown": true,
+      "textAnchor": "start",
+      "namePosition": {"x": 340, "y": 60.042396750917284},
+      "idPosition": {"x": 280, "y": 60.042396750917284},
+      "customName": "",
+      "maxLines": 1,
+      "names": [
+       {"name": "x86", "nodeId": 86, "stateId": null, "flow": 0.0136696}
+      ],
+      "namesSingleLine": [
+       {"name": "x86", "nodeId": 86, "stateId": null, "flow": 0.0136696},
+       {"name": "x84", "nodeId": 84, "stateId": null, "flow": 0.00854379},
+       {"name": "x85", "nodeId": 85, "stateId": null, "flow": 0.00616364},
+       {"name": "x83", "nodeId": 83, "stateId": null, "flow": 0.00520102}
+      ]
+     },
+     "groups": [
+      {
+       "id": "prefix_t1_module8_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.03357805,
+       "numLeafNodes": 4,
+       "x": 240,
+       "y": 51.98366716853616,
+       "width": 80,
+       "height": 16.11745916476225,
+       "pass1": {"x": 240, "y": -106.29314331205703, "width": 80, "height": 20.14682395595281},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.03357805,
+         "numLeafNodes": 4,
+         "x": 240,
+         "y": 51.98366716853616,
+         "width": 80,
+         "height": 16.11745916476225,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t1_module8_group-1_left--prefix_t0_module8_group-1_right",
+           "sourceId": "prefix_t1_module8_group-1_left",
+           "targetId": "prefix_t0_module8_group-1_right",
+           "dangling": false,
+           "flow": 0.03357805,
+           "numLeafNodes": 4,
+           "x": 240,
+           "y": 51.98366716853616,
+           "width": 80,
+           "height": 16.11745916476225,
+           "sortKey": -121.01852729444172,
+           "linked": true,
+           "opposite": {"networkId": "prefix_t0", "id": "prefix_t0_module8_group-1_right--prefix_t1_module8_group-1_left", "moduleId": "8"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.03357805,
+         "numLeafNodes": 4,
+         "x": 240,
+         "y": 51.98366716853616,
+         "width": 80,
+         "height": 16.11745916476225,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t1_module8_group-1_right",
+           "sourceId": "prefix_t1_module8_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.03357805,
+           "numLeafNodes": 4,
+           "x": 240,
+           "y": 51.98366716853616,
+           "width": 80,
+           "height": 16.11745916476225,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "12",
+     "id": "prefix_t1_module12",
+     "path": [12],
+     "moduleLevel": 1,
+     "maxModuleLevel": 2,
+     "index": 10,
+     "flow": 0.03143477,
+     "numLeafNodes": 4,
+     "meanNodeId": 100.5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 10.909090909090908,
+     "x": 240,
+     "y": 25.98589118605077,
+     "width": 80,
+     "height": 15.08868507339448,
+     "pass1": {"margin": 16, "index": 10, "x": 240, "y": -141.15399965380013, "width": 80, "height": 18.8608563417431},
+     "label": {
+      "shown": true,
+      "textAnchor": "start",
+      "namePosition": {"x": 340, "y": 33.53023372274801},
+      "idPosition": {"x": 280, "y": 33.53023372274801},
+      "customName": "",
+      "maxLines": 1,
+      "names": [
+       {"name": "x102", "nodeId": 102, "stateId": null, "flow": 0.0119613}
+      ],
+      "namesSingleLine": [
+       {"name": "x102", "nodeId": 102, "stateId": null, "flow": 0.0119613},
+       {"name": "x100", "nodeId": 100, "stateId": null, "flow": 0.00732094},
+       {"name": "x101", "nodeId": 101, "stateId": null, "flow": 0.00685311},
+       {"name": "x99", "nodeId": 99, "stateId": null, "flow": 0.00529942}
+      ]
+     },
+     "groups": [
+      {
+       "id": "prefix_t1_module12_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.03143477,
+       "numLeafNodes": 4,
+       "x": 240,
+       "y": 25.98589118605077,
+       "width": 80,
+       "height": 15.08868507339448,
+       "pass1": {"x": 240, "y": -141.15399965380013, "width": 80, "height": 18.8608563417431},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.03143477,
+         "numLeafNodes": 4,
+         "x": 240,
+         "y": 25.98589118605077,
+         "width": 80,
+         "height": 15.08868507339448,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t1_module12_group-1_left--prefix_t0_module12_group-1_right",
+           "sourceId": "prefix_t1_module12_group-1_left",
+           "targetId": "prefix_t0_module12_group-1_right",
+           "dangling": false,
+           "flow": 0.03143477,
+           "numLeafNodes": 4,
+           "x": 240,
+           "y": 25.98589118605077,
+           "width": 80,
+           "height": 15.08868507339448,
+           "sortKey": 175.9998440000469,
+           "linked": true,
+           "opposite": {"networkId": "prefix_t0", "id": "prefix_t0_module12_group-1_right--prefix_t1_module12_group-1_left", "moduleId": "12"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.03143477,
+         "numLeafNodes": 4,
+         "x": 240,
+         "y": 25.98589118605077,
+         "width": 80,
+         "height": 15.08868507339448,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t1_module12_group-1_right",
+           "sourceId": "prefix_t1_module12_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.03143477,
+           "numLeafNodes": 4,
+           "x": 240,
+           "y": 25.98589118605077,
+           "width": 80,
+           "height": 15.08868507339448,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "2",
+     "id": "prefix_t1_module2",
+     "path": [2],
+     "moduleLevel": 1,
+     "maxModuleLevel": 2,
+     "index": 11,
+     "flow": 0.03141001,
+     "numLeafNodes": 4,
+     "meanNodeId": 60.5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 0,
+     "x": 240,
+     "y": -5.5067062021407764e-14,
+     "width": 80,
+     "height": 15.076800276959919,
+     "pass1": {"margin": 0, "index": 11, "x": 240, "y": -176.00000000000003, "width": 80, "height": 18.846000346199897},
+     "label": {
+      "shown": true,
+      "textAnchor": "start",
+      "namePosition": {"x": 340, "y": 7.538400138479904},
+      "idPosition": {"x": 280, "y": 7.538400138479904},
+      "customName": "",
+      "maxLines": 1,
+      "names": [
+       {"name": "x60", "nodeId": 60, "stateId": null, "flow": 0.00964233}
+      ],
+      "namesSingleLine": [
+       {"name": "x60", "nodeId": 60, "stateId": null, "flow": 0.00964233},
+       {"name": "x59", "nodeId": 59, "stateId": null, "flow": 0.00957038},
+       {"name": "x62", "nodeId": 62, "stateId": null, "flow": 0.00646093},
+       {"name": "x61", "nodeId": 61, "stateId": null, "flow": 0.00573637}
+      ]
+     },
+     "groups": [
+      {
+       "id": "prefix_t1_module2_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.03141001,
+       "numLeafNodes": 4,
+       "x": 240,
+       "y": -5.5067062021407764e-14,
+       "width": 80,
+       "height": 15.076800276959919,
+       "pass1": {"x": 240, "y": -176.00000000000003, "width": 80, "height": 18.846000346199897},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.03141001,
+         "numLeafNodes": 4,
+         "x": 240,
+         "y": -5.5067062021407764e-14,
+         "width": 80,
+         "height": 15.076800276959919,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t1_module2_group-1_left--prefix_t0_module2_group-1_right",
+           "sourceId": "prefix_t1_module2_group-1_left",
+           "targetId": "prefix_t0_module2_group-1_right",
+           "dangling": false,
+           "flow": 0.03141001,
+           "numLeafNodes": 4,
+           "x": 240,
+           "y": -5.5067062021407764e-14,
+           "width": 80,
+           "height": 15.076800276959919,
+           "sortKey": -164.76684496994642,
+           "linked": true,
+           "opposite": {"networkId": "prefix_t0", "id": "prefix_t0_module2_group-1_right--prefix_t1_module2_group-1_left", "moduleId": "2"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.03141001,
+         "numLeafNodes": 4,
+         "x": 240,
+         "y": -5.5067062021407764e-14,
+         "width": 80,
+         "height": 15.076800276959919,
+         "streamlineNodes": [
+          {
+           "id": "prefix_t1_module2_group-1_right",
+           "sourceId": "prefix_t1_module2_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.03141001,
+           "numLeafNodes": 4,
+           "x": 240,
+           "y": -5.5067062021407764e-14,
+           "width": 80,
+           "height": 15.076800276959919,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "numLinksAboveZero": 0,
+   "links": [],
+   "hierarchy": [
+    {"type": "module", "moduleId": "1"},
+    {"type": "module", "moduleId": "5"},
+    {"type": "module", "moduleId": "10"},
+    {"type": "module", "moduleId": "9"},
+    {"type": "module", "moduleId": "6"},
+    {"type": "module", "moduleId": "11"},
+    {"type": "module", "moduleId": "3"},
+    {"type": "module", "moduleId": "4"},
+    {"type": "module", "moduleId": "7"},
+    {"type": "module", "moduleId": "8"},
+    {"type": "module", "moduleId": "12"},
+    {"type": "module", "moduleId": "2"}
+   ],
+   "identifiersUnique": true,
+   "leafColumns": ["identifier","nodeId","stateId","moduleId","moduleLevel","highlightIndex","insignificant"],
+   "leaves": [
+    ["1",1,null,"1",1,-1,false],
+    ["2",2,null,"1",1,-1,false],
+    ["3",3,null,"1",1,-1,false],
+    ["4",4,null,"1",1,-1,false],
+    ["5",5,null,"1",1,-1,false],
+    ["6",6,null,"1",1,-1,false],
+    ["7",7,null,"1",1,-1,false],
+    ["8",8,null,"1",1,-1,false],
+    ["9",9,null,"1",1,-1,false],
+    ["10",10,null,"1",1,-1,false],
+    ["11",11,null,"1",1,-1,false],
+    ["12",12,null,"1",1,-1,false],
+    ["13",13,null,"1",1,-1,false],
+    ["14",14,null,"1",1,-1,false],
+    ["15",15,null,"1",1,-1,false],
+    ["16",16,null,"1",1,-1,false],
+    ["17",17,null,"1",1,-1,false],
+    ["18",18,null,"1",1,-1,false],
+    ["19",19,null,"1",1,-1,false],
+    ["20",20,null,"1",1,-1,false],
+    ["21",21,null,"1",1,-1,false],
+    ["22",22,null,"1",1,-1,false],
+    ["23",23,null,"1",1,-1,false],
+    ["24",24,null,"1",1,-1,false],
+    ["25",25,null,"1",1,-1,false],
+    ["26",26,null,"1",1,-1,false],
+    ["27",27,null,"1",1,-1,false],
+    ["28",28,null,"1",1,-1,false],
+    ["29",29,null,"1",1,-1,false],
+    ["30",30,null,"1",1,-1,false],
+    ["31",31,null,"1",1,-1,false],
+    ["32",32,null,"1",1,-1,false],
+    ["33",33,null,"1",1,-1,false],
+    ["34",34,null,"1",1,-1,false],
+    ["35",35,null,"1",1,-1,false],
+    ["36",36,null,"1",1,-1,false],
+    ["37",37,null,"1",1,-1,false],
+    ["38",38,null,"1",1,-1,false],
+    ["39",39,null,"1",1,-1,false],
+    ["40",40,null,"1",1,-1,false],
+    ["41",41,null,"1",1,-1,false],
+    ["42",42,null,"1",1,-1,false],
+    ["43",43,null,"1",1,-1,false],
+    ["44",44,null,"1",1,-1,false],
+    ["45",45,null,"1",1,-1,false],
+    ["46",46,null,"1",1,-1,false],
+    ["47",47,null,"1",1,-1,false],
+    ["48",48,null,"1",1,-1,false],
+    ["49",49,null,"1",1,-1,false],
+    ["50",50,null,"1",1,-1,false],
+    ["51",51,null,"1",1,-1,false],
+    ["52",52,null,"1",1,-1,false],
+    ["53",53,null,"1",1,-1,false],
+    ["54",54,null,"1",1,-1,false],
+    ["55",55,null,"1",1,-1,false],
+    ["56",56,null,"1",1,-1,false],
+    ["57",57,null,"1",1,-1,false],
+    ["58",58,null,"1",1,-1,false],
+    ["59",59,null,"2",1,-1,false],
+    ["60",60,null,"2",1,-1,false],
+    ["61",61,null,"2",1,-1,false],
+    ["62",62,null,"2",1,-1,false],
+    ["63",63,null,"3",1,-1,false],
+    ["64",64,null,"3",1,-1,false],
+    ["65",65,null,"3",1,-1,false],
+    ["66",66,null,"3",1,-1,false],
+    ["67",67,null,"4",1,-1,false],
+    ["68",68,null,"4",1,-1,false],
+    ["69",69,null,"4",1,-1,false],
+    ["70",70,null,"4",1,-1,false],
+    ["71",71,null,"5",1,-1,false],
+    ["72",72,null,"5",1,-1,false],
+    ["73",73,null,"5",1,-1,false],
+    ["74",74,null,"5",1,-1,false],
+    ["75",75,null,"6",1,-1,false],
+    ["76",76,null,"6",1,-1,false],
+    ["77",77,null,"6",1,-1,false],
+    ["78",78,null,"6",1,-1,false],
+    ["79",79,null,"7",1,-1,false],
+    ["80",80,null,"7",1,-1,false],
+    ["81",81,null,"7",1,-1,false],
+    ["82",82,null,"7",1,-1,false],
+    ["83",83,null,"8",1,-1,false],
+    ["84",84,null,"8",1,-1,false],
+    ["85",85,null,"8",1,-1,false],
+    ["86",86,null,"8",1,-1,false],
+    ["87",87,null,"9",1,-1,false],
+    ["88",88,null,"9",1,-1,false],
+    ["89",89,null,"9",1,-1,false],
+    ["90",90,null,"9",1,-1,false],
+    ["91",91,null,"10",1,-1,false],
+    ["92",92,null,"10",1,-1,false],
+    ["93",93,null,"10",1,-1,false],
+    ["94",94,null,"10",1,-1,false],
+    ["95",95,null,"11",1,-1,false],
+    ["96",96,null,"11",1,-1,false],
+    ["97",97,null,"11",1,-1,false],
+    ["98",98,null,"11",1,-1,false],
+    ["99",99,null,"12",1,-1,false],
+    ["100",100,null,"12",1,-1,false],
+    ["101",101,null,"12",1,-1,false],
+    ["102",102,null,"12",1,-1,false]
+   ]
+  }
+ ]
+}

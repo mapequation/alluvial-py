@@ -1,0 +1,3 @@
+# hand-written (minimised v2 fuzz case): duplicate name c, read with identifier name
+# path flow name node_id
+1:1 1 "c" 17

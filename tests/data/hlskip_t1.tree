@@ -1,0 +1,6 @@
+# hand-written (v2-highlight.md §8.2): a visible single-leaf module that is not last triggers the colour-op skip
+# path flow name node_id
+1:1 0.3 "n1" 1
+1:2 0.3 "n2" 2
+2:1 0.25 "n3" 3
+3:1 0.15 "n4" 4

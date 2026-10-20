@@ -1,0 +1,1616 @@
+{
+ "formatVersion": 1,
+ "scenario": "insig-stree__hierarchy",
+ "group": "insig-stree",
+ "variant": "hierarchy",
+ "description": "stree with top-level insignificant paths; moduleLevel 2, hierarchy colouring",
+ "features": ["hierarchy","hierarchyColor"],
+ "inputs": {
+  "files": ["data/insig_t0.stree","data/insig_t1.stree"],
+  "formats": ["stree","stree"],
+  "networkIds": ["insig_t0","insig_t1"],
+  "networkNames": ["insig_t0.stree","insig_t1.stree"],
+  "identifier": "id",
+  "options": {
+   "height": 600,
+   "moduleWidth": 80,
+   "streamlineFraction": 2,
+   "streamlineThreshold": 1,
+   "flowThreshold": 0.005,
+   "marginExponent": 4,
+   "zeroMargins": false,
+   "verticalAlign": "bottom",
+   "moduleSize": "flow",
+   "sortModulesBy": "flow"
+  },
+  "labelOptions": {"fontSize": 8, "adaptiveFontSize": false, "multilineModuleNames": true, "aggregateStateNames": true, "showModuleNames": true},
+  "colorScheme": "C3 Sinebow",
+  "operations": [
+   {"op": "setNetworks"},
+   {
+    "op": "setModuleLevel",
+    "levels": [2,2]
+   },
+   {"op": "colorModuleHierarchyInAllNetworks"}
+  ],
+  "macros": [
+   {
+    "atOperation": 1,
+    "numOperations": 1,
+    "op": {"op": "moduleLevel", "levels": 2}
+   }
+  ]
+ },
+ "diagram": {
+  "x": 0,
+  "y": 0,
+  "width": 320,
+  "height": 600,
+  "flow": 0,
+  "numNetworks": 2,
+  "maxNetworkFlow": 1,
+  "streamlineWidth": 160,
+  "networkWidth": 240,
+  "totalWidth": 320,
+  "totalMargins": [24,40],
+  "maxTotalMargin": 40,
+  "marginFractionOfHeight": 0.06666666666666667,
+  "maxMarginFractionOfHeight": 0.2,
+  "marginCapped": false,
+  "moduleMarginScale": null,
+  "scaledTotalMargin": null,
+  "usableHeight": 560,
+  "visibleFlows": [1,1],
+  "visibleModuleCounts": [4,5],
+  "updateLayoutCalls": 3,
+  "usableHeightCheckedModules": 9
+ },
+ "highlightColors": ["#be6d99","#f49334","#31aa7d","#59b2f8","#458f4f"],
+ "defaultHighlightColor": "#b6b69f",
+ "warnings": [],
+ "networks": [
+  {
+   "networkId": "insig_t0",
+   "name": "insig_t0.stree",
+   "index": 0,
+   "file": {
+    "path": "data/insig_t0.stree",
+    "format": "stree",
+    "numTopModules": 3,
+    "numLevels": 3,
+    "isStateNetwork": false,
+    "directed": null,
+    "codelength": null,
+    "numNodes": 9
+   },
+   "x": 0,
+   "y": 0,
+   "width": 80,
+   "height": 600,
+   "flow": 1,
+   "numLeafNodes": 9,
+   "moduleFlowThreshold": 0.05,
+   "isCustomSorted": false,
+   "isHigherOrder": false,
+   "namePosition": {"x": 40, "y": 620},
+   "totalMargin": 24,
+   "visibleFlow": 1,
+   "numVisibleModules": 4,
+   "numModules": 4,
+   "modules": [
+    {
+     "moduleId": "1:1",
+     "id": "insig_t0_module1:1",
+     "path": [1,1],
+     "moduleLevel": 2,
+     "maxModuleLevel": 2,
+     "index": 0,
+     "flow": 0.44999999999999996,
+     "numLeafNodes": 4,
+     "meanNodeId": 3,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": 0,
+     "margin": 4,
+     "x": 0,
+     "y": 348,
+     "width": 80,
+     "height": 251.99999999999997,
+     "pass1": {"margin": 4, "index": 0, "x": 0, "y": 330, "width": 80, "height": 270},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 474},
+      "idPosition": {"x": 40, "y": 474},
+      "customName": "",
+      "maxLines": 17,
+      "names": [
+       {"name": "a", "nodeId": 1, "stateId": null, "flow": 0.2},
+       {"name": "b", "nodeId": 2, "stateId": null, "flow": 0.15},
+       {"name": "e", "nodeId": 5, "stateId": null, "flow": 0.05},
+       {"name": "d", "nodeId": 4, "stateId": null, "flow": 0.05}
+      ],
+      "namesSingleLine": [
+       {"name": "a", "nodeId": 1, "stateId": null, "flow": 0.2},
+       {"name": "b", "nodeId": 2, "stateId": null, "flow": 0.15},
+       {"name": "e", "nodeId": 5, "stateId": null, "flow": 0.05},
+       {"name": "d", "nodeId": 4, "stateId": null, "flow": 0.05}
+      ]
+     },
+     "groups": [
+      {
+       "id": "insig_t0_module1:1_group0",
+       "highlightIndex": 0,
+       "insignificant": false,
+       "flow": 0.35,
+       "numLeafNodes": 2,
+       "x": 0,
+       "y": 404,
+       "width": 80,
+       "height": 196,
+       "pass1": {"x": 0, "y": 390, "width": 80, "height": 210},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.35,
+         "numLeafNodes": 2,
+         "x": 0,
+         "y": 404,
+         "width": 80,
+         "height": 196,
+         "streamlineNodes": [
+          {
+           "id": "insig_t0_module1:1_group0_left",
+           "sourceId": "insig_t0_module1:1_group0_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.35,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 404,
+           "width": 80,
+           "height": 196,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.35,
+         "numLeafNodes": 2,
+         "x": 0,
+         "y": 404,
+         "width": 80,
+         "height": 196,
+         "streamlineNodes": [
+          {
+           "id": "insig_t0_module1:1_group0_right--insig_t1_module1:1_group0_left",
+           "sourceId": "insig_t0_module1:1_group0_right",
+           "targetId": "insig_t1_module1:1_group0_left",
+           "dangling": false,
+           "flow": 0.2,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 488,
+           "width": 80,
+           "height": 112,
+           "sortKey": -390,
+           "linked": true,
+           "opposite": {"networkId": "insig_t1", "id": "insig_t1_module1:1_group0_left--insig_t0_module1:1_group0_right", "moduleId": "1:1"}
+          },
+          {
+           "id": "insig_t0_module1:1_group0_right--insig_t1_module1:2_groupi1_left",
+           "sourceId": "insig_t0_module1:1_group0_right",
+           "targetId": "insig_t1_module1:2_groupi1_left",
+           "dangling": false,
+           "flow": 0.15,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 404,
+           "width": 80,
+           "height": 84,
+           "sortKey": -296,
+           "linked": true,
+           "opposite": {"networkId": "insig_t1", "id": "insig_t1_module1:2_groupi1_left--insig_t0_module1:1_group0_right", "moduleId": "1:2"}
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "insig_t0_module1:1_groupi0",
+       "highlightIndex": 0,
+       "insignificant": true,
+       "flow": 0.1,
+       "numLeafNodes": 2,
+       "x": 0,
+       "y": 348,
+       "width": 80,
+       "height": 56,
+       "pass1": {"x": 0, "y": 330, "width": 80, "height": 60},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.1,
+         "numLeafNodes": 2,
+         "x": 0,
+         "y": 348,
+         "width": 80,
+         "height": 56,
+         "streamlineNodes": [
+          {
+           "id": "insig_t0_module1:1_groupi0_left",
+           "sourceId": "insig_t0_module1:1_groupi0_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.1,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 348,
+           "width": 80,
+           "height": 56,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.1,
+         "numLeafNodes": 2,
+         "x": 0,
+         "y": 348,
+         "width": 80,
+         "height": 56,
+         "streamlineNodes": [
+          {
+           "id": "insig_t0_module1:1_groupi0_right--insig_t1_module2:1_group2_left",
+           "sourceId": "insig_t0_module1:1_groupi0_right",
+           "targetId": "insig_t1_module2:1_group2_left",
+           "dangling": false,
+           "flow": 0.1,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 348,
+           "width": 80,
+           "height": 56,
+           "sortKey": -99.99999999999997,
+           "linked": true,
+           "opposite": {"networkId": "insig_t1", "id": "insig_t1_module2:1_group2_left--insig_t0_module1:1_groupi0_right", "moduleId": "2:1"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "1:2",
+     "id": "insig_t0_module1:2",
+     "path": [1,2],
+     "moduleLevel": 2,
+     "maxModuleLevel": 2,
+     "index": 1,
+     "flow": 0.1,
+     "numLeafNodes": 1,
+     "meanNodeId": 3,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": 1,
+     "margin": 16,
+     "x": 0,
+     "y": 288,
+     "width": 80,
+     "height": 56,
+     "pass1": {"margin": 16, "index": 1, "x": 0, "y": 266, "width": 80, "height": 60},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 316},
+      "idPosition": {"x": 40, "y": 316},
+      "customName": "",
+      "maxLines": 3,
+      "names": [
+       {"name": "c", "nodeId": 3, "stateId": null, "flow": 0.1}
+      ],
+      "namesSingleLine": [
+       {"name": "c", "nodeId": 3, "stateId": null, "flow": 0.1}
+      ]
+     },
+     "groups": [
+      {
+       "id": "insig_t0_module1:2_group1",
+       "highlightIndex": 1,
+       "insignificant": false,
+       "flow": 0.1,
+       "numLeafNodes": 1,
+       "x": 0,
+       "y": 288,
+       "width": 80,
+       "height": 56,
+       "pass1": {"x": 0, "y": 266, "width": 80, "height": 60},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.1,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 288,
+         "width": 80,
+         "height": 56,
+         "streamlineNodes": [
+          {
+           "id": "insig_t0_module1:2_group1_left",
+           "sourceId": "insig_t0_module1:2_group1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.1,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 288,
+           "width": 80,
+           "height": 56,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.1,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 288,
+         "width": 80,
+         "height": 56,
+         "streamlineNodes": [
+          {
+           "id": "insig_t0_module1:2_group1_right--insig_t1_module1:1_group0_left",
+           "sourceId": "insig_t0_module1:2_group1_right",
+           "targetId": "insig_t1_module1:1_group0_left",
+           "dangling": false,
+           "flow": 0.1,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 288,
+           "width": 80,
+           "height": 56,
+           "sortKey": -390,
+           "linked": true,
+           "opposite": {"networkId": "insig_t1", "id": "insig_t1_module1:1_group0_left--insig_t0_module1:2_group1_right", "moduleId": "1:1"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "2:1",
+     "id": "insig_t0_module2:1",
+     "path": [2,1],
+     "moduleLevel": 2,
+     "maxModuleLevel": 2,
+     "index": 2,
+     "flow": 0.4,
+     "numLeafNodes": 3,
+     "meanNodeId": 7,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": 2,
+     "margin": 4,
+     "x": 0,
+     "y": 48,
+     "width": 80,
+     "height": 224,
+     "pass1": {"margin": 4, "index": 2, "x": 0, "y": 10, "width": 80, "height": 240},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 160},
+      "idPosition": {"x": 40, "y": 160},
+      "customName": "",
+      "maxLines": 15,
+      "names": [
+       {"name": "f", "nodeId": 6, "stateId": null, "flow": 0.2},
+       {"name": "g", "nodeId": 7, "stateId": null, "flow": 0.1},
+       {"name": "h", "nodeId": 8, "stateId": null, "flow": 0.1}
+      ],
+      "namesSingleLine": [
+       {"name": "f", "nodeId": 6, "stateId": null, "flow": 0.2},
+       {"name": "g", "nodeId": 7, "stateId": null, "flow": 0.1},
+       {"name": "h", "nodeId": 8, "stateId": null, "flow": 0.1}
+      ]
+     },
+     "groups": [
+      {
+       "id": "insig_t0_module2:1_group2",
+       "highlightIndex": 2,
+       "insignificant": false,
+       "flow": 0.30000000000000004,
+       "numLeafNodes": 2,
+       "x": 0,
+       "y": 104,
+       "width": 80,
+       "height": 168.00000000000003,
+       "pass1": {"x": 0, "y": 69.99999999999997, "width": 80, "height": 180.00000000000003},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.30000000000000004,
+         "numLeafNodes": 2,
+         "x": 0,
+         "y": 103.99999999999997,
+         "width": 80,
+         "height": 168.00000000000003,
+         "streamlineNodes": [
+          {
+           "id": "insig_t0_module2:1_group2_left",
+           "sourceId": "insig_t0_module2:1_group2_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.30000000000000004,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 103.99999999999997,
+           "width": 80,
+           "height": 168.00000000000003,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.30000000000000004,
+         "numLeafNodes": 2,
+         "x": 0,
+         "y": 104,
+         "width": 80,
+         "height": 168.00000000000003,
+         "streamlineNodes": [
+          {
+           "id": "insig_t0_module2:1_group2_right--insig_t1_module1:2_group1_left",
+           "sourceId": "insig_t0_module2:1_group2_right",
+           "targetId": "insig_t1_module1:2_group1_left",
+           "dangling": false,
+           "flow": 0.2,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 160,
+           "width": 80,
+           "height": 112,
+           "sortKey": -326,
+           "linked": true,
+           "opposite": {"networkId": "insig_t1", "id": "insig_t1_module1:2_group1_left--insig_t0_module2:1_group2_right", "moduleId": "1:2"}
+          },
+          {
+           "id": "insig_t0_module2:1_group2_right--insig_t1_module2:1_groupi2_left",
+           "sourceId": "insig_t0_module2:1_group2_right",
+           "targetId": "insig_t1_module2:1_groupi2_left",
+           "dangling": false,
+           "flow": 0.1,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 104,
+           "width": 80,
+           "height": 56,
+           "sortKey": -39.99999999999997,
+           "linked": true,
+           "opposite": {"networkId": "insig_t1", "id": "insig_t1_module2:1_groupi2_left--insig_t0_module2:1_group2_right", "moduleId": "2:1"}
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "insig_t0_module2:1_groupi2",
+       "highlightIndex": 2,
+       "insignificant": true,
+       "flow": 0.1,
+       "numLeafNodes": 1,
+       "x": 0,
+       "y": 48,
+       "width": 80,
+       "height": 56,
+       "pass1": {"x": 0, "y": 9.999999999999972, "width": 80, "height": 60},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.1,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 48,
+         "width": 80,
+         "height": 56,
+         "streamlineNodes": [
+          {
+           "id": "insig_t0_module2:1_groupi2_left",
+           "sourceId": "insig_t0_module2:1_groupi2_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.1,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 48,
+           "width": 80,
+           "height": 56,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.1,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 48,
+         "width": 80,
+         "height": 56,
+         "streamlineNodes": [
+          {
+           "id": "insig_t0_module2:1_groupi2_right--insig_t1_module3:1_group4_left",
+           "sourceId": "insig_t0_module2:1_groupi2_right",
+           "targetId": "insig_t1_module3:1_group4_left",
+           "dangling": false,
+           "flow": 0.1,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 48,
+           "width": 80,
+           "height": 56,
+           "sortKey": 40.00000000000003,
+           "linked": true,
+           "opposite": {"networkId": "insig_t1", "id": "insig_t1_module3:1_group4_left--insig_t0_module2:1_groupi2_right", "moduleId": "3:1"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "2:2",
+     "id": "insig_t0_module2:2",
+     "path": [2,2],
+     "moduleLevel": 2,
+     "maxModuleLevel": 2,
+     "index": 3,
+     "flow": 0.05,
+     "numLeafNodes": 1,
+     "meanNodeId": 9,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": 3,
+     "margin": 0,
+     "x": 0,
+     "y": 16,
+     "width": 80,
+     "height": 28,
+     "pass1": {"margin": 0, "index": 3, "x": 0, "y": -24.00000000000003, "width": 80, "height": 30},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 30},
+      "idPosition": {"x": 40, "y": 30},
+      "customName": "",
+      "maxLines": 1,
+      "names": [
+       {"name": "i", "nodeId": 9, "stateId": null, "flow": 0.05}
+      ],
+      "namesSingleLine": [
+       {"name": "i", "nodeId": 9, "stateId": null, "flow": 0.05}
+      ]
+     },
+     "groups": [
+      {
+       "id": "insig_t0_module2:2_group3",
+       "highlightIndex": 3,
+       "insignificant": false,
+       "flow": 0.05,
+       "numLeafNodes": 1,
+       "x": 0,
+       "y": 16,
+       "width": 80,
+       "height": 28,
+       "pass1": {"x": 0, "y": -24.00000000000003, "width": 80, "height": 30},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.05,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 16,
+         "width": 80,
+         "height": 28,
+         "streamlineNodes": [
+          {
+           "id": "insig_t0_module2:2_group3_left",
+           "sourceId": "insig_t0_module2:2_group3_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.05,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 16,
+           "width": 80,
+           "height": 28,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.05,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 16,
+         "width": 80,
+         "height": 28,
+         "streamlineNodes": [
+          {
+           "id": "insig_t0_module2:2_group3_right--insig_t1_module2:2_group3_left",
+           "sourceId": "insig_t0_module2:2_group3_right",
+           "targetId": "insig_t1_module2:2_group3_left",
+           "dangling": false,
+           "flow": 0.05,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 16,
+           "width": 80,
+           "height": 28,
+           "sortKey": -5.999999999999972,
+           "linked": true,
+           "opposite": {"networkId": "insig_t1", "id": "insig_t1_module2:2_group3_left--insig_t0_module2:2_group3_right", "moduleId": "2:2"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "numLinksAboveZero": 8,
+   "links": [
+    {
+     "id": "insig_t0_module1:1_group0_right--insig_t1_module1:1_group0_left",
+     "left": {"networkId": "insig_t0", "moduleId": "1:1", "groupHighlightIndex": 0, "groupInsignificant": false, "streamlineNodeId": "insig_t0_module1:1_group0_right--insig_t1_module1:1_group0_left"},
+     "right": {"networkId": "insig_t1", "moduleId": "1:1", "groupHighlightIndex": 0, "groupInsignificant": false, "streamlineNodeId": "insig_t1_module1:1_group0_left--insig_t0_module1:1_group0_right"},
+     "x0": 80,
+     "y0": 488,
+     "h0": 112,
+     "x1": 240,
+     "y1": 460,
+     "h1": 140,
+     "avgHeight": 126,
+     "highlightIndex": 0,
+     "leftHighlightIndex": 0,
+     "rightHighlightIndex": 0,
+     "path": "M80,600C160,600,160,600,240,600L240,460C160,460,160,488,80,488Z"
+    },
+    {
+     "id": "insig_t0_module1:1_group0_right--insig_t1_module1:2_groupi1_left",
+     "left": {"networkId": "insig_t0", "moduleId": "1:1", "groupHighlightIndex": 0, "groupInsignificant": false, "streamlineNodeId": "insig_t0_module1:1_group0_right--insig_t1_module1:2_groupi1_left"},
+     "right": {"networkId": "insig_t1", "moduleId": "1:2", "groupHighlightIndex": 1, "groupInsignificant": true, "streamlineNodeId": "insig_t1_module1:2_groupi1_left--insig_t0_module1:1_group0_right"},
+     "x0": 80,
+     "y0": 404,
+     "h0": 84,
+     "x1": 240,
+     "y1": 316,
+     "h1": 28,
+     "avgHeight": 56,
+     "highlightIndex": 1,
+     "leftHighlightIndex": 0,
+     "rightHighlightIndex": 1,
+     "path": "M80,488C160,488,160,344,240,344L240,316C160,316,160,404,80,404Z"
+    },
+    {
+     "id": "insig_t0_module1:2_group1_right--insig_t1_module1:1_group0_left",
+     "left": {"networkId": "insig_t0", "moduleId": "1:2", "groupHighlightIndex": 1, "groupInsignificant": false, "streamlineNodeId": "insig_t0_module1:2_group1_right--insig_t1_module1:1_group0_left"},
+     "right": {"networkId": "insig_t1", "moduleId": "1:1", "groupHighlightIndex": 0, "groupInsignificant": false, "streamlineNodeId": "insig_t1_module1:1_group0_left--insig_t0_module1:2_group1_right"},
+     "x0": 80,
+     "y0": 288,
+     "h0": 56,
+     "x1": 240,
+     "y1": 404,
+     "h1": 56,
+     "avgHeight": 56,
+     "highlightIndex": 1,
+     "leftHighlightIndex": 1,
+     "rightHighlightIndex": 0,
+     "path": "M80,344C160,344,160,460,240,460L240,404C160,404,160,288,80,288Z"
+    },
+    {
+     "id": "insig_t0_module1:1_groupi0_right--insig_t1_module2:1_group2_left",
+     "left": {"networkId": "insig_t0", "moduleId": "1:1", "groupHighlightIndex": 0, "groupInsignificant": true, "streamlineNodeId": "insig_t0_module1:1_groupi0_right--insig_t1_module2:1_group2_left"},
+     "right": {"networkId": "insig_t1", "moduleId": "2:1", "groupHighlightIndex": 2, "groupInsignificant": false, "streamlineNodeId": "insig_t1_module2:1_group2_left--insig_t0_module1:1_groupi0_right"},
+     "x0": 80,
+     "y0": 348,
+     "h0": 56,
+     "x1": 240,
+     "y1": 131.99999999999997,
+     "h1": 168.00000000000003,
+     "avgHeight": 112.00000000000001,
+     "highlightIndex": 2,
+     "leftHighlightIndex": 0,
+     "rightHighlightIndex": 2,
+     "path": "M80,404C160,404,160,300,240,300L240,131.99999999999997C160,131.99999999999997,160,348,80,348Z"
+    },
+    {
+     "id": "insig_t0_module2:1_group2_right--insig_t1_module1:2_group1_left",
+     "left": {"networkId": "insig_t0", "moduleId": "2:1", "groupHighlightIndex": 2, "groupInsignificant": false, "streamlineNodeId": "insig_t0_module2:1_group2_right--insig_t1_module1:2_group1_left"},
+     "right": {"networkId": "insig_t1", "moduleId": "1:2", "groupHighlightIndex": 1, "groupInsignificant": false, "streamlineNodeId": "insig_t1_module1:2_group1_left--insig_t0_module2:1_group2_right"},
+     "x0": 80,
+     "y0": 160,
+     "h0": 112,
+     "x1": 240,
+     "y1": 344,
+     "h1": 56,
+     "avgHeight": 84,
+     "highlightIndex": 2,
+     "leftHighlightIndex": 2,
+     "rightHighlightIndex": 1,
+     "path": "M80,272C160,272,160,400,240,400L240,344C160,344,160,160,80,160Z"
+    },
+    {
+     "id": "insig_t0_module2:1_group2_right--insig_t1_module2:1_groupi2_left",
+     "left": {"networkId": "insig_t0", "moduleId": "2:1", "groupHighlightIndex": 2, "groupInsignificant": false, "streamlineNodeId": "insig_t0_module2:1_group2_right--insig_t1_module2:1_groupi2_left"},
+     "right": {"networkId": "insig_t1", "moduleId": "2:1", "groupHighlightIndex": 2, "groupInsignificant": true, "streamlineNodeId": "insig_t1_module2:1_groupi2_left--insig_t0_module2:1_group2_right"},
+     "x0": 80,
+     "y0": 104,
+     "h0": 56,
+     "x1": 240,
+     "y1": 75.99999999999997,
+     "h1": 56,
+     "avgHeight": 56,
+     "highlightIndex": 2,
+     "leftHighlightIndex": 2,
+     "rightHighlightIndex": 2,
+     "path": "M80,160C160,160,160,131.99999999999997,240,131.99999999999997L240,75.99999999999997C160,75.99999999999997,160,104,80,104Z"
+    },
+    {
+     "id": "insig_t0_module2:2_group3_right--insig_t1_module2:2_group3_left",
+     "left": {"networkId": "insig_t0", "moduleId": "2:2", "groupHighlightIndex": 3, "groupInsignificant": false, "streamlineNodeId": "insig_t0_module2:2_group3_right--insig_t1_module2:2_group3_left"},
+     "right": {"networkId": "insig_t1", "moduleId": "2:2", "groupHighlightIndex": 3, "groupInsignificant": false, "streamlineNodeId": "insig_t1_module2:2_group3_left--insig_t0_module2:2_group3_right"},
+     "x0": 80,
+     "y0": 16,
+     "h0": 28,
+     "x1": 240,
+     "y1": 43.99999999999997,
+     "h1": 28,
+     "avgHeight": 28,
+     "highlightIndex": 3,
+     "leftHighlightIndex": 3,
+     "rightHighlightIndex": 3,
+     "path": "M80,44C160,44,160,71.99999999999997,240,71.99999999999997L240,43.99999999999997C160,43.99999999999997,160,16,80,16Z"
+    },
+    {
+     "id": "insig_t0_module2:1_groupi2_right--insig_t1_module3:1_group4_left",
+     "left": {"networkId": "insig_t0", "moduleId": "2:1", "groupHighlightIndex": 2, "groupInsignificant": true, "streamlineNodeId": "insig_t0_module2:1_groupi2_right--insig_t1_module3:1_group4_left"},
+     "right": {"networkId": "insig_t1", "moduleId": "3:1", "groupHighlightIndex": 4, "groupInsignificant": false, "streamlineNodeId": "insig_t1_module3:1_group4_left--insig_t0_module2:1_groupi2_right"},
+     "x0": 80,
+     "y0": 48,
+     "h0": 56,
+     "x1": 240,
+     "y1": -2.842170943040401e-14,
+     "h1": 28,
+     "avgHeight": 42,
+     "highlightIndex": 4,
+     "leftHighlightIndex": 2,
+     "rightHighlightIndex": 4,
+     "path": "M80,104C160,104,160,28,240,28L240,0C160,0,160,48,80,48Z"
+    }
+   ],
+   "hierarchy": [
+    {
+     "type": "tree",
+     "path": "1",
+     "moduleLevel": 1,
+     "isLeaf": false,
+     "maxModuleLevel": 2,
+     "x": 0,
+     "y": 288,
+     "width": 80,
+     "height": 312
+    },
+    {
+     "type": "tree",
+     "path": "2",
+     "moduleLevel": 1,
+     "isLeaf": false,
+     "maxModuleLevel": 2,
+     "x": 0,
+     "y": 16,
+     "width": 80,
+     "height": 256
+    },
+    {"type": "module", "moduleId": "1:1"},
+    {"type": "module", "moduleId": "1:2"},
+    {"type": "module", "moduleId": "2:1"},
+    {"type": "module", "moduleId": "2:2"}
+   ],
+   "identifiersUnique": true,
+   "leafColumns": ["identifier","nodeId","stateId","moduleId","moduleLevel","highlightIndex","insignificant"],
+   "leaves": [
+    ["1",1,null,"1:1",2,0,false],
+    ["2",2,null,"1:1",2,0,false],
+    ["3",3,null,"1:2",2,1,false],
+    ["4",4,null,"1:1",2,0,true],
+    ["5",5,null,"1:1",2,0,true],
+    ["6",6,null,"2:1",2,2,false],
+    ["7",7,null,"2:1",2,2,false],
+    ["8",8,null,"2:1",2,2,true],
+    ["9",9,null,"2:2",2,3,false]
+   ]
+  },
+  {
+   "networkId": "insig_t1",
+   "name": "insig_t1.stree",
+   "index": 1,
+   "file": {
+    "path": "data/insig_t1.stree",
+    "format": "stree",
+    "numTopModules": 4,
+    "numLevels": 3,
+    "isStateNetwork": false,
+    "directed": null,
+    "codelength": null,
+    "numNodes": 9
+   },
+   "x": 240,
+   "y": 0,
+   "width": 80,
+   "height": 600,
+   "flow": 1,
+   "numLeafNodes": 9,
+   "moduleFlowThreshold": 0.05,
+   "isCustomSorted": false,
+   "isHigherOrder": false,
+   "namePosition": {"x": 280, "y": 620},
+   "totalMargin": 40,
+   "visibleFlow": 1,
+   "numVisibleModules": 5,
+   "numModules": 5,
+   "modules": [
+    {
+     "moduleId": "1:1",
+     "id": "insig_t1_module1:1",
+     "path": [1,1],
+     "moduleLevel": 2,
+     "maxModuleLevel": 2,
+     "index": 0,
+     "flow": 0.35,
+     "numLeafNodes": 2,
+     "meanNodeId": 2,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": 0,
+     "margin": 4,
+     "x": 240,
+     "y": 404,
+     "width": 80,
+     "height": 196,
+     "pass1": {"margin": 4, "index": 0, "x": 240, "y": 390, "width": 80, "height": 210},
+     "label": {
+      "shown": true,
+      "textAnchor": "start",
+      "namePosition": {"x": 340, "y": 502},
+      "idPosition": {"x": 280, "y": 502},
+      "customName": "",
+      "maxLines": 13,
+      "names": [
+       {"name": "a", "nodeId": 1, "stateId": null, "flow": 0.25},
+       {"name": "c", "nodeId": 3, "stateId": null, "flow": 0.1}
+      ],
+      "namesSingleLine": [
+       {"name": "a", "nodeId": 1, "stateId": null, "flow": 0.25},
+       {"name": "c", "nodeId": 3, "stateId": null, "flow": 0.1}
+      ]
+     },
+     "groups": [
+      {
+       "id": "insig_t1_module1:1_group0",
+       "highlightIndex": 0,
+       "insignificant": false,
+       "flow": 0.35,
+       "numLeafNodes": 2,
+       "x": 240,
+       "y": 404,
+       "width": 80,
+       "height": 196,
+       "pass1": {"x": 240, "y": 390, "width": 80, "height": 210},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.35,
+         "numLeafNodes": 2,
+         "x": 240,
+         "y": 404,
+         "width": 80,
+         "height": 196,
+         "streamlineNodes": [
+          {
+           "id": "insig_t1_module1:1_group0_left--insig_t0_module1:1_group0_right",
+           "sourceId": "insig_t1_module1:1_group0_left",
+           "targetId": "insig_t0_module1:1_group0_right",
+           "dangling": false,
+           "flow": 0.25,
+           "numLeafNodes": 1,
+           "x": 240,
+           "y": 460,
+           "width": 80,
+           "height": 140,
+           "sortKey": -390,
+           "linked": true,
+           "opposite": {"networkId": "insig_t0", "id": "insig_t0_module1:1_group0_right--insig_t1_module1:1_group0_left", "moduleId": "1:1"}
+          },
+          {
+           "id": "insig_t1_module1:1_group0_left--insig_t0_module1:2_group1_right",
+           "sourceId": "insig_t1_module1:1_group0_left",
+           "targetId": "insig_t0_module1:2_group1_right",
+           "dangling": false,
+           "flow": 0.1,
+           "numLeafNodes": 1,
+           "x": 240,
+           "y": 404,
+           "width": 80,
+           "height": 56,
+           "sortKey": -266,
+           "linked": true,
+           "opposite": {"networkId": "insig_t0", "id": "insig_t0_module1:2_group1_right--insig_t1_module1:1_group0_left", "moduleId": "1:2"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.35,
+         "numLeafNodes": 2,
+         "x": 240,
+         "y": 404,
+         "width": 80,
+         "height": 196,
+         "streamlineNodes": [
+          {
+           "id": "insig_t1_module1:1_group0_right",
+           "sourceId": "insig_t1_module1:1_group0_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.35,
+           "numLeafNodes": 2,
+           "x": 240,
+           "y": 404,
+           "width": 80,
+           "height": 196,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "1:2",
+     "id": "insig_t1_module1:2",
+     "path": [1,2],
+     "moduleLevel": 2,
+     "maxModuleLevel": 2,
+     "index": 1,
+     "flow": 0.15000000000000002,
+     "numLeafNodes": 2,
+     "meanNodeId": 4,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": 1,
+     "margin": 16,
+     "x": 240,
+     "y": 316,
+     "width": 80,
+     "height": 84.00000000000001,
+     "pass1": {"margin": 16, "index": 1, "x": 240, "y": 296, "width": 80, "height": 90.00000000000001},
+     "label": {
+      "shown": true,
+      "textAnchor": "start",
+      "namePosition": {"x": 340, "y": 358},
+      "idPosition": {"x": 280, "y": 358},
+      "customName": "",
+      "maxLines": 5,
+      "names": [
+       {"name": "f", "nodeId": 6, "stateId": null, "flow": 0.1},
+       {"name": "b", "nodeId": 2, "stateId": null, "flow": 0.05}
+      ],
+      "namesSingleLine": [
+       {"name": "f", "nodeId": 6, "stateId": null, "flow": 0.1},
+       {"name": "b", "nodeId": 2, "stateId": null, "flow": 0.05}
+      ]
+     },
+     "groups": [
+      {
+       "id": "insig_t1_module1:2_group1",
+       "highlightIndex": 1,
+       "insignificant": false,
+       "flow": 0.1,
+       "numLeafNodes": 1,
+       "x": 240,
+       "y": 344,
+       "width": 80,
+       "height": 56,
+       "pass1": {"x": 240, "y": 326, "width": 80, "height": 60},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.1,
+         "numLeafNodes": 1,
+         "x": 240,
+         "y": 344,
+         "width": 80,
+         "height": 56,
+         "streamlineNodes": [
+          {
+           "id": "insig_t1_module1:2_group1_left--insig_t0_module2:1_group2_right",
+           "sourceId": "insig_t1_module1:2_group1_left",
+           "targetId": "insig_t0_module2:1_group2_right",
+           "dangling": false,
+           "flow": 0.1,
+           "numLeafNodes": 1,
+           "x": 240,
+           "y": 344,
+           "width": 80,
+           "height": 56,
+           "sortKey": -69.99999999999997,
+           "linked": true,
+           "opposite": {"networkId": "insig_t0", "id": "insig_t0_module2:1_group2_right--insig_t1_module1:2_group1_left", "moduleId": "2:1"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.1,
+         "numLeafNodes": 1,
+         "x": 240,
+         "y": 344,
+         "width": 80,
+         "height": 56,
+         "streamlineNodes": [
+          {
+           "id": "insig_t1_module1:2_group1_right",
+           "sourceId": "insig_t1_module1:2_group1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.1,
+           "numLeafNodes": 1,
+           "x": 240,
+           "y": 344,
+           "width": 80,
+           "height": 56,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "insig_t1_module1:2_groupi1",
+       "highlightIndex": 1,
+       "insignificant": true,
+       "flow": 0.05,
+       "numLeafNodes": 1,
+       "x": 240,
+       "y": 316,
+       "width": 80,
+       "height": 28,
+       "pass1": {"x": 240, "y": 296, "width": 80, "height": 30},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.05,
+         "numLeafNodes": 1,
+         "x": 240,
+         "y": 316,
+         "width": 80,
+         "height": 28,
+         "streamlineNodes": [
+          {
+           "id": "insig_t1_module1:2_groupi1_left--insig_t0_module1:1_group0_right",
+           "sourceId": "insig_t1_module1:2_groupi1_left",
+           "targetId": "insig_t0_module1:1_group0_right",
+           "dangling": false,
+           "flow": 0.05,
+           "numLeafNodes": 1,
+           "x": 240,
+           "y": 316,
+           "width": 80,
+           "height": 28,
+           "sortKey": -390,
+           "linked": true,
+           "opposite": {"networkId": "insig_t0", "id": "insig_t0_module1:1_group0_right--insig_t1_module1:2_groupi1_left", "moduleId": "1:1"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.05,
+         "numLeafNodes": 1,
+         "x": 240,
+         "y": 316,
+         "width": 80,
+         "height": 28,
+         "streamlineNodes": [
+          {
+           "id": "insig_t1_module1:2_groupi1_right",
+           "sourceId": "insig_t1_module1:2_groupi1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.05,
+           "numLeafNodes": 1,
+           "x": 240,
+           "y": 316,
+           "width": 80,
+           "height": 28,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "2:1",
+     "id": "insig_t1_module2:1",
+     "path": [2,1],
+     "moduleLevel": 2,
+     "maxModuleLevel": 2,
+     "index": 2,
+     "flow": 0.4,
+     "numLeafNodes": 3,
+     "meanNodeId": 5.333333333333333,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": 2,
+     "margin": 4,
+     "x": 240,
+     "y": 75.99999999999997,
+     "width": 80,
+     "height": 224,
+     "pass1": {"margin": 4, "index": 2, "x": 240, "y": 40, "width": 80, "height": 240},
+     "label": {
+      "shown": true,
+      "textAnchor": "start",
+      "namePosition": {"x": 340, "y": 187.99999999999997},
+      "idPosition": {"x": 280, "y": 187.99999999999997},
+      "customName": "",
+      "maxLines": 15,
+      "names": [
+       {"name": "d", "nodeId": 4, "stateId": null, "flow": 0.2},
+       {"name": "e", "nodeId": 5, "stateId": null, "flow": 0.1},
+       {"name": "g", "nodeId": 7, "stateId": null, "flow": 0.1}
+      ],
+      "namesSingleLine": [
+       {"name": "d", "nodeId": 4, "stateId": null, "flow": 0.2},
+       {"name": "e", "nodeId": 5, "stateId": null, "flow": 0.1},
+       {"name": "g", "nodeId": 7, "stateId": null, "flow": 0.1}
+      ]
+     },
+     "groups": [
+      {
+       "id": "insig_t1_module2:1_group2",
+       "highlightIndex": 2,
+       "insignificant": false,
+       "flow": 0.30000000000000004,
+       "numLeafNodes": 2,
+       "x": 240,
+       "y": 131.99999999999997,
+       "width": 80,
+       "height": 168.00000000000003,
+       "pass1": {"x": 240, "y": 99.99999999999997, "width": 80, "height": 180.00000000000003},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.30000000000000004,
+         "numLeafNodes": 2,
+         "x": 240,
+         "y": 131.99999999999997,
+         "width": 80,
+         "height": 168.00000000000003,
+         "streamlineNodes": [
+          {
+           "id": "insig_t1_module2:1_group2_left--insig_t0_module1:1_groupi0_right",
+           "sourceId": "insig_t1_module2:1_group2_left",
+           "targetId": "insig_t0_module1:1_groupi0_right",
+           "dangling": false,
+           "flow": 0.30000000000000004,
+           "numLeafNodes": 2,
+           "x": 240,
+           "y": 131.99999999999997,
+           "width": 80,
+           "height": 168.00000000000003,
+           "sortKey": -330,
+           "linked": true,
+           "opposite": {"networkId": "insig_t0", "id": "insig_t0_module1:1_groupi0_right--insig_t1_module2:1_group2_left", "moduleId": "1:1"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.30000000000000004,
+         "numLeafNodes": 2,
+         "x": 240,
+         "y": 131.99999999999997,
+         "width": 80,
+         "height": 168.00000000000003,
+         "streamlineNodes": [
+          {
+           "id": "insig_t1_module2:1_group2_right",
+           "sourceId": "insig_t1_module2:1_group2_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.30000000000000004,
+           "numLeafNodes": 2,
+           "x": 240,
+           "y": 131.99999999999997,
+           "width": 80,
+           "height": 168.00000000000003,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "insig_t1_module2:1_groupi2",
+       "highlightIndex": 2,
+       "insignificant": true,
+       "flow": 0.1,
+       "numLeafNodes": 1,
+       "x": 240,
+       "y": 75.99999999999997,
+       "width": 80,
+       "height": 56,
+       "pass1": {"x": 240, "y": 39.99999999999997, "width": 80, "height": 60},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.1,
+         "numLeafNodes": 1,
+         "x": 240,
+         "y": 75.99999999999997,
+         "width": 80,
+         "height": 56,
+         "streamlineNodes": [
+          {
+           "id": "insig_t1_module2:1_groupi2_left--insig_t0_module2:1_group2_right",
+           "sourceId": "insig_t1_module2:1_groupi2_left",
+           "targetId": "insig_t0_module2:1_group2_right",
+           "dangling": false,
+           "flow": 0.1,
+           "numLeafNodes": 1,
+           "x": 240,
+           "y": 75.99999999999997,
+           "width": 80,
+           "height": 56,
+           "sortKey": -69.99999999999997,
+           "linked": true,
+           "opposite": {"networkId": "insig_t0", "id": "insig_t0_module2:1_group2_right--insig_t1_module2:1_groupi2_left", "moduleId": "2:1"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.1,
+         "numLeafNodes": 1,
+         "x": 240,
+         "y": 75.99999999999997,
+         "width": 80,
+         "height": 56,
+         "streamlineNodes": [
+          {
+           "id": "insig_t1_module2:1_groupi2_right",
+           "sourceId": "insig_t1_module2:1_groupi2_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.1,
+           "numLeafNodes": 1,
+           "x": 240,
+           "y": 75.99999999999997,
+           "width": 80,
+           "height": 56,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "2:2",
+     "id": "insig_t1_module2:2",
+     "path": [2,2],
+     "moduleLevel": 2,
+     "maxModuleLevel": 2,
+     "index": 3,
+     "flow": 0.05,
+     "numLeafNodes": 1,
+     "meanNodeId": 9,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": 3,
+     "margin": 16,
+     "x": 240,
+     "y": 43.99999999999997,
+     "width": 80,
+     "height": 28,
+     "pass1": {"margin": 16, "index": 3, "x": 240, "y": 5.999999999999972, "width": 80, "height": 30},
+     "label": {
+      "shown": true,
+      "textAnchor": "start",
+      "namePosition": {"x": 340, "y": 57.99999999999997},
+      "idPosition": {"x": 280, "y": 57.99999999999997},
+      "customName": "",
+      "maxLines": 1,
+      "names": [
+       {"name": "i", "nodeId": 9, "stateId": null, "flow": 0.05}
+      ],
+      "namesSingleLine": [
+       {"name": "i", "nodeId": 9, "stateId": null, "flow": 0.05}
+      ]
+     },
+     "groups": [
+      {
+       "id": "insig_t1_module2:2_group3",
+       "highlightIndex": 3,
+       "insignificant": false,
+       "flow": 0.05,
+       "numLeafNodes": 1,
+       "x": 240,
+       "y": 43.99999999999997,
+       "width": 80,
+       "height": 28,
+       "pass1": {"x": 240, "y": 5.999999999999972, "width": 80, "height": 30},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.05,
+         "numLeafNodes": 1,
+         "x": 240,
+         "y": 43.99999999999997,
+         "width": 80,
+         "height": 28,
+         "streamlineNodes": [
+          {
+           "id": "insig_t1_module2:2_group3_left--insig_t0_module2:2_group3_right",
+           "sourceId": "insig_t1_module2:2_group3_left",
+           "targetId": "insig_t0_module2:2_group3_right",
+           "dangling": false,
+           "flow": 0.05,
+           "numLeafNodes": 1,
+           "x": 240,
+           "y": 43.99999999999997,
+           "width": 80,
+           "height": 28,
+           "sortKey": 24.00000000000003,
+           "linked": true,
+           "opposite": {"networkId": "insig_t0", "id": "insig_t0_module2:2_group3_right--insig_t1_module2:2_group3_left", "moduleId": "2:2"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.05,
+         "numLeafNodes": 1,
+         "x": 240,
+         "y": 43.99999999999997,
+         "width": 80,
+         "height": 28,
+         "streamlineNodes": [
+          {
+           "id": "insig_t1_module2:2_group3_right",
+           "sourceId": "insig_t1_module2:2_group3_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.05,
+           "numLeafNodes": 1,
+           "x": 240,
+           "y": 43.99999999999997,
+           "width": 80,
+           "height": 28,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "3:1",
+     "id": "insig_t1_module3:1",
+     "path": [3,1],
+     "moduleLevel": 2,
+     "maxModuleLevel": 2,
+     "index": 4,
+     "flow": 0.05,
+     "numLeafNodes": 1,
+     "meanNodeId": 8,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": 4,
+     "margin": 0,
+     "x": 240,
+     "y": -2.842170943040401e-14,
+     "width": 80,
+     "height": 28,
+     "pass1": {"margin": 0, "index": 4, "x": 240, "y": -40.00000000000003, "width": 80, "height": 30},
+     "label": {
+      "shown": true,
+      "textAnchor": "start",
+      "namePosition": {"x": 340, "y": 13.999999999999972},
+      "idPosition": {"x": 280, "y": 13.999999999999972},
+      "customName": "",
+      "maxLines": 1,
+      "names": [
+       {"name": "h", "nodeId": 8, "stateId": null, "flow": 0.05}
+      ],
+      "namesSingleLine": [
+       {"name": "h", "nodeId": 8, "stateId": null, "flow": 0.05}
+      ]
+     },
+     "groups": [
+      {
+       "id": "insig_t1_module3:1_group4",
+       "highlightIndex": 4,
+       "insignificant": false,
+       "flow": 0.05,
+       "numLeafNodes": 1,
+       "x": 240,
+       "y": -2.842170943040401e-14,
+       "width": 80,
+       "height": 28,
+       "pass1": {"x": 240, "y": -40.00000000000003, "width": 80, "height": 30},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.05,
+         "numLeafNodes": 1,
+         "x": 240,
+         "y": -2.842170943040401e-14,
+         "width": 80,
+         "height": 28,
+         "streamlineNodes": [
+          {
+           "id": "insig_t1_module3:1_group4_left--insig_t0_module2:1_groupi2_right",
+           "sourceId": "insig_t1_module3:1_group4_left",
+           "targetId": "insig_t0_module2:1_groupi2_right",
+           "dangling": false,
+           "flow": 0.05,
+           "numLeafNodes": 1,
+           "x": 240,
+           "y": -2.842170943040401e-14,
+           "width": 80,
+           "height": 28,
+           "sortKey": -9.999999999999972,
+           "linked": true,
+           "opposite": {"networkId": "insig_t0", "id": "insig_t0_module2:1_groupi2_right--insig_t1_module3:1_group4_left", "moduleId": "2:1"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.05,
+         "numLeafNodes": 1,
+         "x": 240,
+         "y": -2.842170943040401e-14,
+         "width": 80,
+         "height": 28,
+         "streamlineNodes": [
+          {
+           "id": "insig_t1_module3:1_group4_right",
+           "sourceId": "insig_t1_module3:1_group4_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.05,
+           "numLeafNodes": 1,
+           "x": 240,
+           "y": -2.842170943040401e-14,
+           "width": 80,
+           "height": 28,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "numLinksAboveZero": 0,
+   "links": [],
+   "hierarchy": [
+    {
+     "type": "tree",
+     "path": "1",
+     "moduleLevel": 1,
+     "isLeaf": false,
+     "maxModuleLevel": 2,
+     "x": 240,
+     "y": 316,
+     "width": 80,
+     "height": 284
+    },
+    {
+     "type": "tree",
+     "path": "2",
+     "moduleLevel": 1,
+     "isLeaf": false,
+     "maxModuleLevel": 2,
+     "x": 240,
+     "y": 43.99999999999997,
+     "width": 80,
+     "height": 256
+    },
+    {
+     "type": "tree",
+     "path": "3",
+     "moduleLevel": 1,
+     "isLeaf": false,
+     "maxModuleLevel": 2,
+     "x": 240,
+     "y": -2.842170943040401e-14,
+     "width": 80,
+     "height": 28
+    },
+    {"type": "module", "moduleId": "1:1"},
+    {"type": "module", "moduleId": "1:2"},
+    {"type": "module", "moduleId": "2:1"},
+    {"type": "module", "moduleId": "2:2"},
+    {"type": "module", "moduleId": "3:1"}
+   ],
+   "identifiersUnique": true,
+   "leafColumns": ["identifier","nodeId","stateId","moduleId","moduleLevel","highlightIndex","insignificant"],
+   "leaves": [
+    ["1",1,null,"1:1",2,0,false],
+    ["2",2,null,"1:2",2,1,true],
+    ["3",3,null,"1:1",2,0,false],
+    ["4",4,null,"2:1",2,2,false],
+    ["5",5,null,"2:1",2,2,false],
+    ["6",6,null,"1:2",2,1,false],
+    ["7",7,null,"2:1",2,2,true],
+    ["8",8,null,"3:1",2,4,false],
+    ["9",9,null,"2:2",2,3,false]
+   ]
+  }
+ ]
+}

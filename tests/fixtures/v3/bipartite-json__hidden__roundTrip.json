@@ -1,0 +1,1967 @@
+{
+ "formatVersion": 1,
+ "scenario": "bipartite-json__hidden__roundTrip",
+ "group": "bipartite-json",
+ "variant": "hidden__roundTrip",
+ "description": "hand-written bipartite JSON, showBipartiteNodes false at build (E19), colorMatching; saved files + reload",
+ "features": ["json","roundTrip"],
+ "inputs": {
+  "files": ["data/bipartite_t0.json","data/bipartite_t1.json"],
+  "formats": ["json","json"],
+  "networkIds": ["bipartite_t0","bipartite_t1"],
+  "networkNames": ["bipartite_t0.json","bipartite_t1.json"],
+  "identifier": "id",
+  "options": {
+   "height": 600,
+   "moduleWidth": 80,
+   "streamlineFraction": 2,
+   "streamlineThreshold": 1,
+   "flowThreshold": 0.005,
+   "marginExponent": 4,
+   "zeroMargins": false,
+   "verticalAlign": "bottom",
+   "moduleSize": "flow",
+   "sortModulesBy": "flow"
+  },
+  "labelOptions": {"fontSize": 8, "adaptiveFontSize": false, "multilineModuleNames": true, "aggregateStateNames": true, "showModuleNames": true},
+  "colorScheme": "C3 Sinebow",
+  "operations": [
+   {"op": "setNetworks"},
+   {"op": "colorMatchingModulesInAllNetworks"}
+  ]
+ },
+ "diagram": {
+  "x": 0,
+  "y": 0,
+  "width": 320,
+  "height": 600,
+  "flow": 0,
+  "numNetworks": 2,
+  "maxNetworkFlow": 0.6000000000000001,
+  "streamlineWidth": 160,
+  "networkWidth": 240,
+  "totalWidth": 320,
+  "totalMargins": [16,16],
+  "maxTotalMargin": 16,
+  "marginFractionOfHeight": 0.02666666666666667,
+  "maxMarginFractionOfHeight": 0.2,
+  "marginCapped": false,
+  "moduleMarginScale": null,
+  "scaledTotalMargin": null,
+  "usableHeight": 584,
+  "visibleFlows": [1,1],
+  "visibleModuleCounts": [2,2],
+  "updateLayoutCalls": 2,
+  "usableHeightCheckedModules": 4
+ },
+ "highlightColors": ["#ea6c63"],
+ "defaultHighlightColor": "#b6b69f",
+ "warnings": [],
+ "networks": [
+  {
+   "networkId": "bipartite_t0",
+   "name": "bipartite_t0.json",
+   "index": 0,
+   "file": {
+    "path": "data/bipartite_t0.json",
+    "format": "json",
+    "numTopModules": 3,
+    "numLevels": 2,
+    "isStateNetwork": false,
+    "directed": null,
+    "codelength": 1.5,
+    "numNodes": 8
+   },
+   "x": 0,
+   "y": 0,
+   "width": 80,
+   "height": 600,
+   "flow": 0.6000000000000001,
+   "numLeafNodes": 8,
+   "moduleFlowThreshold": 0.30000000000000004,
+   "isCustomSorted": false,
+   "isHigherOrder": false,
+   "namePosition": {"x": 40, "y": 620},
+   "totalMargin": 16,
+   "visibleFlow": 1,
+   "numVisibleModules": 2,
+   "numModules": 3,
+   "modules": [
+    {
+     "moduleId": "1",
+     "id": "bipartite_t0_module1",
+     "path": [1],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 0,
+     "flow": 0.30000000000000004,
+     "numLeafNodes": 3,
+     "meanNodeId": 2.6666666666666665,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": 0,
+     "margin": 16,
+     "x": 0,
+     "y": 308.00000000000006,
+     "width": 80,
+     "height": 292,
+     "pass1": {"margin": 16, "index": 0, "x": 0, "y": 300, "width": 80, "height": 300},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 454.00000000000006},
+      "idPosition": {"x": 40, "y": 454.00000000000006},
+      "customName": "",
+      "maxLines": 21,
+      "names": [
+       {"name": "n1", "nodeId": 1, "stateId": null, "flow": 0.2},
+       {"name": "n2", "nodeId": 2, "stateId": null, "flow": 0.1},
+       {"name": "n5", "nodeId": 5, "stateId": null, "flow": 0}
+      ],
+      "namesSingleLine": [
+       {"name": "n1", "nodeId": 1, "stateId": null, "flow": 0.2},
+       {"name": "n2", "nodeId": 2, "stateId": null, "flow": 0.1},
+       {"name": "n5", "nodeId": 5, "stateId": null, "flow": 0}
+      ]
+     },
+     "groups": [
+      {
+       "id": "bipartite_t0_module1_group0",
+       "highlightIndex": 0,
+       "insignificant": false,
+       "flow": 0.30000000000000004,
+       "numLeafNodes": 3,
+       "x": 0,
+       "y": 308.00000000000006,
+       "width": 80,
+       "height": 292,
+       "pass1": {"x": 0, "y": 300, "width": 80, "height": 300},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.30000000000000004,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": 308,
+         "width": 80,
+         "height": 292,
+         "streamlineNodes": [
+          {
+           "id": "bipartite_t0_module1_group0_left",
+           "sourceId": "bipartite_t0_module1_group0_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.30000000000000004,
+           "numLeafNodes": 3,
+           "x": 0,
+           "y": 308,
+           "width": 80,
+           "height": 292,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.30000000000000004,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": 308.00000000000006,
+         "width": 80,
+         "height": 292,
+         "streamlineNodes": [
+          {
+           "id": "bipartite_t0_module1_group0_right--bipartite_t1_module1_group0_left",
+           "sourceId": "bipartite_t0_module1_group0_right",
+           "targetId": "bipartite_t1_module1_group0_left",
+           "dangling": false,
+           "flow": 0.2,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 405.33333333333337,
+           "width": 80,
+           "height": 194.66666666666666,
+           "sortKey": -300,
+           "linked": true,
+           "opposite": {"networkId": "bipartite_t1", "id": "bipartite_t1_module1_group0_left--bipartite_t0_module1_group0_right", "moduleId": "1"}
+          },
+          {
+           "id": "bipartite_t0_module1_group0_right--bipartite_t1_module2_group-1_left",
+           "sourceId": "bipartite_t0_module1_group0_right",
+           "targetId": "bipartite_t1_module2_group-1_left",
+           "dangling": false,
+           "flow": 0.1,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 308.00000000000006,
+           "width": 80,
+           "height": 97.33333333333333,
+           "sortKey": 16,
+           "linked": true,
+           "opposite": {"networkId": "bipartite_t1", "id": "bipartite_t1_module2_group-1_left--bipartite_t0_module1_group0_right", "moduleId": "2"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "2",
+     "id": "bipartite_t0_module2",
+     "path": [2],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 1,
+     "flow": 0.30000000000000004,
+     "numLeafNodes": 3,
+     "meanNodeId": 4.333333333333333,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": 0,
+     "margin": 0,
+     "x": 0,
+     "y": 7.105427357601002e-14,
+     "width": 80,
+     "height": 292,
+     "pass1": {"margin": 0, "index": 1, "x": 0, "y": -16, "width": 80, "height": 300},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 146.00000000000006},
+      "idPosition": {"x": 40, "y": 146.00000000000006},
+      "customName": "",
+      "maxLines": 21,
+      "names": [
+       {"name": "n3", "nodeId": 3, "stateId": null, "flow": 0.2},
+       {"name": "n4", "nodeId": 4, "stateId": null, "flow": 0.1},
+       {"name": "n6", "nodeId": 6, "stateId": null, "flow": 0}
+      ],
+      "namesSingleLine": [
+       {"name": "n3", "nodeId": 3, "stateId": null, "flow": 0.2},
+       {"name": "n4", "nodeId": 4, "stateId": null, "flow": 0.1},
+       {"name": "n6", "nodeId": 6, "stateId": null, "flow": 0}
+      ]
+     },
+     "groups": [
+      {
+       "id": "bipartite_t0_module2_group0",
+       "highlightIndex": 0,
+       "insignificant": false,
+       "flow": 0.30000000000000004,
+       "numLeafNodes": 3,
+       "x": 0,
+       "y": 7.105427357601002e-14,
+       "width": 80,
+       "height": 292,
+       "pass1": {"x": 0, "y": -16, "width": 80, "height": 300},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.30000000000000004,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": 5.684341886080802e-14,
+         "width": 80,
+         "height": 292,
+         "streamlineNodes": [
+          {
+           "id": "bipartite_t0_module2_group0_left",
+           "sourceId": "bipartite_t0_module2_group0_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.30000000000000004,
+           "numLeafNodes": 3,
+           "x": 0,
+           "y": 5.684341886080802e-14,
+           "width": 80,
+           "height": 292,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.30000000000000004,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": 7.105427357601002e-14,
+         "width": 80,
+         "height": 292,
+         "streamlineNodes": [
+          {
+           "id": "bipartite_t0_module2_group0_right--bipartite_t1_module1_group0_left",
+           "sourceId": "bipartite_t0_module2_group0_right",
+           "targetId": "bipartite_t1_module1_group0_left",
+           "dangling": false,
+           "flow": 0.2,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 97.3333333333334,
+           "width": 80,
+           "height": 194.66666666666666,
+           "sortKey": -300,
+           "linked": true,
+           "opposite": {"networkId": "bipartite_t1", "id": "bipartite_t1_module1_group0_left--bipartite_t0_module2_group0_right", "moduleId": "1"}
+          },
+          {
+           "id": "bipartite_t0_module2_group0_right--bipartite_t1_module2_group-1_left",
+           "sourceId": "bipartite_t0_module2_group0_right",
+           "targetId": "bipartite_t1_module2_group-1_left",
+           "dangling": false,
+           "flow": 0.1,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 7.105427357601002e-14,
+           "width": 80,
+           "height": 97.33333333333333,
+           "sortKey": 16,
+           "linked": true,
+           "opposite": {"networkId": "bipartite_t1", "id": "bipartite_t1_module2_group-1_left--bipartite_t0_module2_group0_right", "moduleId": "2"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "3",
+     "id": "bipartite_t0_module3",
+     "path": [3],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 2,
+     "flow": 0,
+     "numLeafNodes": 2,
+     "meanNodeId": 7.5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": false,
+     "highlightIndex": -1,
+     "margin": 0,
+     "x": 0,
+     "y": 0,
+     "width": 0,
+     "height": 0,
+     "pass1": null,
+     "label": {
+      "shown": false,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 0},
+      "idPosition": {"x": 0, "y": 0},
+      "customName": "",
+      "maxLines": 0,
+      "names": [],
+      "namesSingleLine": [
+       {"name": "n7", "nodeId": 7, "stateId": null, "flow": 0},
+       {"name": "n8", "nodeId": 8, "stateId": null, "flow": 0}
+      ]
+     },
+     "groups": [
+      {
+       "id": "bipartite_t0_module3_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0,
+       "numLeafNodes": 2,
+       "x": 0,
+       "y": 0,
+       "width": 0,
+       "height": 0,
+       "pass1": null,
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0,
+         "numLeafNodes": 2,
+         "x": 0,
+         "y": 0,
+         "width": 0,
+         "height": 0,
+         "streamlineNodes": [
+          {
+           "id": "bipartite_t0_module3_group-1_left",
+           "sourceId": "bipartite_t0_module3_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 0,
+           "width": 0,
+           "height": 0,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0,
+         "numLeafNodes": 2,
+         "x": 0,
+         "y": 0,
+         "width": 0,
+         "height": 0,
+         "streamlineNodes": [
+          {
+           "id": "bipartite_t0_module3_group-1_right--bipartite_t1_module3_group-1_left",
+           "sourceId": "bipartite_t0_module3_group-1_right",
+           "targetId": "bipartite_t1_module3_group-1_left",
+           "dangling": false,
+           "flow": 0,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 0,
+           "width": 0,
+           "height": 0,
+           "sortKey": -Infinity,
+           "linked": true,
+           "opposite": {"networkId": "bipartite_t1", "id": "bipartite_t1_module3_group-1_left--bipartite_t0_module3_group-1_right", "moduleId": "3"}
+          },
+          {
+           "id": "bipartite_t0_module3_group-1_right--bipartite_t1_module2_group-1_left",
+           "sourceId": "bipartite_t0_module3_group-1_right",
+           "targetId": "bipartite_t1_module2_group-1_left",
+           "dangling": false,
+           "flow": 0,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 0,
+           "width": 0,
+           "height": 0,
+           "sortKey": 16,
+           "linked": true,
+           "opposite": {"networkId": "bipartite_t1", "id": "bipartite_t1_module2_group-1_left--bipartite_t0_module3_group-1_right", "moduleId": "2"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "numLinksAboveZero": 4,
+   "links": [
+    {
+     "id": "bipartite_t0_module2_group0_right--bipartite_t1_module1_group0_left",
+     "left": {"networkId": "bipartite_t0", "moduleId": "2", "groupHighlightIndex": 0, "groupInsignificant": false, "streamlineNodeId": "bipartite_t0_module2_group0_right--bipartite_t1_module1_group0_left"},
+     "right": {"networkId": "bipartite_t1", "moduleId": "1", "groupHighlightIndex": 0, "groupInsignificant": false, "streamlineNodeId": "bipartite_t1_module1_group0_left--bipartite_t0_module2_group0_right"},
+     "x0": 80,
+     "y0": 97.3333333333334,
+     "h0": 194.66666666666666,
+     "x1": 240,
+     "y1": 308,
+     "h1": 194.66666666666666,
+     "avgHeight": 194.66666666666666,
+     "highlightIndex": 0,
+     "leftHighlightIndex": 0,
+     "rightHighlightIndex": 0,
+     "path": "M80,292.00000000000006C160,292.00000000000006,160,502.66666666666663,240,502.66666666666663L240,308C160,308,160,97.3333333333334,80,97.3333333333334Z"
+    },
+    {
+     "id": "bipartite_t0_module1_group0_right--bipartite_t1_module1_group0_left",
+     "left": {"networkId": "bipartite_t0", "moduleId": "1", "groupHighlightIndex": 0, "groupInsignificant": false, "streamlineNodeId": "bipartite_t0_module1_group0_right--bipartite_t1_module1_group0_left"},
+     "right": {"networkId": "bipartite_t1", "moduleId": "1", "groupHighlightIndex": 0, "groupInsignificant": false, "streamlineNodeId": "bipartite_t1_module1_group0_left--bipartite_t0_module1_group0_right"},
+     "x0": 80,
+     "y0": 405.33333333333337,
+     "h0": 194.66666666666666,
+     "x1": 240,
+     "y1": 502.6666666666667,
+     "h1": 97.33333333333333,
+     "avgHeight": 146,
+     "highlightIndex": 0,
+     "leftHighlightIndex": 0,
+     "rightHighlightIndex": 0,
+     "path": "M80,600C160,600,160,600,240,600L240,502.6666666666667C160,502.6666666666667,160,405.33333333333337,80,405.33333333333337Z"
+    },
+    {
+     "id": "bipartite_t0_module1_group0_right--bipartite_t1_module2_group-1_left",
+     "left": {"networkId": "bipartite_t0", "moduleId": "1", "groupHighlightIndex": 0, "groupInsignificant": false, "streamlineNodeId": "bipartite_t0_module1_group0_right--bipartite_t1_module2_group-1_left"},
+     "right": {"networkId": "bipartite_t1", "moduleId": "2", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "bipartite_t1_module2_group-1_left--bipartite_t0_module1_group0_right"},
+     "x0": 80,
+     "y0": 308.00000000000006,
+     "h0": 97.33333333333333,
+     "x1": 240,
+     "y1": 97.33333333333334,
+     "h1": 194.66666666666666,
+     "avgHeight": 146,
+     "highlightIndex": 0,
+     "leftHighlightIndex": 0,
+     "rightHighlightIndex": -1,
+     "path": "M80,405.33333333333337C160,405.33333333333337,160,292,240,292L240,97.33333333333334C160,97.33333333333334,160,308.00000000000006,80,308.00000000000006Z"
+    },
+    {
+     "id": "bipartite_t0_module2_group0_right--bipartite_t1_module2_group-1_left",
+     "left": {"networkId": "bipartite_t0", "moduleId": "2", "groupHighlightIndex": 0, "groupInsignificant": false, "streamlineNodeId": "bipartite_t0_module2_group0_right--bipartite_t1_module2_group-1_left"},
+     "right": {"networkId": "bipartite_t1", "moduleId": "2", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "bipartite_t1_module2_group-1_left--bipartite_t0_module2_group0_right"},
+     "x0": 80,
+     "y0": 7.105427357601002e-14,
+     "h0": 97.33333333333333,
+     "x1": 240,
+     "y1": 1.4210854715202004e-14,
+     "h1": 97.33333333333333,
+     "avgHeight": 97.33333333333333,
+     "highlightIndex": 0,
+     "leftHighlightIndex": 0,
+     "rightHighlightIndex": -1,
+     "path": "M80,97.33333333333333C160,97.33333333333333,160,97.33333333333333,240,97.33333333333333L240,0C160,0,160,0,80,0Z"
+    }
+   ],
+   "hierarchy": [
+    {"type": "module", "moduleId": "1"},
+    {"type": "module", "moduleId": "2"}
+   ],
+   "identifiersUnique": true,
+   "leafColumns": ["identifier","nodeId","stateId","moduleId","moduleLevel","highlightIndex","insignificant"],
+   "leaves": [
+    ["1",1,null,"1",1,0,false],
+    ["2",2,null,"1",1,0,false],
+    ["3",3,null,"2",1,0,false],
+    ["4",4,null,"2",1,0,false],
+    ["5",5,null,"1",1,0,false],
+    ["6",6,null,"2",1,0,false],
+    ["7",7,null,"3",1,-1,false],
+    ["8",8,null,"3",1,-1,false]
+   ]
+  },
+  {
+   "networkId": "bipartite_t1",
+   "name": "bipartite_t1.json",
+   "index": 1,
+   "file": {
+    "path": "data/bipartite_t1.json",
+    "format": "json",
+    "numTopModules": 3,
+    "numLevels": 2,
+    "isStateNetwork": false,
+    "directed": null,
+    "codelength": 1.5,
+    "numNodes": 8
+   },
+   "x": 240,
+   "y": 0,
+   "width": 80,
+   "height": 600,
+   "flow": 0.6000000000000001,
+   "numLeafNodes": 8,
+   "moduleFlowThreshold": 0.30000000000000004,
+   "isCustomSorted": false,
+   "isHigherOrder": false,
+   "namePosition": {"x": 280, "y": 620},
+   "totalMargin": 16,
+   "visibleFlow": 1,
+   "numVisibleModules": 2,
+   "numModules": 3,
+   "modules": [
+    {
+     "moduleId": "1",
+     "id": "bipartite_t1_module1",
+     "path": [1],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 0,
+     "flow": 0.30000000000000004,
+     "numLeafNodes": 3,
+     "meanNodeId": 3.3333333333333335,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": 0,
+     "margin": 16,
+     "x": 240,
+     "y": 308,
+     "width": 80,
+     "height": 292,
+     "pass1": {"margin": 16, "index": 0, "x": 240, "y": 300, "width": 80, "height": 300},
+     "label": {
+      "shown": true,
+      "textAnchor": "start",
+      "namePosition": {"x": 340, "y": 454},
+      "idPosition": {"x": 280, "y": 454},
+      "customName": "",
+      "maxLines": 21,
+      "names": [
+       {"name": "n3", "nodeId": 3, "stateId": null, "flow": 0.2},
+       {"name": "n1", "nodeId": 1, "stateId": null, "flow": 0.1},
+       {"name": "n6", "nodeId": 6, "stateId": null, "flow": 0}
+      ],
+      "namesSingleLine": [
+       {"name": "n3", "nodeId": 3, "stateId": null, "flow": 0.2},
+       {"name": "n1", "nodeId": 1, "stateId": null, "flow": 0.1},
+       {"name": "n6", "nodeId": 6, "stateId": null, "flow": 0}
+      ]
+     },
+     "groups": [
+      {
+       "id": "bipartite_t1_module1_group0",
+       "highlightIndex": 0,
+       "insignificant": false,
+       "flow": 0.30000000000000004,
+       "numLeafNodes": 3,
+       "x": 240,
+       "y": 308,
+       "width": 80,
+       "height": 292,
+       "pass1": {"x": 240, "y": 300, "width": 80, "height": 300},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.30000000000000004,
+         "numLeafNodes": 3,
+         "x": 240,
+         "y": 308,
+         "width": 80,
+         "height": 292,
+         "streamlineNodes": [
+          {
+           "id": "bipartite_t1_module1_group0_left--bipartite_t0_module1_group0_right",
+           "sourceId": "bipartite_t1_module1_group0_left",
+           "targetId": "bipartite_t0_module1_group0_right",
+           "dangling": false,
+           "flow": 0.1,
+           "numLeafNodes": 1,
+           "x": 240,
+           "y": 502.6666666666667,
+           "width": 80,
+           "height": 97.33333333333333,
+           "sortKey": -300,
+           "linked": true,
+           "opposite": {"networkId": "bipartite_t0", "id": "bipartite_t0_module1_group0_right--bipartite_t1_module1_group0_left", "moduleId": "1"}
+          },
+          {
+           "id": "bipartite_t1_module1_group0_left--bipartite_t0_module2_group0_right",
+           "sourceId": "bipartite_t1_module1_group0_left",
+           "targetId": "bipartite_t0_module2_group0_right",
+           "dangling": false,
+           "flow": 0.2,
+           "numLeafNodes": 2,
+           "x": 240,
+           "y": 308,
+           "width": 80,
+           "height": 194.66666666666666,
+           "sortKey": 16,
+           "linked": true,
+           "opposite": {"networkId": "bipartite_t0", "id": "bipartite_t0_module2_group0_right--bipartite_t1_module1_group0_left", "moduleId": "2"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.30000000000000004,
+         "numLeafNodes": 3,
+         "x": 240,
+         "y": 308,
+         "width": 80,
+         "height": 292,
+         "streamlineNodes": [
+          {
+           "id": "bipartite_t1_module1_group0_right",
+           "sourceId": "bipartite_t1_module1_group0_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.30000000000000004,
+           "numLeafNodes": 3,
+           "x": 240,
+           "y": 308,
+           "width": 80,
+           "height": 292,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "2",
+     "id": "bipartite_t1_module2",
+     "path": [2],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 1,
+     "flow": 0.30000000000000004,
+     "numLeafNodes": 4,
+     "meanNodeId": 4.5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 0,
+     "x": 240,
+     "y": 0,
+     "width": 80,
+     "height": 292,
+     "pass1": {"margin": 0, "index": 1, "x": 240, "y": -16, "width": 80, "height": 300},
+     "label": {
+      "shown": true,
+      "textAnchor": "start",
+      "namePosition": {"x": 340, "y": 146},
+      "idPosition": {"x": 280, "y": 146},
+      "customName": "",
+      "maxLines": 21,
+      "names": [
+       {"name": "n2", "nodeId": 2, "stateId": null, "flow": 0.2},
+       {"name": "n4", "nodeId": 4, "stateId": null, "flow": 0.1},
+       {"name": "n7", "nodeId": 7, "stateId": null, "flow": 0},
+       {"name": "n5", "nodeId": 5, "stateId": null, "flow": 0}
+      ],
+      "namesSingleLine": [
+       {"name": "n2", "nodeId": 2, "stateId": null, "flow": 0.2},
+       {"name": "n4", "nodeId": 4, "stateId": null, "flow": 0.1},
+       {"name": "n7", "nodeId": 7, "stateId": null, "flow": 0},
+       {"name": "n5", "nodeId": 5, "stateId": null, "flow": 0}
+      ]
+     },
+     "groups": [
+      {
+       "id": "bipartite_t1_module2_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.30000000000000004,
+       "numLeafNodes": 4,
+       "x": 240,
+       "y": 0,
+       "width": 80,
+       "height": 292,
+       "pass1": {"x": 240, "y": -16, "width": 80, "height": 300},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.30000000000000004,
+         "numLeafNodes": 4,
+         "x": 240,
+         "y": 1.4210854715202004e-14,
+         "width": 80,
+         "height": 292,
+         "streamlineNodes": [
+          {
+           "id": "bipartite_t1_module2_group-1_left--bipartite_t0_module3_group-1_right",
+           "sourceId": "bipartite_t1_module2_group-1_left",
+           "targetId": "bipartite_t0_module3_group-1_right",
+           "dangling": false,
+           "flow": 0,
+           "numLeafNodes": 1,
+           "x": 240,
+           "y": 292,
+           "width": 80,
+           "height": 0,
+           "sortKey": -Infinity,
+           "linked": true,
+           "opposite": {"networkId": "bipartite_t0", "id": "bipartite_t0_module3_group-1_right--bipartite_t1_module2_group-1_left", "moduleId": "3"}
+          },
+          {
+           "id": "bipartite_t1_module2_group-1_left--bipartite_t0_module1_group0_right",
+           "sourceId": "bipartite_t1_module2_group-1_left",
+           "targetId": "bipartite_t0_module1_group0_right",
+           "dangling": false,
+           "flow": 0.2,
+           "numLeafNodes": 2,
+           "x": 240,
+           "y": 97.33333333333334,
+           "width": 80,
+           "height": 194.66666666666666,
+           "sortKey": -300,
+           "linked": true,
+           "opposite": {"networkId": "bipartite_t0", "id": "bipartite_t0_module1_group0_right--bipartite_t1_module2_group-1_left", "moduleId": "1"}
+          },
+          {
+           "id": "bipartite_t1_module2_group-1_left--bipartite_t0_module2_group0_right",
+           "sourceId": "bipartite_t1_module2_group-1_left",
+           "targetId": "bipartite_t0_module2_group0_right",
+           "dangling": false,
+           "flow": 0.1,
+           "numLeafNodes": 1,
+           "x": 240,
+           "y": 1.4210854715202004e-14,
+           "width": 80,
+           "height": 97.33333333333333,
+           "sortKey": 16,
+           "linked": true,
+           "opposite": {"networkId": "bipartite_t0", "id": "bipartite_t0_module2_group0_right--bipartite_t1_module2_group-1_left", "moduleId": "2"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.30000000000000004,
+         "numLeafNodes": 4,
+         "x": 240,
+         "y": 0,
+         "width": 80,
+         "height": 292,
+         "streamlineNodes": [
+          {
+           "id": "bipartite_t1_module2_group-1_right",
+           "sourceId": "bipartite_t1_module2_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.30000000000000004,
+           "numLeafNodes": 4,
+           "x": 240,
+           "y": 0,
+           "width": 80,
+           "height": 292,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "3",
+     "id": "bipartite_t1_module3",
+     "path": [3],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 2,
+     "flow": 0,
+     "numLeafNodes": 1,
+     "meanNodeId": 8,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": false,
+     "highlightIndex": -1,
+     "margin": 0,
+     "x": 0,
+     "y": 0,
+     "width": 0,
+     "height": 0,
+     "pass1": null,
+     "label": {
+      "shown": false,
+      "textAnchor": "start",
+      "namePosition": {"x": 20, "y": 0},
+      "idPosition": {"x": 0, "y": 0},
+      "customName": "",
+      "maxLines": 0,
+      "names": [],
+      "namesSingleLine": [
+       {"name": "n8", "nodeId": 8, "stateId": null, "flow": 0}
+      ]
+     },
+     "groups": [
+      {
+       "id": "bipartite_t1_module3_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0,
+       "numLeafNodes": 1,
+       "x": 0,
+       "y": 0,
+       "width": 0,
+       "height": 0,
+       "pass1": null,
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 0,
+         "width": 0,
+         "height": 0,
+         "streamlineNodes": [
+          {
+           "id": "bipartite_t1_module3_group-1_left--bipartite_t0_module3_group-1_right",
+           "sourceId": "bipartite_t1_module3_group-1_left",
+           "targetId": "bipartite_t0_module3_group-1_right",
+           "dangling": false,
+           "flow": 0,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 0,
+           "width": 0,
+           "height": 0,
+           "sortKey": -Infinity,
+           "linked": true,
+           "opposite": {"networkId": "bipartite_t0", "id": "bipartite_t0_module3_group-1_right--bipartite_t1_module3_group-1_left", "moduleId": "3"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 0,
+         "width": 0,
+         "height": 0,
+         "streamlineNodes": [
+          {
+           "id": "bipartite_t1_module3_group-1_right",
+           "sourceId": "bipartite_t1_module3_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 0,
+           "width": 0,
+           "height": 0,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "numLinksAboveZero": 0,
+   "links": [],
+   "hierarchy": [
+    {"type": "module", "moduleId": "1"},
+    {"type": "module", "moduleId": "2"}
+   ],
+   "identifiersUnique": true,
+   "leafColumns": ["identifier","nodeId","stateId","moduleId","moduleLevel","highlightIndex","insignificant"],
+   "leaves": [
+    ["1",1,null,"1",1,0,false],
+    ["2",2,null,"2",1,-1,false],
+    ["3",3,null,"1",1,0,false],
+    ["4",4,null,"2",1,-1,false],
+    ["5",5,null,"2",1,-1,false],
+    ["6",6,null,"1",1,0,false],
+    ["7",7,null,"2",1,-1,false],
+    ["8",8,null,"3",1,-1,false]
+   ]
+  }
+ ],
+ "savedStore": {
+  "options": {
+   "height": 600,
+   "marginExponent": 4,
+   "zeroMargins": false,
+   "moduleWidth": 80,
+   "streamlineFraction": 2,
+   "streamlineThreshold": 1,
+   "streamlineOpacity": 0.8,
+   "flowThreshold": 0.005,
+   "defaultHighlightColor": "#b6b69f",
+   "verticalAlign": "bottom",
+   "moduleSize": "flow",
+   "sortModulesBy": "flow",
+   "showModuleId": false,
+   "showModuleNames": true,
+   "multilineModuleNames": true,
+   "showNetworkNames": true,
+   "aggregateStateNames": true,
+   "titleCaseModuleNames": false,
+   "hierarchicalModules": "shadow",
+   "hierarchicalModuleOffset": 5,
+   "hierarchicalModuleOpacity": 0.5,
+   "dropShadow": false,
+   "fontSize": 8,
+   "networkFontSize": 10,
+   "adaptiveFontSize": false,
+   "showBipartiteNodes": false
+  },
+  "colorScheme": "C3 Sinebow",
+  "colorTone": "strong",
+  "colorOffset": null
+ },
+ "savedFiles": [
+  {"name": "00_bipartite_t0.json.json", "text": "{\n  \"codelength\": 1.5,\n  \"bipartiteStartId\": 5,\n  \"name\": \"bipartite_t0.json\",\n  \"colors\": [\n    \"#ea6c63\"\n  ],\n  \"nodes\": [\n    {\n      \"path\": [\n        1,\n        1\n      ],\n      \"flow\": 0.2,\n      \"name\": \"n1\",\n      \"id\": 1,\n      \"identifier\": \"1\",\n      \"highlightIndex\": 0,\n      \"moduleLevel\": 1\n    },\n    {\n      \"path\": [\n        1,\n        2\n      ],\n      \"flow\": 0.1,\n      \"name\": \"n5\",\n      \"id\": 5,\n      \"identifier\": \"5\",\n      \"highlightIndex\": 0,\n      \"moduleLevel\": 1\n    },\n    {\n      \"path\": [\n        1,\n        3\n      ],\n      \"flow\": 0.1,\n      \"name\": \"n2\",\n      \"id\": 2,\n      \"identifier\": \"2\",\n      \"highlightIndex\": 0,\n      \"moduleLevel\": 1\n    },\n    {\n      \"path\": [\n        2,\n        1\n      ],\n      \"flow\": 0.2,\n      \"name\": \"n3\",\n      \"id\": 3,\n      \"identifier\": \"3\",\n      \"highlightIndex\": 0,\n      \"moduleLevel\": 1\n    },\n    {\n      \"path\": [\n        2,\n        2\n      ],\n      \"flow\": 0.1,\n      \"name\": \"n6\",\n      \"id\": 6,\n      \"identifier\": \"6\",\n      \"highlightIndex\": 0,\n      \"moduleLevel\": 1\n    },\n    {\n      \"path\": [\n        2,\n        3\n      ],\n      \"flow\": 0.1,\n      \"name\": \"n4\",\n      \"id\": 4,\n      \"identifier\": \"4\",\n      \"highlightIndex\": 0,\n      \"moduleLevel\": 1\n    },\n    {\n      \"path\": [\n        3,\n        1\n      ],\n      \"flow\": 0.1,\n      \"name\": \"n7\",\n      \"id\": 7,\n      \"identifier\": \"7\",\n      \"highlightIndex\": -1,\n      \"moduleLevel\": 1\n    },\n    {\n      \"path\": [\n        3,\n        2\n      ],\n      \"flow\": 0.1,\n      \"name\": \"n8\",\n      \"id\": 8,\n      \"identifier\": \"8\",\n      \"highlightIndex\": -1,\n      \"moduleLevel\": 1\n    }\n  ],\n  \"alluvial\": {\n    \"format\": \"alluvial-network\",\n    \"formatVersion\": 1,\n    \"generator\": \"fixture\",\n    \"diagram\": {\n      \"saveId\": \"fixture\",\n      \"position\": 0,\n      \"numNetworks\": 2,\n      \"colorScheme\": \"C3 Sinebow\",\n      \"colorTone\": \"strong\",\n      \"colorOffset\": null,\n      \"options\": {\n        \"height\": 600,\n        \"marginExponent\": 4,\n        \"zeroMargins\": false,\n        \"moduleWidth\": 80,\n        \"streamlineFraction\": 2,\n        \"streamlineThreshold\": 1,\n        \"streamlineOpacity\": 0.8,\n        \"flowThreshold\": 0.005,\n        \"defaultHighlightColor\": \"#b6b69f\",\n        \"verticalAlign\": \"bottom\",\n        \"moduleSize\": \"flow\",\n        \"sortModulesBy\": \"flow\",\n        \"showModuleId\": false,\n        \"showModuleNames\": true,\n        \"multilineModuleNames\": true,\n        \"showNetworkNames\": true,\n        \"aggregateStateNames\": true,\n        \"titleCaseModuleNames\": false,\n        \"hierarchicalModules\": \"shadow\",\n        \"hierarchicalModuleOffset\": 5,\n        \"hierarchicalModuleOpacity\": 0.5,\n        \"dropShadow\": false,\n        \"fontSize\": 8,\n        \"networkFontSize\": 10,\n        \"adaptiveFontSize\": false,\n        \"showBipartiteNodes\": false\n      }\n    },\n    \"network\": {}\n  }\n}"},
+  {"name": "01_bipartite_t1.json.json", "text": "{\n  \"codelength\": 1.5,\n  \"bipartiteStartId\": 5,\n  \"name\": \"bipartite_t1.json\",\n  \"colors\": [\n    \"#ea6c63\"\n  ],\n  \"nodes\": [\n    {\n      \"path\": [\n        1,\n        1\n      ],\n      \"flow\": 0.2,\n      \"name\": \"n3\",\n      \"id\": 3,\n      \"identifier\": \"3\",\n      \"highlightIndex\": 0,\n      \"moduleLevel\": 1\n    },\n    {\n      \"path\": [\n        1,\n        2\n      ],\n      \"flow\": 0.1,\n      \"name\": \"n6\",\n      \"id\": 6,\n      \"identifier\": \"6\",\n      \"highlightIndex\": 0,\n      \"moduleLevel\": 1\n    },\n    {\n      \"path\": [\n        1,\n        3\n      ],\n      \"flow\": 0.1,\n      \"name\": \"n1\",\n      \"id\": 1,\n      \"identifier\": \"1\",\n      \"highlightIndex\": 0,\n      \"moduleLevel\": 1\n    },\n    {\n      \"path\": [\n        2,\n        1\n      ],\n      \"flow\": 0.2,\n      \"name\": \"n2\",\n      \"id\": 2,\n      \"identifier\": \"2\",\n      \"highlightIndex\": -1,\n      \"moduleLevel\": 1\n    },\n    {\n      \"path\": [\n        2,\n        2\n      ],\n      \"flow\": 0.1,\n      \"name\": \"n5\",\n      \"id\": 5,\n      \"identifier\": \"5\",\n      \"highlightIndex\": -1,\n      \"moduleLevel\": 1\n    },\n    {\n      \"path\": [\n        2,\n        3\n      ],\n      \"flow\": 0.1,\n      \"name\": \"n4\",\n      \"id\": 4,\n      \"identifier\": \"4\",\n      \"highlightIndex\": -1,\n      \"moduleLevel\": 1\n    },\n    {\n      \"path\": [\n        2,\n        4\n      ],\n      \"flow\": 0.1,\n      \"name\": \"n7\",\n      \"id\": 7,\n      \"identifier\": \"7\",\n      \"highlightIndex\": -1,\n      \"moduleLevel\": 1\n    },\n    {\n      \"path\": [\n        3,\n        1\n      ],\n      \"flow\": 0.1,\n      \"name\": \"n8\",\n      \"id\": 8,\n      \"identifier\": \"8\",\n      \"highlightIndex\": -1,\n      \"moduleLevel\": 1\n    }\n  ],\n  \"alluvial\": {\n    \"format\": \"alluvial-network\",\n    \"formatVersion\": 1,\n    \"generator\": \"fixture\",\n    \"diagram\": {\n      \"saveId\": \"fixture\",\n      \"position\": 1,\n      \"numNetworks\": 2,\n      \"colorScheme\": \"C3 Sinebow\",\n      \"colorTone\": \"strong\",\n      \"colorOffset\": null,\n      \"options\": {\n        \"height\": 600,\n        \"marginExponent\": 4,\n        \"zeroMargins\": false,\n        \"moduleWidth\": 80,\n        \"streamlineFraction\": 2,\n        \"streamlineThreshold\": 1,\n        \"streamlineOpacity\": 0.8,\n        \"flowThreshold\": 0.005,\n        \"defaultHighlightColor\": \"#b6b69f\",\n        \"verticalAlign\": \"bottom\",\n        \"moduleSize\": \"flow\",\n        \"sortModulesBy\": \"flow\",\n        \"showModuleId\": false,\n        \"showModuleNames\": true,\n        \"multilineModuleNames\": true,\n        \"showNetworkNames\": true,\n        \"aggregateStateNames\": true,\n        \"titleCaseModuleNames\": false,\n        \"hierarchicalModules\": \"shadow\",\n        \"hierarchicalModuleOffset\": 5,\n        \"hierarchicalModuleOpacity\": 0.5,\n        \"dropShadow\": false,\n        \"fontSize\": 8,\n        \"networkFontSize\": 10,\n        \"adaptiveFontSize\": false,\n        \"showBipartiteNodes\": false\n      }\n    },\n    \"network\": {}\n  }\n}"}
+ ],
+ "savedReload": {
+  "formatVersion": 1,
+  "scenario": "bipartite-json__hidden__roundTrip/savedReload",
+  "group": "bipartite-json",
+  "variant": "hidden__roundTrip/savedReload",
+  "description": "the `savedFiles` of this fixture: parseAcceptedFiles (loose files; a zip of them gives the same) + openNetworks",
+  "features": ["jsColors","json"],
+  "inputs": {
+   "files": ["00_bipartite_t0.json.json","01_bipartite_t1.json.json"],
+   "formats": ["json","json"],
+   "networkIds": ["00_bipartite_t0.json","01_bipartite_t1.json"],
+   "networkNames": ["bipartite_t0.json","bipartite_t1.json"],
+   "identifier": "id",
+   "options": {
+    "height": 600,
+    "moduleWidth": 80,
+    "streamlineFraction": 2,
+    "streamlineThreshold": 1,
+    "flowThreshold": 0.005,
+    "marginExponent": 4,
+    "zeroMargins": false,
+    "verticalAlign": "bottom",
+    "moduleSize": "flow",
+    "sortModulesBy": "flow"
+   },
+   "labelOptions": {"fontSize": 8, "adaptiveFontSize": false, "multilineModuleNames": true, "aggregateStateNames": true, "showModuleNames": true},
+   "colorScheme": "C3 Sinebow",
+   "operations": [
+    {"op": "openNetworks"}
+   ]
+  },
+  "diagram": {
+   "x": 0,
+   "y": 0,
+   "width": 320,
+   "height": 600,
+   "flow": 0,
+   "numNetworks": 2,
+   "maxNetworkFlow": 0.6000000000000001,
+   "streamlineWidth": 160,
+   "networkWidth": 240,
+   "totalWidth": 320,
+   "totalMargins": [16,16],
+   "maxTotalMargin": 16,
+   "marginFractionOfHeight": 0.02666666666666667,
+   "maxMarginFractionOfHeight": 0.2,
+   "marginCapped": false,
+   "moduleMarginScale": null,
+   "scaledTotalMargin": null,
+   "usableHeight": 584,
+   "visibleFlows": [1,1],
+   "visibleModuleCounts": [2,2],
+   "updateLayoutCalls": 1,
+   "usableHeightCheckedModules": 4
+  },
+  "highlightColors": ["#ea6c63"],
+  "defaultHighlightColor": "#b6b69f",
+  "warnings": [],
+  "networks": [
+   {
+    "networkId": "00_bipartite_t0.json",
+    "name": "bipartite_t0.json",
+    "index": 0,
+    "file": {
+     "path": "00_bipartite_t0.json.json",
+     "format": "json",
+     "numTopModules": 3,
+     "numLevels": 2,
+     "isStateNetwork": false,
+     "directed": null,
+     "codelength": 1.5,
+     "numNodes": 8
+    },
+    "x": 0,
+    "y": 0,
+    "width": 80,
+    "height": 600,
+    "flow": 0.6000000000000001,
+    "numLeafNodes": 8,
+    "moduleFlowThreshold": 0.30000000000000004,
+    "isCustomSorted": false,
+    "isHigherOrder": false,
+    "namePosition": {"x": 40, "y": 620},
+    "totalMargin": 16,
+    "visibleFlow": 1,
+    "numVisibleModules": 2,
+    "numModules": 3,
+    "modules": [
+     {
+      "moduleId": "1",
+      "id": "00_bipartite_t0.json_module1",
+      "path": [1],
+      "moduleLevel": 1,
+      "maxModuleLevel": 1,
+      "index": 0,
+      "flow": 0.30000000000000004,
+      "numLeafNodes": 3,
+      "meanNodeId": 2.6666666666666665,
+      "enterFlow": 0,
+      "exitFlow": 0,
+      "visible": true,
+      "highlightIndex": 0,
+      "margin": 16,
+      "x": 0,
+      "y": 308.00000000000006,
+      "width": 80,
+      "height": 292,
+      "pass1": {"margin": 16, "index": 0, "x": 0, "y": 300, "width": 80, "height": 300},
+      "label": {
+       "shown": true,
+       "textAnchor": "end",
+       "namePosition": {"x": -20, "y": 454.00000000000006},
+       "idPosition": {"x": 40, "y": 454.00000000000006},
+       "customName": "",
+       "maxLines": 21,
+       "names": [
+        {"name": "n1", "nodeId": 1, "stateId": null, "flow": 0.2},
+        {"name": "n2", "nodeId": 2, "stateId": null, "flow": 0.1},
+        {"name": "n5", "nodeId": 5, "stateId": null, "flow": 0}
+       ],
+       "namesSingleLine": [
+        {"name": "n1", "nodeId": 1, "stateId": null, "flow": 0.2},
+        {"name": "n2", "nodeId": 2, "stateId": null, "flow": 0.1},
+        {"name": "n5", "nodeId": 5, "stateId": null, "flow": 0}
+       ]
+      },
+      "groups": [
+       {
+        "id": "00_bipartite_t0.json_module1_group0",
+        "highlightIndex": 0,
+        "insignificant": false,
+        "flow": 0.30000000000000004,
+        "numLeafNodes": 3,
+        "x": 0,
+        "y": 308.00000000000006,
+        "width": 80,
+        "height": 292,
+        "pass1": {"x": 0, "y": 300, "width": 80, "height": 300},
+        "branches": [
+         {
+          "side": "left",
+          "flow": 0.30000000000000004,
+          "numLeafNodes": 3,
+          "x": 0,
+          "y": 308,
+          "width": 80,
+          "height": 292,
+          "streamlineNodes": [
+           {
+            "id": "00_bipartite_t0.json_module1_group0_left",
+            "sourceId": "00_bipartite_t0.json_module1_group0_left",
+            "targetId": null,
+            "dangling": true,
+            "flow": 0.30000000000000004,
+            "numLeafNodes": 3,
+            "x": 0,
+            "y": 308,
+            "width": 80,
+            "height": 292,
+            "sortKey": -Infinity,
+            "linked": false,
+            "opposite": null
+           }
+          ]
+         },
+         {
+          "side": "right",
+          "flow": 0.30000000000000004,
+          "numLeafNodes": 3,
+          "x": 0,
+          "y": 308.00000000000006,
+          "width": 80,
+          "height": 292,
+          "streamlineNodes": [
+           {
+            "id": "00_bipartite_t0.json_module1_group0_right--01_bipartite_t1.json_module1_group0_left",
+            "sourceId": "00_bipartite_t0.json_module1_group0_right",
+            "targetId": "01_bipartite_t1.json_module1_group0_left",
+            "dangling": false,
+            "flow": 0.2,
+            "numLeafNodes": 1,
+            "x": 0,
+            "y": 405.33333333333337,
+            "width": 80,
+            "height": 194.66666666666666,
+            "sortKey": -300,
+            "linked": true,
+            "opposite": {"networkId": "01_bipartite_t1.json", "id": "01_bipartite_t1.json_module1_group0_left--00_bipartite_t0.json_module1_group0_right", "moduleId": "1"}
+           },
+           {
+            "id": "00_bipartite_t0.json_module1_group0_right--01_bipartite_t1.json_module2_group-1_left",
+            "sourceId": "00_bipartite_t0.json_module1_group0_right",
+            "targetId": "01_bipartite_t1.json_module2_group-1_left",
+            "dangling": false,
+            "flow": 0.1,
+            "numLeafNodes": 2,
+            "x": 0,
+            "y": 308.00000000000006,
+            "width": 80,
+            "height": 97.33333333333333,
+            "sortKey": 16,
+            "linked": true,
+            "opposite": {"networkId": "01_bipartite_t1.json", "id": "01_bipartite_t1.json_module2_group-1_left--00_bipartite_t0.json_module1_group0_right", "moduleId": "2"}
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "moduleId": "2",
+      "id": "00_bipartite_t0.json_module2",
+      "path": [2],
+      "moduleLevel": 1,
+      "maxModuleLevel": 1,
+      "index": 1,
+      "flow": 0.30000000000000004,
+      "numLeafNodes": 3,
+      "meanNodeId": 4.333333333333333,
+      "enterFlow": 0,
+      "exitFlow": 0,
+      "visible": true,
+      "highlightIndex": 0,
+      "margin": 0,
+      "x": 0,
+      "y": 7.105427357601002e-14,
+      "width": 80,
+      "height": 292,
+      "pass1": {"margin": 0, "index": 1, "x": 0, "y": -16, "width": 80, "height": 300},
+      "label": {
+       "shown": true,
+       "textAnchor": "end",
+       "namePosition": {"x": -20, "y": 146.00000000000006},
+       "idPosition": {"x": 40, "y": 146.00000000000006},
+       "customName": "",
+       "maxLines": 21,
+       "names": [
+        {"name": "n3", "nodeId": 3, "stateId": null, "flow": 0.2},
+        {"name": "n4", "nodeId": 4, "stateId": null, "flow": 0.1},
+        {"name": "n6", "nodeId": 6, "stateId": null, "flow": 0}
+       ],
+       "namesSingleLine": [
+        {"name": "n3", "nodeId": 3, "stateId": null, "flow": 0.2},
+        {"name": "n4", "nodeId": 4, "stateId": null, "flow": 0.1},
+        {"name": "n6", "nodeId": 6, "stateId": null, "flow": 0}
+       ]
+      },
+      "groups": [
+       {
+        "id": "00_bipartite_t0.json_module2_group0",
+        "highlightIndex": 0,
+        "insignificant": false,
+        "flow": 0.30000000000000004,
+        "numLeafNodes": 3,
+        "x": 0,
+        "y": 7.105427357601002e-14,
+        "width": 80,
+        "height": 292,
+        "pass1": {"x": 0, "y": -16, "width": 80, "height": 300},
+        "branches": [
+         {
+          "side": "left",
+          "flow": 0.30000000000000004,
+          "numLeafNodes": 3,
+          "x": 0,
+          "y": 5.684341886080802e-14,
+          "width": 80,
+          "height": 292,
+          "streamlineNodes": [
+           {
+            "id": "00_bipartite_t0.json_module2_group0_left",
+            "sourceId": "00_bipartite_t0.json_module2_group0_left",
+            "targetId": null,
+            "dangling": true,
+            "flow": 0.30000000000000004,
+            "numLeafNodes": 3,
+            "x": 0,
+            "y": 5.684341886080802e-14,
+            "width": 80,
+            "height": 292,
+            "sortKey": -Infinity,
+            "linked": false,
+            "opposite": null
+           }
+          ]
+         },
+         {
+          "side": "right",
+          "flow": 0.30000000000000004,
+          "numLeafNodes": 3,
+          "x": 0,
+          "y": 7.105427357601002e-14,
+          "width": 80,
+          "height": 292,
+          "streamlineNodes": [
+           {
+            "id": "00_bipartite_t0.json_module2_group0_right--01_bipartite_t1.json_module1_group0_left",
+            "sourceId": "00_bipartite_t0.json_module2_group0_right",
+            "targetId": "01_bipartite_t1.json_module1_group0_left",
+            "dangling": false,
+            "flow": 0.2,
+            "numLeafNodes": 2,
+            "x": 0,
+            "y": 97.3333333333334,
+            "width": 80,
+            "height": 194.66666666666666,
+            "sortKey": -300,
+            "linked": true,
+            "opposite": {"networkId": "01_bipartite_t1.json", "id": "01_bipartite_t1.json_module1_group0_left--00_bipartite_t0.json_module2_group0_right", "moduleId": "1"}
+           },
+           {
+            "id": "00_bipartite_t0.json_module2_group0_right--01_bipartite_t1.json_module2_group-1_left",
+            "sourceId": "00_bipartite_t0.json_module2_group0_right",
+            "targetId": "01_bipartite_t1.json_module2_group-1_left",
+            "dangling": false,
+            "flow": 0.1,
+            "numLeafNodes": 1,
+            "x": 0,
+            "y": 7.105427357601002e-14,
+            "width": 80,
+            "height": 97.33333333333333,
+            "sortKey": 16,
+            "linked": true,
+            "opposite": {"networkId": "01_bipartite_t1.json", "id": "01_bipartite_t1.json_module2_group-1_left--00_bipartite_t0.json_module2_group0_right", "moduleId": "2"}
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "moduleId": "3",
+      "id": "00_bipartite_t0.json_module3",
+      "path": [3],
+      "moduleLevel": 1,
+      "maxModuleLevel": 1,
+      "index": 2,
+      "flow": 0,
+      "numLeafNodes": 2,
+      "meanNodeId": 7.5,
+      "enterFlow": 0,
+      "exitFlow": 0,
+      "visible": false,
+      "highlightIndex": -1,
+      "margin": 0,
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0,
+      "pass1": null,
+      "label": {
+       "shown": false,
+       "textAnchor": "end",
+       "namePosition": {"x": -20, "y": 0},
+       "idPosition": {"x": 0, "y": 0},
+       "customName": "",
+       "maxLines": 0,
+       "names": [],
+       "namesSingleLine": [
+        {"name": "n7", "nodeId": 7, "stateId": null, "flow": 0},
+        {"name": "n8", "nodeId": 8, "stateId": null, "flow": 0}
+       ]
+      },
+      "groups": [
+       {
+        "id": "00_bipartite_t0.json_module3_group-1",
+        "highlightIndex": -1,
+        "insignificant": false,
+        "flow": 0,
+        "numLeafNodes": 2,
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "pass1": null,
+        "branches": [
+         {
+          "side": "left",
+          "flow": 0,
+          "numLeafNodes": 2,
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "streamlineNodes": [
+           {
+            "id": "00_bipartite_t0.json_module3_group-1_left",
+            "sourceId": "00_bipartite_t0.json_module3_group-1_left",
+            "targetId": null,
+            "dangling": true,
+            "flow": 0,
+            "numLeafNodes": 2,
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "sortKey": -Infinity,
+            "linked": false,
+            "opposite": null
+           }
+          ]
+         },
+         {
+          "side": "right",
+          "flow": 0,
+          "numLeafNodes": 2,
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "streamlineNodes": [
+           {
+            "id": "00_bipartite_t0.json_module3_group-1_right--01_bipartite_t1.json_module3_group-1_left",
+            "sourceId": "00_bipartite_t0.json_module3_group-1_right",
+            "targetId": "01_bipartite_t1.json_module3_group-1_left",
+            "dangling": false,
+            "flow": 0,
+            "numLeafNodes": 1,
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "sortKey": -Infinity,
+            "linked": true,
+            "opposite": {"networkId": "01_bipartite_t1.json", "id": "01_bipartite_t1.json_module3_group-1_left--00_bipartite_t0.json_module3_group-1_right", "moduleId": "3"}
+           },
+           {
+            "id": "00_bipartite_t0.json_module3_group-1_right--01_bipartite_t1.json_module2_group-1_left",
+            "sourceId": "00_bipartite_t0.json_module3_group-1_right",
+            "targetId": "01_bipartite_t1.json_module2_group-1_left",
+            "dangling": false,
+            "flow": 0,
+            "numLeafNodes": 1,
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "sortKey": 16,
+            "linked": true,
+            "opposite": {"networkId": "01_bipartite_t1.json", "id": "01_bipartite_t1.json_module2_group-1_left--00_bipartite_t0.json_module3_group-1_right", "moduleId": "2"}
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "numLinksAboveZero": 4,
+    "links": [
+     {
+      "id": "00_bipartite_t0.json_module2_group0_right--01_bipartite_t1.json_module1_group0_left",
+      "left": {"networkId": "00_bipartite_t0.json", "moduleId": "2", "groupHighlightIndex": 0, "groupInsignificant": false, "streamlineNodeId": "00_bipartite_t0.json_module2_group0_right--01_bipartite_t1.json_module1_group0_left"},
+      "right": {"networkId": "01_bipartite_t1.json", "moduleId": "1", "groupHighlightIndex": 0, "groupInsignificant": false, "streamlineNodeId": "01_bipartite_t1.json_module1_group0_left--00_bipartite_t0.json_module2_group0_right"},
+      "x0": 80,
+      "y0": 97.3333333333334,
+      "h0": 194.66666666666666,
+      "x1": 240,
+      "y1": 308,
+      "h1": 194.66666666666666,
+      "avgHeight": 194.66666666666666,
+      "highlightIndex": 0,
+      "leftHighlightIndex": 0,
+      "rightHighlightIndex": 0,
+      "path": "M80,292.00000000000006C160,292.00000000000006,160,502.66666666666663,240,502.66666666666663L240,308C160,308,160,97.3333333333334,80,97.3333333333334Z"
+     },
+     {
+      "id": "00_bipartite_t0.json_module1_group0_right--01_bipartite_t1.json_module1_group0_left",
+      "left": {"networkId": "00_bipartite_t0.json", "moduleId": "1", "groupHighlightIndex": 0, "groupInsignificant": false, "streamlineNodeId": "00_bipartite_t0.json_module1_group0_right--01_bipartite_t1.json_module1_group0_left"},
+      "right": {"networkId": "01_bipartite_t1.json", "moduleId": "1", "groupHighlightIndex": 0, "groupInsignificant": false, "streamlineNodeId": "01_bipartite_t1.json_module1_group0_left--00_bipartite_t0.json_module1_group0_right"},
+      "x0": 80,
+      "y0": 405.33333333333337,
+      "h0": 194.66666666666666,
+      "x1": 240,
+      "y1": 502.6666666666667,
+      "h1": 97.33333333333333,
+      "avgHeight": 146,
+      "highlightIndex": 0,
+      "leftHighlightIndex": 0,
+      "rightHighlightIndex": 0,
+      "path": "M80,600C160,600,160,600,240,600L240,502.6666666666667C160,502.6666666666667,160,405.33333333333337,80,405.33333333333337Z"
+     },
+     {
+      "id": "00_bipartite_t0.json_module1_group0_right--01_bipartite_t1.json_module2_group-1_left",
+      "left": {"networkId": "00_bipartite_t0.json", "moduleId": "1", "groupHighlightIndex": 0, "groupInsignificant": false, "streamlineNodeId": "00_bipartite_t0.json_module1_group0_right--01_bipartite_t1.json_module2_group-1_left"},
+      "right": {"networkId": "01_bipartite_t1.json", "moduleId": "2", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "01_bipartite_t1.json_module2_group-1_left--00_bipartite_t0.json_module1_group0_right"},
+      "x0": 80,
+      "y0": 308.00000000000006,
+      "h0": 97.33333333333333,
+      "x1": 240,
+      "y1": 97.33333333333334,
+      "h1": 194.66666666666666,
+      "avgHeight": 146,
+      "highlightIndex": 0,
+      "leftHighlightIndex": 0,
+      "rightHighlightIndex": -1,
+      "path": "M80,405.33333333333337C160,405.33333333333337,160,292,240,292L240,97.33333333333334C160,97.33333333333334,160,308.00000000000006,80,308.00000000000006Z"
+     },
+     {
+      "id": "00_bipartite_t0.json_module2_group0_right--01_bipartite_t1.json_module2_group-1_left",
+      "left": {"networkId": "00_bipartite_t0.json", "moduleId": "2", "groupHighlightIndex": 0, "groupInsignificant": false, "streamlineNodeId": "00_bipartite_t0.json_module2_group0_right--01_bipartite_t1.json_module2_group-1_left"},
+      "right": {"networkId": "01_bipartite_t1.json", "moduleId": "2", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "01_bipartite_t1.json_module2_group-1_left--00_bipartite_t0.json_module2_group0_right"},
+      "x0": 80,
+      "y0": 7.105427357601002e-14,
+      "h0": 97.33333333333333,
+      "x1": 240,
+      "y1": 1.4210854715202004e-14,
+      "h1": 97.33333333333333,
+      "avgHeight": 97.33333333333333,
+      "highlightIndex": 0,
+      "leftHighlightIndex": 0,
+      "rightHighlightIndex": -1,
+      "path": "M80,97.33333333333333C160,97.33333333333333,160,97.33333333333333,240,97.33333333333333L240,0C160,0,160,0,80,0Z"
+     }
+    ],
+    "hierarchy": [
+     {"type": "module", "moduleId": "1"},
+     {"type": "module", "moduleId": "2"}
+    ],
+    "identifiersUnique": true,
+    "leafColumns": ["identifier","nodeId","stateId","moduleId","moduleLevel","highlightIndex","insignificant"],
+    "leaves": [
+     ["1",1,null,"1",1,0,false],
+     ["2",2,null,"1",1,0,false],
+     ["3",3,null,"2",1,0,false],
+     ["4",4,null,"2",1,0,false],
+     ["5",5,null,"1",1,0,false],
+     ["6",6,null,"2",1,0,false],
+     ["7",7,null,"3",1,-1,false],
+     ["8",8,null,"3",1,-1,false]
+    ]
+   },
+   {
+    "networkId": "01_bipartite_t1.json",
+    "name": "bipartite_t1.json",
+    "index": 1,
+    "file": {
+     "path": "01_bipartite_t1.json.json",
+     "format": "json",
+     "numTopModules": 3,
+     "numLevels": 2,
+     "isStateNetwork": false,
+     "directed": null,
+     "codelength": 1.5,
+     "numNodes": 8
+    },
+    "x": 240,
+    "y": 0,
+    "width": 80,
+    "height": 600,
+    "flow": 0.6000000000000001,
+    "numLeafNodes": 8,
+    "moduleFlowThreshold": 0.30000000000000004,
+    "isCustomSorted": false,
+    "isHigherOrder": false,
+    "namePosition": {"x": 280, "y": 620},
+    "totalMargin": 16,
+    "visibleFlow": 1,
+    "numVisibleModules": 2,
+    "numModules": 3,
+    "modules": [
+     {
+      "moduleId": "1",
+      "id": "01_bipartite_t1.json_module1",
+      "path": [1],
+      "moduleLevel": 1,
+      "maxModuleLevel": 1,
+      "index": 0,
+      "flow": 0.30000000000000004,
+      "numLeafNodes": 3,
+      "meanNodeId": 3.3333333333333335,
+      "enterFlow": 0,
+      "exitFlow": 0,
+      "visible": true,
+      "highlightIndex": 0,
+      "margin": 16,
+      "x": 240,
+      "y": 308,
+      "width": 80,
+      "height": 292,
+      "pass1": {"margin": 16, "index": 0, "x": 240, "y": 300, "width": 80, "height": 300},
+      "label": {
+       "shown": true,
+       "textAnchor": "start",
+       "namePosition": {"x": 340, "y": 454},
+       "idPosition": {"x": 280, "y": 454},
+       "customName": "",
+       "maxLines": 21,
+       "names": [
+        {"name": "n3", "nodeId": 3, "stateId": null, "flow": 0.2},
+        {"name": "n1", "nodeId": 1, "stateId": null, "flow": 0.1},
+        {"name": "n6", "nodeId": 6, "stateId": null, "flow": 0}
+       ],
+       "namesSingleLine": [
+        {"name": "n3", "nodeId": 3, "stateId": null, "flow": 0.2},
+        {"name": "n1", "nodeId": 1, "stateId": null, "flow": 0.1},
+        {"name": "n6", "nodeId": 6, "stateId": null, "flow": 0}
+       ]
+      },
+      "groups": [
+       {
+        "id": "01_bipartite_t1.json_module1_group0",
+        "highlightIndex": 0,
+        "insignificant": false,
+        "flow": 0.30000000000000004,
+        "numLeafNodes": 3,
+        "x": 240,
+        "y": 308,
+        "width": 80,
+        "height": 292,
+        "pass1": {"x": 240, "y": 300, "width": 80, "height": 300},
+        "branches": [
+         {
+          "side": "left",
+          "flow": 0.30000000000000004,
+          "numLeafNodes": 3,
+          "x": 240,
+          "y": 308,
+          "width": 80,
+          "height": 292,
+          "streamlineNodes": [
+           {
+            "id": "01_bipartite_t1.json_module1_group0_left--00_bipartite_t0.json_module1_group0_right",
+            "sourceId": "01_bipartite_t1.json_module1_group0_left",
+            "targetId": "00_bipartite_t0.json_module1_group0_right",
+            "dangling": false,
+            "flow": 0.1,
+            "numLeafNodes": 1,
+            "x": 240,
+            "y": 502.6666666666667,
+            "width": 80,
+            "height": 97.33333333333333,
+            "sortKey": -300,
+            "linked": true,
+            "opposite": {"networkId": "00_bipartite_t0.json", "id": "00_bipartite_t0.json_module1_group0_right--01_bipartite_t1.json_module1_group0_left", "moduleId": "1"}
+           },
+           {
+            "id": "01_bipartite_t1.json_module1_group0_left--00_bipartite_t0.json_module2_group0_right",
+            "sourceId": "01_bipartite_t1.json_module1_group0_left",
+            "targetId": "00_bipartite_t0.json_module2_group0_right",
+            "dangling": false,
+            "flow": 0.2,
+            "numLeafNodes": 2,
+            "x": 240,
+            "y": 308,
+            "width": 80,
+            "height": 194.66666666666666,
+            "sortKey": 16,
+            "linked": true,
+            "opposite": {"networkId": "00_bipartite_t0.json", "id": "00_bipartite_t0.json_module2_group0_right--01_bipartite_t1.json_module1_group0_left", "moduleId": "2"}
+           }
+          ]
+         },
+         {
+          "side": "right",
+          "flow": 0.30000000000000004,
+          "numLeafNodes": 3,
+          "x": 240,
+          "y": 308,
+          "width": 80,
+          "height": 292,
+          "streamlineNodes": [
+           {
+            "id": "01_bipartite_t1.json_module1_group0_right",
+            "sourceId": "01_bipartite_t1.json_module1_group0_right",
+            "targetId": null,
+            "dangling": true,
+            "flow": 0.30000000000000004,
+            "numLeafNodes": 3,
+            "x": 240,
+            "y": 308,
+            "width": 80,
+            "height": 292,
+            "sortKey": -Infinity,
+            "linked": false,
+            "opposite": null
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "moduleId": "2",
+      "id": "01_bipartite_t1.json_module2",
+      "path": [2],
+      "moduleLevel": 1,
+      "maxModuleLevel": 1,
+      "index": 1,
+      "flow": 0.30000000000000004,
+      "numLeafNodes": 4,
+      "meanNodeId": 4.5,
+      "enterFlow": 0,
+      "exitFlow": 0,
+      "visible": true,
+      "highlightIndex": -1,
+      "margin": 0,
+      "x": 240,
+      "y": 0,
+      "width": 80,
+      "height": 292,
+      "pass1": {"margin": 0, "index": 1, "x": 240, "y": -16, "width": 80, "height": 300},
+      "label": {
+       "shown": true,
+       "textAnchor": "start",
+       "namePosition": {"x": 340, "y": 146},
+       "idPosition": {"x": 280, "y": 146},
+       "customName": "",
+       "maxLines": 21,
+       "names": [
+        {"name": "n2", "nodeId": 2, "stateId": null, "flow": 0.2},
+        {"name": "n4", "nodeId": 4, "stateId": null, "flow": 0.1},
+        {"name": "n7", "nodeId": 7, "stateId": null, "flow": 0},
+        {"name": "n5", "nodeId": 5, "stateId": null, "flow": 0}
+       ],
+       "namesSingleLine": [
+        {"name": "n2", "nodeId": 2, "stateId": null, "flow": 0.2},
+        {"name": "n4", "nodeId": 4, "stateId": null, "flow": 0.1},
+        {"name": "n7", "nodeId": 7, "stateId": null, "flow": 0},
+        {"name": "n5", "nodeId": 5, "stateId": null, "flow": 0}
+       ]
+      },
+      "groups": [
+       {
+        "id": "01_bipartite_t1.json_module2_group-1",
+        "highlightIndex": -1,
+        "insignificant": false,
+        "flow": 0.30000000000000004,
+        "numLeafNodes": 4,
+        "x": 240,
+        "y": 0,
+        "width": 80,
+        "height": 292,
+        "pass1": {"x": 240, "y": -16, "width": 80, "height": 300},
+        "branches": [
+         {
+          "side": "left",
+          "flow": 0.30000000000000004,
+          "numLeafNodes": 4,
+          "x": 240,
+          "y": 1.4210854715202004e-14,
+          "width": 80,
+          "height": 292,
+          "streamlineNodes": [
+           {
+            "id": "01_bipartite_t1.json_module2_group-1_left--00_bipartite_t0.json_module3_group-1_right",
+            "sourceId": "01_bipartite_t1.json_module2_group-1_left",
+            "targetId": "00_bipartite_t0.json_module3_group-1_right",
+            "dangling": false,
+            "flow": 0,
+            "numLeafNodes": 1,
+            "x": 240,
+            "y": 292,
+            "width": 80,
+            "height": 0,
+            "sortKey": -Infinity,
+            "linked": true,
+            "opposite": {"networkId": "00_bipartite_t0.json", "id": "00_bipartite_t0.json_module3_group-1_right--01_bipartite_t1.json_module2_group-1_left", "moduleId": "3"}
+           },
+           {
+            "id": "01_bipartite_t1.json_module2_group-1_left--00_bipartite_t0.json_module1_group0_right",
+            "sourceId": "01_bipartite_t1.json_module2_group-1_left",
+            "targetId": "00_bipartite_t0.json_module1_group0_right",
+            "dangling": false,
+            "flow": 0.2,
+            "numLeafNodes": 2,
+            "x": 240,
+            "y": 97.33333333333334,
+            "width": 80,
+            "height": 194.66666666666666,
+            "sortKey": -300,
+            "linked": true,
+            "opposite": {"networkId": "00_bipartite_t0.json", "id": "00_bipartite_t0.json_module1_group0_right--01_bipartite_t1.json_module2_group-1_left", "moduleId": "1"}
+           },
+           {
+            "id": "01_bipartite_t1.json_module2_group-1_left--00_bipartite_t0.json_module2_group0_right",
+            "sourceId": "01_bipartite_t1.json_module2_group-1_left",
+            "targetId": "00_bipartite_t0.json_module2_group0_right",
+            "dangling": false,
+            "flow": 0.1,
+            "numLeafNodes": 1,
+            "x": 240,
+            "y": 1.4210854715202004e-14,
+            "width": 80,
+            "height": 97.33333333333333,
+            "sortKey": 16,
+            "linked": true,
+            "opposite": {"networkId": "00_bipartite_t0.json", "id": "00_bipartite_t0.json_module2_group0_right--01_bipartite_t1.json_module2_group-1_left", "moduleId": "2"}
+           }
+          ]
+         },
+         {
+          "side": "right",
+          "flow": 0.30000000000000004,
+          "numLeafNodes": 4,
+          "x": 240,
+          "y": 0,
+          "width": 80,
+          "height": 292,
+          "streamlineNodes": [
+           {
+            "id": "01_bipartite_t1.json_module2_group-1_right",
+            "sourceId": "01_bipartite_t1.json_module2_group-1_right",
+            "targetId": null,
+            "dangling": true,
+            "flow": 0.30000000000000004,
+            "numLeafNodes": 4,
+            "x": 240,
+            "y": 0,
+            "width": 80,
+            "height": 292,
+            "sortKey": -Infinity,
+            "linked": false,
+            "opposite": null
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "moduleId": "3",
+      "id": "01_bipartite_t1.json_module3",
+      "path": [3],
+      "moduleLevel": 1,
+      "maxModuleLevel": 1,
+      "index": 2,
+      "flow": 0,
+      "numLeafNodes": 1,
+      "meanNodeId": 8,
+      "enterFlow": 0,
+      "exitFlow": 0,
+      "visible": false,
+      "highlightIndex": -1,
+      "margin": 0,
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0,
+      "pass1": null,
+      "label": {
+       "shown": false,
+       "textAnchor": "start",
+       "namePosition": {"x": 20, "y": 0},
+       "idPosition": {"x": 0, "y": 0},
+       "customName": "",
+       "maxLines": 0,
+       "names": [],
+       "namesSingleLine": [
+        {"name": "n8", "nodeId": 8, "stateId": null, "flow": 0}
+       ]
+      },
+      "groups": [
+       {
+        "id": "01_bipartite_t1.json_module3_group-1",
+        "highlightIndex": -1,
+        "insignificant": false,
+        "flow": 0,
+        "numLeafNodes": 1,
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "pass1": null,
+        "branches": [
+         {
+          "side": "left",
+          "flow": 0,
+          "numLeafNodes": 1,
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "streamlineNodes": [
+           {
+            "id": "01_bipartite_t1.json_module3_group-1_left--00_bipartite_t0.json_module3_group-1_right",
+            "sourceId": "01_bipartite_t1.json_module3_group-1_left",
+            "targetId": "00_bipartite_t0.json_module3_group-1_right",
+            "dangling": false,
+            "flow": 0,
+            "numLeafNodes": 1,
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "sortKey": -Infinity,
+            "linked": true,
+            "opposite": {"networkId": "00_bipartite_t0.json", "id": "00_bipartite_t0.json_module3_group-1_right--01_bipartite_t1.json_module3_group-1_left", "moduleId": "3"}
+           }
+          ]
+         },
+         {
+          "side": "right",
+          "flow": 0,
+          "numLeafNodes": 1,
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "streamlineNodes": [
+           {
+            "id": "01_bipartite_t1.json_module3_group-1_right",
+            "sourceId": "01_bipartite_t1.json_module3_group-1_right",
+            "targetId": null,
+            "dangling": true,
+            "flow": 0,
+            "numLeafNodes": 1,
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "sortKey": -Infinity,
+            "linked": false,
+            "opposite": null
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "numLinksAboveZero": 0,
+    "links": [],
+    "hierarchy": [
+     {"type": "module", "moduleId": "1"},
+     {"type": "module", "moduleId": "2"}
+    ],
+    "identifiersUnique": true,
+    "leafColumns": ["identifier","nodeId","stateId","moduleId","moduleLevel","highlightIndex","insignificant"],
+    "leaves": [
+     ["1",1,null,"1",1,0,false],
+     ["2",2,null,"2",1,-1,false],
+     ["3",3,null,"1",1,0,false],
+     ["4",4,null,"2",1,-1,false],
+     ["5",5,null,"2",1,-1,false],
+     ["6",6,null,"1",1,0,false],
+     ["7",7,null,"2",1,-1,false],
+     ["8",8,null,"3",1,-1,false]
+    ]
+   }
+  ],
+  "restored": {
+   "options": {
+    "height": 600,
+    "marginExponent": 4,
+    "zeroMargins": false,
+    "moduleWidth": 80,
+    "streamlineFraction": 2,
+    "streamlineThreshold": 1,
+    "streamlineOpacity": 0.8,
+    "flowThreshold": 0.005,
+    "defaultHighlightColor": "#b6b69f",
+    "verticalAlign": "bottom",
+    "moduleSize": "flow",
+    "sortModulesBy": "flow",
+    "showModuleId": false,
+    "showModuleNames": true,
+    "multilineModuleNames": true,
+    "showNetworkNames": true,
+    "aggregateStateNames": true,
+    "titleCaseModuleNames": false,
+    "hierarchicalModules": "shadow",
+    "hierarchicalModuleOffset": 5,
+    "hierarchicalModuleOpacity": 0.5,
+    "dropShadow": false,
+    "fontSize": 8,
+    "networkFontSize": 10,
+    "adaptiveFontSize": false,
+    "showBipartiteNodes": false
+   },
+   "colorScheme": "C3 Sinebow",
+   "colorTone": "strong",
+   "colorOffset": null,
+   "schemeSha256": "81628619d4eaa17b0148af5b575420c6277e9fac9b25b7f03edeef4e18d30d37",
+   "openWarnings": []
+  }
+ }
+}

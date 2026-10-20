@@ -1,0 +1,1590 @@
+{
+ "formatVersion": 1,
+ "scenario": "fuzz670__ops",
+ "group": "fuzz670",
+ "variant": "ops",
+ "description": "fuzz seed 670 options and operations (identifier name, repeated colour ops)",
+ "inputs": {
+  "files": ["data/fuzz670_net0.ftree","data/fuzz670_net1.clu","data/fuzz670_net2.clu"],
+  "formats": ["ftree","clu","clu"],
+  "networkIds": ["fuzz670_net0","fuzz670_net1","fuzz670_net2"],
+  "networkNames": ["fuzz670_net0.ftree","fuzz670_net1.clu","fuzz670_net2.clu"],
+  "identifier": "name",
+  "options": {
+   "height": 600,
+   "moduleWidth": 80,
+   "streamlineFraction": 0.25,
+   "streamlineThreshold": 1,
+   "flowThreshold": 0.5,
+   "marginExponent": 8,
+   "zeroMargins": false,
+   "verticalAlign": "bottom",
+   "moduleSize": "nodes",
+   "sortModulesBy": "highlightIndex"
+  },
+  "initialOptions": {
+   "height": 600,
+   "moduleWidth": 80,
+   "streamlineFraction": 0.25,
+   "streamlineThreshold": 1,
+   "flowThreshold": 0.5,
+   "marginExponent": 8,
+   "zeroMargins": false,
+   "verticalAlign": "bottom",
+   "moduleSize": "flow",
+   "sortModulesBy": "highlightIndex"
+  },
+  "labelOptions": {"fontSize": 8, "adaptiveFontSize": false, "multilineModuleNames": true, "aggregateStateNames": true, "showModuleNames": true},
+  "colorScheme": "C3 Sinebow",
+  "operations": [
+   {"op": "setNetworks"},
+   {"op": "colorMatchingModulesInAllNetworks"},
+   {"op": "colorNodesInModulesInAllNetworks", "networkIndex": 2},
+   {"op": "colorModuleIdsInAllNetworks"},
+   {"op": "setOption", "key": "moduleSize", "value": "nodes"},
+   {"op": "colorMatchingModulesInAllNetworks"},
+   {"op": "colorMatchingModulesInAllNetworks"},
+   {"op": "colorModule", "networkIndex": 1, "moduleIndex": 0, "color": "#0000ff"},
+   {"op": "colorMatchingModulesInAllNetworks"}
+  ]
+ },
+ "diagram": {
+  "x": 0,
+  "y": 0,
+  "width": 280,
+  "height": 600,
+  "flow": 0,
+  "numNetworks": 3,
+  "maxNetworkFlow": 6,
+  "streamlineWidth": 20,
+  "networkWidth": 100,
+  "totalWidth": 280,
+  "totalMargins": [512,0,1024],
+  "maxTotalMargin": 1024,
+  "marginFractionOfHeight": 1.7066666666666668,
+  "maxMarginFractionOfHeight": 0.2,
+  "marginCapped": true,
+  "moduleMarginScale": 0.1171875,
+  "scaledTotalMargin": 120,
+  "usableHeight": 480,
+  "visibleFlows": [0.6666666666666666,0.5,1],
+  "visibleModuleCounts": [3,1,5],
+  "updateLayoutCalls": 9,
+  "usableHeightCheckedModules": 9
+ },
+ "highlightColors": ["#ea6c63"],
+ "defaultHighlightColor": "#b6b69f",
+ "warnings": [],
+ "networks": [
+  {
+   "networkId": "fuzz670_net0",
+   "name": "fuzz670_net0.ftree",
+   "index": 0,
+   "file": {
+    "path": "data/fuzz670_net0.ftree",
+    "format": "ftree",
+    "numTopModules": 6,
+    "numLevels": 2,
+    "isStateNetwork": true,
+    "directed": false,
+    "codelength": 5.90704,
+    "numNodes": 9
+   },
+   "x": 0,
+   "y": 0,
+   "width": 80,
+   "height": 600,
+   "flow": 0.9999999999999001,
+   "numLeafNodes": 9,
+   "moduleFlowThreshold": 0.2222222222222,
+   "isCustomSorted": false,
+   "isHigherOrder": true,
+   "namePosition": {"x": 40, "y": 620},
+   "totalMargin": 512,
+   "visibleFlow": 0.6666666666666666,
+   "numVisibleModules": 3,
+   "numModules": 6,
+   "modules": [
+    {
+     "moduleId": "7",
+     "id": "fuzz670_net0_module7",
+     "path": [7],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 0,
+     "flow": 0.2222222222222,
+     "numLeafNodes": 2,
+     "meanNodeId": 617.5,
+     "enterFlow": 0.00268762,
+     "exitFlow": 0.0695193,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 30,
+     "x": 0,
+     "y": 493.33333333333337,
+     "width": 80,
+     "height": 106.66666666666666,
+     "pass1": {"margin": 256, "index": 0, "x": 0, "y": 466.6666666666667, "width": 80, "height": 133.33333333333331},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 546.6666666666667},
+      "idPosition": {"x": 40, "y": 546.6666666666667},
+      "customName": "",
+      "maxLines": 7,
+      "names": [
+       {"name": "beta gamma", "nodeId": 275, "stateId": 1, "flow": 0.1111111111111},
+       {"name": "n960", "nodeId": 960, "stateId": 32, "flow": 0.1111111111111}
+      ],
+      "namesSingleLine": [
+       {"name": "beta gamma", "nodeId": 275, "stateId": 1, "flow": 0.1111111111111},
+       {"name": "n960", "nodeId": 960, "stateId": 32, "flow": 0.1111111111111}
+      ]
+     },
+     "groups": [
+      {
+       "id": "fuzz670_net0_module7_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.2222222222222,
+       "numLeafNodes": 2,
+       "x": 0,
+       "y": 493.33333333333337,
+       "width": 80,
+       "height": 106.66666666666666,
+       "pass1": {"x": 0, "y": 466.6666666666667, "width": 80, "height": 133.33333333333331},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.2222222222222,
+         "numLeafNodes": 2,
+         "x": 0,
+         "y": 493.33333333333337,
+         "width": 80,
+         "height": 106.66666666666666,
+         "streamlineNodes": [
+          {
+           "id": "fuzz670_net0_module7_group-1_left",
+           "sourceId": "fuzz670_net0_module7_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.2222222222222,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 493.33333333333337,
+           "width": 80,
+           "height": 106.66666666666666,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.2222222222222,
+         "numLeafNodes": 2,
+         "x": 0,
+         "y": 493.33333333333337,
+         "width": 80,
+         "height": 106.66666666666666,
+         "streamlineNodes": [
+          {
+           "id": "fuzz670_net0_module7_group-1_right",
+           "sourceId": "fuzz670_net0_module7_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.2222222222222,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 493.33333333333337,
+           "width": 80,
+           "height": 106.66666666666666,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "5",
+     "id": "fuzz670_net0_module5",
+     "path": [5],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 1,
+     "flow": 0.2222222222222,
+     "numLeafNodes": 2,
+     "meanNodeId": 409,
+     "enterFlow": 0.0846094,
+     "exitFlow": 0.0279597,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 30,
+     "x": 0,
+     "y": 356.66666666666674,
+     "width": 80,
+     "height": 106.66666666666666,
+     "pass1": {"margin": 256, "index": 1, "x": 0, "y": 77.33333333333337, "width": 80, "height": 133.33333333333331},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 410.00000000000006},
+      "idPosition": {"x": 40, "y": 410.00000000000006},
+      "customName": "",
+      "maxLines": 7,
+      "names": [
+       {"name": "O'Brien", "nodeId": 409, "stateId": 10, "flow": 0.2222222222222}
+      ],
+      "namesSingleLine": [
+       {"name": "O'Brien", "nodeId": 409, "stateId": 10, "flow": 0.2222222222222}
+      ]
+     },
+     "groups": [
+      {
+       "id": "fuzz670_net0_module5_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.2222222222222,
+       "numLeafNodes": 2,
+       "x": 0,
+       "y": 356.66666666666674,
+       "width": 80,
+       "height": 106.66666666666666,
+       "pass1": {"x": 0, "y": 77.33333333333337, "width": 80, "height": 133.33333333333331},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.2222222222222,
+         "numLeafNodes": 2,
+         "x": 0,
+         "y": 356.66666666666674,
+         "width": 80,
+         "height": 106.66666666666666,
+         "streamlineNodes": [
+          {
+           "id": "fuzz670_net0_module5_group-1_left",
+           "sourceId": "fuzz670_net0_module5_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.2222222222222,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 356.66666666666674,
+           "width": 80,
+           "height": 106.66666666666666,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.2222222222222,
+         "numLeafNodes": 2,
+         "x": 0,
+         "y": 356.66666666666674,
+         "width": 80,
+         "height": 106.66666666666666,
+         "streamlineNodes": [
+          {
+           "id": "fuzz670_net0_module5_group-1_right",
+           "sourceId": "fuzz670_net0_module5_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.2222222222222,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 356.66666666666674,
+           "width": 80,
+           "height": 106.66666666666666,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "9",
+     "id": "fuzz670_net0_module9",
+     "path": [9],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 2,
+     "flow": 0.2222222222222,
+     "numLeafNodes": 2,
+     "meanNodeId": 960,
+     "enterFlow": 0.0676951,
+     "exitFlow": 0.0775096,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 0,
+     "x": 0,
+     "y": 220.00000000000009,
+     "width": 80,
+     "height": 106.66666666666666,
+     "pass1": {"margin": 0, "index": 2, "x": 0, "y": -311.99999999999994, "width": 80, "height": 133.33333333333331},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 273.3333333333334},
+      "idPosition": {"x": 40, "y": 273.3333333333334},
+      "customName": "",
+      "maxLines": 7,
+      "names": [
+       {"name": "n960", "nodeId": 960, "stateId": 25, "flow": 0.2222222222222}
+      ],
+      "namesSingleLine": [
+       {"name": "n960", "nodeId": 960, "stateId": 25, "flow": 0.2222222222222}
+      ]
+     },
+     "groups": [
+      {
+       "id": "fuzz670_net0_module9_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.2222222222222,
+       "numLeafNodes": 2,
+       "x": 0,
+       "y": 220.00000000000009,
+       "width": 80,
+       "height": 106.66666666666666,
+       "pass1": {"x": 0, "y": -311.99999999999994, "width": 80, "height": 133.33333333333331},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.2222222222222,
+         "numLeafNodes": 2,
+         "x": 0,
+         "y": 220.00000000000009,
+         "width": 80,
+         "height": 106.66666666666666,
+         "streamlineNodes": [
+          {
+           "id": "fuzz670_net0_module9_group-1_left",
+           "sourceId": "fuzz670_net0_module9_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.2222222222222,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 220.00000000000009,
+           "width": 80,
+           "height": 106.66666666666666,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.2222222222222,
+         "numLeafNodes": 2,
+         "x": 0,
+         "y": 220.00000000000009,
+         "width": 80,
+         "height": 106.66666666666666,
+         "streamlineNodes": [
+          {
+           "id": "fuzz670_net0_module9_group-1_right",
+           "sourceId": "fuzz670_net0_module9_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.2222222222222,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 220.00000000000009,
+           "width": 80,
+           "height": 106.66666666666666,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "1",
+     "id": "fuzz670_net0_module1",
+     "path": [1],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 1,
+     "flow": 0.1111111111111,
+     "numLeafNodes": 1,
+     "meanNodeId": 275,
+     "enterFlow": 0.0339248,
+     "exitFlow": 0.0752588,
+     "visible": false,
+     "highlightIndex": -1,
+     "margin": 0,
+     "x": 0,
+     "y": 0,
+     "width": 0,
+     "height": 0,
+     "pass1": null,
+     "label": {
+      "shown": false,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 0},
+      "idPosition": {"x": 0, "y": 0},
+      "customName": "",
+      "maxLines": 0,
+      "names": [],
+      "namesSingleLine": [
+       {"name": "beta gamma", "nodeId": 275, "stateId": 2, "flow": 0.1111111111111}
+      ]
+     },
+     "groups": [
+      {
+       "id": "fuzz670_net0_module1_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.1111111111111,
+       "numLeafNodes": 1,
+       "x": 0,
+       "y": 0,
+       "width": 0,
+       "height": 0,
+       "pass1": null,
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.1111111111111,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 0,
+         "width": 0,
+         "height": 0,
+         "streamlineNodes": [
+          {
+           "id": "fuzz670_net0_module1_group-1_left",
+           "sourceId": "fuzz670_net0_module1_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.1111111111111,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 0,
+           "width": 0,
+           "height": 0,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.1111111111111,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 0,
+         "width": 0,
+         "height": 0,
+         "streamlineNodes": [
+          {
+           "id": "fuzz670_net0_module1_group-1_right",
+           "sourceId": "fuzz670_net0_module1_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.1111111111111,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 0,
+           "width": 0,
+           "height": 0,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "4",
+     "id": "fuzz670_net0_module4",
+     "path": [4],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 2,
+     "flow": 0.1111111111111,
+     "numLeafNodes": 1,
+     "meanNodeId": 275,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": false,
+     "highlightIndex": -1,
+     "margin": 0,
+     "x": 0,
+     "y": 0,
+     "width": 0,
+     "height": 0,
+     "pass1": null,
+     "label": {
+      "shown": false,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 0},
+      "idPosition": {"x": 0, "y": 0},
+      "customName": "",
+      "maxLines": 0,
+      "names": [],
+      "namesSingleLine": [
+       {"name": "beta gamma", "nodeId": 275, "stateId": 3, "flow": 0.1111111111111}
+      ]
+     },
+     "groups": [
+      {
+       "id": "fuzz670_net0_module4_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.1111111111111,
+       "numLeafNodes": 1,
+       "x": 0,
+       "y": 0,
+       "width": 0,
+       "height": 0,
+       "pass1": null,
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.1111111111111,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 0,
+         "width": 0,
+         "height": 0,
+         "streamlineNodes": [
+          {
+           "id": "fuzz670_net0_module4_group-1_left",
+           "sourceId": "fuzz670_net0_module4_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.1111111111111,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 0,
+           "width": 0,
+           "height": 0,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.1111111111111,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 0,
+         "width": 0,
+         "height": 0,
+         "streamlineNodes": [
+          {
+           "id": "fuzz670_net0_module4_group-1_right",
+           "sourceId": "fuzz670_net0_module4_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.1111111111111,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 0,
+           "width": 0,
+           "height": 0,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "6",
+     "id": "fuzz670_net0_module6",
+     "path": [6],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 4,
+     "flow": 0.1111111111111,
+     "numLeafNodes": 1,
+     "meanNodeId": 409,
+     "enterFlow": 0.0235002,
+     "exitFlow": 0.0849656,
+     "visible": false,
+     "highlightIndex": -1,
+     "margin": 0,
+     "x": 0,
+     "y": 0,
+     "width": 0,
+     "height": 0,
+     "pass1": null,
+     "label": {
+      "shown": false,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 0},
+      "idPosition": {"x": 0, "y": 0},
+      "customName": "",
+      "maxLines": 0,
+      "names": [],
+      "namesSingleLine": [
+       {"name": "O'Brien", "nodeId": 409, "stateId": 11, "flow": 0.1111111111111}
+      ]
+     },
+     "groups": [
+      {
+       "id": "fuzz670_net0_module6_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.1111111111111,
+       "numLeafNodes": 1,
+       "x": 0,
+       "y": 0,
+       "width": 0,
+       "height": 0,
+       "pass1": null,
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.1111111111111,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 0,
+         "width": 0,
+         "height": 0,
+         "streamlineNodes": [
+          {
+           "id": "fuzz670_net0_module6_group-1_left",
+           "sourceId": "fuzz670_net0_module6_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.1111111111111,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 0,
+           "width": 0,
+           "height": 0,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.1111111111111,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 0,
+         "width": 0,
+         "height": 0,
+         "streamlineNodes": [
+          {
+           "id": "fuzz670_net0_module6_group-1_right",
+           "sourceId": "fuzz670_net0_module6_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.1111111111111,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 0,
+           "width": 0,
+           "height": 0,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "numLinksAboveZero": 0,
+   "links": [],
+   "hierarchy": [
+    {"type": "module", "moduleId": "7"},
+    {"type": "module", "moduleId": "5"},
+    {"type": "module", "moduleId": "9"}
+   ],
+   "identifiersUnique": false,
+   "leafColumns": ["identifier","nodeId","stateId","moduleId","moduleLevel","highlightIndex","insignificant"],
+   "leaves": [
+    ["beta gamma",275,1,"7",1,-1,false],
+    ["beta gamma",275,2,"1",1,-1,false],
+    ["beta gamma",275,3,"4",1,-1,false],
+    ["O'Brien",409,10,"5",1,-1,false],
+    ["O'Brien",409,11,"6",1,-1,false],
+    ["O'Brien",409,18,"5",1,-1,false],
+    ["n960",960,25,"9",1,-1,false],
+    ["n960",960,32,"7",1,-1,false],
+    ["n960",960,33,"9",1,-1,false]
+   ]
+  },
+  {
+   "networkId": "fuzz670_net1",
+   "name": "fuzz670_net1.clu",
+   "index": 1,
+   "file": {
+    "path": "data/fuzz670_net1.clu",
+    "format": "clu",
+    "numTopModules": 2,
+    "numLevels": 1,
+    "isStateNetwork": true,
+    "directed": null,
+    "codelength": null,
+    "numNodes": 2
+   },
+   "x": 100,
+   "y": 0,
+   "width": 80,
+   "height": 600,
+   "flow": 1,
+   "numLeafNodes": 2,
+   "moduleFlowThreshold": 1,
+   "isCustomSorted": false,
+   "isHigherOrder": true,
+   "namePosition": {"x": 140, "y": 620},
+   "totalMargin": 0,
+   "visibleFlow": 0.5,
+   "numVisibleModules": 1,
+   "numModules": 2,
+   "modules": [
+    {
+     "moduleId": "1",
+     "id": "fuzz670_net1_module1",
+     "path": [1],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 0,
+     "flow": 1,
+     "numLeafNodes": 1,
+     "meanNodeId": 409,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": 0,
+     "margin": 0,
+     "x": 100,
+     "y": 360,
+     "width": 80,
+     "height": 240,
+     "pass1": {"margin": 0, "index": 0, "x": 100, "y": 300, "width": 80, "height": 300},
+     "label": {
+      "shown": false,
+      "textAnchor": null,
+      "namePosition": {"x": 140, "y": 480},
+      "idPosition": {"x": 140, "y": 480},
+      "customName": "",
+      "maxLines": 17,
+      "names": [
+       {"name": "409", "nodeId": 409, "stateId": 1, "flow": 1}
+      ],
+      "namesSingleLine": [
+       {"name": "409", "nodeId": 409, "stateId": 1, "flow": 1}
+      ]
+     },
+     "groups": [
+      {
+       "id": "fuzz670_net1_module1_group0",
+       "highlightIndex": 0,
+       "insignificant": false,
+       "flow": 1,
+       "numLeafNodes": 1,
+       "x": 100,
+       "y": 360,
+       "width": 80,
+       "height": 240,
+       "pass1": {"x": 100, "y": 300, "width": 80, "height": 300},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 1,
+         "numLeafNodes": 1,
+         "x": 100,
+         "y": 360,
+         "width": 80,
+         "height": 240,
+         "streamlineNodes": [
+          {
+           "id": "fuzz670_net1_module1_group0_left",
+           "sourceId": "fuzz670_net1_module1_group0_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 1,
+           "numLeafNodes": 1,
+           "x": 100,
+           "y": 360,
+           "width": 80,
+           "height": 240,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 1,
+         "numLeafNodes": 1,
+         "x": 100,
+         "y": 360,
+         "width": 80,
+         "height": 240,
+         "streamlineNodes": [
+          {
+           "id": "fuzz670_net1_module1_group0_right--fuzz670_net2_module5_group0_left",
+           "sourceId": "fuzz670_net1_module1_group0_right",
+           "targetId": "fuzz670_net2_module5_group0_left",
+           "dangling": false,
+           "flow": 1,
+           "numLeafNodes": 1,
+           "x": 100,
+           "y": 360,
+           "width": 80,
+           "height": 240,
+           "sortKey": 1024,
+           "linked": true,
+           "opposite": {"networkId": "fuzz670_net2", "id": "fuzz670_net2_module5_group0_left--fuzz670_net1_module1_group0_right", "moduleId": "5"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "4",
+     "id": "fuzz670_net1_module4",
+     "path": [4],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 0,
+     "flow": 0,
+     "numLeafNodes": 1,
+     "meanNodeId": 705,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": false,
+     "highlightIndex": -1,
+     "margin": 0,
+     "x": 0,
+     "y": 0,
+     "width": 0,
+     "height": 0,
+     "pass1": null,
+     "label": {
+      "shown": false,
+      "textAnchor": null,
+      "namePosition": {"x": 0, "y": 0},
+      "idPosition": {"x": 0, "y": 0},
+      "customName": "",
+      "maxLines": 0,
+      "names": [],
+      "namesSingleLine": [
+       {"name": "705", "nodeId": 705, "stateId": 8, "flow": 0}
+      ]
+     },
+     "groups": [
+      {
+       "id": "fuzz670_net1_module4_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0,
+       "numLeafNodes": 1,
+       "x": 0,
+       "y": 0,
+       "width": 0,
+       "height": 0,
+       "pass1": null,
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 0,
+         "width": 0,
+         "height": 0,
+         "streamlineNodes": [
+          {
+           "id": "fuzz670_net1_module4_group-1_left",
+           "sourceId": "fuzz670_net1_module4_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 0,
+           "width": 0,
+           "height": 0,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 0,
+         "width": 0,
+         "height": 0,
+         "streamlineNodes": [
+          {
+           "id": "fuzz670_net1_module4_group-1_right",
+           "sourceId": "fuzz670_net1_module4_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 0,
+           "width": 0,
+           "height": 0,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "numLinksAboveZero": 1,
+   "links": [
+    {
+     "id": "fuzz670_net1_module1_group0_right--fuzz670_net2_module5_group0_left",
+     "left": {"networkId": "fuzz670_net1", "moduleId": "1", "groupHighlightIndex": 0, "groupInsignificant": false, "streamlineNodeId": "fuzz670_net1_module1_group0_right--fuzz670_net2_module5_group0_left"},
+     "right": {"networkId": "fuzz670_net2", "moduleId": "5", "groupHighlightIndex": 0, "groupInsignificant": false, "streamlineNodeId": "fuzz670_net2_module5_group0_left--fuzz670_net1_module1_group0_right"},
+     "x0": 180,
+     "y0": 360,
+     "h0": 240,
+     "x1": 200,
+     "y1": 0,
+     "h1": 80,
+     "avgHeight": 160,
+     "highlightIndex": 0,
+     "leftHighlightIndex": 0,
+     "rightHighlightIndex": 0,
+     "path": "M180,600C190,600,190,80,200,80L200,0C190,0,190,360,180,360Z"
+    }
+   ],
+   "hierarchy": [
+    {"type": "module", "moduleId": "1"}
+   ],
+   "identifiersUnique": true,
+   "leafColumns": ["identifier","nodeId","stateId","moduleId","moduleLevel","highlightIndex","insignificant"],
+   "leaves": [
+    ["1",409,1,"1",1,0,false],
+    ["8",705,8,"4",1,-1,false]
+   ]
+  },
+  {
+   "networkId": "fuzz670_net2",
+   "name": "fuzz670_net2.clu",
+   "index": 2,
+   "file": {
+    "path": "data/fuzz670_net2.clu",
+    "format": "clu",
+    "numTopModules": 5,
+    "numLevels": 1,
+    "isStateNetwork": true,
+    "directed": null,
+    "codelength": null,
+    "numNodes": 6
+   },
+   "x": 200,
+   "y": 0,
+   "width": 80,
+   "height": 600,
+   "flow": 6,
+   "numLeafNodes": 6,
+   "moduleFlowThreshold": 1,
+   "isCustomSorted": false,
+   "isHigherOrder": true,
+   "namePosition": {"x": 240, "y": 620},
+   "totalMargin": 1024,
+   "visibleFlow": 1,
+   "numVisibleModules": 5,
+   "numModules": 5,
+   "modules": [
+    {
+     "moduleId": "1",
+     "id": "fuzz670_net2_module1",
+     "path": [1],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 0,
+     "flow": 1,
+     "numLeafNodes": 1,
+     "meanNodeId": 960,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 30,
+     "x": 200,
+     "y": 520,
+     "width": 80,
+     "height": 80,
+     "pass1": {"margin": 256, "index": 0, "x": 200, "y": 500, "width": 80, "height": 100},
+     "label": {
+      "shown": true,
+      "textAnchor": "start",
+      "namePosition": {"x": 300, "y": 560},
+      "idPosition": {"x": 240, "y": 560},
+      "customName": "",
+      "maxLines": 5,
+      "names": [
+       {"name": "960", "nodeId": 960, "stateId": 10, "flow": 1}
+      ],
+      "namesSingleLine": [
+       {"name": "960", "nodeId": 960, "stateId": 10, "flow": 1}
+      ]
+     },
+     "groups": [
+      {
+       "id": "fuzz670_net2_module1_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 1,
+       "numLeafNodes": 1,
+       "x": 200,
+       "y": 520,
+       "width": 80,
+       "height": 80,
+       "pass1": {"x": 200, "y": 500, "width": 80, "height": 100},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 1,
+         "numLeafNodes": 1,
+         "x": 200,
+         "y": 520,
+         "width": 80,
+         "height": 80,
+         "streamlineNodes": [
+          {
+           "id": "fuzz670_net2_module1_group-1_left",
+           "sourceId": "fuzz670_net2_module1_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 1,
+           "numLeafNodes": 1,
+           "x": 200,
+           "y": 520,
+           "width": 80,
+           "height": 80,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 1,
+         "numLeafNodes": 1,
+         "x": 200,
+         "y": 520,
+         "width": 80,
+         "height": 80,
+         "streamlineNodes": [
+          {
+           "id": "fuzz670_net2_module1_group-1_right",
+           "sourceId": "fuzz670_net2_module1_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 1,
+           "numLeafNodes": 1,
+           "x": 200,
+           "y": 520,
+           "width": 80,
+           "height": 80,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "6",
+     "id": "fuzz670_net2_module6",
+     "path": [6],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 1,
+     "flow": 1,
+     "numLeafNodes": 1,
+     "meanNodeId": 960,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 30,
+     "x": 200,
+     "y": 410,
+     "width": 80,
+     "height": 80,
+     "pass1": {"margin": 256, "index": 1, "x": 200, "y": 144, "width": 80, "height": 100},
+     "label": {
+      "shown": true,
+      "textAnchor": "start",
+      "namePosition": {"x": 300, "y": 450},
+      "idPosition": {"x": 240, "y": 450},
+      "customName": "",
+      "maxLines": 5,
+      "names": [
+       {"name": "960", "nodeId": 960, "stateId": 11, "flow": 1}
+      ],
+      "namesSingleLine": [
+       {"name": "960", "nodeId": 960, "stateId": 11, "flow": 1}
+      ]
+     },
+     "groups": [
+      {
+       "id": "fuzz670_net2_module6_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 1,
+       "numLeafNodes": 1,
+       "x": 200,
+       "y": 410,
+       "width": 80,
+       "height": 80,
+       "pass1": {"x": 200, "y": 144, "width": 80, "height": 100},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 1,
+         "numLeafNodes": 1,
+         "x": 200,
+         "y": 410,
+         "width": 80,
+         "height": 80,
+         "streamlineNodes": [
+          {
+           "id": "fuzz670_net2_module6_group-1_left",
+           "sourceId": "fuzz670_net2_module6_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 1,
+           "numLeafNodes": 1,
+           "x": 200,
+           "y": 410,
+           "width": 80,
+           "height": 80,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 1,
+         "numLeafNodes": 1,
+         "x": 200,
+         "y": 410,
+         "width": 80,
+         "height": 80,
+         "streamlineNodes": [
+          {
+           "id": "fuzz670_net2_module6_group-1_right",
+           "sourceId": "fuzz670_net2_module6_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 1,
+           "numLeafNodes": 1,
+           "x": 200,
+           "y": 410,
+           "width": 80,
+           "height": 80,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "4",
+     "id": "fuzz670_net2_module4",
+     "path": [4],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 2,
+     "flow": 1,
+     "numLeafNodes": 1,
+     "meanNodeId": 705,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 30,
+     "x": 200,
+     "y": 300,
+     "width": 80,
+     "height": 80,
+     "pass1": {"margin": 256, "index": 2, "x": 200, "y": -212, "width": 80, "height": 100},
+     "label": {
+      "shown": true,
+      "textAnchor": "start",
+      "namePosition": {"x": 300, "y": 340},
+      "idPosition": {"x": 240, "y": 340},
+      "customName": "",
+      "maxLines": 5,
+      "names": [
+       {"name": "705", "nodeId": 705, "stateId": 2, "flow": 1}
+      ],
+      "namesSingleLine": [
+       {"name": "705", "nodeId": 705, "stateId": 2, "flow": 1}
+      ]
+     },
+     "groups": [
+      {
+       "id": "fuzz670_net2_module4_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 1,
+       "numLeafNodes": 1,
+       "x": 200,
+       "y": 300,
+       "width": 80,
+       "height": 80,
+       "pass1": {"x": 200, "y": -212, "width": 80, "height": 100},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 1,
+         "numLeafNodes": 1,
+         "x": 200,
+         "y": 300,
+         "width": 80,
+         "height": 80,
+         "streamlineNodes": [
+          {
+           "id": "fuzz670_net2_module4_group-1_left",
+           "sourceId": "fuzz670_net2_module4_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 1,
+           "numLeafNodes": 1,
+           "x": 200,
+           "y": 300,
+           "width": 80,
+           "height": 80,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 1,
+         "numLeafNodes": 1,
+         "x": 200,
+         "y": 300,
+         "width": 80,
+         "height": 80,
+         "streamlineNodes": [
+          {
+           "id": "fuzz670_net2_module4_group-1_right",
+           "sourceId": "fuzz670_net2_module4_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 1,
+           "numLeafNodes": 1,
+           "x": 200,
+           "y": 300,
+           "width": 80,
+           "height": 80,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "3",
+     "id": "fuzz670_net2_module3",
+     "path": [3],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 3,
+     "flow": 1,
+     "numLeafNodes": 1,
+     "meanNodeId": 960,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 30,
+     "x": 200,
+     "y": 190,
+     "width": 80,
+     "height": 80,
+     "pass1": {"margin": 256, "index": 3, "x": 200, "y": -568, "width": 80, "height": 100},
+     "label": {
+      "shown": true,
+      "textAnchor": "start",
+      "namePosition": {"x": 300, "y": 230},
+      "idPosition": {"x": 240, "y": 230},
+      "customName": "",
+      "maxLines": 5,
+      "names": [
+       {"name": "960", "nodeId": 960, "stateId": 12, "flow": 1}
+      ],
+      "namesSingleLine": [
+       {"name": "960", "nodeId": 960, "stateId": 12, "flow": 1}
+      ]
+     },
+     "groups": [
+      {
+       "id": "fuzz670_net2_module3_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 1,
+       "numLeafNodes": 1,
+       "x": 200,
+       "y": 190,
+       "width": 80,
+       "height": 80,
+       "pass1": {"x": 200, "y": -568, "width": 80, "height": 100},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 1,
+         "numLeafNodes": 1,
+         "x": 200,
+         "y": 190,
+         "width": 80,
+         "height": 80,
+         "streamlineNodes": [
+          {
+           "id": "fuzz670_net2_module3_group-1_left",
+           "sourceId": "fuzz670_net2_module3_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 1,
+           "numLeafNodes": 1,
+           "x": 200,
+           "y": 190,
+           "width": 80,
+           "height": 80,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 1,
+         "numLeafNodes": 1,
+         "x": 200,
+         "y": 190,
+         "width": 80,
+         "height": 80,
+         "streamlineNodes": [
+          {
+           "id": "fuzz670_net2_module3_group-1_right",
+           "sourceId": "fuzz670_net2_module3_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 1,
+           "numLeafNodes": 1,
+           "x": 200,
+           "y": 190,
+           "width": 80,
+           "height": 80,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "5",
+     "id": "fuzz670_net2_module5",
+     "path": [5],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 4,
+     "flow": 2,
+     "numLeafNodes": 2,
+     "meanNodeId": 490,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": 0,
+     "margin": 0,
+     "x": 200,
+     "y": 0,
+     "width": 80,
+     "height": 160,
+     "pass1": {"margin": 0, "index": 4, "x": 200, "y": -1024, "width": 80, "height": 200},
+     "label": {
+      "shown": true,
+      "textAnchor": "start",
+      "namePosition": {"x": 300, "y": 80},
+      "idPosition": {"x": 240, "y": 80},
+      "customName": "",
+      "maxLines": 11,
+      "names": [
+       {"name": "705", "nodeId": 705, "stateId": 9, "flow": 1},
+       {"name": "275", "nodeId": 275, "stateId": 1, "flow": 1}
+      ],
+      "namesSingleLine": [
+       {"name": "705", "nodeId": 705, "stateId": 9, "flow": 1},
+       {"name": "275", "nodeId": 275, "stateId": 1, "flow": 1}
+      ]
+     },
+     "groups": [
+      {
+       "id": "fuzz670_net2_module5_group0",
+       "highlightIndex": 0,
+       "insignificant": false,
+       "flow": 2,
+       "numLeafNodes": 2,
+       "x": 200,
+       "y": 0,
+       "width": 80,
+       "height": 160,
+       "pass1": {"x": 200, "y": -1024, "width": 80, "height": 200},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 2,
+         "numLeafNodes": 2,
+         "x": 200,
+         "y": 0,
+         "width": 80,
+         "height": 160,
+         "streamlineNodes": [
+          {
+           "id": "fuzz670_net2_module5_group0_left",
+           "sourceId": "fuzz670_net2_module5_group0_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 1,
+           "numLeafNodes": 1,
+           "x": 200,
+           "y": 80,
+           "width": 80,
+           "height": 80,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          },
+          {
+           "id": "fuzz670_net2_module5_group0_left--fuzz670_net1_module1_group0_right",
+           "sourceId": "fuzz670_net2_module5_group0_left",
+           "targetId": "fuzz670_net1_module1_group0_right",
+           "dangling": false,
+           "flow": 1,
+           "numLeafNodes": 1,
+           "x": 200,
+           "y": 0,
+           "width": 80,
+           "height": 80,
+           "sortKey": -300,
+           "linked": true,
+           "opposite": {"networkId": "fuzz670_net1", "id": "fuzz670_net1_module1_group0_right--fuzz670_net2_module5_group0_left", "moduleId": "1"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 2,
+         "numLeafNodes": 2,
+         "x": 200,
+         "y": 0,
+         "width": 80,
+         "height": 160,
+         "streamlineNodes": [
+          {
+           "id": "fuzz670_net2_module5_group0_right",
+           "sourceId": "fuzz670_net2_module5_group0_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 2,
+           "numLeafNodes": 2,
+           "x": 200,
+           "y": 0,
+           "width": 80,
+           "height": 160,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "numLinksAboveZero": 0,
+   "links": [],
+   "hierarchy": [
+    {"type": "module", "moduleId": "1"},
+    {"type": "module", "moduleId": "6"},
+    {"type": "module", "moduleId": "4"},
+    {"type": "module", "moduleId": "3"},
+    {"type": "module", "moduleId": "5"}
+   ],
+   "identifiersUnique": true,
+   "leafColumns": ["identifier","nodeId","stateId","moduleId","moduleLevel","highlightIndex","insignificant"],
+   "leaves": [
+    ["1",275,1,"5",1,0,false],
+    ["2",705,2,"4",1,-1,false],
+    ["9",705,9,"5",1,0,false],
+    ["10",960,10,"1",1,-1,false],
+    ["11",960,11,"6",1,-1,false],
+    ["12",960,12,"3",1,-1,false]
+   ]
+  }
+ ]
+}

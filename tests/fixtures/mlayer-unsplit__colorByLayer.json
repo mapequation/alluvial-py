@@ -1,0 +1,1924 @@
+{
+ "formatVersion": 1,
+ "scenario": "mlayer-unsplit__colorByLayer",
+ "group": "mlayer-unsplit",
+ "variant": "colorByLayer",
+ "description": "colorByLayer on the unsplit multilayer network",
+ "features": ["colorBy"],
+ "inputs": {
+  "files": ["data/mlayer_states.tree"],
+  "formats": ["tree"],
+  "networkIds": ["mlayer_states"],
+  "networkNames": ["mlayer_states.tree"],
+  "identifier": "id",
+  "options": {
+   "height": 600,
+   "moduleWidth": 80,
+   "streamlineFraction": 2,
+   "streamlineThreshold": 1,
+   "flowThreshold": 0.005,
+   "marginExponent": 4,
+   "zeroMargins": false,
+   "verticalAlign": "bottom",
+   "moduleSize": "flow",
+   "sortModulesBy": "flow"
+  },
+  "labelOptions": {"fontSize": 8, "adaptiveFontSize": false, "multilineModuleNames": true, "aggregateStateNames": true, "showModuleNames": true},
+  "colorScheme": "C3 Sinebow",
+  "operations": [
+   {"op": "setNetworks"},
+   {"op": "colorByLayer"}
+  ]
+ },
+ "diagram": {
+  "x": 0,
+  "y": 0,
+  "width": 80,
+  "height": 600,
+  "flow": 0,
+  "numNetworks": 1,
+  "maxNetworkFlow": 1.00000008,
+  "streamlineWidth": 160,
+  "networkWidth": 240,
+  "totalWidth": 80,
+  "totalMargins": [80],
+  "maxTotalMargin": 80,
+  "marginFractionOfHeight": 0.13333333333333333,
+  "maxMarginFractionOfHeight": 0.2,
+  "marginCapped": false,
+  "moduleMarginScale": null,
+  "scaledTotalMargin": null,
+  "usableHeight": 520,
+  "visibleFlows": [1],
+  "visibleModuleCounts": [6],
+  "updateLayoutCalls": 2,
+  "usableHeightCheckedModules": 6
+ },
+ "highlightColors": ["#ea6c63","#3ac1c0","#5a8c3c","#977bd7"],
+ "defaultHighlightColor": "#b6b69f",
+ "warnings": [],
+ "networks": [
+  {
+   "networkId": "mlayer_states",
+   "name": "mlayer_states.tree",
+   "index": 0,
+   "file": {
+    "path": "data/mlayer_states.tree",
+    "format": "tree",
+    "numTopModules": 6,
+    "numLevels": 3,
+    "isStateNetwork": true,
+    "directed": null,
+    "codelength": 3.65442,
+    "numNodes": 157
+   },
+   "x": 0,
+   "y": 0,
+   "width": 80,
+   "height": 600,
+   "flow": 1.00000008,
+   "numLeafNodes": 157,
+   "moduleFlowThreshold": 0.01631216,
+   "isCustomSorted": false,
+   "isHigherOrder": true,
+   "namePosition": {"x": 40, "y": 620},
+   "totalMargin": 80,
+   "visibleFlow": 1,
+   "numVisibleModules": 6,
+   "numModules": 6,
+   "modules": [
+    {
+     "moduleId": "1",
+     "id": "mlayer_states_module1",
+     "path": [1],
+     "moduleLevel": 1,
+     "maxModuleLevel": 2,
+     "index": 0,
+     "flow": 0.33121021,
+     "numLeafNodes": 52,
+     "meanNodeId": 38.19230769230769,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": 2,
+     "margin": 16,
+     "x": 0,
+     "y": 427.7707045783436,
+     "width": 80,
+     "height": 172.22929542165636,
+     "pass1": {"margin": 16, "index": 0, "x": 0, "y": 401.2738898980888, "width": 80, "height": 198.7261101019112},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 513.8853522891718},
+      "idPosition": {"x": 40, "y": 513.8853522891718},
+      "customName": "",
+      "maxLines": 11,
+      "names": [
+       {"name": "p45", "nodeId": 45, "stateId": 131, "flow": 0.030155539999999998},
+       {"name": "p32", "nodeId": 32, "stateId": 129, "flow": 0.026473950000000003},
+       {"name": "p34", "nodeId": 34, "stateId": 121, "flow": 0.02528233},
+       {"name": "p39", "nodeId": 39, "stateId": 141, "flow": 0.02520806},
+       {"name": "p43", "nodeId": 43, "stateId": 148, "flow": 0.02412146},
+       {"name": "p38", "nodeId": 38, "stateId": 140, "flow": 0.02304284},
+       {"name": "p40", "nodeId": 40, "stateId": 122, "flow": 0.02252494},
+       {"name": "p41", "nodeId": 41, "stateId": 126, "flow": 0.022237279999999998},
+       {"name": "p36", "nodeId": 36, "stateId": 146, "flow": 0.02151534},
+       {"name": "p33", "nodeId": 33, "stateId": 130, "flow": 0.02081176},
+       {"name": "p35", "nodeId": 35, "stateId": 109, "flow": 0.02041037}
+      ],
+      "namesSingleLine": [
+       {"name": "p45", "nodeId": 45, "stateId": 131, "flow": 0.030155539999999998},
+       {"name": "p32", "nodeId": 32, "stateId": 129, "flow": 0.026473950000000003},
+       {"name": "p34", "nodeId": 34, "stateId": 121, "flow": 0.02528233},
+       {"name": "p39", "nodeId": 39, "stateId": 141, "flow": 0.02520806},
+       {"name": "p43", "nodeId": 43, "stateId": 148, "flow": 0.02412146}
+      ]
+     },
+     "groups": [
+      {
+       "id": "mlayer_states_module1_group0",
+       "highlightIndex": 0,
+       "insignificant": false,
+       "flow": 0.07777640999999999,
+       "numLeafNodes": 12,
+       "x": 0,
+       "y": 559.5562700354984,
+       "width": 80,
+       "height": 40.4437299645016,
+       "pass1": {"x": 0, "y": 553.3341577332674, "width": 80, "height": 46.66584226673262},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.07777640999999999,
+         "numLeafNodes": 12,
+         "x": 0,
+         "y": 559.5562700354984,
+         "width": 80,
+         "height": 40.4437299645016,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module1_group0_left",
+           "sourceId": "mlayer_states_module1_group0_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.07777640999999999,
+           "numLeafNodes": 12,
+           "x": 0,
+           "y": 559.5562700354984,
+           "width": 80,
+           "height": 40.4437299645016,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.07777640999999999,
+         "numLeafNodes": 12,
+         "x": 0,
+         "y": 559.5562700354984,
+         "width": 80,
+         "height": 40.4437299645016,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module1_group0_right",
+           "sourceId": "mlayer_states_module1_group0_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.07777640999999999,
+           "numLeafNodes": 12,
+           "x": 0,
+           "y": 559.5562700354984,
+           "width": 80,
+           "height": 40.4437299645016,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module1_group1",
+       "highlightIndex": 1,
+       "insignificant": false,
+       "flow": 0.08181691,
+       "numLeafNodes": 13,
+       "x": 0,
+       "y": 517.0114802390816,
+       "width": 80,
+       "height": 42.54478979641682,
+       "pass1": {"x": 0, "y": 504.24401566047874, "width": 80, "height": 49.09014207278864},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.08181691,
+         "numLeafNodes": 13,
+         "x": 0,
+         "y": 517.0114802390816,
+         "width": 80,
+         "height": 42.54478979641682,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module1_group1_left",
+           "sourceId": "mlayer_states_module1_group1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.08181691,
+           "numLeafNodes": 13,
+           "x": 0,
+           "y": 517.0114802390816,
+           "width": 80,
+           "height": 42.54478979641682,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.08181691,
+         "numLeafNodes": 13,
+         "x": 0,
+         "y": 517.0114802390816,
+         "width": 80,
+         "height": 42.54478979641682,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module1_group1_right",
+           "sourceId": "mlayer_states_module1_group1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.08181691,
+           "numLeafNodes": 13,
+           "x": 0,
+           "y": 517.0114802390816,
+           "width": 80,
+           "height": 42.54478979641682,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module1_group2",
+       "highlightIndex": 2,
+       "insignificant": false,
+       "flow": 0.09061190000000002,
+       "numLeafNodes": 14,
+       "x": 0,
+       "y": 469.8932960085363,
+       "width": 80,
+       "height": 47.118184230545275,
+       "pass1": {"x": 0, "y": 449.8768800098496, "width": 80, "height": 54.367135650629166},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.09061190000000002,
+         "numLeafNodes": 14,
+         "x": 0,
+         "y": 469.8932960085363,
+         "width": 80,
+         "height": 47.118184230545275,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module1_group2_left",
+           "sourceId": "mlayer_states_module1_group2_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.09061190000000002,
+           "numLeafNodes": 14,
+           "x": 0,
+           "y": 469.8932960085363,
+           "width": 80,
+           "height": 47.118184230545275,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.09061190000000002,
+         "numLeafNodes": 14,
+         "x": 0,
+         "y": 469.8932960085363,
+         "width": 80,
+         "height": 47.118184230545275,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module1_group2_right",
+           "sourceId": "mlayer_states_module1_group2_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.09061190000000002,
+           "numLeafNodes": 14,
+           "x": 0,
+           "y": 469.8932960085363,
+           "width": 80,
+           "height": 47.118184230545275,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module1_group3",
+       "highlightIndex": 3,
+       "insignificant": false,
+       "flow": 0.08100499,
+       "numLeafNodes": 13,
+       "x": 0,
+       "y": 427.7707045783436,
+       "width": 80,
+       "height": 42.122591430192685,
+       "pass1": {"x": 0, "y": 401.2738898980888, "width": 80, "height": 48.602990111760796},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.08100499,
+         "numLeafNodes": 13,
+         "x": 0,
+         "y": 427.7707045783436,
+         "width": 80,
+         "height": 42.122591430192685,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module1_group3_left",
+           "sourceId": "mlayer_states_module1_group3_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.08100499,
+           "numLeafNodes": 13,
+           "x": 0,
+           "y": 427.7707045783436,
+           "width": 80,
+           "height": 42.122591430192685,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.08100499,
+         "numLeafNodes": 13,
+         "x": 0,
+         "y": 427.7707045783436,
+         "width": 80,
+         "height": 42.122591430192685,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module1_group3_right",
+           "sourceId": "mlayer_states_module1_group3_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.08100499,
+           "numLeafNodes": 13,
+           "x": 0,
+           "y": 427.7707045783436,
+           "width": 80,
+           "height": 42.122591430192685,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "2",
+     "id": "mlayer_states_module2",
+     "path": [2],
+     "moduleLevel": 1,
+     "maxModuleLevel": 2,
+     "index": 1,
+     "flow": 0.31361110000000003,
+     "numLeafNodes": 49,
+     "meanNodeId": 22.73469387755102,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": 1,
+     "margin": 16,
+     "x": 0,
+     "y": 248.69294562456432,
+     "width": 80,
+     "height": 163.07775895377932,
+     "pass1": {"margin": 16, "index": 1, "x": 0, "y": 197.10724495142034, "width": 80, "height": 188.16664494666844},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 330.231825101454},
+      "idPosition": {"x": 40, "y": 330.231825101454},
+      "customName": "",
+      "maxLines": 11,
+      "names": [
+       {"name": "p20", "nodeId": 20, "stateId": 79, "flow": 0.02796829},
+       {"name": "p19", "nodeId": 19, "stateId": 74, "flow": 0.02687553},
+       {"name": "p16", "nodeId": 16, "stateId": 78, "flow": 0.0266088},
+       {"name": "p21", "nodeId": 21, "stateId": 83, "flow": 0.02409106},
+       {"name": "p17", "nodeId": 17, "stateId": 72, "flow": 0.02126949},
+       {"name": "p29", "nodeId": 29, "stateId": 57, "flow": 0.021253710000000002},
+       {"name": "p26", "nodeId": 26, "stateId": 62, "flow": 0.021019219999999998},
+       {"name": "p30", "nodeId": 30, "stateId": 90, "flow": 0.02061005},
+       {"name": "p18", "nodeId": 18, "stateId": 73, "flow": 0.020242960000000004},
+       {"name": "p27", "nodeId": 27, "stateId": 80, "flow": 0.01837565},
+       {"name": "p25", "nodeId": 25, "stateId": 88, "flow": 0.0182017}
+      ],
+      "namesSingleLine": [
+       {"name": "p20", "nodeId": 20, "stateId": 79, "flow": 0.02796829},
+       {"name": "p19", "nodeId": 19, "stateId": 74, "flow": 0.02687553},
+       {"name": "p16", "nodeId": 16, "stateId": 78, "flow": 0.0266088},
+       {"name": "p21", "nodeId": 21, "stateId": 83, "flow": 0.02409106},
+       {"name": "p17", "nodeId": 17, "stateId": 72, "flow": 0.02126949}
+      ]
+     },
+     "groups": [
+      {
+       "id": "mlayer_states_module2_group0",
+       "highlightIndex": 0,
+       "insignificant": false,
+       "flow": 0.04559389,
+       "numLeafNodes": 8,
+       "x": 0,
+       "y": 388.0618836750493,
+       "width": 80,
+       "height": 23.708820903294328,
+       "pass1": {"x": 0, "y": 357.9175580865953, "width": 80, "height": 27.356331811493455},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.04559389,
+         "numLeafNodes": 8,
+         "x": 0,
+         "y": 388.0618836750493,
+         "width": 80,
+         "height": 23.708820903294328,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module2_group0_left",
+           "sourceId": "mlayer_states_module2_group0_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.04559389,
+           "numLeafNodes": 8,
+           "x": 0,
+           "y": 388.0618836750493,
+           "width": 80,
+           "height": 23.708820903294328,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.04559389,
+         "numLeafNodes": 8,
+         "x": 0,
+         "y": 388.0618836750493,
+         "width": 80,
+         "height": 23.708820903294328,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module2_group0_right",
+           "sourceId": "mlayer_states_module2_group0_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.04559389,
+           "numLeafNodes": 8,
+           "x": 0,
+           "y": 388.0618836750493,
+           "width": 80,
+           "height": 23.708820903294328,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module2_group1",
+       "highlightIndex": 1,
+       "insignificant": false,
+       "flow": 0.09572694000000001,
+       "numLeafNodes": 14,
+       "x": 0,
+       "y": 338.28387885728966,
+       "width": 80,
+       "height": 49.77800481775962,
+       "pass1": {"x": 0, "y": 300.48139868148803, "width": 80, "height": 57.436159405107254},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.09572694000000001,
+         "numLeafNodes": 14,
+         "x": 0,
+         "y": 338.28387885728966,
+         "width": 80,
+         "height": 49.77800481775962,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module2_group1_left",
+           "sourceId": "mlayer_states_module2_group1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.09572694000000001,
+           "numLeafNodes": 14,
+           "x": 0,
+           "y": 338.28387885728966,
+           "width": 80,
+           "height": 49.77800481775962,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.09572694000000001,
+         "numLeafNodes": 14,
+         "x": 0,
+         "y": 338.28387885728966,
+         "width": 80,
+         "height": 49.77800481775962,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module2_group1_right",
+           "sourceId": "mlayer_states_module2_group1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.09572694000000001,
+           "numLeafNodes": 14,
+           "x": 0,
+           "y": 338.28387885728966,
+           "width": 80,
+           "height": 49.77800481775962,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module2_group2",
+       "highlightIndex": 2,
+       "insignificant": false,
+       "flow": 0.08601661999999999,
+       "numLeafNodes": 13,
+       "x": 0,
+       "y": 293.55524003558077,
+       "width": 80,
+       "height": 44.72863882170889,
+       "pass1": {"x": 0, "y": 248.87143081028546, "width": 80, "height": 51.609967871202564},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.08601661999999999,
+         "numLeafNodes": 13,
+         "x": 0,
+         "y": 293.55524003558077,
+         "width": 80,
+         "height": 44.72863882170889,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module2_group2_left",
+           "sourceId": "mlayer_states_module2_group2_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.08601661999999999,
+           "numLeafNodes": 13,
+           "x": 0,
+           "y": 293.55524003558077,
+           "width": 80,
+           "height": 44.72863882170889,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.08601661999999999,
+         "numLeafNodes": 13,
+         "x": 0,
+         "y": 293.55524003558077,
+         "width": 80,
+         "height": 44.72863882170889,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module2_group2_right",
+           "sourceId": "mlayer_states_module2_group2_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.08601661999999999,
+           "numLeafNodes": 13,
+           "x": 0,
+           "y": 293.55524003558077,
+           "width": 80,
+           "height": 44.72863882170889,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module2_group3",
+       "highlightIndex": 3,
+       "insignificant": false,
+       "flow": 0.08627365000000001,
+       "numLeafNodes": 14,
+       "x": 0,
+       "y": 248.69294562456432,
+       "width": 80,
+       "height": 44.86229441101645,
+       "pass1": {"x": 0, "y": 197.10724495142034, "width": 80, "height": 51.76418585886513},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.08627365000000001,
+         "numLeafNodes": 14,
+         "x": 0,
+         "y": 248.69294562456432,
+         "width": 80,
+         "height": 44.86229441101645,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module2_group3_left",
+           "sourceId": "mlayer_states_module2_group3_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.08627365000000001,
+           "numLeafNodes": 14,
+           "x": 0,
+           "y": 248.69294562456432,
+           "width": 80,
+           "height": 44.86229441101645,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.08627365000000001,
+         "numLeafNodes": 14,
+         "x": 0,
+         "y": 248.69294562456432,
+         "width": 80,
+         "height": 44.86229441101645,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module2_group3_right",
+           "sourceId": "mlayer_states_module2_group3_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.08627365000000001,
+           "numLeafNodes": 14,
+           "x": 0,
+           "y": 248.69294562456432,
+           "width": 80,
+           "height": 44.86229441101645,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "3",
+     "id": "mlayer_states_module3",
+     "path": [3],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 2,
+     "flow": 0.11914139,
+     "numLeafNodes": 18,
+     "meanNodeId": 12.944444444444445,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": 0,
+     "margin": 16,
+     "x": 0,
+     "y": 170.73942778084574,
+     "width": 80,
+     "height": 61.95351784371857,
+     "pass1": {"margin": 16, "index": 2, "x": 0, "y": 109.6224166702066, "width": 80, "height": 71.48482828121374},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 201.71618670270504},
+      "idPosition": {"x": 40, "y": 201.71618670270504},
+      "customName": "",
+      "maxLines": 5,
+      "names": [
+       {"name": "p12", "nodeId": 12, "stateId": 37, "flow": 0.02991667},
+       {"name": "p15", "nodeId": 15, "stateId": 45, "flow": 0.02930251},
+       {"name": "p11", "nodeId": 11, "stateId": 42, "flow": 0.02422129},
+       {"name": "p14", "nodeId": 14, "stateId": 15, "flow": 0.019861450000000003},
+       {"name": "p13", "nodeId": 13, "stateId": 51, "flow": 0.01583947}
+      ],
+      "namesSingleLine": [
+       {"name": "p12", "nodeId": 12, "stateId": 37, "flow": 0.02991667},
+       {"name": "p15", "nodeId": 15, "stateId": 45, "flow": 0.02930251},
+       {"name": "p11", "nodeId": 11, "stateId": 42, "flow": 0.02422129},
+       {"name": "p14", "nodeId": 14, "stateId": 15, "flow": 0.019861450000000003},
+       {"name": "p13", "nodeId": 13, "stateId": 51, "flow": 0.01583947}
+      ]
+     },
+     "groups": [
+      {
+       "id": "mlayer_states_module3_group0",
+       "highlightIndex": 0,
+       "insignificant": false,
+       "flow": 0.04235316,
+       "numLeafNodes": 5,
+       "x": 0,
+       "y": 210.66930418645563,
+       "width": 80,
+       "height": 22.023641438108687,
+       "pass1": {"x": 0, "y": 155.69535098437186, "width": 80, "height": 25.411893967048485},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.04235316,
+         "numLeafNodes": 5,
+         "x": 0,
+         "y": 210.66930418645563,
+         "width": 80,
+         "height": 22.023641438108687,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module3_group0_left",
+           "sourceId": "mlayer_states_module3_group0_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.04235316,
+           "numLeafNodes": 5,
+           "x": 0,
+           "y": 210.66930418645563,
+           "width": 80,
+           "height": 22.023641438108687,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.04235316,
+         "numLeafNodes": 5,
+         "x": 0,
+         "y": 210.66930418645563,
+         "width": 80,
+         "height": 22.023641438108687,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module3_group0_right",
+           "sourceId": "mlayer_states_module3_group0_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.04235316,
+           "numLeafNodes": 5,
+           "x": 0,
+           "y": 210.66930418645563,
+           "width": 80,
+           "height": 22.023641438108687,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module3_group1",
+       "highlightIndex": 1,
+       "insignificant": false,
+       "flow": 0.03513234,
+       "numLeafNodes": 5,
+       "x": 0,
+       "y": 192.40048884796084,
+       "width": 80,
+       "height": 18.268815338494775,
+       "pass1": {"x": 0, "y": 134.61594867072404, "width": 80, "height": 21.079402313647815},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.03513234,
+         "numLeafNodes": 5,
+         "x": 0,
+         "y": 192.40048884796084,
+         "width": 80,
+         "height": 18.268815338494775,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module3_group1_left",
+           "sourceId": "mlayer_states_module3_group1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.03513234,
+           "numLeafNodes": 5,
+           "x": 0,
+           "y": 192.40048884796084,
+           "width": 80,
+           "height": 18.268815338494775,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.03513234,
+         "numLeafNodes": 5,
+         "x": 0,
+         "y": 192.40048884796084,
+         "width": 80,
+         "height": 18.268815338494775,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module3_group1_right",
+           "sourceId": "mlayer_states_module3_group1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.03513234,
+           "numLeafNodes": 5,
+           "x": 0,
+           "y": 192.40048884796084,
+           "width": 80,
+           "height": 18.268815338494775,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module3_group2",
+       "highlightIndex": 2,
+       "insignificant": false,
+       "flow": 0.02155441,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 181.19219654462424,
+       "width": 80,
+       "height": 11.208292303336616,
+       "pass1": {"x": 0, "y": 121.68330370533563, "width": 80, "height": 12.932644965388404},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.02155441,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 181.19219654462424,
+         "width": 80,
+         "height": 11.208292303336616,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module3_group2_left",
+           "sourceId": "mlayer_states_module3_group2_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.02155441,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 181.19219654462424,
+           "width": 80,
+           "height": 11.208292303336616,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.02155441,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 181.19219654462424,
+         "width": 80,
+         "height": 11.208292303336616,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module3_group2_right",
+           "sourceId": "mlayer_states_module3_group2_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.02155441,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 181.19219654462424,
+           "width": 80,
+           "height": 11.208292303336616,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module3_group3",
+       "highlightIndex": 3,
+       "insignificant": false,
+       "flow": 0.02010148,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 170.73942778084574,
+       "width": 80,
+       "height": 10.4527687637785,
+       "pass1": {"x": 0, "y": 109.62241667020659, "width": 80, "height": 12.060887035129038},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.02010148,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 170.73942778084574,
+         "width": 80,
+         "height": 10.4527687637785,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module3_group3_left",
+           "sourceId": "mlayer_states_module3_group3_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.02010148,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 170.73942778084574,
+           "width": 80,
+           "height": 10.4527687637785,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.02010148,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 170.73942778084574,
+         "width": 80,
+         "height": 10.4527687637785,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module3_group3_right",
+           "sourceId": "mlayer_states_module3_group3_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.02010148,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 170.73942778084574,
+           "width": 80,
+           "height": 10.4527687637785,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "4",
+     "id": "mlayer_states_module4",
+     "path": [4],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 3,
+     "flow": 0.11311744,
+     "numLeafNodes": 18,
+     "meanNodeId": 8.11111111111111,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": 3,
+     "margin": 16,
+     "x": 0,
+     "y": 95.91836368653088,
+     "width": 80,
+     "height": 58.82106409431488,
+     "pass1": {"margin": 16, "index": 3, "x": 0, "y": 25.75195809984328, "width": 80, "height": 67.87045857036331},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 125.32889573368831},
+      "idPosition": {"x": 40, "y": 125.32889573368831},
+      "customName": "",
+      "maxLines": 5,
+      "names": [
+       {"name": "p6", "nodeId": 6, "stateId": 21, "flow": 0.02913454},
+       {"name": "p8", "nodeId": 8, "stateId": 14, "flow": 0.025814319999999998},
+       {"name": "p10", "nodeId": 10, "stateId": 36, "flow": 0.02438078},
+       {"name": "p9", "nodeId": 9, "stateId": 35, "flow": 0.01818046},
+       {"name": "p7", "nodeId": 7, "stateId": 22, "flow": 0.01560734}
+      ],
+      "namesSingleLine": [
+       {"name": "p6", "nodeId": 6, "stateId": 21, "flow": 0.02913454},
+       {"name": "p8", "nodeId": 8, "stateId": 14, "flow": 0.025814319999999998},
+       {"name": "p10", "nodeId": 10, "stateId": 36, "flow": 0.02438078},
+       {"name": "p9", "nodeId": 9, "stateId": 35, "flow": 0.01818046},
+       {"name": "p7", "nodeId": 7, "stateId": 22, "flow": 0.01560734}
+      ]
+     },
+     "groups": [
+      {
+       "id": "mlayer_states_module4_group0",
+       "highlightIndex": 0,
+       "insignificant": false,
+       "flow": 0.029145070000000002,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 139.58399259328056,
+       "width": 80,
+       "height": 15.155435187565187,
+       "pass1": {"x": 0, "y": 76.13537606916984, "width": 80, "height": 17.487040601036753},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.029145070000000002,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 139.58399259328056,
+         "width": 80,
+         "height": 15.155435187565187,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module4_group0_left",
+           "sourceId": "mlayer_states_module4_group0_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.029145070000000002,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 139.58399259328056,
+           "width": 80,
+           "height": 15.155435187565187,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.029145070000000002,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 139.58399259328056,
+         "width": 80,
+         "height": 15.155435187565187,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module4_group0_right",
+           "sourceId": "mlayer_states_module4_group0_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.029145070000000002,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 139.58399259328056,
+           "width": 80,
+           "height": 15.155435187565187,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module4_group1",
+       "highlightIndex": 1,
+       "insignificant": false,
+       "flow": 0.031236840000000002,
+       "numLeafNodes": 5,
+       "x": 0,
+       "y": 123.340837092733,
+       "width": 80,
+       "height": 16.243155500547562,
+       "pass1": {"x": 0, "y": 57.393273568538035, "width": 80, "height": 18.742102500631802},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.031236840000000002,
+         "numLeafNodes": 5,
+         "x": 0,
+         "y": 123.340837092733,
+         "width": 80,
+         "height": 16.243155500547562,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module4_group1_left",
+           "sourceId": "mlayer_states_module4_group1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.031236840000000002,
+           "numLeafNodes": 5,
+           "x": 0,
+           "y": 123.340837092733,
+           "width": 80,
+           "height": 16.243155500547562,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.031236840000000002,
+         "numLeafNodes": 5,
+         "x": 0,
+         "y": 123.340837092733,
+         "width": 80,
+         "height": 16.243155500547562,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module4_group1_right",
+           "sourceId": "mlayer_states_module4_group1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.031236840000000002,
+           "numLeafNodes": 5,
+           "x": 0,
+           "y": 123.340837092733,
+           "width": 80,
+           "height": 16.243155500547562,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module4_group2",
+       "highlightIndex": 2,
+       "insignificant": false,
+       "flow": 0.01862609,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 113.65527106757828,
+       "width": 80,
+       "height": 9.685566025154719,
+       "pass1": {"x": 0, "y": 46.21762046259028, "width": 80, "height": 11.175653105947752},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.01862609,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 113.65527106757828,
+         "width": 80,
+         "height": 9.685566025154719,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module4_group2_left",
+           "sourceId": "mlayer_states_module4_group2_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.01862609,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 113.65527106757828,
+           "width": 80,
+           "height": 9.685566025154719,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.01862609,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 113.65527106757828,
+         "width": 80,
+         "height": 9.685566025154719,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module4_group2_right",
+           "sourceId": "mlayer_states_module4_group2_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.01862609,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 113.65527106757828,
+           "width": 80,
+           "height": 9.685566025154719,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module4_group3",
+       "highlightIndex": 3,
+       "insignificant": false,
+       "flow": 0.03410944,
+       "numLeafNodes": 5,
+       "x": 0,
+       "y": 95.91836368653088,
+       "width": 80,
+       "height": 17.73690738104741,
+       "pass1": {"x": 0, "y": 25.75195809984327, "width": 80, "height": 20.46566236274701},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.03410944,
+         "numLeafNodes": 5,
+         "x": 0,
+         "y": 95.91836368653088,
+         "width": 80,
+         "height": 17.73690738104741,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module4_group3_left",
+           "sourceId": "mlayer_states_module4_group3_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.03410944,
+           "numLeafNodes": 5,
+           "x": 0,
+           "y": 95.91836368653088,
+           "width": 80,
+           "height": 17.73690738104741,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.03410944,
+         "numLeafNodes": 5,
+         "x": 0,
+         "y": 95.91836368653088,
+         "width": 80,
+         "height": 17.73690738104741,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module4_group3_right",
+           "sourceId": "mlayer_states_module4_group3_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.03410944,
+           "numLeafNodes": 5,
+           "x": 0,
+           "y": 95.91836368653088,
+           "width": 80,
+           "height": 17.73690738104741,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "5",
+     "id": "mlayer_states_module5",
+     "path": [5],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 4,
+     "flow": 0.10660778,
+     "numLeafNodes": 17,
+     "meanNodeId": 2.7058823529411766,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": 0,
+     "margin": 16,
+     "x": 0,
+     "y": 24.48232252141417,
+     "width": 80,
+     "height": 55.43604116511671,
+     "pass1": {"margin": 16, "index": 4, "x": 0, "y": -54.2127047829837, "width": 80, "height": 63.96466288282697},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 52.20034310397253},
+      "idPosition": {"x": 40, "y": 52.20034310397253},
+      "customName": "",
+      "maxLines": 3,
+      "names": [
+       {"name": "p3", "nodeId": 3, "stateId": 11, "flow": 0.02922863},
+       {"name": "p1", "nodeId": 1, "stateId": 20, "flow": 0.02766839},
+       {"name": "p2", "nodeId": 2, "stateId": 10, "flow": 0.02268139}
+      ],
+      "namesSingleLine": [
+       {"name": "p3", "nodeId": 3, "stateId": 11, "flow": 0.02922863},
+       {"name": "p1", "nodeId": 1, "stateId": 20, "flow": 0.02766839},
+       {"name": "p2", "nodeId": 2, "stateId": 10, "flow": 0.02268139},
+       {"name": "p4", "nodeId": 4, "stateId": 12, "flow": 0.01640001},
+       {"name": "p5", "nodeId": 5, "stateId": 13, "flow": 0.010629360000000001}
+      ]
+     },
+     "groups": [
+      {
+       "id": "mlayer_states_module5_group0",
+       "highlightIndex": 0,
+       "insignificant": false,
+       "flow": 0.03483547,
+       "numLeafNodes": 5,
+       "x": 0,
+       "y": 61.80392073568632,
+       "width": 80,
+       "height": 18.114442950844563,
+       "pass1": {"x": 0, "y": -11.14932222805431, "width": 80, "height": 20.901280327897574},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.03483547,
+         "numLeafNodes": 5,
+         "x": 0,
+         "y": 61.80392073568632,
+         "width": 80,
+         "height": 18.114442950844563,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module5_group0_left",
+           "sourceId": "mlayer_states_module5_group0_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.03483547,
+           "numLeafNodes": 5,
+           "x": 0,
+           "y": 61.80392073568632,
+           "width": 80,
+           "height": 18.114442950844563,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.03483547,
+         "numLeafNodes": 5,
+         "x": 0,
+         "y": 61.80392073568632,
+         "width": 80,
+         "height": 18.114442950844563,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module5_group0_right",
+           "sourceId": "mlayer_states_module5_group0_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.03483547,
+           "numLeafNodes": 5,
+           "x": 0,
+           "y": 61.80392073568632,
+           "width": 80,
+           "height": 18.114442950844563,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module5_group1",
+       "highlightIndex": 1,
+       "insignificant": false,
+       "flow": 0.02327714,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 49.69980890401526,
+       "width": 80,
+       "height": 12.104111831671055,
+       "pass1": {"x": 0, "y": -25.11560511075168, "width": 80, "height": 13.96628288269737},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.02327714,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 49.69980890401526,
+         "width": 80,
+         "height": 12.104111831671055,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module5_group1_left",
+           "sourceId": "mlayer_states_module5_group1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.02327714,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 49.69980890401526,
+           "width": 80,
+           "height": 12.104111831671055,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.02327714,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 49.69980890401526,
+         "width": 80,
+         "height": 12.104111831671055,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module5_group1_right",
+           "sourceId": "mlayer_states_module5_group1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.02327714,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 49.69980890401526,
+           "width": 80,
+           "height": 12.104111831671055,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module5_group2",
+       "highlightIndex": 2,
+       "insignificant": false,
+       "flow": 0.02278908,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 37.84948825204091,
+       "width": 80,
+       "height": 11.850320651974348,
+       "pass1": {"x": 0, "y": -38.78905201687593, "width": 80, "height": 13.673446906124248},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.02278908,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 37.84948825204091,
+         "width": 80,
+         "height": 11.850320651974348,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module5_group2_left",
+           "sourceId": "mlayer_states_module5_group2_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.02278908,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 37.84948825204091,
+           "width": 80,
+           "height": 11.850320651974348,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.02278908,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 37.84948825204091,
+         "width": 80,
+         "height": 11.850320651974348,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module5_group2_right",
+           "sourceId": "mlayer_states_module5_group2_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.02278908,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 37.84948825204091,
+           "width": 80,
+           "height": 11.850320651974348,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "mlayer_states_module5_group3",
+       "highlightIndex": 3,
+       "insignificant": false,
+       "flow": 0.02570609,
+       "numLeafNodes": 4,
+       "x": 0,
+       "y": 24.48232252141417,
+       "width": 80,
+       "height": 13.367165730626743,
+       "pass1": {"x": 0, "y": -54.21270478298371, "width": 80, "height": 15.42365276610778},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.02570609,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 24.48232252141417,
+         "width": 80,
+         "height": 13.367165730626743,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module5_group3_left",
+           "sourceId": "mlayer_states_module5_group3_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.02570609,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 24.48232252141417,
+           "width": 80,
+           "height": 13.367165730626743,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.02570609,
+         "numLeafNodes": 4,
+         "x": 0,
+         "y": 24.48232252141417,
+         "width": 80,
+         "height": 13.367165730626743,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module5_group3_right",
+           "sourceId": "mlayer_states_module5_group3_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.02570609,
+           "numLeafNodes": 4,
+           "x": 0,
+           "y": 24.48232252141417,
+           "width": 80,
+           "height": 13.367165730626743,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "6",
+     "id": "mlayer_states_module6",
+     "path": [6],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 5,
+     "flow": 0.01631216,
+     "numLeafNodes": 3,
+     "meanNodeId": 22,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": 0,
+     "margin": 0,
+     "x": 0,
+     "y": -2.842170943040401e-14,
+     "width": 80,
+     "height": 8.482322521414197,
+     "pass1": {"margin": 0, "index": 5, "x": 0, "y": -80.00000000000009, "width": 80, "height": 9.787295217016382},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 4.24116126070707},
+      "idPosition": {"x": 40, "y": 4.24116126070707},
+      "customName": "",
+      "maxLines": 1,
+      "names": [
+       {"name": "p21", "nodeId": 21, "stateId": 56, "flow": 0.00566103}
+      ],
+      "namesSingleLine": [
+       {"name": "p21", "nodeId": 21, "stateId": 56, "flow": 0.00566103},
+       {"name": "p22", "nodeId": 22, "stateId": 58, "flow": 0.00547691},
+       {"name": "p23", "nodeId": 23, "stateId": 54, "flow": 0.00517422}
+      ]
+     },
+     "groups": [
+      {
+       "id": "mlayer_states_module6_group0",
+       "highlightIndex": 0,
+       "insignificant": false,
+       "flow": 0.01631216,
+       "numLeafNodes": 3,
+       "x": 0,
+       "y": -2.842170943040401e-14,
+       "width": 80,
+       "height": 8.482322521414197,
+       "pass1": {"x": 0, "y": -80.00000000000009, "width": 80, "height": 9.787295217016382},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.01631216,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": -2.842170943040401e-14,
+         "width": 80,
+         "height": 8.482322521414197,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module6_group0_left",
+           "sourceId": "mlayer_states_module6_group0_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.01631216,
+           "numLeafNodes": 3,
+           "x": 0,
+           "y": -2.842170943040401e-14,
+           "width": 80,
+           "height": 8.482322521414197,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.01631216,
+         "numLeafNodes": 3,
+         "x": 0,
+         "y": -2.842170943040401e-14,
+         "width": 80,
+         "height": 8.482322521414197,
+         "streamlineNodes": [
+          {
+           "id": "mlayer_states_module6_group0_right",
+           "sourceId": "mlayer_states_module6_group0_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.01631216,
+           "numLeafNodes": 3,
+           "x": 0,
+           "y": -2.842170943040401e-14,
+           "width": 80,
+           "height": 8.482322521414197,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "numLinksAboveZero": 0,
+   "links": [],
+   "hierarchy": [
+    {"type": "module", "moduleId": "1"},
+    {"type": "module", "moduleId": "2"},
+    {"type": "module", "moduleId": "3"},
+    {"type": "module", "moduleId": "4"},
+    {"type": "module", "moduleId": "5"},
+    {"type": "module", "moduleId": "6"}
+   ],
+   "identifiersUnique": true,
+   "leafColumns": ["identifier","nodeId","stateId","moduleId","moduleLevel","highlightIndex","insignificant"],
+   "leaves": [
+    ["0",1,0,"5",1,1,false],
+    ["1",2,1,"5",1,1,false],
+    ["2",3,2,"5",1,1,false],
+    ["3",5,3,"5",1,1,false],
+    ["4",3,4,"5",1,2,false],
+    ["5",4,5,"5",1,2,false],
+    ["6",10,6,"4",1,2,false],
+    ["7",2,7,"5",1,3,false],
+    ["8",3,8,"5",1,3,false],
+    ["9",6,9,"4",1,3,false],
+    ["10",2,10,"5",1,0,false],
+    ["11",3,11,"5",1,0,false],
+    ["12",4,12,"5",1,0,false],
+    ["13",5,13,"5",1,0,false],
+    ["14",8,14,"4",1,0,false],
+    ["15",14,15,"3",1,0,false],
+    ["16",13,16,"3",1,1,false],
+    ["17",1,17,"5",1,3,false],
+    ["18",4,18,"5",1,3,false],
+    ["19",9,19,"4",1,3,false],
+    ["20",1,20,"5",1,0,false],
+    ["21",6,21,"4",1,0,false],
+    ["22",7,22,"4",1,1,false],
+    ["23",1,23,"5",1,2,false],
+    ["24",2,24,"5",1,2,false],
+    ["25",10,25,"4",1,3,false],
+    ["26",6,26,"4",1,1,false],
+    ["27",8,27,"4",1,1,false],
+    ["28",9,28,"4",1,1,false],
+    ["29",20,29,"2",1,1,false],
+    ["30",8,30,"4",1,2,false],
+    ["31",9,31,"4",1,2,false],
+    ["32",11,32,"3",1,2,false],
+    ["33",7,33,"4",1,3,false],
+    ["34",15,34,"3",1,3,false],
+    ["35",9,35,"4",1,0,false],
+    ["36",10,36,"4",1,0,false],
+    ["37",12,37,"3",1,0,false],
+    ["38",10,38,"4",1,1,false],
+    ["39",12,39,"3",1,1,false],
+    ["40",8,40,"4",1,3,false],
+    ["41",6,41,"4",1,2,false],
+    ["42",11,42,"3",1,0,false],
+    ["43",11,43,"3",1,1,false],
+    ["44",12,44,"3",1,3,false],
+    ["45",15,45,"3",1,0,false],
+    ["46",14,46,"3",1,1,false],
+    ["47",15,47,"3",1,1,false],
+    ["48",15,48,"3",1,2,false],
+    ["49",14,49,"3",1,3,false],
+    ["50",22,50,"2",1,3,false],
+    ["51",13,51,"3",1,0,false],
+    ["52",13,52,"3",1,2,false],
+    ["53",11,53,"3",1,3,false],
+    ["54",23,54,"6",1,0,false],
+    ["55",12,55,"3",1,2,false],
+    ["56",21,56,"6",1,0,false],
+    ["57",29,57,"2",1,0,false],
+    ["58",22,58,"6",1,0,false],
+    ["59",16,59,"2",1,1,false],
+    ["60",17,60,"2",1,1,false],
+    ["61",19,61,"2",1,1,false],
+    ["62",26,62,"2",1,1,false],
+    ["63",18,63,"2",1,2,false],
+    ["64",20,64,"2",1,2,false],
+    ["65",30,65,"2",1,2,false],
+    ["66",17,66,"2",1,3,false],
+    ["67",18,67,"2",1,3,false],
+    ["68",19,68,"2",1,3,false],
+    ["69",20,69,"2",1,3,false],
+    ["70",23,70,"2",1,3,false],
+    ["71",30,71,"2",1,3,false],
+    ["72",17,72,"2",1,0,false],
+    ["73",18,73,"2",1,0,false],
+    ["74",19,74,"2",1,0,false],
+    ["75",18,75,"2",1,1,false],
+    ["76",16,76,"2",1,3,false],
+    ["77",21,77,"2",1,3,false],
+    ["78",16,78,"2",1,0,false],
+    ["79",20,79,"2",1,0,false],
+    ["80",27,80,"2",1,0,false],
+    ["81",16,81,"2",1,2,false],
+    ["82",21,82,"2",1,2,false],
+    ["83",21,83,"2",1,1,false],
+    ["84",24,84,"2",1,1,false],
+    ["85",29,85,"2",1,1,false],
+    ["86",26,86,"2",1,2,false],
+    ["87",24,87,"2",1,3,false],
+    ["88",25,88,"2",1,1,false],
+    ["89",19,89,"2",1,2,false],
+    ["90",30,90,"2",1,0,false],
+    ["91",22,91,"2",1,1,false],
+    ["92",23,92,"2",1,1,false],
+    ["93",22,93,"2",1,2,false],
+    ["94",24,94,"2",1,2,false],
+    ["95",25,95,"2",1,2,false],
+    ["96",27,96,"2",1,2,false],
+    ["97",28,97,"2",1,2,false],
+    ["98",25,98,"2",1,3,false],
+    ["99",28,99,"2",1,3,false],
+    ["100",27,100,"2",1,1,false],
+    ["101",28,101,"2",1,1,false],
+    ["102",29,102,"2",1,2,false],
+    ["103",29,103,"2",1,3,false],
+    ["104",26,104,"2",1,3,false],
+    ["105",31,105,"1",1,1,false],
+    ["106",32,106,"1",1,1,false],
+    ["107",33,107,"1",1,1,false],
+    ["108",34,108,"1",1,1,false],
+    ["109",35,109,"1",1,1,false],
+    ["110",42,110,"1",1,1,false],
+    ["111",32,111,"1",1,2,false],
+    ["112",34,112,"1",1,2,false],
+    ["113",35,113,"1",1,2,false],
+    ["114",40,114,"1",1,1,false],
+    ["115",31,115,"1",1,2,false],
+    ["116",33,116,"1",1,2,false],
+    ["117",33,117,"1",1,3,false],
+    ["118",34,118,"1",1,3,false],
+    ["119",35,119,"1",1,3,false],
+    ["120",38,120,"1",1,3,false],
+    ["121",34,121,"1",1,0,false],
+    ["122",40,122,"1",1,0,false],
+    ["123",39,123,"1",1,2,false],
+    ["124",32,124,"1",1,3,false],
+    ["125",45,125,"1",1,3,false],
+    ["126",41,126,"1",1,0,false],
+    ["127",42,127,"1",1,0,false],
+    ["128",37,128,"1",1,3,false],
+    ["129",32,129,"1",1,0,false],
+    ["130",33,130,"1",1,0,false],
+    ["131",45,131,"1",1,0,false],
+    ["132",45,132,"1",1,1,false],
+    ["133",36,133,"1",1,2,false],
+    ["134",45,134,"1",1,2,false],
+    ["135",36,135,"1",1,1,false],
+    ["136",39,136,"1",1,1,false],
+    ["137",37,137,"1",1,2,false],
+    ["138",38,138,"1",1,2,false],
+    ["139",41,139,"1",1,2,false],
+    ["140",38,140,"1",1,0,false],
+    ["141",39,141,"1",1,0,false],
+    ["142",38,142,"1",1,1,false],
+    ["143",36,143,"1",1,3,false],
+    ["144",39,144,"1",1,3,false],
+    ["145",40,145,"1",1,3,false],
+    ["146",36,146,"1",1,0,false],
+    ["147",43,147,"1",1,1,false],
+    ["148",43,148,"1",1,0,false],
+    ["149",44,149,"1",1,1,false],
+    ["150",43,150,"1",1,2,false],
+    ["151",44,151,"1",1,2,false],
+    ["152",42,152,"1",1,2,false],
+    ["153",41,153,"1",1,3,false],
+    ["154",44,154,"1",1,3,false],
+    ["155",44,155,"1",1,0,false],
+    ["156",43,156,"1",1,3,false]
+   ]
+  }
+ ]
+}

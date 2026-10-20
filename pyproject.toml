@@ -1,0 +1,114 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "alluvial"
+version = "0.6.0"
+description = "Alluvial diagrams of Infomap partitions for matplotlib, with the layout of the mapequation.org web app"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "mapequation", email = "mapequation@gmail.com" }]
+requires-python = ">=3.11"
+# c3-colors is the Python port of @mapequation/c3, pinned to the version of the TS lockfile (pnpm-lock.yaml), so the
+# C3 schemes and colors="hierarchy" match the web app byte for byte (tests/test_c3_schemes.py).
+dependencies = ["matplotlib>=3.7", "numpy>=1.23.2", "c3-colors==2.0.1"]
+keywords = ["alluvial diagram", "sankey", "infomap", "map equation", "community detection", "networks", "matplotlib"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Framework :: Matplotlib",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Topic :: Scientific/Engineering :: Visualization",
+    "Typing :: Typed",
+]
+
+[project.urls]
+Homepage = "https://mapequation.github.io/alluvial-py"
+Documentation = "https://mapequation.github.io/alluvial-py"
+Repository = "https://github.com/mapequation/alluvial-py"
+Issues = "https://github.com/mapequation/alluvial-py/issues"
+Changelog = "https://github.com/mapequation/alluvial-py/blob/main/CHANGELOG.md"
+
+[project.optional-dependencies]
+infomap = ["infomap>=2.14"]
+# infomap >= 2.14 has the Result API the object reader needs; files written by any infomap version still read.
+# nbconvert (nbclient, nbformat) and ipykernel run the tutorial notebook in tests/test_tutorial.py; ipykernel
+# < 6.3.1 imports ipython_genutils without requiring it, so the lowest-deps job would skip the notebook.
+# The tests need infomap >= 2.15.1 (Result.write_tree, the functional API, files compared with a v2.15.1 header;
+# 2.15.0 also writes hidden bipartite nodes differently); the reader itself works with 2.14 (checked with 2.14.0
+# for 0.3.0).
+dev = [
+    "pytest>=7",
+    "infomap>=2.15.1",
+    "ruff>=0.6",
+    "nbconvert>=7",
+    "ipykernel>=6.3.1",
+]
+
+# The Sphinx site (docs/, deployed by .github/workflows/docs.yml); a dependency group, so not in the package metadata.
+[dependency-groups]
+docs = [
+    "sphinx>=9.1",
+    "pydata-sphinx-theme>=0.23",
+    "myst-nb>=1.4",
+]
+
+[tool.uv.dependency-groups]
+docs = { requires-python = ">=3.12" }  # sphinx >= 9.1 needs it; the package itself supports 3.11
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/alluvial"]
+exclude = ["__pycache__", "*.pyc"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/src/alluvial",
+    "/tests",
+    "/examples/*.py",
+    "/tools/ts-fixtures/make_datasets.py",
+    "/tools/ts-fixtures/fuzz/gen.py",  # the apply_highlight property test draws its cases from it
+    "/docs/tutorial.ipynb",  # run by tests/test_tutorial.py
+    "/docs/capabilities.ipynb",  # run by tests/test_capabilities_notebook.py
+    "/docs/dev/port-notes/data",
+    "/LICENSE",
+    "/README.md",
+    "/CHANGELOG.md",
+]
+exclude = ["__pycache__", "*.pyc"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+markers = ["fuzz: differential fuzzing against the TS store (needs node and the TS sources; skipped otherwise)"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py311"
+extend-exclude = ["tools/ts-fixtures/node_modules"]
+
+[tool.ruff.format]
+# The port notes hold TS-aligned pseudocode (column-aligned comments, `;`-joined statements); keep it as written.
+exclude = ["docs/dev/port-notes/*.md"]
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "UP", "B", "SIM", "RUF"]
+# E501: the formatter wraps code; long strings/docstrings and URLs are allowed to run over.
+# B905: the engine port mirrors TS loops; adding strict= is a behaviour decision per call site.
+ignore = ["E501", "B905", "RUF001", "RUF002", "RUF003"]
+
+[tool.ruff.lint.per-file-ignores]
+"src/alluvial/palette.py" = ["E741"]  # `l` is HSL/HCL lightness, as in the d3 sources
+"examples/*.py" = ["E402"]  # imports after sys.path / backend setup
+"tests/test_io_infomap.py" = ["E402"]  # imports after pytest.importorskip("infomap")
+
+[tool.ruff.lint.isort]
+known-first-party = ["alluvial"]

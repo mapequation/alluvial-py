@@ -1,0 +1,45 @@
+name: TS drift
+
+# Regenerates the fixtures with the TS engine on mapequation/alluvial master and fails when any of them differs:
+# a TS change that the Python port has not followed yet. A new TS commit with unchanged output passes
+# (generate.mjs --check only notes the new provenance). To follow a change, see tools/ts-fixtures/README.md.
+
+on:
+  schedule:
+    - cron: "17 5 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  drift:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/checkout@v7
+        with:
+          repository: mapequation/alluvial
+          ref: master
+          path: alluvial-ts
+
+      - uses: pnpm/action-setup@v6
+        with:
+          package_json_file: alluvial-ts/package.json
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: pnpm
+          cache-dependency-path: alluvial-ts/pnpm-lock.yaml
+
+      - name: Install the TS repo
+        working-directory: alluvial-ts
+        run: pnpm install --frozen-lockfile
+
+      - name: Check the fixtures against TS master
+        env:
+          ALLUVIAL_TS_ROOT: ${{ github.workspace }}/alluvial-ts
+        run: node tools/ts-fixtures/generate.mjs --check

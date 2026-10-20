@@ -1,0 +1,1262 @@
+{
+ "formatVersion": 1,
+ "scenario": "hlskip-tree__colorSelectedNodes",
+ "group": "hlskip-tree",
+ "variant": "colorSelectedNodes",
+ "description": "colorSelectedNodes: propagation, same-colour re-paint, erase with the default colour",
+ "features": ["colorOps"],
+ "inputs": {
+  "files": ["data/hlskip_t0.tree","data/hlskip_t1.tree","data/hlskip_t2.tree"],
+  "formats": ["tree","tree","tree"],
+  "networkIds": ["hlskip_t0","hlskip_t1","hlskip_t2"],
+  "networkNames": ["hlskip_t0.tree","hlskip_t1.tree","hlskip_t2.tree"],
+  "identifier": "id",
+  "options": {
+   "height": 600,
+   "moduleWidth": 80,
+   "streamlineFraction": 2,
+   "streamlineThreshold": 1,
+   "flowThreshold": 0.005,
+   "marginExponent": 4,
+   "zeroMargins": false,
+   "verticalAlign": "bottom",
+   "moduleSize": "flow",
+   "sortModulesBy": "flow"
+  },
+  "labelOptions": {"fontSize": 8, "adaptiveFontSize": false, "multilineModuleNames": true, "aggregateStateNames": true, "showModuleNames": true},
+  "colorScheme": "C3 Sinebow",
+  "operations": [
+   {"op": "setNetworks"},
+   {
+    "op": "colorSelectedNodes",
+    "nodes": [
+     {"networkIndex": 0, "identifier": "3"},
+     {"networkIndex": 0, "identifier": "1"}
+    ],
+    "color": "#ff0000"
+   },
+   {
+    "op": "colorSelectedNodes",
+    "nodes": [
+     {"networkIndex": 0, "identifier": "3"}
+    ],
+    "color": "#ff0000"
+   },
+   {
+    "op": "colorSelectedNodes",
+    "nodes": [
+     {"networkIndex": 0, "identifier": "1"}
+    ],
+    "color": "#b6b69f"
+   }
+  ]
+ },
+ "diagram": {
+  "x": 0,
+  "y": 0,
+  "width": 560,
+  "height": 600,
+  "flow": 0,
+  "numNetworks": 3,
+  "maxNetworkFlow": 1,
+  "streamlineWidth": 160,
+  "networkWidth": 240,
+  "totalWidth": 560,
+  "totalMargins": [32,32,16],
+  "maxTotalMargin": 32,
+  "marginFractionOfHeight": 0.05333333333333334,
+  "maxMarginFractionOfHeight": 0.2,
+  "marginCapped": false,
+  "moduleMarginScale": null,
+  "scaledTotalMargin": null,
+  "usableHeight": 568,
+  "visibleFlows": [1,1,1],
+  "visibleModuleCounts": [3,3,2],
+  "updateLayoutCalls": 4,
+  "usableHeightCheckedModules": 8
+ },
+ "highlightColors": ["#ff0000"],
+ "defaultHighlightColor": "#b6b69f",
+ "warnings": [],
+ "networks": [
+  {
+   "networkId": "hlskip_t0",
+   "name": "hlskip_t0.tree",
+   "index": 0,
+   "file": {
+    "path": "data/hlskip_t0.tree",
+    "format": "tree",
+    "numTopModules": 3,
+    "numLevels": 2,
+    "isStateNetwork": false,
+    "directed": null,
+    "codelength": null,
+    "numNodes": 4
+   },
+   "x": 0,
+   "y": 0,
+   "width": 80,
+   "height": 600,
+   "flow": 1,
+   "numLeafNodes": 4,
+   "moduleFlowThreshold": 0.15,
+   "isCustomSorted": false,
+   "isHigherOrder": false,
+   "namePosition": {"x": 40, "y": 620},
+   "totalMargin": 32,
+   "visibleFlow": 1,
+   "numVisibleModules": 3,
+   "numModules": 3,
+   "modules": [
+    {
+     "moduleId": "1",
+     "id": "hlskip_t0_module1",
+     "path": [1],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 0,
+     "flow": 0.6,
+     "numLeafNodes": 2,
+     "meanNodeId": 1.5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 16,
+     "x": 0,
+     "y": 259.2,
+     "width": 80,
+     "height": 340.8,
+     "pass1": {"margin": 16, "index": 0, "x": 0, "y": 240, "width": 80, "height": 360},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 429.6},
+      "idPosition": {"x": 40, "y": 429.6},
+      "customName": "",
+      "maxLines": 23,
+      "names": [
+       {"name": "n2", "nodeId": 2, "stateId": null, "flow": 0.3},
+       {"name": "n1", "nodeId": 1, "stateId": null, "flow": 0.3}
+      ],
+      "namesSingleLine": [
+       {"name": "n2", "nodeId": 2, "stateId": null, "flow": 0.3},
+       {"name": "n1", "nodeId": 1, "stateId": null, "flow": 0.3}
+      ]
+     },
+     "groups": [
+      {
+       "id": "hlskip_t0_module1_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.6,
+       "numLeafNodes": 2,
+       "x": 0,
+       "y": 259.2,
+       "width": 80,
+       "height": 340.8,
+       "pass1": {"x": 0, "y": 240, "width": 80, "height": 360},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.6,
+         "numLeafNodes": 2,
+         "x": 0,
+         "y": 259.2,
+         "width": 80,
+         "height": 340.8,
+         "streamlineNodes": [
+          {
+           "id": "hlskip_t0_module1_group-1_left",
+           "sourceId": "hlskip_t0_module1_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.6,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 259.2,
+           "width": 80,
+           "height": 340.8,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.6,
+         "numLeafNodes": 2,
+         "x": 0,
+         "y": 259.2,
+         "width": 80,
+         "height": 340.8,
+         "streamlineNodes": [
+          {
+           "id": "hlskip_t0_module1_group-1_right--hlskip_t1_module1_group-1_left",
+           "sourceId": "hlskip_t0_module1_group-1_right",
+           "targetId": "hlskip_t1_module1_group-1_left",
+           "dangling": false,
+           "flow": 0.6,
+           "numLeafNodes": 2,
+           "x": 0,
+           "y": 259.2,
+           "width": 80,
+           "height": 340.8,
+           "sortKey": -240,
+           "linked": true,
+           "opposite": {"networkId": "hlskip_t1", "id": "hlskip_t1_module1_group-1_left--hlskip_t0_module1_group-1_right", "moduleId": "1"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "2",
+     "id": "hlskip_t0_module2",
+     "path": [2],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 1,
+     "flow": 0.25,
+     "numLeafNodes": 1,
+     "meanNodeId": 3,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": 0,
+     "margin": 16,
+     "x": 0,
+     "y": 101.19999999999999,
+     "width": 80,
+     "height": 142,
+     "pass1": {"margin": 16, "index": 1, "x": 0, "y": 74, "width": 80, "height": 150},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 172.2},
+      "idPosition": {"x": 40, "y": 172.2},
+      "customName": "",
+      "maxLines": 9,
+      "names": [
+       {"name": "n3", "nodeId": 3, "stateId": null, "flow": 0.25}
+      ],
+      "namesSingleLine": [
+       {"name": "n3", "nodeId": 3, "stateId": null, "flow": 0.25}
+      ]
+     },
+     "groups": [
+      {
+       "id": "hlskip_t0_module2_group0",
+       "highlightIndex": 0,
+       "insignificant": false,
+       "flow": 0.25,
+       "numLeafNodes": 1,
+       "x": 0,
+       "y": 101.19999999999999,
+       "width": 80,
+       "height": 142,
+       "pass1": {"x": 0, "y": 74, "width": 80, "height": 150},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.25,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 101.19999999999999,
+         "width": 80,
+         "height": 142,
+         "streamlineNodes": [
+          {
+           "id": "hlskip_t0_module2_group0_left",
+           "sourceId": "hlskip_t0_module2_group0_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.25,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 101.19999999999999,
+           "width": 80,
+           "height": 142,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.25,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": 101.19999999999999,
+         "width": 80,
+         "height": 142,
+         "streamlineNodes": [
+          {
+           "id": "hlskip_t0_module2_group0_right--hlskip_t1_module2_group0_left",
+           "sourceId": "hlskip_t0_module2_group0_right",
+           "targetId": "hlskip_t1_module2_group0_left",
+           "dangling": false,
+           "flow": 0.25,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": 101.19999999999999,
+           "width": 80,
+           "height": 142,
+           "sortKey": -74,
+           "linked": true,
+           "opposite": {"networkId": "hlskip_t1", "id": "hlskip_t1_module2_group0_left--hlskip_t0_module2_group0_right", "moduleId": "2"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "3",
+     "id": "hlskip_t0_module3",
+     "path": [3],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 2,
+     "flow": 0.15,
+     "numLeafNodes": 1,
+     "meanNodeId": 4,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 0,
+     "x": 0,
+     "y": -1.4210854715202004e-14,
+     "width": 80,
+     "height": 85.2,
+     "pass1": {"margin": 0, "index": 2, "x": 0, "y": -32, "width": 80, "height": 90},
+     "label": {
+      "shown": true,
+      "textAnchor": "end",
+      "namePosition": {"x": -20, "y": 42.59999999999999},
+      "idPosition": {"x": 40, "y": 42.59999999999999},
+      "customName": "",
+      "maxLines": 5,
+      "names": [
+       {"name": "n4", "nodeId": 4, "stateId": null, "flow": 0.15}
+      ],
+      "namesSingleLine": [
+       {"name": "n4", "nodeId": 4, "stateId": null, "flow": 0.15}
+      ]
+     },
+     "groups": [
+      {
+       "id": "hlskip_t0_module3_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.15,
+       "numLeafNodes": 1,
+       "x": 0,
+       "y": -1.4210854715202004e-14,
+       "width": 80,
+       "height": 85.2,
+       "pass1": {"x": 0, "y": -32, "width": 80, "height": 90},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.15,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": -1.4210854715202004e-14,
+         "width": 80,
+         "height": 85.2,
+         "streamlineNodes": [
+          {
+           "id": "hlskip_t0_module3_group-1_left",
+           "sourceId": "hlskip_t0_module3_group-1_left",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.15,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": -1.4210854715202004e-14,
+           "width": 80,
+           "height": 85.2,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.15,
+         "numLeafNodes": 1,
+         "x": 0,
+         "y": -1.4210854715202004e-14,
+         "width": 80,
+         "height": 85.2,
+         "streamlineNodes": [
+          {
+           "id": "hlskip_t0_module3_group-1_right--hlskip_t1_module3_group-1_left",
+           "sourceId": "hlskip_t0_module3_group-1_right",
+           "targetId": "hlskip_t1_module3_group-1_left",
+           "dangling": false,
+           "flow": 0.15,
+           "numLeafNodes": 1,
+           "x": 0,
+           "y": -1.4210854715202004e-14,
+           "width": 80,
+           "height": 85.2,
+           "sortKey": 32,
+           "linked": true,
+           "opposite": {"networkId": "hlskip_t1", "id": "hlskip_t1_module3_group-1_left--hlskip_t0_module3_group-1_right", "moduleId": "3"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "numLinksAboveZero": 3,
+   "links": [
+    {
+     "id": "hlskip_t0_module1_group-1_right--hlskip_t1_module1_group-1_left",
+     "left": {"networkId": "hlskip_t0", "moduleId": "1", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "hlskip_t0_module1_group-1_right--hlskip_t1_module1_group-1_left"},
+     "right": {"networkId": "hlskip_t1", "moduleId": "1", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "hlskip_t1_module1_group-1_left--hlskip_t0_module1_group-1_right"},
+     "x0": 80,
+     "y0": 259.2,
+     "h0": 340.8,
+     "x1": 240,
+     "y1": 259.2,
+     "h1": 340.8,
+     "avgHeight": 340.8,
+     "highlightIndex": -1,
+     "leftHighlightIndex": -1,
+     "rightHighlightIndex": -1,
+     "path": "M80,600C160,600,160,600,240,600L240,259.2C160,259.2,160,259.2,80,259.2Z"
+    },
+    {
+     "id": "hlskip_t0_module3_group-1_right--hlskip_t1_module3_group-1_left",
+     "left": {"networkId": "hlskip_t0", "moduleId": "3", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "hlskip_t0_module3_group-1_right--hlskip_t1_module3_group-1_left"},
+     "right": {"networkId": "hlskip_t1", "moduleId": "3", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "hlskip_t1_module3_group-1_left--hlskip_t0_module3_group-1_right"},
+     "x0": 80,
+     "y0": -1.4210854715202004e-14,
+     "h0": 85.2,
+     "x1": 240,
+     "y1": 4.263256414560601e-14,
+     "h1": 85.2,
+     "avgHeight": 85.2,
+     "highlightIndex": -1,
+     "leftHighlightIndex": -1,
+     "rightHighlightIndex": -1,
+     "path": "M80,85.2C160,85.2,160,85.2,240,85.2L240,0C160,0,160,0,80,0Z"
+    },
+    {
+     "id": "hlskip_t0_module2_group0_right--hlskip_t1_module2_group0_left",
+     "left": {"networkId": "hlskip_t0", "moduleId": "2", "groupHighlightIndex": 0, "groupInsignificant": false, "streamlineNodeId": "hlskip_t0_module2_group0_right--hlskip_t1_module2_group0_left"},
+     "right": {"networkId": "hlskip_t1", "moduleId": "2", "groupHighlightIndex": 0, "groupInsignificant": false, "streamlineNodeId": "hlskip_t1_module2_group0_left--hlskip_t0_module2_group0_right"},
+     "x0": 80,
+     "y0": 101.19999999999999,
+     "h0": 142,
+     "x1": 240,
+     "y1": 101.20000000000005,
+     "h1": 142,
+     "avgHeight": 142,
+     "highlightIndex": 0,
+     "leftHighlightIndex": 0,
+     "rightHighlightIndex": 0,
+     "path": "M80,243.2C160,243.2,160,243.20000000000005,240,243.20000000000005L240,101.20000000000005C160,101.20000000000005,160,101.19999999999999,80,101.19999999999999Z"
+    }
+   ],
+   "hierarchy": [
+    {"type": "module", "moduleId": "1"},
+    {"type": "module", "moduleId": "2"},
+    {"type": "module", "moduleId": "3"}
+   ],
+   "identifiersUnique": true,
+   "leafColumns": ["identifier","nodeId","stateId","moduleId","moduleLevel","highlightIndex","insignificant"],
+   "leaves": [
+    ["1",1,null,"1",1,-1,false],
+    ["2",2,null,"1",1,-1,false],
+    ["3",3,null,"2",1,0,false],
+    ["4",4,null,"3",1,-1,false]
+   ]
+  },
+  {
+   "networkId": "hlskip_t1",
+   "name": "hlskip_t1.tree",
+   "index": 1,
+   "file": {
+    "path": "data/hlskip_t1.tree",
+    "format": "tree",
+    "numTopModules": 3,
+    "numLevels": 2,
+    "isStateNetwork": false,
+    "directed": null,
+    "codelength": null,
+    "numNodes": 4
+   },
+   "x": 240,
+   "y": 0,
+   "width": 80,
+   "height": 600,
+   "flow": 1,
+   "numLeafNodes": 4,
+   "moduleFlowThreshold": 0.15,
+   "isCustomSorted": false,
+   "isHigherOrder": false,
+   "namePosition": {"x": 280, "y": 620},
+   "totalMargin": 32,
+   "visibleFlow": 1,
+   "numVisibleModules": 3,
+   "numModules": 3,
+   "modules": [
+    {
+     "moduleId": "1",
+     "id": "hlskip_t1_module1",
+     "path": [1],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 0,
+     "flow": 0.6,
+     "numLeafNodes": 2,
+     "meanNodeId": 1.5,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 16,
+     "x": 240,
+     "y": 259.20000000000005,
+     "width": 80,
+     "height": 340.8,
+     "pass1": {"margin": 16, "index": 0, "x": 240, "y": 240, "width": 80, "height": 360},
+     "label": {
+      "shown": false,
+      "textAnchor": null,
+      "namePosition": {"x": 280, "y": 429.6},
+      "idPosition": {"x": 280, "y": 429.6},
+      "customName": "",
+      "maxLines": 23,
+      "names": [
+       {"name": "n2", "nodeId": 2, "stateId": null, "flow": 0.3},
+       {"name": "n1", "nodeId": 1, "stateId": null, "flow": 0.3}
+      ],
+      "namesSingleLine": [
+       {"name": "n2", "nodeId": 2, "stateId": null, "flow": 0.3},
+       {"name": "n1", "nodeId": 1, "stateId": null, "flow": 0.3}
+      ]
+     },
+     "groups": [
+      {
+       "id": "hlskip_t1_module1_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.6,
+       "numLeafNodes": 2,
+       "x": 240,
+       "y": 259.20000000000005,
+       "width": 80,
+       "height": 340.8,
+       "pass1": {"x": 240, "y": 240, "width": 80, "height": 360},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.6,
+         "numLeafNodes": 2,
+         "x": 240,
+         "y": 259.2,
+         "width": 80,
+         "height": 340.8,
+         "streamlineNodes": [
+          {
+           "id": "hlskip_t1_module1_group-1_left--hlskip_t0_module1_group-1_right",
+           "sourceId": "hlskip_t1_module1_group-1_left",
+           "targetId": "hlskip_t0_module1_group-1_right",
+           "dangling": false,
+           "flow": 0.6,
+           "numLeafNodes": 2,
+           "x": 240,
+           "y": 259.2,
+           "width": 80,
+           "height": 340.8,
+           "sortKey": -240,
+           "linked": true,
+           "opposite": {"networkId": "hlskip_t0", "id": "hlskip_t0_module1_group-1_right--hlskip_t1_module1_group-1_left", "moduleId": "1"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.6,
+         "numLeafNodes": 2,
+         "x": 240,
+         "y": 259.20000000000005,
+         "width": 80,
+         "height": 340.8,
+         "streamlineNodes": [
+          {
+           "id": "hlskip_t1_module1_group-1_right--hlskip_t2_module1_group-1_left",
+           "sourceId": "hlskip_t1_module1_group-1_right",
+           "targetId": "hlskip_t2_module1_group-1_left",
+           "dangling": false,
+           "flow": 0.3,
+           "numLeafNodes": 1,
+           "x": 240,
+           "y": 429.6,
+           "width": 80,
+           "height": 170.4,
+           "sortKey": -420,
+           "linked": true,
+           "opposite": {"networkId": "hlskip_t2", "id": "hlskip_t2_module1_group-1_left--hlskip_t1_module1_group-1_right", "moduleId": "1"}
+          },
+          {
+           "id": "hlskip_t1_module1_group-1_right--hlskip_t2_module2_group-1_left",
+           "sourceId": "hlskip_t1_module1_group-1_right",
+           "targetId": "hlskip_t2_module2_group-1_left",
+           "dangling": false,
+           "flow": 0.3,
+           "numLeafNodes": 1,
+           "x": 240,
+           "y": 259.20000000000005,
+           "width": 80,
+           "height": 170.4,
+           "sortKey": 16,
+           "linked": true,
+           "opposite": {"networkId": "hlskip_t2", "id": "hlskip_t2_module2_group-1_left--hlskip_t1_module1_group-1_right", "moduleId": "2"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "2",
+     "id": "hlskip_t1_module2",
+     "path": [2],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 1,
+     "flow": 0.25,
+     "numLeafNodes": 1,
+     "meanNodeId": 3,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": 0,
+     "margin": 16,
+     "x": 240,
+     "y": 101.20000000000005,
+     "width": 80,
+     "height": 142,
+     "pass1": {"margin": 16, "index": 1, "x": 240, "y": 74, "width": 80, "height": 150},
+     "label": {
+      "shown": false,
+      "textAnchor": null,
+      "namePosition": {"x": 280, "y": 172.20000000000005},
+      "idPosition": {"x": 280, "y": 172.20000000000005},
+      "customName": "",
+      "maxLines": 9,
+      "names": [
+       {"name": "n3", "nodeId": 3, "stateId": null, "flow": 0.25}
+      ],
+      "namesSingleLine": [
+       {"name": "n3", "nodeId": 3, "stateId": null, "flow": 0.25}
+      ]
+     },
+     "groups": [
+      {
+       "id": "hlskip_t1_module2_group0",
+       "highlightIndex": 0,
+       "insignificant": false,
+       "flow": 0.25,
+       "numLeafNodes": 1,
+       "x": 240,
+       "y": 101.20000000000005,
+       "width": 80,
+       "height": 142,
+       "pass1": {"x": 240, "y": 74, "width": 80, "height": 150},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.25,
+         "numLeafNodes": 1,
+         "x": 240,
+         "y": 101.20000000000005,
+         "width": 80,
+         "height": 142,
+         "streamlineNodes": [
+          {
+           "id": "hlskip_t1_module2_group0_left--hlskip_t0_module2_group0_right",
+           "sourceId": "hlskip_t1_module2_group0_left",
+           "targetId": "hlskip_t0_module2_group0_right",
+           "dangling": false,
+           "flow": 0.25,
+           "numLeafNodes": 1,
+           "x": 240,
+           "y": 101.20000000000005,
+           "width": 80,
+           "height": 142,
+           "sortKey": -74,
+           "linked": true,
+           "opposite": {"networkId": "hlskip_t0", "id": "hlskip_t0_module2_group0_right--hlskip_t1_module2_group0_left", "moduleId": "2"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.25,
+         "numLeafNodes": 1,
+         "x": 240,
+         "y": 101.20000000000005,
+         "width": 80,
+         "height": 142,
+         "streamlineNodes": [
+          {
+           "id": "hlskip_t1_module2_group0_right--hlskip_t2_module1_group0_left",
+           "sourceId": "hlskip_t1_module2_group0_right",
+           "targetId": "hlskip_t2_module1_group0_left",
+           "dangling": false,
+           "flow": 0.25,
+           "numLeafNodes": 1,
+           "x": 240,
+           "y": 101.20000000000005,
+           "width": 80,
+           "height": 142,
+           "sortKey": -240,
+           "linked": true,
+           "opposite": {"networkId": "hlskip_t2", "id": "hlskip_t2_module1_group0_left--hlskip_t1_module2_group0_right", "moduleId": "1"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "3",
+     "id": "hlskip_t1_module3",
+     "path": [3],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 2,
+     "flow": 0.15,
+     "numLeafNodes": 1,
+     "meanNodeId": 4,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 0,
+     "x": 240,
+     "y": 4.263256414560601e-14,
+     "width": 80,
+     "height": 85.2,
+     "pass1": {"margin": 0, "index": 2, "x": 240, "y": -32, "width": 80, "height": 90},
+     "label": {
+      "shown": false,
+      "textAnchor": null,
+      "namePosition": {"x": 280, "y": 42.600000000000044},
+      "idPosition": {"x": 280, "y": 42.600000000000044},
+      "customName": "",
+      "maxLines": 5,
+      "names": [
+       {"name": "n4", "nodeId": 4, "stateId": null, "flow": 0.15}
+      ],
+      "namesSingleLine": [
+       {"name": "n4", "nodeId": 4, "stateId": null, "flow": 0.15}
+      ]
+     },
+     "groups": [
+      {
+       "id": "hlskip_t1_module3_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.15,
+       "numLeafNodes": 1,
+       "x": 240,
+       "y": 4.263256414560601e-14,
+       "width": 80,
+       "height": 85.2,
+       "pass1": {"x": 240, "y": -32, "width": 80, "height": 90},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.15,
+         "numLeafNodes": 1,
+         "x": 240,
+         "y": 4.263256414560601e-14,
+         "width": 80,
+         "height": 85.2,
+         "streamlineNodes": [
+          {
+           "id": "hlskip_t1_module3_group-1_left--hlskip_t0_module3_group-1_right",
+           "sourceId": "hlskip_t1_module3_group-1_left",
+           "targetId": "hlskip_t0_module3_group-1_right",
+           "dangling": false,
+           "flow": 0.15,
+           "numLeafNodes": 1,
+           "x": 240,
+           "y": 4.263256414560601e-14,
+           "width": 80,
+           "height": 85.2,
+           "sortKey": 32,
+           "linked": true,
+           "opposite": {"networkId": "hlskip_t0", "id": "hlskip_t0_module3_group-1_right--hlskip_t1_module3_group-1_left", "moduleId": "3"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.15,
+         "numLeafNodes": 1,
+         "x": 240,
+         "y": 4.263256414560601e-14,
+         "width": 80,
+         "height": 85.2,
+         "streamlineNodes": [
+          {
+           "id": "hlskip_t1_module3_group-1_right--hlskip_t2_module2_group-1_left",
+           "sourceId": "hlskip_t1_module3_group-1_right",
+           "targetId": "hlskip_t2_module2_group-1_left",
+           "dangling": false,
+           "flow": 0.15,
+           "numLeafNodes": 1,
+           "x": 240,
+           "y": 4.263256414560601e-14,
+           "width": 80,
+           "height": 85.2,
+           "sortKey": 16,
+           "linked": true,
+           "opposite": {"networkId": "hlskip_t2", "id": "hlskip_t2_module2_group-1_left--hlskip_t1_module3_group-1_right", "moduleId": "2"}
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "numLinksAboveZero": 4,
+   "links": [
+    {
+     "id": "hlskip_t1_module1_group-1_right--hlskip_t2_module1_group-1_left",
+     "left": {"networkId": "hlskip_t1", "moduleId": "1", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "hlskip_t1_module1_group-1_right--hlskip_t2_module1_group-1_left"},
+     "right": {"networkId": "hlskip_t2", "moduleId": "1", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "hlskip_t2_module1_group-1_left--hlskip_t1_module1_group-1_right"},
+     "x0": 320,
+     "y0": 429.6,
+     "h0": 170.4,
+     "x1": 480,
+     "y1": 429.6,
+     "h1": 170.4,
+     "avgHeight": 170.4,
+     "highlightIndex": -1,
+     "leftHighlightIndex": -1,
+     "rightHighlightIndex": -1,
+     "path": "M320,600C400,600,400,600,480,600L480,429.6C400,429.6,400,429.6,320,429.6Z"
+    },
+    {
+     "id": "hlskip_t1_module1_group-1_right--hlskip_t2_module2_group-1_left",
+     "left": {"networkId": "hlskip_t1", "moduleId": "1", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "hlskip_t1_module1_group-1_right--hlskip_t2_module2_group-1_left"},
+     "right": {"networkId": "hlskip_t2", "moduleId": "2", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "hlskip_t2_module2_group-1_left--hlskip_t1_module1_group-1_right"},
+     "x0": 320,
+     "y0": 259.20000000000005,
+     "h0": 170.4,
+     "x1": 480,
+     "y1": 129.60000000000002,
+     "h1": 113.60000000000001,
+     "avgHeight": 142,
+     "highlightIndex": -1,
+     "leftHighlightIndex": -1,
+     "rightHighlightIndex": -1,
+     "path": "M320,429.6C400,429.6,400,243.20000000000005,480,243.20000000000005L480,129.60000000000002C400,129.60000000000002,400,259.20000000000005,320,259.20000000000005Z"
+    },
+    {
+     "id": "hlskip_t1_module3_group-1_right--hlskip_t2_module2_group-1_left",
+     "left": {"networkId": "hlskip_t1", "moduleId": "3", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "hlskip_t1_module3_group-1_right--hlskip_t2_module2_group-1_left"},
+     "right": {"networkId": "hlskip_t2", "moduleId": "2", "groupHighlightIndex": -1, "groupInsignificant": false, "streamlineNodeId": "hlskip_t2_module2_group-1_left--hlskip_t1_module3_group-1_right"},
+     "x0": 320,
+     "y0": 4.263256414560601e-14,
+     "h0": 85.2,
+     "x1": 480,
+     "y1": 16.000000000000014,
+     "h1": 113.60000000000001,
+     "avgHeight": 99.4,
+     "highlightIndex": -1,
+     "leftHighlightIndex": -1,
+     "rightHighlightIndex": -1,
+     "path": "M320,85.2C400,85.2,400,129.60000000000002,480,129.60000000000002L480,16.000000000000014C400,16.000000000000014,400,0,320,0Z"
+    },
+    {
+     "id": "hlskip_t1_module2_group0_right--hlskip_t2_module1_group0_left",
+     "left": {"networkId": "hlskip_t1", "moduleId": "2", "groupHighlightIndex": 0, "groupInsignificant": false, "streamlineNodeId": "hlskip_t1_module2_group0_right--hlskip_t2_module1_group0_left"},
+     "right": {"networkId": "hlskip_t2", "moduleId": "1", "groupHighlightIndex": 0, "groupInsignificant": false, "streamlineNodeId": "hlskip_t2_module1_group0_left--hlskip_t1_module2_group0_right"},
+     "x0": 320,
+     "y0": 101.20000000000005,
+     "h0": 142,
+     "x1": 480,
+     "y1": 259.20000000000005,
+     "h1": 170.4,
+     "avgHeight": 156.2,
+     "highlightIndex": 0,
+     "leftHighlightIndex": 0,
+     "rightHighlightIndex": 0,
+     "path": "M320,243.20000000000005C400,243.20000000000005,400,429.6,480,429.6L480,259.20000000000005C400,259.20000000000005,400,101.20000000000005,320,101.20000000000005Z"
+    }
+   ],
+   "hierarchy": [
+    {"type": "module", "moduleId": "1"},
+    {"type": "module", "moduleId": "2"},
+    {"type": "module", "moduleId": "3"}
+   ],
+   "identifiersUnique": true,
+   "leafColumns": ["identifier","nodeId","stateId","moduleId","moduleLevel","highlightIndex","insignificant"],
+   "leaves": [
+    ["1",1,null,"1",1,-1,false],
+    ["2",2,null,"1",1,-1,false],
+    ["3",3,null,"2",1,0,false],
+    ["4",4,null,"3",1,-1,false]
+   ]
+  },
+  {
+   "networkId": "hlskip_t2",
+   "name": "hlskip_t2.tree",
+   "index": 2,
+   "file": {
+    "path": "data/hlskip_t2.tree",
+    "format": "tree",
+    "numTopModules": 2,
+    "numLevels": 2,
+    "isStateNetwork": false,
+    "directed": null,
+    "codelength": null,
+    "numNodes": 4
+   },
+   "x": 480,
+   "y": 0,
+   "width": 80,
+   "height": 600,
+   "flow": 1,
+   "numLeafNodes": 4,
+   "moduleFlowThreshold": 0.4,
+   "isCustomSorted": false,
+   "isHigherOrder": false,
+   "namePosition": {"x": 520, "y": 620},
+   "totalMargin": 16,
+   "visibleFlow": 1,
+   "numVisibleModules": 2,
+   "numModules": 2,
+   "modules": [
+    {
+     "moduleId": "1",
+     "id": "hlskip_t2_module1",
+     "path": [1],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 0,
+     "flow": 0.6,
+     "numLeafNodes": 2,
+     "meanNodeId": 2,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 16,
+     "x": 480,
+     "y": 259.20000000000005,
+     "width": 80,
+     "height": 340.8,
+     "pass1": {"margin": 16, "index": 0, "x": 480, "y": 240, "width": 80, "height": 360},
+     "label": {
+      "shown": true,
+      "textAnchor": "start",
+      "namePosition": {"x": 580, "y": 429.6},
+      "idPosition": {"x": 520, "y": 429.6},
+      "customName": "",
+      "maxLines": 23,
+      "names": [
+       {"name": "n1", "nodeId": 1, "stateId": null, "flow": 0.3},
+       {"name": "n3", "nodeId": 3, "stateId": null, "flow": 0.3}
+      ],
+      "namesSingleLine": [
+       {"name": "n1", "nodeId": 1, "stateId": null, "flow": 0.3},
+       {"name": "n3", "nodeId": 3, "stateId": null, "flow": 0.3}
+      ]
+     },
+     "groups": [
+      {
+       "id": "hlskip_t2_module1_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.3,
+       "numLeafNodes": 1,
+       "x": 480,
+       "y": 429.6,
+       "width": 80,
+       "height": 170.4,
+       "pass1": {"x": 480, "y": 420, "width": 80, "height": 180},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.3,
+         "numLeafNodes": 1,
+         "x": 480,
+         "y": 429.6,
+         "width": 80,
+         "height": 170.4,
+         "streamlineNodes": [
+          {
+           "id": "hlskip_t2_module1_group-1_left--hlskip_t1_module1_group-1_right",
+           "sourceId": "hlskip_t2_module1_group-1_left",
+           "targetId": "hlskip_t1_module1_group-1_right",
+           "dangling": false,
+           "flow": 0.3,
+           "numLeafNodes": 1,
+           "x": 480,
+           "y": 429.6,
+           "width": 80,
+           "height": 170.4,
+           "sortKey": -240,
+           "linked": true,
+           "opposite": {"networkId": "hlskip_t1", "id": "hlskip_t1_module1_group-1_right--hlskip_t2_module1_group-1_left", "moduleId": "1"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.3,
+         "numLeafNodes": 1,
+         "x": 480,
+         "y": 429.6,
+         "width": 80,
+         "height": 170.4,
+         "streamlineNodes": [
+          {
+           "id": "hlskip_t2_module1_group-1_right",
+           "sourceId": "hlskip_t2_module1_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.3,
+           "numLeafNodes": 1,
+           "x": 480,
+           "y": 429.6,
+           "width": 80,
+           "height": 170.4,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "hlskip_t2_module1_group0",
+       "highlightIndex": 0,
+       "insignificant": false,
+       "flow": 0.3,
+       "numLeafNodes": 1,
+       "x": 480,
+       "y": 259.20000000000005,
+       "width": 80,
+       "height": 170.4,
+       "pass1": {"x": 480, "y": 240, "width": 80, "height": 180},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.3,
+         "numLeafNodes": 1,
+         "x": 480,
+         "y": 259.20000000000005,
+         "width": 80,
+         "height": 170.4,
+         "streamlineNodes": [
+          {
+           "id": "hlskip_t2_module1_group0_left--hlskip_t1_module2_group0_right",
+           "sourceId": "hlskip_t2_module1_group0_left",
+           "targetId": "hlskip_t1_module2_group0_right",
+           "dangling": false,
+           "flow": 0.3,
+           "numLeafNodes": 1,
+           "x": 480,
+           "y": 259.20000000000005,
+           "width": 80,
+           "height": 170.4,
+           "sortKey": -74,
+           "linked": true,
+           "opposite": {"networkId": "hlskip_t1", "id": "hlskip_t1_module2_group0_right--hlskip_t2_module1_group0_left", "moduleId": "2"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.3,
+         "numLeafNodes": 1,
+         "x": 480,
+         "y": 259.20000000000005,
+         "width": 80,
+         "height": 170.4,
+         "streamlineNodes": [
+          {
+           "id": "hlskip_t2_module1_group0_right",
+           "sourceId": "hlskip_t2_module1_group0_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.3,
+           "numLeafNodes": 1,
+           "x": 480,
+           "y": 259.20000000000005,
+           "width": 80,
+           "height": 170.4,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "moduleId": "2",
+     "id": "hlskip_t2_module2",
+     "path": [2],
+     "moduleLevel": 1,
+     "maxModuleLevel": 1,
+     "index": 1,
+     "flow": 0.4,
+     "numLeafNodes": 2,
+     "meanNodeId": 3,
+     "enterFlow": 0,
+     "exitFlow": 0,
+     "visible": true,
+     "highlightIndex": -1,
+     "margin": 0,
+     "x": 480,
+     "y": 16.00000000000003,
+     "width": 80,
+     "height": 227.20000000000002,
+     "pass1": {"margin": 0, "index": 1, "x": 480, "y": -16, "width": 80, "height": 240},
+     "label": {
+      "shown": true,
+      "textAnchor": "start",
+      "namePosition": {"x": 580, "y": 129.60000000000002},
+      "idPosition": {"x": 520, "y": 129.60000000000002},
+      "customName": "",
+      "maxLines": 15,
+      "names": [
+       {"name": "n2", "nodeId": 2, "stateId": null, "flow": 0.2},
+       {"name": "n4", "nodeId": 4, "stateId": null, "flow": 0.2}
+      ],
+      "namesSingleLine": [
+       {"name": "n2", "nodeId": 2, "stateId": null, "flow": 0.2},
+       {"name": "n4", "nodeId": 4, "stateId": null, "flow": 0.2}
+      ]
+     },
+     "groups": [
+      {
+       "id": "hlskip_t2_module2_group-1",
+       "highlightIndex": -1,
+       "insignificant": false,
+       "flow": 0.4,
+       "numLeafNodes": 2,
+       "x": 480,
+       "y": 16.00000000000003,
+       "width": 80,
+       "height": 227.20000000000002,
+       "pass1": {"x": 480, "y": -16, "width": 80, "height": 240},
+       "branches": [
+        {
+         "side": "left",
+         "flow": 0.4,
+         "numLeafNodes": 2,
+         "x": 480,
+         "y": 16.000000000000014,
+         "width": 80,
+         "height": 227.20000000000002,
+         "streamlineNodes": [
+          {
+           "id": "hlskip_t2_module2_group-1_left--hlskip_t1_module1_group-1_right",
+           "sourceId": "hlskip_t2_module2_group-1_left",
+           "targetId": "hlskip_t1_module1_group-1_right",
+           "dangling": false,
+           "flow": 0.2,
+           "numLeafNodes": 1,
+           "x": 480,
+           "y": 129.60000000000002,
+           "width": 80,
+           "height": 113.60000000000001,
+           "sortKey": -240,
+           "linked": true,
+           "opposite": {"networkId": "hlskip_t1", "id": "hlskip_t1_module1_group-1_right--hlskip_t2_module2_group-1_left", "moduleId": "1"}
+          },
+          {
+           "id": "hlskip_t2_module2_group-1_left--hlskip_t1_module3_group-1_right",
+           "sourceId": "hlskip_t2_module2_group-1_left",
+           "targetId": "hlskip_t1_module3_group-1_right",
+           "dangling": false,
+           "flow": 0.2,
+           "numLeafNodes": 1,
+           "x": 480,
+           "y": 16.000000000000014,
+           "width": 80,
+           "height": 113.60000000000001,
+           "sortKey": 32,
+           "linked": true,
+           "opposite": {"networkId": "hlskip_t1", "id": "hlskip_t1_module3_group-1_right--hlskip_t2_module2_group-1_left", "moduleId": "3"}
+          }
+         ]
+        },
+        {
+         "side": "right",
+         "flow": 0.4,
+         "numLeafNodes": 2,
+         "x": 480,
+         "y": 16.00000000000003,
+         "width": 80,
+         "height": 227.20000000000002,
+         "streamlineNodes": [
+          {
+           "id": "hlskip_t2_module2_group-1_right",
+           "sourceId": "hlskip_t2_module2_group-1_right",
+           "targetId": null,
+           "dangling": true,
+           "flow": 0.4,
+           "numLeafNodes": 2,
+           "x": 480,
+           "y": 16.00000000000003,
+           "width": 80,
+           "height": 227.20000000000002,
+           "sortKey": -Infinity,
+           "linked": false,
+           "opposite": null
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "numLinksAboveZero": 0,
+   "links": [],
+   "hierarchy": [
+    {"type": "module", "moduleId": "1"},
+    {"type": "module", "moduleId": "2"}
+   ],
+   "identifiersUnique": true,
+   "leafColumns": ["identifier","nodeId","stateId","moduleId","moduleLevel","highlightIndex","insignificant"],
+   "leaves": [
+    ["1",1,null,"1",1,-1,false],
+    ["2",2,null,"2",1,-1,false],
+    ["3",3,null,"1",1,0,false],
+    ["4",4,null,"2",1,-1,false]
+   ]
+  }
+ ]
+}

@@ -1,0 +1,4 @@
+# hand-written (colors-render.md §6.1): a similarity chain that starts in network 1
+# path flow name node_id
+1:1 0.5 "n1" 1
+1:2 0.5 "n2" 2
