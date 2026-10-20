@@ -70,7 +70,8 @@ jobs:
 
       - name: Read the TS commit of the fixtures
         id: ts
-        run: echo "sha=$(sed -n 's/^ts_repo_head: //p' tests/fixtures/provenance.txt)" >> "$GITHUB_OUTPUT"
+        run: |
+          echo "sha=$(sed -n 's/^ts_repo_head: //p' tests/fixtures/provenance.txt)" >> "$GITHUB_OUTPUT"
 
       - uses: actions/checkout@v7
         with:
