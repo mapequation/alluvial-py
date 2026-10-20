@@ -77,7 +77,7 @@ ax = alluvial.plot([im_2020, im_2021], names=["2020", "2021"])
 ax.figure.savefig("alluvial.png", dpi=150)
 ```
 
-![Alluvial diagram of two Infomap partitions](docs/img/quickstart.png)
+![Alluvial diagram of two Infomap partitions](https://raw.githubusercontent.com/mapequation/alluvial-py/main/docs/img/quickstart.png)
 
 `examples/quickstart.py` makes the figure above. Networks go from left to right, and each one can be:
 
@@ -118,7 +118,7 @@ with plt.rc_context({"font.family": "serif", "font.size": 8, "pdf.fonttype": 42}
     fig.savefig("figure.pdf")
 ```
 
-![A two-panel double-column figure](docs/img/paper_figure.png)
+![A two-panel double-column figure](https://raw.githubusercontent.com/mapequation/alluvial-py/main/docs/img/paper_figure.png)
 
 `examples/paper_figure.py` makes the figure above. The PDF stays vector: a two-colour streamline is a 256 × 1 gradient strip
 clipped to its outline (`gradient=False` makes them solid). For very large diagrams, `rasterized=True` rasterizes the
@@ -139,7 +139,7 @@ ax = alluvial.plot(networks, module_level=2)
 geom = alluvial.layout(networks, expand=[(1, "1"), (1, "1:1")])  # network index (or id), module path
 ```
 
-![Top modules and module level 2](docs/img/hierarchy.png)
+![Top modules and module level 2](https://raw.githubusercontent.com/mapequation/alluvial-py/main/docs/img/hierarchy.png)
 
 `examples/hierarchy.py` makes the figure above. Each `ModuleGeometry` has its `level`, and
 `NetworkGeometry.outlines` holds the parent-module boxes.
@@ -171,7 +171,7 @@ geom = alluvial.layout(
 )
 ```
 
-![Highlighted journals with a legend](docs/img/highlight.png)
+![Highlighted journals with a legend](https://raw.githubusercontent.com/mapequation/alluvial-py/main/docs/img/highlight.png)
 
 `examples/highlight.py` makes the figure above. Identifiers are matched like the networks' nodes (`identifier=`),
 and numbers are allowed (`{"a": [1, 2, 3]}`). `highlight_colors` sets the colours (a list, or `{label: colour}`).
@@ -202,7 +202,7 @@ geom = alluvial.layout(
 )
 ```
 
-![Four years of a citation network, modules named by field in a fixed order](docs/img/names_order.png)
+![Four years of a citation network, modules named by field in a fixed order](https://raw.githubusercontent.com/mapequation/alluvial-py/main/docs/img/names_order.png)
 
 `examples/names_order.py` makes the figure above.
 
@@ -227,7 +227,7 @@ ax = alluvial.plot(["tests/data/mlayer_states.tree"], split_layers=True)
 layers = alluvial.read("tests/data/mlayer_states.tree", split_layers=True)  # one NetworkFile per layer
 ```
 
-![A four-layer partition, one network per layer](docs/img/multilayer.png)
+![A four-layer partition, one network per layer](https://raw.githubusercontent.com/mapequation/alluvial-py/main/docs/img/multilayer.png)
 
 `examples/multilayer.py` makes the figure above from an Infomap run on a multilayer network. `colors="layer"` and
 `colors="physical_id"` colour multilayer and state networks by layer and by physical node.
