@@ -45,7 +45,8 @@ const REPO = resolve(HERE, "..", "..");
 const TS_ROOT = resolve(
   process.env.ALLUVIAL_TS_ROOT ?? join(REPO, "..", "web", "alluvial")
 );
-const TS_SRC = join(TS_ROOT, "packages", "alluvial-diagram", "src");
+const TS_PKG = join(TS_ROOT, "packages", "alluvial-diagram");
+const TS_SRC = join(TS_PKG, "src");
 
 function parseArgs(argv) {
   const args = { check: false, only: null, out: null, fuzz: null, open: null, large: false, makeData: false };
@@ -67,7 +68,9 @@ async function loadVite() {
   if (!existsSync(join(TS_SRC, "alluvial", "Diagram.ts"))) {
     throw new Error(`TS sources not found under ${TS_SRC} (set ALLUVIAL_TS_ROOT)`);
   }
-  const require = createRequire(join(TS_ROOT, "package.json"));
+  // vite, mobx and @mapequation/infomap-parser are the engine package's dependencies, not the TS root's; pnpm only
+  // links a package's own dependencies into its node_modules
+  const require = createRequire(join(TS_PKG, "package.json"));
   const vitePath = require.resolve("vite");
   return import(pathToFileURL(vitePath).href);
 }
@@ -103,7 +106,9 @@ function provenance(fixtureCount, v3Count, v4Count) {
     hash.update(readFileSync(join(TS_SRC, rel)));
     hash.update("\0");
   }
-  const require = createRequire(join(TS_ROOT, "package.json"));
+  // vite, mobx and @mapequation/infomap-parser are the engine package's dependencies, not the TS root's; pnpm only
+  // links a package's own dependencies into its node_modules
+  const require = createRequire(join(TS_PKG, "package.json"));
   const version = (pkg) => {
     try {
       return JSON.parse(readFileSync(require.resolve(`${pkg}/package.json`), "utf8")).version;

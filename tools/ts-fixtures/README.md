@@ -42,7 +42,7 @@ A full run takes about 4 s. Each scenario runs twice (see Verification).
 
 | File | Role |
 |---|---|
-| `generate.mjs` | Launcher. Resolves `vite` (8.3.4) from the TS repo's `node_modules`. Starts an in-process Vite dev server with no config file, maps the alias `@alluvial-src` to `<TS>/packages/alluvial-diagram/src`, loads `harness.ts` through `ssrLoadModule`, writes `provenance.txt`, and implements `--check`. |
+| `generate.mjs` | Launcher. Resolves `vite` (8.3.4) from `<TS>/packages/alluvial-diagram`, whose dev dependency it is. Starts an in-process Vite dev server with no config file, maps the alias `@alluvial-src` to `<TS>/packages/alluvial-diagram/src`, loads `harness.ts` through `ssrLoadModule`, writes `provenance.txt`, and implements `--check`. |
 | `harness.ts` | Runs each scenario on the real `DiagramStore`/`Diagram` and serializes the result. |
 | `scenarios.ts` | Dataset groups, variants and operations. |
 | `make_datasets.py` | Seeded Infomap datasets. Writes `tests/data/datasets.json` with every parameter. |
