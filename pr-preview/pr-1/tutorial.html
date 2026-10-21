@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>alluvial tutorial: how modules change &#8212; alluvial 0.6.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
+
+    <script src="_static/documentation_options.js?v=8fa8b3e9"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tutorial';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="alluvial capabilities: a tested tour" href="capabilities.html" />
+    <link rel="prev" title="alluvial" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.6.0" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">alluvial 0.6.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#" aria-current="page">
+    Tutorial
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="capabilities.html">
+    Capabilities
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api.html">
+    API reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="changelog.html">
+    Changelog
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/mapequation/alluvial-py" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#" aria-current="page">
+    Tutorial
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="capabilities.html">
+    Capabilities
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api.html">
+    API reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="changelog.html">
+    Changelog
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/mapequation/alluvial-py" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">alluvial tutorial: how modules change</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="alluvial-tutorial-how-modules-change">
+<h1>alluvial tutorial: how modules change<a class="headerlink" href="#alluvial-tutorial-how-modules-change" title="Link to this heading">#</a></h1>
+<p>This tutorial draws alluvial diagrams of <a class="reference external" href="https://www.mapequation.org/infomap/">Infomap</a> partitions with
+<code class="docutils literal notranslate"><span class="pre">alluvial</span></code>. It covers how to:</p>
+<ol class="arabic simple">
+<li><p>compare the partitions of several Infomap runs,</p></li>
+<li><p>choose a colouring,</p></li>
+<li><p>show sub-modules,</p></li>
+<li><p>highlight groups of nodes, with a legend,</p></li>
+<li><p>draw state networks (multilayer and memory networks),</p></li>
+<li><p>read Infomap output files,</p></li>
+<li><p>make a multi-panel figure for a paper and save it as PDF, and</p></li>
+<li><p>restyle single artists.</p></li>
+</ol>
+<p>You need <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">&quot;alluvial[infomap]&quot;</span></code>. Every network is built in the notebook and every Infomap run is
+seeded, so the figures come out the same each time.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">infomap</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">alluvial</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"alluvial"</span><span class="p">,</span> <span class="n">alluvial</span><span class="o">.</span><span class="n">__version__</span><span class="p">,</span> <span class="s2">"| infomap"</span><span class="p">,</span> <span class="n">infomap</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>alluvial 0.6.0 | infomap 2.15.1
+</pre></div>
+</div>
+</div>
+</div>
+<section id="a-small-temporal-network">
+<h2>A small temporal network<a class="headerlink" href="#a-small-temporal-network" title="Link to this heading">#</a></h2>
+<p>Here 36 people work in teams of six, and teams that share a department collaborate. Over three years the
+departments reorganise. In 2022 one team moves to another department, and in 2023 three departments become two.
+For each year, links are drawn at random: dense within teams, sparser within departments, and rare between them.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">NAMES</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"Ada"</span><span class="p">,</span>
+    <span class="s2">"Ben"</span><span class="p">,</span>
+    <span class="s2">"Cy"</span><span class="p">,</span>
+    <span class="s2">"Dee"</span><span class="p">,</span>
+    <span class="s2">"Eli"</span><span class="p">,</span>
+    <span class="s2">"Fay"</span><span class="p">,</span>
+    <span class="s2">"Gus"</span><span class="p">,</span>
+    <span class="s2">"Hal"</span><span class="p">,</span>
+    <span class="s2">"Ivy"</span><span class="p">,</span>
+    <span class="s2">"Jo"</span><span class="p">,</span>
+    <span class="s2">"Kai"</span><span class="p">,</span>
+    <span class="s2">"Lea"</span><span class="p">,</span>
+    <span class="s2">"Max"</span><span class="p">,</span>
+    <span class="s2">"Ned"</span><span class="p">,</span>
+    <span class="s2">"Ola"</span><span class="p">,</span>
+    <span class="s2">"Pia"</span><span class="p">,</span>
+    <span class="s2">"Quin"</span><span class="p">,</span>
+    <span class="s2">"Rex"</span><span class="p">,</span>
+    <span class="s2">"Sam"</span><span class="p">,</span>
+    <span class="s2">"Tia"</span><span class="p">,</span>
+    <span class="s2">"Uma"</span><span class="p">,</span>
+    <span class="s2">"Vic"</span><span class="p">,</span>
+    <span class="s2">"Wes"</span><span class="p">,</span>
+    <span class="s2">"Xia"</span><span class="p">,</span>
+    <span class="s2">"Yan"</span><span class="p">,</span>
+    <span class="s2">"Zoe"</span><span class="p">,</span>
+    <span class="s2">"Abe"</span><span class="p">,</span>
+    <span class="s2">"Bea"</span><span class="p">,</span>
+    <span class="s2">"Cal"</span><span class="p">,</span>
+    <span class="s2">"Dot"</span><span class="p">,</span>
+    <span class="s2">"Eve"</span><span class="p">,</span>
+    <span class="s2">"Fin"</span><span class="p">,</span>
+    <span class="s2">"Gil"</span><span class="p">,</span>
+    <span class="s2">"Hana"</span><span class="p">,</span>
+    <span class="s2">"Ike"</span><span class="p">,</span>
+    <span class="s2">"Jan"</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">TEAMS</span> <span class="o">=</span> <span class="p">[</span><span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">6</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">6</span><span class="p">)]</span>  <span class="c1"># six teams of six people</span>
+<span class="n">YEARS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"2021"</span><span class="p">,</span> <span class="s2">"2022"</span><span class="p">,</span> <span class="s2">"2023"</span><span class="p">]</span>
+<span class="n">DEPARTMENTS</span> <span class="o">=</span> <span class="p">{</span>  <span class="c1"># the teams of each department, per year</span>
+    <span class="s2">"2021"</span><span class="p">:</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]],</span>
+    <span class="s2">"2022"</span><span class="p">:</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">]],</span>
+    <span class="s2">"2023"</span><span class="p">:</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]],</span>
+<span class="p">}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">collaborations</span><span class="p">(</span><span class="n">departments</span><span class="p">,</span> <span class="n">seed</span><span class="p">):</span>
+    <span class="s2">"Random links: dense within teams, sparser within departments, rare between departments."</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">Random</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">team</span> <span class="o">=</span> <span class="p">{</span><span class="n">u</span><span class="p">:</span> <span class="n">t</span> <span class="k">for</span> <span class="n">t</span><span class="p">,</span> <span class="n">members</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">TEAMS</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">members</span><span class="p">}</span>
+    <span class="n">dept</span> <span class="o">=</span> <span class="p">{</span><span class="n">t</span><span class="p">:</span> <span class="n">d</span> <span class="k">for</span> <span class="n">d</span><span class="p">,</span> <span class="n">teams</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">departments</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">teams</span><span class="p">}</span>
+    <span class="n">links</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">36</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">u</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">36</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">team</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">==</span> <span class="n">team</span><span class="p">[</span><span class="n">v</span><span class="p">]:</span>
+                <span class="n">p</span> <span class="o">=</span> <span class="mf">0.7</span>
+            <span class="k">elif</span> <span class="n">dept</span><span class="p">[</span><span class="n">team</span><span class="p">[</span><span class="n">u</span><span class="p">]]</span> <span class="o">==</span> <span class="n">dept</span><span class="p">[</span><span class="n">team</span><span class="p">[</span><span class="n">v</span><span class="p">]]:</span>
+                <span class="n">p</span> <span class="o">=</span> <span class="mf">0.12</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">p</span> <span class="o">=</span> <span class="mf">0.01</span>
+            <span class="k">if</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">p</span><span class="p">:</span>
+                <span class="n">links</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">links</span>
+
+
+<span class="n">links</span> <span class="o">=</span> <span class="p">{</span><span class="n">year</span><span class="p">:</span> <span class="n">collaborations</span><span class="p">(</span><span class="n">DEPARTMENTS</span><span class="p">[</span><span class="n">year</span><span class="p">],</span> <span class="n">seed</span><span class="o">=</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">year</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">YEARS</span><span class="p">)}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">run_infomap</span><span class="p">(</span><span class="n">links</span><span class="p">):</span>
+    <span class="n">im</span> <span class="o">=</span> <span class="n">infomap</span><span class="o">.</span><span class="n">Infomap</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">num_trials</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">NAMES</span><span class="p">):</span>
+        <span class="n">im</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+    <span class="n">im</span><span class="o">.</span><span class="n">add_links</span><span class="p">(</span><span class="n">links</span><span class="p">)</span>
+    <span class="n">im</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">im</span>
+
+
+<span class="n">im_a</span><span class="p">,</span> <span class="n">im_b</span><span class="p">,</span> <span class="n">im_c</span> <span class="o">=</span> <span class="p">(</span><span class="n">run_infomap</span><span class="p">(</span><span class="n">links</span><span class="p">[</span><span class="n">year</span><span class="p">])</span> <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">YEARS</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">year</span><span class="p">,</span> <span class="n">im</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">YEARS</span><span class="p">,</span> <span class="p">(</span><span class="n">im_a</span><span class="p">,</span> <span class="n">im_b</span><span class="p">,</span> <span class="n">im_c</span><span class="p">)):</span>
+    <span class="n">nf</span> <span class="o">=</span> <span class="n">alluvial</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>  <span class="c1"># the partition as alluvial reads it</span>
+    <span class="n">paths</span> <span class="o">=</span> <span class="p">[</span><span class="n">node</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">nf</span><span class="o">.</span><span class="n">nodes</span><span class="p">]</span>  <span class="c1"># "1:2:3": module 1, sub-module 2, node 3</span>
+    <span class="n">top_modules</span> <span class="o">=</span> <span class="p">{</span><span class="n">path</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">paths</span><span class="p">}</span>
+    <span class="n">levels</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">len</span><span class="p">,</span> <span class="n">paths</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">top_modules</span><span class="p">)</span><span class="si">}</span><span class="s2"> top modules, </span><span class="si">{</span><span class="n">levels</span><span class="si">}</span><span class="s2"> levels, codelength </span><span class="si">{</span><span class="n">nf</span><span class="o">.</span><span class="n">codelength</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> bits"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2021: 4 top modules, 3 levels, codelength 3.614 bits
+2022: 4 top modules, 3 levels, codelength 3.787 bits
+2023: 4 top modules, 3 levels, codelength 4.093 bits
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="one-diagram-for-several-runs">
+<h2>One diagram for several runs<a class="headerlink" href="#one-diagram-for-several-runs" title="Link to this heading">#</a></h2>
+<p>Pass the Infomap objects from left to right. Each column is a network, and each block a module, with its height
+proportional to the module’s flow. A streamline joins two modules and is as thick as the flow of the nodes they
+share. Nodes are matched across networks by node id. Modules carry the names of their largest nodes (by flow) on the
+first and last network.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">im_a</span><span class="p">,</span> <span class="n">im_b</span><span class="p">,</span> <span class="n">im_c</span><span class="p">],</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/f0123fdf04922ef5fca61c6a4e5b3ff1621559799c14a4c392477118c3baf2b9.png" src="_images/f0123fdf04922ef5fca61c6a4e5b3ff1621559799c14a4c392477118c3baf2b9.png" />
+</div>
+</div>
+<p>Without <code class="docutils literal notranslate"><span class="pre">ax=</span></code>, <code class="docutils literal notranslate"><span class="pre">plot</span></code> makes its own figure at one layout pixel per point (600 pt high by default). For anything you
+publish, give it an axes. The shapes then stretch to fill the axes, while every font size and gap stays in points.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">"constrained"</span><span class="p">)</span>
+<span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">im_a</span><span class="p">,</span> <span class="n">im_b</span><span class="p">,</span> <span class="n">im_c</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ffcf7858c173493a15add1f3dc5e63a057fe7ff62c1d7db8c78bd555168ddf09.png" src="_images/ffcf7858c173493a15add1f3dc5e63a057fe7ff62c1d7db8c78bd555168ddf09.png" />
+</div>
+</div>
+</section>
+<section id="colours">
+<h2>Colours<a class="headerlink" href="#colours" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">colors=</span></code> picks how modules are coloured. Every option is an operation of the web app:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;similarity&quot;</span></code> (the default) gives matching modules in neighbouring networks the same colour,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;module_id&quot;</span></code> colours by Infomap’s module number,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;nodes&quot;</span></code> colours every node by its module in the <em>first</em> network, so you can see where each module goes, and</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code> leaves everything gray.</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">palette=</span></code> takes a list of colours or a matplotlib colormap, for example <code class="docutils literal notranslate"><span class="pre">palette=&quot;tab10&quot;</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">"constrained"</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">colors</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axs</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span> <span class="p">[</span><span class="s2">"similarity"</span><span class="p">,</span> <span class="s2">"module_id"</span><span class="p">,</span> <span class="s2">"nodes"</span><span class="p">,</span> <span class="kc">None</span><span class="p">]):</span>
+    <span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">im_a</span><span class="p">,</span> <span class="n">im_b</span><span class="p">,</span> <span class="n">im_c</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">colors</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">"colors=</span><span class="si">{</span><span class="n">colors</span><span class="si">!r}</span><span class="s2">"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s2">"medium"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/b40f21e3883c1a7704f8a0ba06d79faeef3b93e268a8527499c3dc2231183247.png" src="_images/b40f21e3883c1a7704f8a0ba06d79faeef3b93e268a8527499c3dc2231183247.png" />
+</div>
+</div>
+</section>
+<section id="sub-modules">
+<h2>Sub-modules<a class="headerlink" href="#sub-modules" title="Link to this heading">#</a></h2>
+<p>Infomap finds a hierarchy of modules: here, departments with teams inside. <code class="docutils literal notranslate"><span class="pre">module_level=2</span></code> opens every module that
+has sub-modules (the same as clicking it in the web app). Pass one level per network to open only some of them, for
+example <code class="docutils literal notranslate"><span class="pre">module_level=[2,</span> <span class="pre">1,</span> <span class="pre">1]</span></code>. Gray boxes behind the sub-modules mark their parent module, as in the web app.
+<code class="docutils literal notranslate"><span class="pre">hierarchy=&quot;outline&quot;</span></code> draws dotted boxes around the parents instead, and <code class="docutils literal notranslate"><span class="pre">hierarchy=False</span></code> draws nothing.</p>
+<p>Sub-modules are coloured like any other module. The similarity colouring pairs modules one at a time, as the web app
+does, and a module it cannot pair stays gray (one sub-module of 2023 below). <code class="docutils literal notranslate"><span class="pre">colors=&quot;nodes&quot;</span></code> colours every module.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">"constrained"</span><span class="p">)</span>
+<span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">im_a</span><span class="p">,</span> <span class="n">im_b</span><span class="p">,</span> <span class="n">im_c</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">,</span> <span class="n">module_level</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">im_a</span><span class="p">,</span> <span class="n">im_b</span><span class="p">,</span> <span class="n">im_c</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">,</span> <span class="n">module_level</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">hierarchy</span><span class="o">=</span><span class="s2">"outline"</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"module_level=2"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s2">"medium"</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'hierarchy="outline"'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s2">"medium"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/42e0f6058ffcbd401eed7e139a1de47a84ca73dcacc239c72fbce7bdaca7bcab.png" src="_images/42e0f6058ffcbd401eed7e139a1de47a84ca73dcacc239c72fbce7bdaca7bcab.png" />
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">expand=[(network,</span> <span class="pre">module_id),</span> <span class="pre">...]</span></code> opens single modules instead. <code class="docutils literal notranslate"><span class="pre">network</span></code> is an index (or a network id), and
+<code class="docutils literal notranslate"><span class="pre">module_id</span></code> is a module path such as <code class="docutils literal notranslate"><span class="pre">&quot;1&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;1:2&quot;</span></code>. Here we open module 2 of 2021 only, the department whose
+two teams Infomap tells apart. Expanding a module without sub-modules raises <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">"constrained"</span><span class="p">)</span>
+<span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">im_a</span><span class="p">,</span> <span class="n">im_b</span><span class="p">,</span> <span class="n">im_c</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">"2"</span><span class="p">)]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/44c24e575fabe79f970b401711dfa5ebce1c69e1ebf456a4458fd0b665cb2ba9.png" src="_images/44c24e575fabe79f970b401711dfa5ebce1c69e1ebf456a4458fd0b665cb2ba9.png" />
+</div>
+</div>
+</section>
+<section id="highlighting-groups-of-nodes">
+<h2>Highlighting groups of nodes<a class="headerlink" href="#highlighting-groups-of-nodes" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">highlight=</span></code> colours chosen nodes wherever they go and leaves the rest gray. It takes <code class="docutils literal notranslate"><span class="pre">{label:</span> <span class="pre">node</span> <span class="pre">ids}</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">legend=True</span></code> adds a legend. The label lines take the colour of their node. Here we follow two teams.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">teams</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"Ada's team"</span><span class="p">:</span> <span class="n">TEAMS</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">"Max's team"</span><span class="p">:</span> <span class="n">TEAMS</span><span class="p">[</span><span class="mi">2</span><span class="p">]}</span>  <span class="c1"># node ids</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">"constrained"</span><span class="p">)</span>
+<span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">im_a</span><span class="p">,</span> <span class="n">im_b</span><span class="p">,</span> <span class="n">im_c</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">,</span> <span class="n">highlight</span><span class="o">=</span><span class="n">teams</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/172dcf6628a878bdbca35a45fb0adbf4725fc852fbf1147596d94b7492ec0288.png" src="_images/172dcf6628a878bdbca35a45fb0adbf4725fc852fbf1147596d94b7492ec0288.png" />
+</div>
+</div>
+<p>With <code class="docutils literal notranslate"><span class="pre">identifier=&quot;name&quot;</span></code>, nodes are matched by name, and <code class="docutils literal notranslate"><span class="pre">highlight</span></code> takes names too. <code class="docutils literal notranslate"><span class="pre">highlight</span></code> also accepts a
+function that gets an <code class="docutils literal notranslate"><span class="pre">alluvial.NodeInfo</span></code> (network, id, name, flow, module path, metadata) and returns a label or
+<code class="docutils literal notranslate"><span class="pre">None</span></code>. <code class="docutils literal notranslate"><span class="pre">alluvial.legend(ax,</span> <span class="pre">...)</span></code> replaces the legend and takes the keywords of <code class="docutils literal notranslate"><span class="pre">Axes.legend</span></code>. <code class="docutils literal notranslate"><span class="pre">other=</span></code> adds an
+entry for the gray nodes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">first_letter</span><span class="p">(</span><span class="n">node</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s2">"A–F"</span> <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="s2">"F"</span> <span class="k">else</span> <span class="kc">None</span>
+
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">"constrained"</span><span class="p">)</span>
+<span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">im_a</span><span class="p">,</span> <span class="n">im_b</span><span class="p">,</span> <span class="n">im_c</span><span class="p">],</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+    <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">,</span>
+    <span class="n">identifier</span><span class="o">=</span><span class="s2">"name"</span><span class="p">,</span>
+    <span class="n">highlight</span><span class="o">=</span><span class="n">first_letter</span><span class="p">,</span>
+    <span class="n">highlight_colors</span><span class="o">=</span><span class="p">[</span><span class="s2">"tab:orange"</span><span class="p">],</span>
+<span class="p">)</span>
+<span class="n">alluvial</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">other</span><span class="o">=</span><span class="s2">"others"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"name starts with"</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/fb79b9cbba4f817db7523be566e78d40e5cae3dccb6874c5b91ab4b34fe3f20d.png" src="_images/fb79b9cbba4f817db7523be566e78d40e5cae3dccb6874c5b91ab4b34fe3f20d.png" />
+</div>
+</div>
+</section>
+<section id="state-networks-multilayer-and-memory">
+<h2>State networks: multilayer and memory<a class="headerlink" href="#state-networks-multilayer-and-memory" title="Link to this heading">#</a></h2>
+<p>The three years can also be one multilayer network, with one layer per year. A single Infomap run then finds
+modules that span the years. A multilayer network is a <em>state network</em>: each person has one state node per layer.
+<code class="docutils literal notranslate"><span class="pre">alluvial</span></code> reads the state nodes and labels them by their physical names. <code class="docutils literal notranslate"><span class="pre">split_layers=True</span></code> draws one network per
+layer and matches the layers by physical node, as the web app’s “split layers” does.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ml</span> <span class="o">=</span> <span class="n">infomap</span><span class="o">.</span><span class="n">Infomap</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">num_trials</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># relax rate: Infomap's default, 0.15</span>
+<span class="n">ml</span><span class="o">.</span><span class="n">set_names</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">NAMES</span><span class="p">)))</span>
+<span class="k">for</span> <span class="n">layer</span><span class="p">,</span> <span class="n">year</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">YEARS</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">links</span><span class="p">[</span><span class="n">year</span><span class="p">]:</span>
+        <span class="n">ml</span><span class="o">.</span><span class="n">add_multilayer_intra_link</span><span class="p">(</span><span class="n">layer</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+<span class="n">ml</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">top_modules</span> <span class="o">=</span> <span class="p">{</span><span class="n">node</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">alluvial</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">ml</span><span class="p">)</span><span class="o">.</span><span class="n">nodes</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">top_modules</span><span class="p">)</span><span class="si">}</span><span class="s2"> modules across </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">YEARS</span><span class="p">)</span><span class="si">}</span><span class="s2"> layers"</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">"constrained"</span><span class="p">,</span> <span class="n">width_ratios</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">])</span>
+<span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">ml</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">"all years"</span><span class="p">])</span>
+<span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">ml</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">split_layers</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"split_layers=True"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s2">"medium"</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5 modules across 3 layers
+</pre></div>
+</div>
+<img alt="_images/eee785fde673919496291e4bf791f7062964d4d46c8fcd993bc826a10a9c2890.png" src="_images/eee785fde673919496291e4bf791f7062964d4d46c8fcd993bc826a10a9c2890.png" />
+</div>
+</div>
+<p>Memory (higher-order) networks work the same way. Their nodes are state nodes too.</p>
+<p>Matching state networks with each other needs care. With the default <code class="docutils literal notranslate"><span class="pre">identifier=&quot;id&quot;</span></code>, state nodes are matched by
+state id. That is right only if the state ids mean the same thing in every network. Use <code class="docutils literal notranslate"><span class="pre">identifier=&quot;name&quot;</span></code> to match
+by physical node name instead. Do not mix state networks and ordinary networks under <code class="docutils literal notranslate"><span class="pre">identifier=&quot;id&quot;</span></code>: a state id
+would be compared with a node id. <code class="docutils literal notranslate"><span class="pre">alluvial</span></code> warns when you do.</p>
+</section>
+<section id="reading-infomap-output-files">
+<h2>Reading Infomap output files<a class="headerlink" href="#reading-infomap-output-files" title="Link to this heading">#</a></h2>
+<p>Infomap’s output files work as inputs: <code class="docutils literal notranslate"><span class="pre">.tree</span></code>, <code class="docutils literal notranslate"><span class="pre">.ftree</span></code>, <code class="docutils literal notranslate"><span class="pre">.clu</span></code>, the state versions <code class="docutils literal notranslate"><span class="pre">.stree</span></code>/<code class="docutils literal notranslate"><span class="pre">*_states.tree</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">-o</span> <span class="pre">json</span></code>. The format comes from the suffix. The default network name is the file name. Below we write the three
+runs from Python, which gives the same files as the command line <code class="docutils literal notranslate"><span class="pre">infomap</span> <span class="pre">net.net</span> <span class="pre">out/</span> <span class="pre">-o</span> <span class="pre">tree,ftree,json</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">out</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"tutorial_output"</span><span class="p">)</span>
+<span class="n">out</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">year</span><span class="p">,</span> <span class="n">im</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">YEARS</span><span class="p">,</span> <span class="p">(</span><span class="n">im_a</span><span class="p">,</span> <span class="n">im_b</span><span class="p">,</span> <span class="n">im_c</span><span class="p">)):</span>
+    <span class="n">im</span><span class="o">.</span><span class="n">write_flow_tree</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">out</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"team_</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">.ftree"</span><span class="p">))</span>
+
+<span class="n">paths</span> <span class="o">=</span> <span class="p">[</span><span class="n">out</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"team_</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">.ftree"</span> <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">YEARS</span><span class="p">]</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">"constrained"</span><span class="p">)</span>
+<span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">paths</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ec75c6c01704b2ce51927f9f22225db1939deeaf806767c8cd2154c06b54a0c2.png" src="_images/ec75c6c01704b2ce51927f9f22225db1939deeaf806767c8cd2154c06b54a0c2.png" />
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">alluvial.read</span></code> returns the parsed <code class="docutils literal notranslate"><span class="pre">NetworkFile</span></code>, which is useful for checking what was read. <code class="docutils literal notranslate"><span class="pre">alluvial.layout</span></code>
+returns the geometry without drawing it: every module’s position, flow and label, in a frozen dataclass.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nf</span> <span class="o">=</span> <span class="n">alluvial</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">paths</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nf</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">nf</span><span class="o">.</span><span class="n">format</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nf</span><span class="o">.</span><span class="n">nodes</span><span class="p">),</span> <span class="s2">"nodes, codelength"</span><span class="p">,</span> <span class="n">nf</span><span class="o">.</span><span class="n">codelength</span><span class="p">)</span>
+<span class="n">node</span> <span class="o">=</span> <span class="n">nf</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"first node: </span><span class="si">{</span><span class="n">node</span><span class="o">.</span><span class="n">name</span><span class="si">!r}</span><span class="s2">, module path </span><span class="si">{</span><span class="n">node</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s2">, flow </span><span class="si">{</span><span class="n">node</span><span class="o">.</span><span class="n">flow</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="n">geom</span> <span class="o">=</span> <span class="n">alluvial</span><span class="o">.</span><span class="n">layout</span><span class="p">(</span><span class="n">paths</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">module</span> <span class="ow">in</span> <span class="n">geom</span><span class="o">.</span><span class="n">networks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">modules</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"module </span><span class="si">{</span><span class="n">module</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">: flow </span><span class="si">{</span><span class="n">module</span><span class="o">.</span><span class="n">flow</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, label </span><span class="si">{</span><span class="n">module</span><span class="o">.</span><span class="n">largest_leaf_names</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>team_2021.ftree ftree 36 nodes, codelength 3.61403
+first node: 'Cy', module path 1:1, flow 0.0328947
+module 1: flow 0.329, label ('Cy', 'Dee', 'Eli', 'Fay', 'Gus', 'Jo', 'Kai', 'Lea', 'Hal', 'Ada', 'Ben')
+module 2: flow 0.289, label ('Ola', 'Sam', 'Max', 'Ned', 'Quin', 'Xia', 'Wes', 'Pia', 'Uma', 'Tia', 'Rex')
+module 3: flow 0.204, label ('Ike', 'Fin', 'Gil', 'Hana', 'Eve', 'Jan')
+module 4: flow 0.178, label ('Cal', 'Zoe', 'Dot', 'Abe', 'Bea', 'Yan')
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="naming-and-ordering-modules">
+<h2>Naming and ordering modules<a class="headerlink" href="#naming-and-ordering-modules" title="Link to this heading">#</a></h2>
+<p>For a figure you usually want named modules in a fixed order. <code class="docutils literal notranslate"><span class="pre">module_names</span></code> replaces a module’s node-name label
+by your own name, and <code class="docutils literal notranslate"><span class="pre">module_order</span></code> stacks modules bottom to top. Both refer to modules by network and module id.
+A network is its index (<code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">1</span></code>, …), its network id, or the name given with <code class="docutils literal notranslate"><span class="pre">names=</span></code> (as a string). A module id is a string,
+<code class="docutils literal notranslate"><span class="pre">&quot;3&quot;</span></code>, or <code class="docutils literal notranslate"><span class="pre">&quot;3:1&quot;</span></code> after <code class="docutils literal notranslate"><span class="pre">module_level=2</span></code> or <code class="docutils literal notranslate"><span class="pre">expand</span></code>. Get the ids from a plain <code class="docutils literal notranslate"><span class="pre">layout</span></code> first:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">geometry</span> <span class="o">=</span> <span class="n">alluvial</span><span class="o">.</span><span class="n">layout</span><span class="p">([</span><span class="n">im_a</span><span class="p">,</span> <span class="n">im_b</span><span class="p">,</span> <span class="n">im_c</span><span class="p">],</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">network</span> <span class="ow">in</span> <span class="n">geometry</span><span class="o">.</span><span class="n">networks</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">network</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">network</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">network</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="p">[</span><span class="n">module</span><span class="o">.</span><span class="n">id</span> <span class="k">for</span> <span class="n">module</span> <span class="ow">in</span> <span class="n">network</span><span class="o">.</span><span class="n">modules</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 net0 2021 ['1', '2', '3', '4']
+1 net1 2022 ['1', '2', '3', '4']
+2 net2 2023 ['1', '2', '3', '4']
+</pre></div>
+</div>
+</div>
+</div>
+<p>Module ids are per network: module <code class="docutils literal notranslate"><span class="pre">&quot;1&quot;</span></code> of 2021 and module <code class="docutils literal notranslate"><span class="pre">&quot;1&quot;</span></code> of 2022 are unrelated. To name the same
+group consistently across years, pass a callable. It gets a <code class="docutils literal notranslate"><span class="pre">ModuleInfo</span></code> for every module (<code class="docutils literal notranslate"><span class="pre">node_names</span></code>,
+<code class="docutils literal notranslate"><span class="pre">flow</span></code>, <code class="docutils literal notranslate"><span class="pre">id</span></code>, <code class="docutils literal notranslate"><span class="pre">network_index</span></code>, …) and returns a name, or <code class="docutils literal notranslate"><span class="pre">None</span></code> to keep the node names. Here a module is named
+after the teams with at least four of their six members in it.</p>
+<p><code class="docutils literal notranslate"><span class="pre">module_order={network:</span> <span class="pre">[module_id,</span> <span class="pre">...]}</span></code> lists modules bottom to top. <code class="docutils literal notranslate"><span class="pre">...</span></code> stands for the modules you do not
+list, which keep their order, so <code class="docutils literal notranslate"><span class="pre">[m,</span> <span class="pre">...]</span></code> puts module <code class="docutils literal notranslate"><span class="pre">m</span></code> at the bottom and <code class="docutils literal notranslate"><span class="pre">[...,</span> <span class="pre">m]</span></code> at the top. Below, the
+module with Ada is at the bottom in every year, and each network gets its own id from Infomap’s partition.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LEADERS</span> <span class="o">=</span> <span class="p">{</span><span class="n">NAMES</span><span class="p">[</span><span class="n">team</span><span class="p">[</span><span class="mi">0</span><span class="p">]]:</span> <span class="n">team</span> <span class="k">for</span> <span class="n">team</span> <span class="ow">in</span> <span class="n">TEAMS</span><span class="p">}</span>  <span class="c1"># each team by its first member</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">team_name</span><span class="p">(</span><span class="n">module</span><span class="p">):</span>
+    <span class="s2">"Name a module after the teams that have at least four of their members in it."</span>
+    <span class="n">members</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">module</span><span class="o">.</span><span class="n">node_names</span><span class="p">)</span>
+    <span class="n">teams</span> <span class="o">=</span> <span class="p">[</span><span class="n">leader</span> <span class="k">for</span> <span class="n">leader</span><span class="p">,</span> <span class="n">team</span> <span class="ow">in</span> <span class="n">LEADERS</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="nb">sum</span><span class="p">(</span><span class="n">NAMES</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="ow">in</span> <span class="n">members</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">team</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">4</span><span class="p">]</span>
+    <span class="k">return</span> <span class="s2">" + "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">teams</span><span class="p">)</span> <span class="ow">or</span> <span class="kc">None</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">module_of</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="s2">"The top module of the node with this name."</span>
+    <span class="n">node</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">node</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">alluvial</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">im</span><span class="p">)</span><span class="o">.</span><span class="n">nodes</span> <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">node</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+
+<span class="n">ims</span> <span class="o">=</span> <span class="p">[</span><span class="n">im_a</span><span class="p">,</span> <span class="n">im_b</span><span class="p">,</span> <span class="n">im_c</span><span class="p">]</span>
+<span class="n">ada_at_bottom</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="p">[</span><span class="n">module_of</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="s2">"Ada"</span><span class="p">),</span> <span class="o">...</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">im</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ims</span><span class="p">)}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ada_at_bottom</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">"constrained"</span><span class="p">)</span>
+<span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ims</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">,</span> <span class="n">module_names</span><span class="o">=</span><span class="n">team_name</span><span class="p">,</span> <span class="n">module_order</span><span class="o">=</span><span class="n">ada_at_bottom</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{0: ['1', Ellipsis], 1: ['1', Ellipsis], 2: ['1', Ellipsis]}
+</pre></div>
+</div>
+<img alt="_images/0aa4b9ab8a5ddb07dd308f1bcb79c885f8ce762ee648450c90ae9615dfeb51e5.png" src="_images/0aa4b9ab8a5ddb07dd308f1bcb79c885f8ce762ee648450c90ae9615dfeb51e5.png" />
+</div>
+</div>
+<p>Some things to know:</p>
+<ul class="simple">
+<li><p>Names are drawn as labels on the first and last network only, as in the web app. Names of middle networks
+are kept (<code class="docutils literal notranslate"><span class="pre">ModuleGeometry.name</span></code>) but not drawn.</p></li>
+<li><p>Only visible modules can be ordered. A module below <code class="docutils literal notranslate"><span class="pre">flow_threshold</span></code> raises an error.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">module_order</span></code> reorders all listed modules with one layout, so it stays fast with hundreds of sub-modules.
+“Move up/down” in the web app gives the same order.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">save_diagram</span></code> stores the names and the custom order, and <code class="docutils literal notranslate"><span class="pre">layout</span></code> of the saved files restores them.</p></li>
+</ul>
+<p>Wrong ids raise an error that says what is wrong:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mistakes</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"a year as an int (an int is an index)"</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="n">module_order</span><span class="o">=</span><span class="p">{</span><span class="mi">2021</span><span class="p">:</span> <span class="p">[</span><span class="s2">"1"</span><span class="p">]}),</span>
+    <span class="s2">"a module id as an int"</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="n">module_order</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">]}),</span>
+    <span class="s2">"a top module after module_level=2"</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="n">module_level</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">module_names</span><span class="o">=</span><span class="p">{(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">"2"</span><span class="p">):</span> <span class="s2">"Department"</span><span class="p">}),</span>
+    <span class="s2">"a hidden module"</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="n">flow_threshold</span><span class="o">=</span><span class="mf">0.19</span><span class="p">,</span> <span class="n">module_order</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="p">[</span><span class="s2">"4"</span><span class="p">]}),</span>
+<span class="p">}</span>
+<span class="k">for</span> <span class="n">what</span><span class="p">,</span> <span class="n">kwargs</span> <span class="ow">in</span> <span class="n">mistakes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">alluvial</span><span class="o">.</span><span class="n">layout</span><span class="p">(</span><span class="n">ims</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">except</span> <span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">)</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">what</span><span class="si">}</span><span class="s2">:</span><span class="se">\n</span><span class="s2">  </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">error</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a year as an int (an int is an index):
+  ValueError: module_order: no network 2021 (the diagram has 3 networks; to refer to the network named '2021', pass the string '2021')
+a module id as an int:
+  TypeError: module_order[0]: module ids are strings like '1' or '1:2' (or ...), got 1
+a top module after module_level=2:
+  ValueError: module_names: no module '2' in network 'net0' (it is already expanded: its sub-modules are shown)
+a hidden module:
+  ValueError: module_order: module '4' in network 'net0' is not shown (its flow is below the flow threshold, or zero); only visible modules can be placed
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="a-figure-for-a-paper">
+<h2>A figure for a paper<a class="headerlink" href="#a-figure-for-a-paper" title="Link to this heading">#</a></h2>
+<p>Set your paper’s font in <code class="docutils literal notranslate"><span class="pre">rcParams</span></code>; every font size in the diagram follows <code class="docutils literal notranslate"><span class="pre">font.size</span></code>. Pass your own axes, use
+<code class="docutils literal notranslate"><span class="pre">layout=&quot;constrained&quot;</span></code>, and save as PDF. Labels and limits are fitted again whenever the figure is drawn, so text
+keeps its point size and stays inside each panel. Long names are cut with an ellipsis, and a label that would
+collide with its neighbour loses lines.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">plt</span><span class="o">.</span><span class="n">rc_context</span><span class="p">({</span><span class="s2">"font.family"</span><span class="p">:</span> <span class="s2">"serif"</span><span class="p">,</span> <span class="s2">"font.size"</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">"pdf.fonttype"</span><span class="p">:</span> <span class="mi">42</span><span class="p">}):</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mf">2.4</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">"constrained"</span><span class="p">)</span>
+    <span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">im_a</span><span class="p">,</span> <span class="n">im_b</span><span class="p">,</span> <span class="n">im_c</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">a</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">,</span> <span class="n">max_label_lines</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">ml</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">b</span><span class="p">,</span> <span class="n">split_layers</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s2">"nodes"</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">"tab10"</span><span class="p">)</span>
+    <span class="n">a</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"(a) one Infomap run per year"</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">"left"</span><span class="p">)</span>
+    <span class="n">b</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"(b) one multilayer run"</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">"left"</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">out</span> <span class="o">/</span> <span class="s2">"figure.pdf"</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">out</span> <span class="o">/</span> <span class="s2">"figure.png"</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"figure.pdf: </span><span class="si">{</span><span class="p">(</span><span class="n">out</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="s1">'figure.pdf'</span><span class="p">)</span><span class="o">.</span><span class="n">stat</span><span class="p">()</span><span class="o">.</span><span class="n">st_size</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1024</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> KiB"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>figure.pdf: 18 KiB
+</pre></div>
+</div>
+<img alt="_images/023289616e7cc4485cdde3a43f212e4fca20b772931b5311615bed517c48eb22.png" src="_images/023289616e7cc4485cdde3a43f212e4fca20b772931b5311615bed517c48eb22.png" />
+</div>
+</div>
+<p>The PDF stays vector. A streamline between two colours is a small gradient image clipped to its outline, and
+<code class="docutils literal notranslate"><span class="pre">gradient=False</span></code> makes it a single colour. <code class="docutils literal notranslate"><span class="pre">rasterized=True</span></code> rasterizes only the shapes of a very large diagram and
+keeps the text as vector.</p>
+</section>
+<section id="tweaking-artists">
+<h2>Tweaking artists<a class="headerlink" href="#tweaking-artists" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">plot</span></code> and <code class="docutils literal notranslate"><span class="pre">draw</span></code> return the axes. <code class="docutils literal notranslate"><span class="pre">alluvial.get_artists(ax)</span></code> returns the matplotlib artists they created, for any
+change the keyword arguments do not cover. Every artist has a <code class="docutils literal notranslate"><span class="pre">gid</span></code> (<code class="docutils literal notranslate"><span class="pre">module:&lt;network&gt;:&lt;module&gt;:&lt;group&gt;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">streamline:&lt;id&gt;</span></code>, …), and SVG output keeps it as the element id.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">"constrained"</span><span class="p">)</span>
+<span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">im_a</span><span class="p">,</span> <span class="n">im_b</span><span class="p">,</span> <span class="n">im_c</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">,</span> <span class="n">streamline_kw</span><span class="o">=</span><span class="p">{</span><span class="s2">"alpha"</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">})</span>
+<span class="n">art</span> <span class="o">=</span> <span class="n">alluvial</span><span class="o">.</span><span class="n">get_artists</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">art</span><span class="o">.</span><span class="n">modules</span><span class="p">),</span> <span class="s2">"module rectangles,"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">art</span><span class="o">.</span><span class="n">streamlines</span><span class="p">),</span> <span class="s2">"streamlines"</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">art</span><span class="o">.</span><span class="n">network_labels</span><span class="p">:</span>
+    <span class="n">text</span><span class="o">.</span><span class="n">set_fontweight</span><span class="p">(</span><span class="s2">"bold"</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">rect</span> <span class="ow">in</span> <span class="n">art</span><span class="o">.</span><span class="n">modules</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">rect</span><span class="o">.</span><span class="n">get_gid</span><span class="p">()</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span>
+        <span class="s2">"module:net1:"</span>
+    <span class="p">):</span>  <span class="c1"># the middle network (Infomap objects get ids net0, net1, ...)</span>
+        <span class="n">rect</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+            <span class="n">hatch</span><span class="o">=</span><span class="s2">"///"</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">"white"</span>
+        <span class="p">)</span>  <span class="c1"># hatches take the edge colour, which is the face colour by default</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12 module rectangles, 10 streamlines
+</pre></div>
+</div>
+<img alt="_images/9c29d9646dbb28880bcaba3cd159cad8c42c41133a33be699ce3b0981d1b2c18.png" src="_images/9c29d9646dbb28880bcaba3cd159cad8c42c41133a33be699ce3b0981d1b2c18.png" />
+</div>
+</div>
+</section>
+<section id="open-in-the-web-app">
+<h2>Open in the web app<a class="headerlink" href="#open-in-the-web-app" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">alluvial.save_diagram</span></code> takes the same arguments as <code class="docutils literal notranslate"><span class="pre">layout</span></code> and saves the diagram for the
+<a class="reference external" href="https://www.mapequation.org/alluvial">web app</a>, where you can fine-tune it by hand: move and name modules, recolour,
+change the layout. It writes the web app’s “Download diagram” format, one Infomap JSON file per network in a <code class="docutils literal notranslate"><span class="pre">.zip</span></code> (or loose files
+with <code class="docutils literal notranslate"><span class="pre">loose=True</span></code>): drop the zip on the web app’s load dialog. The files keep the networks, their names, the colours,
+the expanded modules, the layout options, the colour scheme, module names and custom module orders.</p>
+<p><code class="docutils literal notranslate"><span class="pre">alluvial.read</span></code> loads the <code class="docutils literal notranslate"><span class="pre">.zip</span></code> back as one network per file, and <code class="docutils literal notranslate"><span class="pre">layout</span></code>/<code class="docutils literal notranslate"><span class="pre">plot</span></code> restore the diagram from them.
+(The 2019 saved-diagram format, one <code class="docutils literal notranslate"><span class="pre">.json</span></code> with all networks, is no longer supported.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">,</span> <span class="n">module_level</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">alluvial</span><span class="o">.</span><span class="n">save_diagram</span><span class="p">([</span><span class="n">im_a</span><span class="p">,</span> <span class="n">im_b</span><span class="p">,</span> <span class="n">im_c</span><span class="p">],</span> <span class="n">out</span> <span class="o">/</span> <span class="s2">"teams.zip"</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="n">saved</span> <span class="o">=</span> <span class="n">alluvial</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">out</span> <span class="o">/</span> <span class="s2">"teams.zip"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">([</span><span class="n">nf</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">nf</span> <span class="ow">in</span> <span class="n">saved</span><span class="p">],</span> <span class="s2">"palette"</span><span class="p">,</span> <span class="n">saved</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">colors</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">"constrained"</span><span class="p">)</span>
+<span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">saved</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>['2021', '2022', '2023'] palette ['#ea6c63', '#3ac1c0', '#cd9600']
+</pre></div>
+</div>
+<img alt="_images/08565a5a6409749b77a6b13bca26ec75da6e0dabd9dc1b18265ddde88de8c72f.png" src="_images/08565a5a6409749b77a6b13bca26ec75da6e0dabd9dc1b18265ddde88de8c72f.png" />
+</div>
+</div>
+</section>
+<section id="common-mistakes">
+<h2>Common mistakes<a class="headerlink" href="#common-mistakes" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">alluvial</span></code> raises or warns where a diagram would silently be wrong:</p>
+<ul class="simple">
+<li><p>an Infomap object that has not run raises <code class="docutils literal notranslate"><span class="pre">ValueError:</span> <span class="pre">...</span> <span class="pre">call</span> <span class="pre">im.run()</span> <span class="pre">first</span></code>,</p></li>
+<li><p>a missing file raises <code class="docutils literal notranslate"><span class="pre">FileNotFoundError</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">highlight</span></code> identifiers that match no node, and a <code class="docutils literal notranslate"><span class="pre">module_level</span></code> deeper than a network’s module tree, give a
+warning.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+
+<span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">(</span><span class="n">record</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">as</span> <span class="n">caught</span><span class="p">:</span>
+    <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s2">"always"</span><span class="p">)</span>
+    <span class="n">alluvial</span><span class="o">.</span><span class="n">layout</span><span class="p">([</span><span class="n">im_a</span><span class="p">,</span> <span class="n">im_b</span><span class="p">],</span> <span class="n">highlight</span><span class="o">=</span><span class="p">{</span><span class="s2">"typo"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Adaa"</span><span class="p">]},</span> <span class="n">identifier</span><span class="o">=</span><span class="s2">"name"</span><span class="p">)</span>
+    <span class="n">alluvial</span><span class="o">.</span><span class="n">layout</span><span class="p">([</span><span class="n">im_a</span><span class="p">,</span> <span class="n">im_b</span><span class="p">],</span> <span class="n">module_level</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">caught</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"warning:"</span><span class="p">,</span> <span class="n">w</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>warning: highlight: 1 of 1 identifiers match no node in any network (e.g. 'Adaa')
+warning: module_level is deeper than the module tree of 'network 0' (module_level 4, deepest level 2), 'network 1' (module_level 4, deepest level 2); their deepest modules are shown
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="next-steps">
+<h2>Next steps<a class="headerlink" href="#next-steps" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">help(alluvial.layout)</span></code> and <code class="docutils literal notranslate"><span class="pre">help(alluvial.draw)</span></code> list every option. The layout options (<code class="docutils literal notranslate"><span class="pre">height</span></code>,
+<code class="docutils literal notranslate"><span class="pre">module_width</span></code>, <code class="docutils literal notranslate"><span class="pre">flow_threshold</span></code>, <code class="docutils literal notranslate"><span class="pre">sort_modules_by</span></code>, …) are the web app’s.</p></li>
+<li><p>The package README has more examples, including Infomap output files with longer node names.</p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">alluvial</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="capabilities.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">alluvial capabilities: a tested tour</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-small-temporal-network">A small temporal network</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-diagram-for-several-runs">One diagram for several runs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#colours">Colours</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sub-modules">Sub-modules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#highlighting-groups-of-nodes">Highlighting groups of nodes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#state-networks-multilayer-and-memory">State networks: multilayer and memory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-infomap-output-files">Reading Infomap output files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#naming-and-ordering-modules">Naming and ordering modules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-figure-for-a-paper">A figure for a paper</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tweaking-artists">Tweaking artists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-in-the-web-app">Open in the web app</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-mistakes">Common mistakes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps">Next steps</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="_sources/tutorial.ipynb.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright mapequation.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.23.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
