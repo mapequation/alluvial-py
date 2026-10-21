@@ -2,8 +2,8 @@
 
 Run with ``python examples/highlight.py``; writes ``docs/img/highlight.png``. Uses the bundled test data.
 
-``highlight`` colours the chosen nodes wherever they go (everything else stays gray), so their flow can be followed
-across the networks. The label lines take the colour of their node.
+``highlight`` colors the chosen nodes wherever they go (everything else stays gray), so their flow can be followed
+across the networks. The label lines take the color of their node.
 """
 
 from pathlib import Path

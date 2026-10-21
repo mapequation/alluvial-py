@@ -23,9 +23,7 @@ from conftest import TESTS_DIR
 
 import alluvial
 from alluvial._d3_interpolators import interpolator, scheme_interpolators
-from alluvial.engine import DiagramStore
-from alluvial.layout import LayoutOptions, _build_store, _layout_arguments
-from alluvial.palette import (
+from alluvial._palette import (
     DEFAULT_TONE,
     SCHEMES,
     TONES,
@@ -34,6 +32,8 @@ from alluvial.palette import (
     scheme_colors,
     scheme_is_hue_source,
 )
+from alluvial.engine import DiagramStore
+from alluvial.layout import LayoutOptions, _build_store, _layout_arguments
 
 ROOT = TESTS_DIR.parent
 REF = json.loads((TESTS_DIR / "data" / "ts_c3_schemes.json").read_text(encoding="utf-8"))
@@ -129,7 +129,7 @@ def test_scheme_colors_validation() -> None:
         scheme_colors("C3 Oklch", "strong", "90")  # type: ignore[arg-type]
     with pytest.raises(ValueError, match="finite"):
         scheme_colors("C3 Oklch", "strong", math.inf)
-    with pytest.raises(ValueError, match="unknown colour scheme"):
+    with pytest.raises(ValueError, match="unknown color scheme"):
         scheme_colors("C3 Nope")
     # the other schemes ignore the tone and offset
     assert scheme_colors("Paired", "pastel", 90) is SCHEMES["Paired"]

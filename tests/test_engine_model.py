@@ -6,10 +6,10 @@ from __future__ import annotations
 
 import pytest
 
+from alluvial._palette import C3_SINEBOW
 from alluvial.engine import RIGHT, Diagram, DiagramStore
 from alluvial.io.types import NetworkFile, Node
 from alluvial.layout import LayoutOptions
-from alluvial.palette import C3_SINEBOW
 
 
 def net(network_id: str, rows: list[tuple]) -> NetworkFile:

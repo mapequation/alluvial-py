@@ -309,7 +309,7 @@ class AlluvialRestore:
     color_scheme : str or None
         The saved scheme name, when the files form one complete save and the name is known.
     color_tone : str or None
-        The saved c3 tone, when the files form one complete save and the tone is one of ``alluvial.palette.TONES``.
+        The saved c3 tone, when the files form one complete save and the tone is a c3 tone.
     color_offset : float or None
         The saved c3 offset (``None`` for c3's default); meaningful only when ``has_color_offset``.
     has_color_offset : bool
@@ -410,7 +410,7 @@ def read_alluvial_metadata(files: Sequence[NetworkFile]) -> AlluvialRestore:
     block of the same save and the positions are a permutation of ``0..n-1`` for ``n`` files. Problems give
     warnings (returned, not issued), never errors.
     """
-    from ..palette import SCHEMES, TONES
+    from .._palette import SCHEMES, TONES
 
     warnings: list[str] = []
     blocks = _v1_blocks(files, warnings)

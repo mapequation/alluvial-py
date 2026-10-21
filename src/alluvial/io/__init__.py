@@ -1,8 +1,10 @@
-"""Readers: Infomap text output (tree/ftree/stree/clu), Infomap JSON and ``infomap.Infomap`` objects -> ``NetworkFile``.
+"""Readers: Infomap text output (tree/ftree/stree/clu), Infomap JSON, ``infomap.Infomap`` objects and plain
+``{node: module}`` partitions or data frames -> ``NetworkFile``.
 
-Pure Python; ``infomap`` is imported lazily by the Infomap reader only. Spec: docs/dev/port-notes/parsers.md and
-docs/dev/port-notes/v2-io.md (JSON, multilayer splitting).
+Pure Python; ``infomap`` is imported lazily by the Infomap reader only.
 """
+
+# Spec: docs/dev/port-notes/parsers.md and docs/dev/port-notes/v2-io.md (JSON, multilayer splitting).
 
 from __future__ import annotations
 
@@ -14,6 +16,7 @@ from pathlib import Path
 from typing import Any, Literal, overload
 
 from .._warnings import user_stacklevel
+from ._partition import from_dataframe, partition
 from .alluvial_format import read_alluvial_metadata, serialize_diagram, sort_by_saved_position
 from .identifiers import calc_statistics, create_file, set_identifiers, warn_duplicate_identifiers
 from .infomap_reader import from_infomap, is_infomap
@@ -30,7 +33,9 @@ __all__ = [
     "ParseError",
     "calc_statistics",
     "create_file",
+    "from_dataframe",
     "from_infomap",
+    "partition",
     "read",
     "read_alluvial_metadata",
     "read_dir",
@@ -165,7 +170,7 @@ def read_zip(path: str | os.PathLike[str], *, identifier: Literal["id", "name"] 
     entries and macOS ``__MACOSX/`` metadata are skipped silently, other entries with a warning (the web app
     reports them and loads the rest). The name is the JSON ``name`` or the entry name; the id is the JSON string
     ``id`` or the entry's base name without its suffix (the web app's ids are random). A web-app zip from
-    ``save_diagram`` carries its palette (``colors``), colour indices and expansion levels.
+    ``save_diagram`` carries its palette (``colors``), color indices and expansion levels.
     """
     import zipfile
 
@@ -279,7 +284,7 @@ def read(
     network_id: str | None = None,
     split_layers: bool = False,
 ) -> NetworkFile | list[NetworkFile]:
-    """Read one network into a ``NetworkFile`` (or, with ``split_layers=True``, one per layer).
+    r"""Read one network into a ``NetworkFile`` (or, with ``split_layers=True``, one per layer).
 
     Parameters
     ----------
@@ -327,7 +332,7 @@ def read(
     Warns
     -----
     UserWarning
-        If several nodes share an identifier (the engine then matches the last one, as in TS; checked per layer
+        If several nodes share an identifier (the engine then matches the last one, as in the web app; checked per layer
         after a split), if a tree file has node names with a double quote (Infomap writes them unescaped, so the
         id column is misread), or if ``identifier="name"`` is combined with ``split_layers=True``.
 
@@ -349,6 +354,34 @@ def read(
       and its nodes are matched by physical node id (the identifier mode does not apply, as in the web app). A
       non-split network next to the layers matches them only if its identifiers are physical ids too, e.g. a
       first-order ``.tree`` read with ``identifier="id"``.
+
+    Examples
+    --------
+    A parsed Infomap JSON (``infomap -o json``), here written inline:
+
+    >>> import alluvial
+    >>> nf = alluvial.read(
+    ...     {
+    ...         "nodes": [
+    ...             {"id": 1, "name": "a", "path": [1, 1], "flow": 0.5},
+    ...             {"id": 2, "name": "b", "path": [2, 1], "flow": 0.5},
+    ...         ]
+    ...     },
+    ...     name="2020",
+    ... )
+    >>> nf.name, nf.format, [node.name for node in nf.nodes]
+    ('2020', 'json', ['a', 'b'])
+
+    A ``.clu`` file of Infomap (node id, module, flow). The id defaults to the file stem and the name to the
+    file name:
+
+    >>> import pathlib, tempfile
+    >>> with tempfile.TemporaryDirectory() as tmp:
+    ...     path = pathlib.Path(tmp) / "2021.clu"
+    ...     _ = path.write_text("# node_id module flow\n1 1 0.5\n2 1 0.5\n")
+    ...     nf = alluvial.read(path)
+    >>> nf.id, nf.name, nf.format, [node.path for node in nf.nodes]
+    ('2021', '2021.clu', 'clu', ['1', '1'])
     """
     if identifier not in ("id", "name"):
         raise ValueError(f"identifier must be 'id' or 'name', got {identifier!r}")

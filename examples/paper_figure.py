@@ -19,7 +19,7 @@ planted = [DATA / f"planted_t{i}.ftree" for i in range(3)]
 with plt.rc_context({"font.family": "serif", "font.size": 8, "pdf.fonttype": 42}):
     fig, (a, b) = plt.subplots(1, 2, figsize=(7, 2.6), width_ratios=[1.4, 1], layout="constrained")
     alluvial.plot(science, ax=a, names=["2001", "2003", "2005", "2007"], max_label_lines=3)
-    alluvial.plot(planted, ax=b, names=["$t_0$", "$t_1$", "$t_2$"], colors="module_id", palette="tab10")
+    alluvial.plot(planted, ax=b, names=["$t_0$", "$t_1$", "$t_2$"], palette="tab10")
     a.set_title("(a) Citation flow between journals", loc="left")
     b.set_title("(b) Planted partition", loc="left")
 

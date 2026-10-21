@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "alluvial"
-version = "0.6.0"
+version = "0.7.0"
 description = "Alluvial diagrams of Infomap partitions for matplotlib, with the layout of the mapequation.org web app"
 readme = "README.md"
 license = "MIT"
@@ -52,6 +52,7 @@ dev = [
     "ruff>=0.6",
     "nbconvert>=7",
     "ipykernel>=6.3.1",
+    "pandas>=2",  # tests of alluvial.from_dataframe and DataFrame input; not a runtime dependency
 ]
 
 # The Sphinx site (docs/, deployed by .github/workflows/docs.yml); a dependency group, so not in the package metadata.
@@ -106,7 +107,7 @@ select = ["E", "W", "F", "I", "UP", "B", "SIM", "RUF"]
 ignore = ["E501", "B905", "RUF001", "RUF002", "RUF003"]
 
 [tool.ruff.lint.per-file-ignores]
-"src/alluvial/palette.py" = ["E741"]  # `l` is HSL/HCL lightness, as in the d3 sources
+"src/alluvial/_palette.py" = ["E741"]  # `l` is HSL/HCL lightness, as in the d3 sources
 "examples/*.py" = ["E402"]  # imports after sys.path / backend setup
 "tests/test_io_infomap.py" = ["E402"]  # imports after pytest.importorskip("infomap")
 

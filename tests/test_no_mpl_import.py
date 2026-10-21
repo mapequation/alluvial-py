@@ -8,7 +8,7 @@ CODE = f"""
 import sys
 import alluvial
 import alluvial.layout, alluvial.geometry, alluvial.io, alluvial.io.types, alluvial.engine
-import alluvial.palette, alluvial.tree_path, alluvial._jscompat
+import alluvial._palette, alluvial.tree_path, alluvial._jscompat
 from alluvial import layout, read, LayoutOptions, AlluvialGeometry, NetworkFile, NodeInfo, split_layers, __version__
 ml = [r"{DATA}/multilevel_t{{i}}.tree".format(i=i) for i in range(3)]
 layout(ml, module_level=2, expand=[(1, "1"), (1, "1:1")], highlight={{"a": [1, 2]}}, highlight_colors=["red"])

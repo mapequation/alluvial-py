@@ -1,6 +1,6 @@
 """Multilayer networks: one Infomap run on a four-layer network, drawn with one network per layer.
 
-Run with ``python examples/multilayer.py``; writes ``docs/img/multilayer.png``. Needs ``pip install "alluvial[infomap]"``.
+Run with ``python examples/multilayer.py``; writes ``docs/img/multilayer.png``. Needs infomap (``pip install infomap``).
 
 ``split_layers=True`` splits the multilayer partition into its layers (as the web app does), so the diagram shows how
 each node's module changes from layer to layer. Nodes are matched across layers by their physical id.

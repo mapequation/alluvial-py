@@ -183,7 +183,7 @@ def test_v3_round_trip(name: str) -> None:
 
 
 def test_schemes_match_ts_dump() -> None:
-    from alluvial.palette import C3_SINEBOW, SCHEME_GROUPS, SCHEMES
+    from alluvial._palette import C3_SINEBOW, SCHEME_GROUPS, SCHEMES
 
     data = json.loads((TESTS_DIR / "data" / "ts_color_schemes.json").read_text(encoding="utf-8"))
     assert list(SCHEMES) == data["names"]

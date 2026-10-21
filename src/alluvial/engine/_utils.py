@@ -94,7 +94,7 @@ def js_log2(x: float) -> float:
     build the fixtures are generated with): 0 mismatches against it in 3.3M inputs, while plain fdlibm
     arithmetic (an x86-64 V8 build) differs from it in ~1 of 300k. This port uses the fused form.
 
-    Fast path: for an exact power of two (normal or subnormal) the algorithm below normalises ``x`` to 1, so
+    Fast path: for an exact power of two (normal or subnormal) the algorithm below normalizes ``x`` to 1, so
     ``f = 0`` and every correction term is 0; the result is exactly ``k``. ``kl_div`` against a mixture with a zero
     entry calls ``log2(2)`` for almost every term (98 % of the calls on the science networks).
     """

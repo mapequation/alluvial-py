@@ -10,12 +10,12 @@ import warnings
 import pytest
 from conftest import TESTS_DIR, assert_matches
 
+from alluvial._palette import C3_SINEBOW
 from alluvial.engine import DiagramStore
 from alluvial.engine._utils import move_item
 from alluvial.engine.store import HIGHLIGHT_KEY
 from alluvial.io import read
 from alluvial.layout import LayoutOptions
-from alluvial.palette import C3_SINEBOW
 
 DATA = TESTS_DIR / "data"
 

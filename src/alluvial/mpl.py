@@ -1,21 +1,23 @@
 """Thin matplotlib renderer for ``AlluvialGeometry``.
 
-Spec: docs/dev/design.md (Coordinates, Public API, Changes after review) and port-notes/colors-render.md §7,
-streamlines.md §8. ``draw`` maps the layout's y-down coordinates with ``y -> height - y`` so the largest module is
-at the bottom.
+``draw`` maps the layout's y-down coordinates with ``y -> height - y`` so the largest module is at the bottom.
 
 Shapes live in data coordinates (layout px). Every text size, gap and margin is in points, so the figure reads the
 same at any axes size. The labels and axes limits are fitted again at every draw by an invisible ``_Fitter``
 artist, so the diagram adapts to layout engines (``layout="constrained"``), ``fig.set_size_inches`` and savefig.
 """
 
+# Spec: docs/dev/design.md (Coordinates, Public API, Changes after review) and port-notes/colors-render.md §7,
+# streamlines.md §8.
+
 from __future__ import annotations
 
 import inspect
+import itertools
 import math
 import numbers
 import warnings
-from collections.abc import Sequence
+from collections.abc import Iterable, Sequence
 from dataclasses import dataclass, field
 from typing import TYPE_CHECKING, Any
 
@@ -33,7 +35,7 @@ from matplotlib.path import Path
 from matplotlib.text import Text
 from matplotlib.textpath import text_to_path
 
-from . import palette as _palette
+from . import _palette
 from ._warnings import user_stacklevel
 
 if TYPE_CHECKING:
@@ -67,19 +69,27 @@ Z_TEXT = 3.0
 # The web app's hierarchy rendering (v2-hierarchy.md §9): ShadowModule / OutlineModule.
 SHADOW_OFFSET = 5.0  # hierarchicalModuleOffset, layout px per level below the deepest
 SHADOW_COLOR = "#a4a4b0"  # #b6b69f at opacity 0.5 with mix-blend-mode difference, over white
-OUTLINE_COLOR = "#b6b69f"
-OUTLINE_ALPHA = 0.5
+# A solid thin dark gray line instead of the web app's dotted (strokeDasharray 1,4) light outline.
+OUTLINE_COLOR = "0.3"
+OUTLINE_LINEWIDTH = 0.8  # points
+# Size of a figure draw() makes itself, in inches (see _figure_size).
+FIG_HEIGHT_BASE = 1.0
+FIG_HEIGHT_PER_MODULE = 0.28
+FIG_HEIGHT_RANGE = (2.0, 6.0)
+FIG_WIDTH_BASE = 0.4  # the first network
+FIG_WIDTH_PER_NETWORK = 1.1  # each further network with its streamlines
+FIG_DIAGRAM_MAX_WIDTH = 12.0
 LEGEND_GAP_EM = 0.6  # gap between the legend and the top of the diagram (or its labels), in label-font em
 HIERARCHY_MODES = ("shadow", "outline")
 
 RGB = tuple[float, float, float]
 
 
-# --------------------------------------------------------------------------------------------------------- colours
+# --------------------------------------------------------------------------------------------------------- colors
 
 
 class _Colors:
-    """``make_fill`` with matplotlib colour specs: palette cycling, insignificant groups brighter."""
+    """``make_fill`` with matplotlib color specs: palette cycling, insignificant groups brighter."""
 
     def __init__(self, palette: Sequence[Any], default_color: Any) -> None:
         # A None entry is a JS ``undefined`` in the store's highlightColors, which the browser fills black.
@@ -110,7 +120,7 @@ class _Colors:
         return _palette.to_rgb01(color)
 
     def text(self, highlight_index: int, insignificant: bool = False) -> RGB:
-        """Label-line colour (web ``highlightColor("#000", highlightColors)``): black when not highlighted or out of
+        """Label-line color (web ``highlightColor("#000", highlightColors)``): black when not highlighted or out of
         the palette, brighter for insignificant names."""
         if 0 <= highlight_index < len(self._palette):
             color = self._palette[highlight_index]
@@ -123,13 +133,13 @@ class _Colors:
         n = len(self._palette)
         if self.cycled:
             warnings.warn(
-                f"highlight indices up to {max(self.cycled)} exceed the palette of {n} colours; cycling the palette",
+                f"highlight indices up to {max(self.cycled)} exceed the palette of {n} colors; cycling the palette",
                 UserWarning,
                 stacklevel=user_stacklevel(),
             )
         if self.invalid:
             warnings.warn(
-                f"highlight indices {sorted(self.invalid)} have no palette colour; using the default colour",
+                f"highlight indices {sorted(self.invalid)} have no palette color; using the default color",
                 UserWarning,
                 stacklevel=user_stacklevel(),
             )
@@ -198,6 +208,16 @@ class AlluvialArtists:
         ``Rectangle`` or a dotted ``FancyBboxPatch``.
     legend : matplotlib.legend.Legend or None
         The highlight legend, from ``draw(..., legend=True)`` or ``alluvial.legend(ax)``.
+
+    Examples
+    --------
+    >>> import alluvial
+    >>> ax = alluvial.plot([{"a": 1, "b": 1, "c": 2}, {"a": 1, "b": 2, "c": 2}], names=["2020", "2021"])
+    >>> artists = alluvial.get_artists(ax)
+    >>> len(artists.modules), len(artists.streamlines), [text.get_text() for text in artists.network_labels]
+    (4, 3, ['2020', '2021'])
+    >>> artists.network_labels[0].get_gid()
+    'network-label:net0'
     """
 
     geometry: AlluvialGeometry
@@ -215,10 +235,13 @@ def get_artists(ax: Axes) -> AlluvialArtists:
 
     Examples
     --------
-    >>> ax = alluvial.plot(networks)                                 # doctest: +SKIP
-    >>> art = alluvial.get_artists(ax)                               # doctest: +SKIP
-    >>> for text in art.network_labels:                              # doctest: +SKIP
+    >>> import alluvial
+    >>> ax = alluvial.plot([{"a": 1, "b": 1, "c": 2}, {"a": 1, "b": 2, "c": 2}], names=["2020", "2021"])
+    >>> artists = alluvial.get_artists(ax)
+    >>> for text in artists.network_labels:
     ...     text.set_fontweight("bold")
+    >>> for patch in artists.streamlines:
+    ...     patch.set_alpha(0.5)
     """
     return _fitter(ax).artists
 
@@ -343,7 +366,7 @@ class _Block:
     names: list[str]
     texts: list[Text]
     x: float  # data x of the module edge the label hangs off
-    y: float  # data y of the module centre
+    y: float  # data y of the module center
     fontsize: float
     half_x: float  # half the x-height, points
     shown: list[str] = field(default_factory=list)
@@ -402,9 +425,6 @@ class _Fitter(Artist):
         self._label_pad = label_pad
         self._max_label_width = max_label_width
         self._avoid = avoid_label_overlap
-        self.native: tuple[float, float] | None = (
-            None  # axes size (pt) of a figure draw() sized at 1 pt per px
-        )
         self.overflow = False
         self.legend: Legend | None = None  # placed above the diagram; the fit reserves its height
         self._legend_gap = 0.0
@@ -444,22 +464,14 @@ class _Fitter(Artist):
     def fit(self, renderer: RendererBase | None, native: bool = False) -> tuple[float, float, float, float]:
         """Fit labels and limits to the axes and apply them; return the limits.
 
-        With ``native``, solve at one point per px instead (the caller sizes the figure to the limits). An axes still at
-        that native size keeps exactly one point per px as long as the content fits.
+        With ``native``, solve at one point per px instead, with untruncated labels (``draw`` measures the label space
+        of its own figure so).
         """
-        if native:
-            sol = self._solve(None, None, renderer)
-        else:
-            w_pt, h_pt = self.axes_size_pt(renderer)
-            sol = None
-            if self.native is not None and np.allclose((w_pt, h_pt), self.native, atol=0.5):
-                fixed = self._solve(None, None, renderer)
-                x0, x1, y0, y1 = fixed.limits
-                if x1 - x0 <= w_pt + 0.5 and y1 - y0 <= h_pt + 0.5:
-                    sol = fixed
-                    sol.limits = (x0, x0 + w_pt, y0, y0 + h_pt)
-            if sol is None:
-                sol = self._solve(w_pt, h_pt, renderer)
+        sol = (
+            self._solve(None, None, renderer)
+            if native
+            else self._solve(*self.axes_size_pt(renderer), renderer)
+        )
         self.overflow = sol.overflow
         self._apply(sol)
         return sol.limits
@@ -515,7 +527,7 @@ class _Fitter(Artist):
         T = top + legend_h + PAD_PT
         B = bottom + name_space + PAD_PT
 
-        # Horizontal: label columns, then network names truncated to the space between network centres.
+        # Horizontal: label columns, then network names truncated to the space between network centers.
         left = max((w for b in self._blocks if b.side < 0 for w in b.widths[: b.n]), default=None)
         right = max((w for b in self._blocks if b.side > 0 for w in b.widths[: b.n]), default=None)
         L0 = PAD_PT + (0.0 if left is None else left + self._label_pad)
@@ -616,6 +628,29 @@ class _Fitter(Artist):
             ax.set_ylim(*sol.limits[2:])
 
 
+def _figure_height(geometry: AlluvialGeometry) -> float:
+    """Height in inches of a figure ``draw`` makes itself: grows with the modules of the fullest network."""
+    n = max((len(network.modules) for network in geometry.networks), default=0)
+    lo, hi = FIG_HEIGHT_RANGE
+    return min(max(FIG_HEIGHT_BASE + FIG_HEIGHT_PER_MODULE * n, lo), hi)
+
+
+def _figure_width(geometry: AlluvialGeometry, label_pt: float, name_pt: float = 0.0) -> float:
+    """Width in inches of a figure ``draw`` makes itself: per network, plus the labels (at most as wide again).
+
+    ``name_pt`` is the space a network name needs between network centers; the diagram widens to give it, and the
+    margins hold half a name on each side.
+    """
+    n = max(len(geometry.networks), 1)
+    diagram = FIG_WIDTH_BASE + FIG_WIDTH_PER_NETWORK * (n - 1)
+    xs = [network.x + 0.5 * network.width for network in geometry.networks]
+    min_dx = min((b - a for a, b in itertools.pairwise(xs)), default=0.0)
+    if name_pt > 0 and min_dx > 0:
+        diagram = max(diagram, name_pt / min_dx * float(geometry.width) / 72)
+    diagram = min(diagram, FIG_DIAGRAM_MAX_WIDTH)
+    return diagram + min(max(label_pt, name_pt, 0.0) / 72, diagram)
+
+
 def _check_draw_args(geometry: Any, ax: Any) -> None:
     from matplotlib.axes import Axes
 
@@ -685,13 +720,15 @@ def draw(
     geometry : AlluvialGeometry
         Result of ``alluvial.layout``.
     ax : matplotlib.axes.Axes, optional
-        Target axes. By default a new figure is created at one layout px per point, sized to fit the labels.
-    palette : sequence of colours, str or Colormap, optional
-        Highlight colours, or a matplotlib colormap (name). Qualitative maps are used as is, continuous maps are
-        sampled to the needed number of colours. Defaults to ``geometry.palette``. Indices beyond the palette cycle
+        Target axes, drawn on at its size. By default a new figure is created, sized by content: 1.0 + 0.28 in per
+        module of the network with the most modules (between 2 and 6 in) tall, and 0.4 + 1.1 in per further network
+        wide, plus the width of the labels (at most as much again).
+    palette : sequence of colors, str or Colormap, optional
+        Highlight colors, or a matplotlib colormap (name). Qualitative maps are used as is, continuous maps are
+        sampled to the needed number of colors. Defaults to ``geometry.palette``. Indices beyond the palette cycle
         it, with a warning.
-    default_color : colour, optional
-        Colour of unhighlighted modules; defaults to the web app's ``#b6b69f``.
+    default_color : color, optional
+        Color of unhighlighted modules; defaults to the web app's gray.
     module_labels, network_labels : bool, default True
         Draw module name labels (first and last network) and network names (below each network).
     fontsize : float or str, optional
@@ -703,39 +740,40 @@ def draw(
         1.8 em of module height, an odd number).
     max_label_width : float, "auto" or None, default "auto"
         Longer label lines are truncated with an ellipsis to this width in points. ``"auto"`` keeps each label
-        column within a quarter of the axes width (no cap on a figure ``draw`` made itself); None never truncates.
+        column within a quarter of the axes width; None never truncates.
     avoid_label_overlap : bool, default True
-        Where labels of neighbouring modules would overlap, drop lines of the smaller module, then its whole label.
+        Where labels of neighboring modules would overlap, drop lines of the smaller module, then its whole label.
         False reproduces the web app, which lets them overlap.
     label_pad : float, default 3
         Gap between a module and its label, in points.
     streamline_alpha : float, default 0.8
         Streamline opacity.
     gradient : bool, default True
-        Fill streamlines whose ends differ in colour with a horizontal gradient (as the web app does; a small
-        embedded image, clipped to the streamline). If False they use the colour of their left end, all vector.
+        Fill streamlines whose ends differ in color with a horizontal gradient (as the web app does; a small
+        embedded image, clipped to the streamline). If False they use the color of their left end, all vector.
     edgecolor, linewidth : default "face", 0.3
-        Module edge style. The default hairline in the face colour hides the antialiasing seams between stacked
+        Module edge style. The default hairline in the face color hides the antialiasing seams between stacked
         groups and at streamline ends; use ``linewidth=0`` for exact web app rectangles.
     rasterized : bool, default False
         Rasterize modules and streamlines (texts stay vector) in PDF/SVG output, for very large diagrams.
     hierarchy : bool or {"shadow", "outline"}, default True
         How to show the parent modules of expanded sub-modules (``NetworkGeometry.outlines``, from
         ``layout(module_level=...)`` or ``expand=``), as the web app does: ``"shadow"`` (or True) draws a gray box
-        behind each parent, offset right and down by 5 px per level; ``"outline"`` a dotted rounded box around it.
+        behind each parent, offset right and down by 5 px per level; ``"outline"`` a thin solid dark gray rounded
+        box around it (the web app's is dotted).
         False or None draws nothing. A diagram of top modules has no outlines either way.
     legend : bool, default False
         Add a legend of the highlight labels (``layout(highlight=...)``) above the diagram; see ``alluvial.legend``.
     label_colors : bool or "auto", default "auto"
-        Colour each module label line by its node's highlight colour, as the web app does (black when gray).
-        ``"auto"`` does so only for a diagram with highlight labels (``layout(highlight=...)``), where the colour
+        Color each module label line by its node's highlight color, as the web app does (black when gray).
+        ``"auto"`` does so only for a diagram with highlight labels (``layout(highlight=...)``), where the color
         tells which names belong to a group.
     module_kw, streamline_kw : dict, optional
         Extra ``Rectangle`` / streamline properties (e.g. ``{"hatch": "//", "edgecolor": "white"}``,
-        ``{"alpha": 0.6}``). A hatch is drawn in the edge colour, which is the face colour by default.
+        ``{"alpha": 0.6}``). A hatch is drawn in the edge color, which is the face color by default.
     hierarchy_kw : dict, optional
         Extra properties of the hierarchy shadows or outlines (e.g. ``{"facecolor": "0.85"}``,
-        ``{"edgecolor": "k", "alpha": 1}``).
+        ``{"edgecolor": "k", "linewidth": 1.5}``, ``{"linestyle": "--"}``).
     text_kw : dict, optional
         Extra ``Text`` properties for all labels (e.g. ``{"family": "serif"}``).
     label_kw, network_label_kw : dict, optional
@@ -748,10 +786,12 @@ def draw(
 
     Examples
     --------
-    >>> geom = alluvial.layout(["t0.ftree", "t1.ftree"], names=["2020", "2021"])   # doctest: +SKIP
-    >>> fig, ax = plt.subplots(figsize=(3.4, 2.4), layout="constrained")           # doctest: +SKIP
-    >>> alluvial.draw(geom, ax, fontsize=6, max_label_lines=3)                      # doctest: +SKIP
-    >>> fig.savefig("alluvial.pdf")                                                 # doctest: +SKIP
+    >>> import alluvial
+    >>> import matplotlib.pyplot as plt
+    >>> geometry = alluvial.layout([{"a": 1, "b": 1, "c": 2}, {"a": 1, "b": 2, "c": 2}], names=["2020", "2021"])
+    >>> fig, ax = plt.subplots(figsize=(3.4, 2.4), layout="constrained")
+    >>> ax = alluvial.draw(geometry, ax, fontsize=6, max_label_lines=3)
+    >>> fig.savefig("alluvial.pdf")
     """
     _check_draw_args(geometry, ax)
     if max_label_lines is not None:
@@ -777,10 +817,8 @@ def draw(
     own_figure = ax is None
     W, H = float(geometry.width), float(geometry.height)
     if own_figure:
-        # The native fit below does not depend on this size; cap it so that creating the renderer for text
-        # measurement stays under Agg's size limit (2**16 px per side in matplotlib 3.7 and 3.8).
-        cap = 60000 / plt.rcParams["figure.dpi"]
-        fig = plt.figure(figsize=(min(max(W, 1.0) / 72, cap), min(max(H, 1.0) / 72, cap)))
+        # Sized by content (see _figure_width/_figure_height); the width is set once the labels are measured.
+        fig = plt.figure(figsize=(_figure_width(geometry, 0.0), _figure_height(geometry)))
         ax = fig.add_axes((0.0, 0.0, 1.0, 1.0))
     assert ax is not None
 
@@ -861,10 +899,8 @@ def draw(
                     kw = {
                         "fill": False,
                         "edgecolor": OUTLINE_COLOR,
-                        "alpha": OUTLINE_ALPHA,
-                        "linewidth": 1.2,
-                        "linestyle": (0, (0.01, 2.5)),
-                        "capstyle": "round",
+                        "linewidth": OUTLINE_LINEWIDTH,
+                        "linestyle": "-",
                         "joinstyle": "round",
                         "zorder": Z_MODULE - 0.5 / (n_lines + 1),
                         **h_kw,
@@ -967,26 +1003,27 @@ def draw(
         _add_legend(ax, fitter)
     renderer = ax.figure._get_renderer()
     if own_figure:
-        # One layout px per point; the figure is sized to the content. Resized later, it is fitted like any axes.
-        x0, x1, y0, y1 = fitter.fit(renderer, native=True)
-        ax.figure.set_size_inches((x1 - x0) / 72, (y1 - y0) / 72)
-        fitter.native = fitter.axes_size_pt()
-    else:
-        fitter.fit(renderer)
-        if fitter.overflow:
-            warnings.warn(
-                "the labels leave almost no room for the diagram in this axes; use a larger axes, a smaller "
-                "fontsize, max_label_width or max_label_lines",
-                UserWarning,
-                stacklevel=user_stacklevel(),
-            )
+        # Label space: the width the untruncated labels and hierarchy boxes add at one layout px per point.
+        x0, x1, _, _ = fitter.fit(renderer, native=True)
+        name_pt = max(
+            (_measure(t, s, renderer)[0] + 0.5 * t.get_fontsize() + PAD_PT for t, _, s in names_), default=0.0
+        )
+        ax.figure.set_size_inches(_figure_width(geometry, x1 - x0 - W, name_pt), _figure_height(geometry))
+    fitter.fit(renderer)
+    if fitter.overflow:
+        warnings.warn(
+            "the labels leave almost no room for the diagram in this axes; use a larger axes, a smaller "
+            "fontsize, max_label_width or max_label_lines",
+            UserWarning,
+            stacklevel=user_stacklevel(),
+        )
     return ax
 
 
 def legend(ax: Axes, *, other: str | None = None, **kwargs: Any) -> Legend | None:
     """Add a legend of the highlight labels (``layout(highlight=...)``) of the diagram drawn on ``ax``.
 
-    By default the legend is a row of colour swatches centred above the diagram, inside the axes. It takes more rows
+    By default the legend is a row of color swatches centered above the diagram, inside the axes. It takes more rows
     when it is wider than the axes, and the fit makes room for it at every draw. Passing ``loc`` or
     ``bbox_to_anchor`` places it like any matplotlib legend instead (no room is made). Calling it again replaces
     the legend.
@@ -996,7 +1033,7 @@ def legend(ax: Axes, *, other: str | None = None, **kwargs: Any) -> Legend | Non
     ax : matplotlib.axes.Axes
         An axes ``draw`` or ``plot`` drew on.
     other : str, optional
-        Also add an entry in the default (gray) colour with this label, e.g. ``"other"``.
+        Also add an entry in the default (gray) color with this label, e.g. ``"other"``.
     **kwargs
         ``Axes.legend`` keywords (e.g. ``title``, ``fontsize``, ``ncols``, ``frameon``).
 
@@ -1004,6 +1041,15 @@ def legend(ax: Axes, *, other: str | None = None, **kwargs: Any) -> Legend | Non
     -------
     matplotlib.legend.Legend or None
         None (with a warning) if the geometry has no highlight labels and no ``other``.
+
+    Examples
+    --------
+    >>> import alluvial
+    >>> networks = [{"a": 1, "b": 1, "c": 2}, {"a": 1, "b": 2, "c": 2}]
+    >>> ax = alluvial.plot(networks, highlight={"group a": ["a"]})
+    >>> legend = alluvial.legend(ax, other="other", title="Nodes")
+    >>> [text.get_text() for text in legend.get_texts()]
+    ['group a', 'other']
     """
     return _add_legend(ax, _fitter(ax), other=other, **kwargs)
 
@@ -1022,7 +1068,7 @@ def _add_legend(ax: Axes, fitter: _Fitter, *, other: str | None = None, **kwargs
         fitter.set_legend(None)
     if not entries:
         warnings.warn(
-            "no highlight labels to show in a legend: every label is drawn in the default (gray) colour; pass "
+            "no highlight labels to show in a legend: every label is drawn in the default (gray) color; pass "
             "other='...' for a gray entry"
             if art.geometry.highlight_labels
             else "no highlight labels to show in a legend; use layout(..., highlight=...)",
@@ -1078,15 +1124,18 @@ def _legend_columns(labels: list[str], fontsize: float, opts: dict[str, Any], wi
 _DRAW_KWARGS = frozenset(p for p in inspect.signature(draw).parameters if p not in ("geometry", "ax"))
 
 
-def plot(networks: Sequence[Any], ax: Axes | None = None, **kwargs: Any) -> Axes:
+def plot(networks: Iterable[Any], ax: Axes | None = None, **kwargs: Any) -> Axes:
     """Lay out and draw in one call: ``draw(layout(networks, **layout_kwargs), ax, **draw_kwargs)``.
 
     Parameters
     ----------
-    networks : sequence of str or PathLike, infomap.Infomap, Infomap JSON dict or NetworkFile
-        Networks from left to right (see ``alluvial.layout``).
+    networks : iterable of str or PathLike, infomap.Infomap, dict or NetworkFile, or a pandas DataFrame
+        Networks from left to right, as for ``alluvial.layout``: paths, run ``infomap.Infomap`` objects, Infomap
+        JSON dicts, ``NetworkFile`` objects, dicts mapping nodes to modules (``alluvial.partition(...)``), or a
+        long-format DataFrame with one network per ``network`` value (``alluvial.from_dataframe``).
     ax : matplotlib.axes.Axes, optional
-        Target axes; by default a new figure at one layout px per point.
+        Target axes; by default a new figure sized by content (see ``alluvial.draw``): taller with more modules,
+        wider with more networks and longer labels.
     **kwargs
         Keyword arguments of ``alluvial.layout`` (including ``LayoutOptions`` fields) and ``alluvial.draw``.
 
@@ -1097,9 +1146,16 @@ def plot(networks: Sequence[Any], ax: Axes | None = None, **kwargs: Any) -> Axes
 
     Examples
     --------
-    >>> ax = alluvial.plot([im_2020, im_2021], names=["2020", "2021"])             # doctest: +SKIP
-    >>> fig, ax = plt.subplots(figsize=(3.4, 2.4), layout="constrained")           # doctest: +SKIP
-    >>> alluvial.plot(["t0.ftree", "t1.ftree"], ax=ax, colors="module_id", palette="tab10")  # doctest: +SKIP
+    >>> import alluvial
+    >>> ax = alluvial.plot([{"a": 1, "b": 1, "c": 2}, {"a": 1, "b": 2, "c": 2}], names=["2020", "2021"])
+
+    Layout and drawing keywords go together, here on an axes of your own:
+
+    >>> import matplotlib.pyplot as plt
+    >>> fig, ax = plt.subplots(figsize=(3.4, 2.4), layout="constrained")
+    >>> ax = alluvial.plot(
+    ...     [{"a": 1, "b": 1, "c": 2}, {"a": 1, "b": 2, "c": 2}], ax=ax, colors="similarity", palette="tab10"
+    ... )
     """
     from .layout import LAYOUT_KEYWORDS, LayoutOptions, layout
 

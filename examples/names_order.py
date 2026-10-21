@@ -1,4 +1,4 @@
-"""Named modules in a custom order: four years of a citation network, each module labelled by its field.
+"""Named modules in a custom order: four years of a citation network, each module labeled by its field.
 
 Run with ``python examples/names_order.py``; writes ``docs/img/names_order.png``. Uses the bundled test data.
 

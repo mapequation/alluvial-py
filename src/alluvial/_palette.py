@@ -1,11 +1,11 @@
-"""Colour data and colour functions of the web app.
+"""Color data and color functions of the web app.
 
-- ``C3_SINEBOW``: the default 512-colour scheme ``"C3 Sinebow"`` (``schemes/index.ts``) in c3's default tone,
+- ``C3_SINEBOW``: the default 512-color scheme ``"C3 Sinebow"`` (``schemes/index.ts``) in c3's default tone,
   verbatim TS strings.
-- ``SCHEMES``/``SCHEME_GROUPS``/``get_scheme``: the 65 named colour schemes of the web app (``COLOR_SCHEMES``,
+- ``SCHEMES``/``SCHEME_GROUPS``/``get_scheme``: the 65 named color schemes of the web app (``COLOR_SCHEMES``,
   ``SCHEME_GROUPS``), dumped verbatim from TS (docs/dev/port-notes/v3-webapp-json.md §6).
 - ``TONES``/``DEFAULT_TONE``/``scheme_colors``/``scheme_is_hue_source``/``default_scheme_offset``/
-  ``hierarchy_options``: the c3 tone and offset of the C3 schemes and of colouring by module hierarchy
+  ``hierarchy_options``: the c3 tone and offset of the C3 schemes and of coloring by module hierarchy
   (``schemes/index.ts``, web app 1.16), computed with ``c3-colors`` (the Python port of ``@mapequation/c3``, the
   same version as the TS lockfile).
 - ``brighter``: an exact port of ``d3.hsl(color).brighter(k).toString()`` (d3-color 3.1.0).
@@ -67,12 +67,12 @@ def _load_schemes() -> tuple[dict[str, tuple[str, ...]], dict[str, tuple[str, ..
 
 _SCHEMES, _GROUPS = _load_schemes()
 
-#: The web app's named colour schemes (TS ``COLOR_SCHEMES``, in its key order): name -> colour strings, verbatim
+#: The web app's named color schemes (TS ``COLOR_SCHEMES``, in its key order): name -> color strings, verbatim
 #: (hex or ``"rgb(r, g, b)"``). The default is ``"C3 Sinebow"``.
 SCHEMES: Mapping[str, tuple[str, ...]] = MappingProxyType(_SCHEMES)
 #: The scheme groups of the web app's scheme menu (TS ``SCHEME_GROUPS``): group -> scheme names.
 SCHEME_GROUPS: Mapping[str, tuple[str, ...]] = MappingProxyType(_GROUPS)
-#: The default scheme ``"C3 Sinebow"`` in c3's default tone (512 colours).
+#: The default scheme ``"C3 Sinebow"`` in c3's default tone (512 colors).
 C3_SINEBOW: tuple[str, ...] = _SCHEMES["C3 Sinebow"]
 
 # --- c3 tone and offset (TS schemes/index.ts) ------------------------------------------------------------------
@@ -98,7 +98,7 @@ def _c3_tones() -> tuple[str, ...]:
     return tuple(c3.tones)
 
 
-#: The c3 tones, which set the lightness and chroma of the C3 schemes and of colouring by module hierarchy (TS
+#: The c3 tones, which set the lightness and chroma of the C3 schemes and of coloring by module hierarchy (TS
 #: ``TONES``, c3's ``Object.keys(tones)``).
 TONES: tuple[str, ...] = _c3_tones()
 
@@ -145,7 +145,7 @@ def check_offset(offset: Any) -> float | None:
 
 
 def scheme_colors(name: str, tone: str = DEFAULT_TONE, offset: float | None = None) -> tuple[str, ...]:
-    """The colours of a named scheme (TS ``schemeColors``): the C3 schemes depend on the c3 ``tone`` and ``offset``
+    """The colors of a named scheme (TS ``schemeColors``): the C3 schemes depend on the c3 ``tone`` and ``offset``
     (degrees around the hue source; ``None`` for c3's default), the other schemes do not.
 
     Raises
@@ -163,12 +163,12 @@ def scheme_colors(name: str, tone: str = DEFAULT_TONE, offset: float | None = No
 
 def scheme_is_hue_source(name: str) -> bool:
     """Whether c3 takes the scheme as a hue source (TS ``schemeIsHueSource``): the C3 and the interpolated schemes,
-    whose colours or hierarchy colouring the tone and offset change."""
+    whose colors or hierarchy coloring the tone and offset change."""
     return name in C3_HUES or name in _interpolated()
 
 
 def default_scheme_offset(name: str) -> float:
-    """Where c3 puts the first colour by default, in degrees around the hue source (TS ``defaultSchemeOffset``):
+    """Where c3 puts the first color by default, in degrees around the hue source (TS ``defaultSchemeOffset``):
     245 on the OKLCH hue circle (``"C3 Oklch"``), else 0 at the start of a scheme."""
     return 245 if C3_HUES.get(name) == "Oklch" else 0
 
@@ -176,7 +176,7 @@ def default_scheme_offset(name: str) -> float:
 def hierarchy_options(name: str, tone: str = DEFAULT_TONE, offset: float | None = None) -> dict[str, Any]:
     """Keyword arguments for c3's ``hierarchy()`` that make top modules follow a scheme (TS ``hierarchyOptions``).
 
-    The C3 and interpolated schemes are hue sources in the tone and offset; the other schemes are lists of colours,
+    The C3 and interpolated schemes are hue sources in the tone and offset; the other schemes are lists of colors,
     which c3 takes as seeds (and infers the tone from).
     """
     if name in C3_HUES:
@@ -190,7 +190,7 @@ def hierarchy_options(name: str, tone: str = DEFAULT_TONE, offset: float | None 
 
 
 def get_scheme(name: str) -> tuple[str, ...]:
-    """The colours of a named web-app scheme (``SCHEMES[name]``).
+    """The colors of a named web-app scheme (``SCHEMES[name]``).
 
     Raises
     ------
@@ -206,9 +206,7 @@ def get_scheme(name: str) -> tuple[str, ...]:
         lower = {n.lower(): n for n in _SCHEMES}
         close = [lower[n] for n in difflib.get_close_matches(name.lower(), list(lower), n=3, cutoff=0.5)]
         hint = f"; did you mean {', '.join(map(repr, close))}?" if close else ""
-        raise ValueError(
-            f"unknown colour scheme {name!r}{hint} (alluvial.palette.SCHEMES lists all {len(_SCHEMES)})"
-        )
+        raise ValueError(f"unknown color scheme {name!r}{hint} (alluvial.SCHEMES lists all {len(_SCHEMES)})")
     return scheme
 
 
@@ -222,7 +220,7 @@ def parse_color(color: str) -> tuple[int, int, int]:
     Raises
     ------
     ValueError
-        For any other colour syntax (names, ``hsl()``, alpha forms).
+        For any other color syntax (names, ``hsl()``, alpha forms).
     """
     c = color.strip()
     m = _HEX_RE.fullmatch(c)
@@ -235,7 +233,7 @@ def parse_color(color: str) -> tuple[int, int, int]:
     if m:
         r, g, b = (int(v) for v in m.groups())
         return r, g, b
-    raise ValueError(f"unsupported colour {color!r}: expected #rgb, #rrggbb or rgb(r, g, b)")
+    raise ValueError(f"unsupported color {color!r}: expected #rgb, #rrggbb or rgb(r, g, b)")
 
 
 def to_rgb01(color: str) -> tuple[float, float, float]:
@@ -318,7 +316,7 @@ def brighter(color: str | None, k: float = INSIGNIFICANT_BRIGHTER_K) -> str:
 def make_fill(default: str, colors: Sequence[str]) -> Callable[[int, bool], str | None]:
     """Port of ``highlightColor(default, colors)``: ``fill(highlight_index, insignificant)``.
 
-    Index -1 gives ``default``, an index inside ``colors`` gives that colour, and any other index gives
+    Index -1 gives ``default``, an index inside ``colors`` gives that color, and any other index gives
     ``None`` (TS ``undefined``, drawn black by the browser). Insignificant groups use ``brighter(..., 0.8)``.
     """
 

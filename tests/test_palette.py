@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pytest
 
-from alluvial.palette import (
+from alluvial._palette import (
     C3_SINEBOW,
     DEFAULT_HIGHLIGHT_COLOR,
     brighter,

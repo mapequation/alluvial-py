@@ -25,6 +25,8 @@ def test_readme_snippet_runs(index: int, tmp_path: Path) -> None:
     code = SNIPPETS[index]
     if "import infomap" in code and importlib.util.find_spec("infomap") is None:
         pytest.skip("needs infomap")
+    if "import pandas" in code and importlib.util.find_spec("pandas") is None:
+        pytest.skip("needs pandas")
     # A fresh process in a scratch folder that looks like a checkout root (files the snippet saves land there).
     (tmp_path / "tests").symlink_to(ROOT / "tests", target_is_directory=True)
     env = {**os.environ, "MPLBACKEND": "Agg", "PYTHONWARNINGS": "ignore"}
