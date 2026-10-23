@@ -35,7 +35,7 @@
    "sortModulesBy": "nodeId"
   },
   "labelOptions": {"fontSize": 8, "adaptiveFontSize": false, "multilineModuleNames": true, "aggregateStateNames": true, "showModuleNames": true},
-  "colorScheme": "C3 Sinebow",
+  "colorScheme": "C3 Oklch",
   "operations": [
    {"op": "setNetworks"},
    {"op": "colorModule", "networkIndex": 2, "moduleIndex": 1, "color": "#ff0000"},
@@ -69,7 +69,7 @@
   "updateLayoutCalls": 6,
   "usableHeightCheckedModules": 8
  },
- "highlightColors": ["#ea6c63","#3ac1c0","#5a8c3c","#977bd7","#cd9600","#507de1"],
+ "highlightColors": ["#0091e3","#d88204","#008a4e","#bf51ab","#00a5ac","#d42e43"],
  "defaultHighlightColor": "#b6b69f",
  "warnings": [],
  "networks": [

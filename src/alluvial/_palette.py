@@ -1,7 +1,7 @@
 """Color data and color functions of the web app.
 
-- ``C3_SINEBOW``: the default 512-color scheme ``"C3 Sinebow"`` (``schemes/index.ts``) in c3's default tone,
-  verbatim TS strings.
+- ``DEFAULT_SCHEME``/``DEFAULT_TONE``: the scheme and tone a new TS store starts with, read from the TS-derived
+  ``data/color-schemes.json`` (written by ``tools/ts-fixtures/generate.mjs --make-data``): their only source.
 - ``SCHEMES``/``SCHEME_GROUPS``/``get_scheme``: the 65 named color schemes of the web app (``COLOR_SCHEMES``,
   ``SCHEME_GROUPS``), dumped verbatim from TS (docs/dev/port-notes/v3-webapp-json.md §6).
 - ``TONES``/``DEFAULT_TONE``/``scheme_colors``/``scheme_is_hue_source``/``default_scheme_offset``/
@@ -30,8 +30,8 @@ from ._jscompat import js_round
 
 __all__ = [
     "BRIGHTER",
-    "C3_SINEBOW",
     "DEFAULT_HIGHLIGHT_COLOR",
+    "DEFAULT_SCHEME",
     "DEFAULT_TONE",
     "INSIGNIFICANT_BRIGHTER_K",
     "NOT_HIGHLIGHTED",
@@ -57,23 +57,26 @@ INSIGNIFICANT_BRIGHTER_K = 0.8
 BRIGHTER = 1 / 0.7
 
 
-def _load_schemes() -> tuple[dict[str, tuple[str, ...]], dict[str, tuple[str, ...]]]:
+def _load_schemes() -> tuple[dict[str, tuple[str, ...]], dict[str, tuple[str, ...]], str, str]:
     text = resources.files("alluvial").joinpath("data", "color-schemes.json").read_text(encoding="utf-8")
     data = json.loads(text)
     schemes = {name: tuple(data["schemes"][name]) for name in data["names"]}
     groups = {group: tuple(names) for group, names in data["groups"].items()}
-    return schemes, groups
+    return schemes, groups, data["default"], data["defaultTone"]
 
 
-_SCHEMES, _GROUPS = _load_schemes()
+_SCHEMES, _GROUPS, _DEFAULT_SCHEME, _DEFAULT_TONE = _load_schemes()
+
+#: The default color scheme: the one a new TS store starts with (``DiagramStore.selectedSchemeName``).
+DEFAULT_SCHEME: str = _DEFAULT_SCHEME
+#: The default tone of the C3 schemes, also the tone of their colors in ``SCHEMES`` (TS ``DEFAULT_TONE``).
+DEFAULT_TONE: str = _DEFAULT_TONE
 
 #: The web app's named color schemes (TS ``COLOR_SCHEMES``, in its key order): name -> color strings, verbatim
-#: (hex or ``"rgb(r, g, b)"``). The default is ``"C3 Sinebow"``.
+#: (hex or ``"rgb(r, g, b)"``), the C3 schemes in ``DEFAULT_TONE``. The default scheme is ``DEFAULT_SCHEME``.
 SCHEMES: Mapping[str, tuple[str, ...]] = MappingProxyType(_SCHEMES)
 #: The scheme groups of the web app's scheme menu (TS ``SCHEME_GROUPS``): group -> scheme names.
 SCHEME_GROUPS: Mapping[str, tuple[str, ...]] = MappingProxyType(_GROUPS)
-#: The default scheme ``"C3 Sinebow"`` in c3's default tone (512 colors).
-C3_SINEBOW: tuple[str, ...] = _SCHEMES["C3 Sinebow"]
 
 # --- c3 tone and offset (TS schemes/index.ts) ------------------------------------------------------------------
 
@@ -87,9 +90,6 @@ C3_HUES: Mapping[str, str] = MappingProxyType(
         "C3 Viridis": "Viridis",
     }
 )
-
-#: c3's default tone, of the C3 schemes in ``SCHEMES`` (TS ``DEFAULT_TONE``).
-DEFAULT_TONE = "strong"
 
 
 def _c3_tones() -> tuple[str, ...]:

@@ -10,6 +10,8 @@ milestones and were not published.
 Upgrading from 0.6:
 
 - The default `colors` is `"module_id"`, not `"similarity"`. Pass `colors="similarity"` to keep the 0.6 colors.
+- The default color scheme is `"C3 Oklch"` in the `"vivid"` tone, as in the web app (was `"C3 Sinebow"`, `"strong"`).
+  Pass `scheme="C3 Sinebow", tone="strong"` to keep the 0.6 colors.
 - `alluvial.palette` is private. `alluvial.SCHEMES` is now a tuple of scheme names. For the colors of a scheme, use
   [c3](https://mapequation.github.io/c3) directly.
 - `plot()` without `ax` sizes the figure by its content: a small diagram is about 2 inches tall, not 8.
@@ -31,17 +33,26 @@ Upgrading from 0.6:
 - Every public function and class has a usage example in its docstring, run as a doctest, and the API reference links
   to the capabilities sections that use it.
 - Pull requests get a preview of the docs site.
+- Port base: TS `default-c3-oklch-vivid` (#64, `4aac4ec`), on top of `master` (#59-#63; #60 is the only engine
+  change, types only). The fixtures are regenerated from it.
 
 ### Changed
 
 - The default `colors` is `"module_id"`.
+- The default color scheme is `"C3 Oklch"` in the `"vivid"` tone, the web app's new default (TS #64). The default
+  scheme and tone have one source: the TS store, through `data/color-schemes.json` (`generate.mjs --make-data`
+  writes `default` and `defaultTone` from a new `DiagramStore`). `_palette.DEFAULT_SCHEME` and `DEFAULT_TONE` read
+  it, and the engine store and `layout()` use them.
+- The examples use Infomap's functional API, `infomap.run(...)`, whose `Result` alluvial reads (as it did before).
+  `infomap.Infomap` objects that have run still work.
 - `alluvial.palette` is private (`alluvial._palette`), and `alluvial.SCHEMES` is a tuple of names.
 - The default figure size follows the content: the height grows with the number of modules in the tallest network
   (2 to 6 inches), and the width with the number of networks and the labels.
 - `hierarchy="outline"` draws solid dark gray outlines instead of dots. `hierarchy_kw` still restyles them.
 - The docs, docstrings and messages use American spelling, like the API.
 - The landing page and README lead with what the package does and show a version of the neuroscience alluvial diagram
-  from Wikipedia, made with the science citation data in `tests/data`.
+  from Wikipedia (`examples/hero.py`): synthetic yearly citation networks, partitioned with `infomap.run`, in which
+  Neurology, Psychology and part of Molecular & cell biology merge into Neuroscience.
 
 ### Fixed
 

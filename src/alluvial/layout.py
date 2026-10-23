@@ -365,14 +365,14 @@ def layout(
         scheme.
     scheme : str or sequence of colors, optional
         The color scheme of the coloring operations: a web-app scheme name (``alluvial.SCHEMES`` lists them, e.g.
-        ``"Paired"``, ``"Tableau20"``, ``"C3 Oklch"``; default ``"C3 Sinebow"``) or a list of colors. Also the
+        ``"Paired"``, ``"Tableau20"``, ``"C3 Sinebow"``; default ``"C3 Oklch"``, as in the web app) or a list of colors. Also the
         default ``highlight_colors``. The C3 schemes (``"C3 Oklch"``, ``"C3 Turbo"``, ``"C3 Rainbow"``,
         ``"C3 Sinebow"``, ``"C3 Viridis"``) are computed with c3 (https://mapequation.github.io/c3).
     tone : str, optional
         The c3 tone: ``"vivid"``, ``"bright"``, ``"strong"``, ``"deep"``, ``"dark"``, ``"soft"``, ``"pastel"`` or
         ``"muted"``, the lightness and chroma of the C3 schemes and of ``colors="hierarchy"`` with a C3 or an
-        interpolated (diverging, sequential or cyclical) scheme. Other schemes ignore it. Default ``"strong"`` (or
-        the stored tone of a saved diagram).
+        interpolated (diverging, sequential or cyclical) scheme. Other schemes ignore it. Default ``"vivid"``, as in
+        the web app (or the stored tone of a saved diagram).
     offset : float, optional
         Where c3 puts the first color, in degrees around the hue source: its hue on the OKLCH hue circle
         (``"C3 Oklch"``), else 360 is the whole scheme. Applies where ``tone`` does. Default c3's (245 for
@@ -780,15 +780,15 @@ def _build_store(
     if not explicit_colors and highlight is None and (is_saved or any(map(_has_input_colors, files))):
         colors = None  # keep the input colors
 
-    from ._palette import DEFAULT_TONE
     from .engine import DiagramStore
     from .engine.store import HIGHLIGHT_KEY
     from .geometry import HighlightLabel
 
     store = DiagramStore(
         opts,
-        scheme="C3 Sinebow" if scheme is None else scheme,
-        tone=DEFAULT_TONE if tone is None else tone,
+        # the store's defaults (the web app's default scheme and tone) apply unless given
+        **({} if scheme is None else {"scheme": scheme}),
+        **({} if tone is None else {"tone": tone}),
         offset=offset,
         show_bipartite_nodes=show_bipartite_nodes,
         display_options={k: v for k, v in stored.items() if k in DISPLAY_OPTION_DEFAULTS},

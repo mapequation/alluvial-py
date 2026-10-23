@@ -1362,10 +1362,13 @@ export async function makeData({ d3, c3, d3Version }: { d3: any; c3: any; d3Vers
   warnings = [];
   const names = Object.keys(COLOR_SCHEMES) as SchemeName[];
   // ts_color_schemes.json (and the package's copy, src/alluvial/data/color-schemes.json): COLOR_SCHEMES (in its
-  // key order) and SCHEME_GROUPS.
+  // key order) and SCHEME_GROUPS, with the scheme and tone a new store starts with. The package reads its defaults
+  // from here, so they have one source: the TS store.
+  const defaults = new DiagramStore();
   const schemes = toJson({
     source: "packages/alluvial-diagram/src/schemes/index.ts (COLOR_SCHEMES, SCHEME_GROUPS)",
-    default: "C3 Sinebow",
+    default: defaults.selectedSchemeName,
+    defaultTone: defaults.selectedTone,
     names,
     groups: SCHEME_GROUPS,
     schemes: COLOR_SCHEMES,
@@ -1433,17 +1436,19 @@ export async function makeData({ d3, c3, d3Version }: { d3: any; c3: any; d3Vers
       });
     }
 
-  // A module with 119 sub-modules (flow 1/j) and one more top module: c3-colors 2.0.1 colours these differently
-  // (xfail test_hierarchy_wide_module_matches_ts)
+  // A module with 119 sub-modules (flow 1/j) and one more top module: c3-colors 2.0.1 colours these differently in
+  // c3's own default tone, "strong" (xfail test_hierarchy_wide_module_matches_ts); pinned to that tone, since in
+  // the store's default tone ("vivid") this module happens to come out the same
+  const wideTone: ToneName = "strong";
   const wideModules = [
     ...Array.from({ length: 119 }, (_, i) => ({ path: [1, i + 1], flow: 1 / (i + 1) })),
     { path: [2], flow: 1 },
   ];
   const hierarchyWide = ["C3 Sinebow", "C3 Oklch"].map((name) => {
-    const color = c3.hierarchy(wideModules, hierarchyOptions(name as SchemeName, DEFAULT_TONE, null));
+    const color = c3.hierarchy(wideModules, hierarchyOptions(name as SchemeName, wideTone, null));
     return {
       scheme: name,
-      tone: DEFAULT_TONE,
+      tone: wideTone,
       offset: null,
       colors: color.modules.map((m: { path: number[]; color: string }) => [m.path.join(":"), m.color]),
     };

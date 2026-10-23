@@ -6,10 +6,12 @@ from __future__ import annotations
 
 import pytest
 
-from alluvial._palette import C3_SINEBOW
+from alluvial._palette import DEFAULT_SCHEME, SCHEMES
 from alluvial.engine import RIGHT, Diagram, DiagramStore
 from alluvial.io.types import NetworkFile, Node
 from alluvial.layout import LayoutOptions
+
+DEFAULT_COLORS = SCHEMES[DEFAULT_SCHEME]
 
 
 def net(network_id: str, rows: list[tuple]) -> NetworkFile:
@@ -352,7 +354,7 @@ def test_color_single_network_colours_every_module() -> None:
     store.color_matching_modules_in_all_networks()
     assert _module_indices(store) == [{"1": 0, "3": 1, "2": 2, "4": 3}]
     assert store.diagram.children[0].children == modules  # same objects, same order
-    assert store.highlight_colors == list(C3_SINEBOW[:4])
+    assert store.highlight_colors == list(DEFAULT_COLORS[:4])
 
 
 def test_color_matching_counter_shared_by_all_pairs() -> None:
@@ -364,7 +366,7 @@ def test_color_matching_counter_shared_by_all_pairs() -> None:
     store = _store([a, b, c])
     store.color_matching_modules_in_all_networks()
     assert _module_indices(store) == [{"1": 0}, {"1": 0, "2": 1}, {"1": 1, "2": 0}]
-    assert store.highlight_colors == [C3_SINEBOW[0], C3_SINEBOW[1]]
+    assert store.highlight_colors == [DEFAULT_COLORS[0], DEFAULT_COLORS[1]]
 
 
 def _colored(network_id: str, colors, nodes: list[dict]) -> NetworkFile:
@@ -426,7 +428,7 @@ def test_color_module_ids_in_all_networks_clears_first() -> None:
     store.color_module(store.diagram.children[0].get_module("2"), "#123456")
     store.color_module_ids_in_all_networks()
     assert "#123456" not in store.highlight_colors
-    assert store.highlight_colors == [C3_SINEBOW[0], C3_SINEBOW[1]]
+    assert store.highlight_colors == [DEFAULT_COLORS[0], DEFAULT_COLORS[1]]
 
 
 def test_similar_modules_with_prototype_key_identifiers() -> None:

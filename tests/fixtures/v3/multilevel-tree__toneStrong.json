@@ -3,7 +3,7 @@
  "scenario": "multilevel-tree__toneStrong",
  "group": "multilevel-tree",
  "variant": "toneStrong",
- "description": "colorTone \"strong\" (C3 Sinebow), then colorMatchingModulesInAllNetworks()",
+ "description": "colorTone \"strong\" (the default scheme), then colorMatchingModulesInAllNetworks()",
  "features": ["c3Tone"],
  "inputs": {
   "files": ["data/multilevel_t0.tree","data/multilevel_t1.tree","data/multilevel_t2.tree"],
@@ -24,7 +24,7 @@
    "sortModulesBy": "flow"
   },
   "labelOptions": {"fontSize": 8, "adaptiveFontSize": false, "multilineModuleNames": true, "aggregateStateNames": true, "showModuleNames": true},
-  "colorScheme": "C3 Sinebow",
+  "colorScheme": "C3 Oklch",
   "colorTone": "strong",
   "operations": [
    {"op": "setNetworks"},
@@ -55,7 +55,7 @@
   "updateLayoutCalls": 2,
   "usableHeightCheckedModules": 11
  },
- "highlightColors": ["#ea6c63","#5a8c3c","#977bd7"],
+ "highlightColors": ["#279ff2","#2e915b","#c06caf"],
  "defaultHighlightColor": "#b6b69f",
  "warnings": [],
  "networks": [

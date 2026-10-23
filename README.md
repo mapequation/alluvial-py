@@ -5,13 +5,14 @@ with matplotlib: diagrams of how the modules (communities) of a network change, 
 steps, layers or methods. Each diagram is made of ordinary matplotlib artists on your own axes, ready for a paper figure
 as vector PDF or SVG.
 
-![Alluvial diagram of the life sciences in a citation network, 2001 to 2007, with neuroscience, neurology, psychiatry and psychology highlighted](https://raw.githubusercontent.com/mapequation/alluvial-py/main/docs/img/hero.png)
+![Alluvial diagram of synthetic citation networks, 2001 to 2007, in which neurology, psychology and part of molecular & cell biology merge into neuroscience](https://raw.githubusercontent.com/mapequation/alluvial-py/main/docs/img/hero.png)
 
 **Documentation:** <https://mapequation.github.io/alluvial-py>
 
-- **Native [Infomap](https://www.mapequation.org/infomap/) support.** Pass `infomap.Infomap` objects that have
-  run, or Infomap's output files (`.tree`, `.ftree`, `.stree`, `.clu`, `.json`), and go from data to a paper
-  figure in a few lines. Sub-modules, state, memory and multilayer networks work too.
+- **Native [Infomap](https://www.mapequation.org/infomap/) support.** Pass the results of `infomap.run` (or
+  `infomap.Infomap` objects that have run), or Infomap's output files (`.tree`, `.ftree`, `.stree`, `.clu`,
+  `.json`), and go from data to a paper figure in a few lines. Sub-modules, state, memory and multilayer networks
+  work too.
 - **Any partition.** Plain dicts that map nodes to modules, and pandas DataFrames with one row per node, need no
   Infomap at all.
 - **The mapequation.org layout.** The layout is a faithful port of the engine behind the
@@ -28,9 +29,10 @@ See [`CHANGELOG.md`](CHANGELOG.md) for what changed in each release.
 pip install alluvial
 ```
 
-Requires Python >= 3.11 and matplotlib >= 3.7. `infomap.Infomap` objects (and their `Result`) work whenever
-infomap >= 2.14 is installed; `pip install "alluvial[infomap]"` is only a shortcut that also installs a compatible
-infomap. Files written by any infomap version (`.tree`, `.ftree`, `.clu`, `*_states.*`, `.json`) read without it.
+Requires Python >= 3.11 and matplotlib >= 3.7. Results of `infomap.run` and `infomap.Infomap` objects work
+whenever infomap >= 2.14 is installed; `pip install "alluvial[infomap]"` is only a shortcut that also installs a
+compatible infomap. Files written by any infomap version (`.tree`, `.ftree`, `.clu`, `*_states.*`, `.json`) read
+without it.
 
 ## Quick start
 
@@ -73,26 +75,18 @@ nf = alluvial.partition({"Ann": 1, "Bo": 1, "Cy": "2:1"}, flows={"Ann": 3, "Bo":
 
 ### From Infomap
 
-Pass Infomap objects that have run, or the files Infomap writes:
+Pass the `Result` of `infomap.run`, or the files Infomap writes (an `infomap.Infomap` that has run works
+too):
 
 ```python
 import infomap
 
 import alluvial
 
-
-def run_infomap(links):
-    im = infomap.Infomap(two_level=True, silent=True, seed=1)
-    im.add_links(links)
-    im.run()
-    return im
-
-
-im_2020 = run_infomap([(1, 2), (1, 3), (2, 3), (3, 4), (4, 5), (4, 6), (5, 6)])
-im_2021 = run_infomap(
-    [(1, 2), (1, 3), (2, 3), (3, 5), (3, 6), (4, 5), (4, 6), (5, 6), (4, 7), (7, 8), (8, 4)]
-)
-ax = alluvial.plot([im_2020, im_2021], names=["2020", "2021"])
+links_2020 = [(1, 2), (1, 3), (2, 3), (3, 4), (4, 5), (4, 6), (5, 6)]
+links_2021 = [(1, 2), (1, 3), (2, 3), (3, 5), (3, 6), (4, 5), (4, 6), (5, 6), (4, 7), (7, 8), (8, 4)]
+results = [infomap.run(links, seed=1, two_level=True) for links in (links_2020, links_2021)]
+ax = alluvial.plot(results, names=["2020", "2021"])
 
 # Or Infomap's output files, here bundled with the tests (journals are matched by name):
 science = [f"tests/data/science{year}_2y.stree" for year in (2001, 2003, 2005, 2007)]
@@ -103,7 +97,8 @@ Networks go from left to right, and each one can be:
 
 - a path to an Infomap output file (`.tree`, `.ftree`, `.stree`, `.clu` or `-o json` `.json`; the format comes from
   the suffix),
-- an `infomap.Infomap` that has run (state and memory networks give state nodes, labeled by physical names),
+- the `Result` of `infomap.run`, or an `infomap.Infomap` that has run (state and memory networks give state nodes,
+  labeled by physical names),
 - an Infomap JSON dict (`json.load` of a `-o json` file),
 - a dict that maps nodes to modules (or `alluvial.partition(modules, flows)`), or a DataFrame of several networks,
 - an `alluvial.NetworkFile` from `alluvial.read(...)`.
@@ -116,8 +111,8 @@ Infomap files, a two-panel PDF figure and restyling single artists.
 ## Capabilities
 
 - **Inputs:** Infomap's `.tree`, `.ftree`, `.stree` and `.clu` files (also the `*_states.*` versions), Infomap JSON
-  (a `-o json` file or its dict), `infomap.Infomap` objects and their `Result` (state, memory and multilayer
-  networks, with `split_layers` for one network per layer), a `.zip` or directory of network files (the web app's
+  (a `-o json` file or its dict), the `Result` of `infomap.run` and `infomap.Infomap` objects (state, memory and
+  multilayer networks, with `split_layers` for one network per layer), a `.zip` or directory of network files (the web app's
   upload), plain `{node: module}` dicts and `alluvial.partition`, long-format pandas DataFrames
   (`alluvial.from_dataframe`), and `alluvial.NetworkFile`s from `alluvial.read`.
 - **Layout:** the web app's layout options (`height`, `module_width`, `streamline_fraction`, `streamline_threshold`,
@@ -284,7 +279,7 @@ layers = alluvial.read("tests/data/mlayer_states.tree", split_layers=True)  # on
 
 `colors` chooses what gets a color (`"module_id"`, the default, `"similarity"`, `"nodes"`, `"layer"`,
 `"physical_id"`, `"hierarchy"` or None) and `scheme` the colors: one of the web app's 65 schemes by name (`alluvial.SCHEMES`) or a
-list of colors. The C3 schemes (`"C3 Sinebow"`, the default, `"C3 Oklch"`, `"C3 Turbo"`, `"C3 Rainbow"`,
+list of colors. The C3 schemes (`"C3 Oklch"`, the default, `"C3 Sinebow"`, `"C3 Turbo"`, `"C3 Rainbow"`,
 `"C3 Viridis"`) are computed by `c3-colors`, the Python port of the web app's [c3](https://mapequation.github.io/c3), and take a
 `tone` and an `offset`.
 
@@ -299,7 +294,7 @@ geom = alluvial.layout(
 )  # every node by its module in the last network
 ```
 
-- `tone` is one of c3's tones (`"vivid"`, `"bright"`, `"strong"`, the default, `"deep"`, `"dark"`, `"soft"`,
+- `tone` is one of c3's tones (`"vivid"`, the default, `"bright"`, `"strong"`, `"deep"`, `"dark"`, `"soft"`,
   `"pastel"`, `"muted"`). `offset` turns the hue source by that many degrees (None: c3's default, 245 for
   `"C3 Oklch"` and 0 for the others). The other schemes are fixed
   lists, which tone and offset leave unchanged.
@@ -361,8 +356,8 @@ geom = alluvial.layout(
     expand=None,
     highlight=None,
     highlight_colors=None,
-    scheme=None,  # a web-app scheme name, e.g. "Paired", or a list of colors; default "C3 Sinebow"
-    tone=None,  # a c3 tone of the C3 schemes and colors="hierarchy", e.g. "pastel"; default "strong"
+    scheme=None,  # a web-app scheme name, e.g. "Paired", or a list of colors; default "C3 Oklch"
+    tone=None,  # a c3 tone of the C3 schemes and colors="hierarchy", e.g. "pastel"; default "vivid"
     offset=None,  # degrees around the c3 hue source of the first color; default c3's
     restore_state=True,  # restore what a saved diagram stores (options, scheme, tone, offset, orders, names)
     module_order=None,  # {network: [module_id, ...]}, bottom to top

@@ -5603,7 +5603,7 @@
     "sortModulesBy": "flow"
    },
    "labelOptions": {"fontSize": 8, "adaptiveFontSize": false, "multilineModuleNames": true, "aggregateStateNames": true, "showModuleNames": true},
-   "colorScheme": "C3 Sinebow",
+   "colorScheme": "C3 Oklch",
    "operations": [
     {"op": "openNetworks"}
    ]
@@ -11128,10 +11128,10 @@
     "adaptiveFontSize": false,
     "showBipartiteNodes": true
    },
-   "colorScheme": "C3 Sinebow",
-   "colorTone": "strong",
+   "colorScheme": "C3 Oklch",
+   "colorTone": "vivid",
    "colorOffset": null,
-   "schemeSha256": "81628619d4eaa17b0148af5b575420c6277e9fac9b25b7f03edeef4e18d30d37",
+   "schemeSha256": "e47ebc4a7705aee503f59bd5589515079cc11941aa5c9b64d672dbc1bbe79ef6",
    "openWarnings": ["ignoring the saved color scheme (unknown scheme)","ignoring the saved color tone (unknown tone)","ignoring the saved color offset (invalid value)"]
   }
  }

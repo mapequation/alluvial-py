@@ -3,8 +3,8 @@
  "scenario": "wide-tree__hierarchyLevel2",
  "group": "wide-tree",
  "variant": "hierarchyLevel2",
- "description": "one module with 119 sub-modules; moduleLevel 2, hierarchy colouring (C3 Sinebow)",
- "features": ["hierarchy","hierarchyColor"],
+ "description": "one module with 119 sub-modules; moduleLevel 2, hierarchy coloring (C3 Sinebow, strong)",
+ "features": ["c3Tone","colorScheme","hierarchy","hierarchyColor"],
  "inputs": {
   "files": ["data/wide_t0.tree"],
   "formats": ["tree"],
@@ -25,6 +25,7 @@
   },
   "labelOptions": {"fontSize": 8, "adaptiveFontSize": false, "multilineModuleNames": true, "aggregateStateNames": true, "showModuleNames": true},
   "colorScheme": "C3 Sinebow",
+  "colorTone": "strong",
   "operations": [
    {"op": "setNetworks"},
    {

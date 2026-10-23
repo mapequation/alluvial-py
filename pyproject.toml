@@ -40,7 +40,9 @@ Changelog = "https://github.com/mapequation/alluvial-py/blob/main/CHANGELOG.md"
 
 [project.optional-dependencies]
 infomap = ["infomap>=2.14"]
-# infomap >= 2.14 has the Result API the object reader needs; files written by any infomap version still read.
+# infomap >= 2.14 has the Result API the object reader needs and infomap.run(network) returning a Result (checked with
+# 2.14.0; 2.13 has no Result, and its run(flags) is the command line);
+# files written by any infomap version still read.
 # nbconvert (nbclient, nbformat) and ipykernel run the tutorial notebook in tests/test_tutorial.py; ipykernel
 # < 6.3.1 imports ipython_genutils without requiring it, so the lowest-deps job would skip the notebook.
 # The tests need infomap >= 2.15.1 (Result.write_tree, the functional API, files compared with a v2.15.1 header;

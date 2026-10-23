@@ -4,8 +4,10 @@ from pathlib import Path
 import pytest
 
 from alluvial._palette import (
-    C3_SINEBOW,
     DEFAULT_HIGHLIGHT_COLOR,
+    DEFAULT_SCHEME,
+    DEFAULT_TONE,
+    SCHEMES,
     brighter,
     make_fill,
     parse_color,
@@ -17,7 +19,24 @@ DATA = Path(__file__).resolve().parents[1] / "docs" / "dev" / "port-notes" / "da
 TS_SCHEMES = Path(__file__).resolve().parent / "data" / "ts_color_schemes.json"
 
 
+def test_defaults_come_from_the_ts_store():
+    """The default scheme and tone have one source: the TS store, through the TS-derived data file."""
+    data = json.loads(TS_SCHEMES.read_text())
+    assert (data["default"], data["defaultTone"]) == (DEFAULT_SCHEME, DEFAULT_TONE)
+    assert DEFAULT_SCHEME in SCHEMES
+
+
+def test_layout_docstring_names_the_defaults():
+    """The layout docstring names the default scheme and tone; it must follow the single source."""
+    import alluvial
+
+    doc = alluvial.layout.__doc__
+    assert f'default ``"{DEFAULT_SCHEME}"``' in doc
+    assert f'Default ``"{DEFAULT_TONE}"``' in doc
+
+
 def test_c3_sinebow():
+    C3_SINEBOW = SCHEMES["C3 Sinebow"]
     # c3 2 (web app 1.16): "C3 Sinebow" in the default tone, hex strings as TS writes them
     assert len(C3_SINEBOW) == 512
     assert list(C3_SINEBOW) == json.loads(TS_SCHEMES.read_text())["schemes"]["C3 Sinebow"]

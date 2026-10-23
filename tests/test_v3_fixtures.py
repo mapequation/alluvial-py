@@ -20,6 +20,7 @@ import pytest
 from conftest import FIXTURES_DIR, TESTS_DIR, assert_matches, load_fixture
 from test_engine_fixtures import IGNORED, Trace, dump_store, read_fixture_inputs
 
+from alluvial._palette import DEFAULT_SCHEME
 from alluvial.engine import DiagramStore
 from alluvial.io.alluvial_format import (
     DISPLAY_OPTION_DEFAULTS,
@@ -60,8 +61,8 @@ def _load(name_or_path: str | Path) -> dict[str, Any]:
 def _ctor_scheme(inputs: dict[str, Any]) -> str:
     # inputs.colorScheme is the scheme at the end; a setSelectedScheme op means the ctor used the default
     if any(op["op"] == "setSelectedScheme" for op in inputs["operations"]):
-        return "C3 Sinebow"
-    return inputs.get("colorScheme", "C3 Sinebow")
+        return DEFAULT_SCHEME
+    return inputs.get("colorScheme", DEFAULT_SCHEME)
 
 
 def _ctor_color(options: dict[str, Any]) -> dict[str, Any]:
@@ -183,13 +184,13 @@ def test_v3_round_trip(name: str) -> None:
 
 
 def test_schemes_match_ts_dump() -> None:
-    from alluvial._palette import C3_SINEBOW, SCHEME_GROUPS, SCHEMES
+    from alluvial._palette import DEFAULT_SCHEME, DEFAULT_TONE, SCHEME_GROUPS, SCHEMES
 
     data = json.loads((TESTS_DIR / "data" / "ts_color_schemes.json").read_text(encoding="utf-8"))
     assert list(SCHEMES) == data["names"]
     assert {k: list(v) for k, v in SCHEMES.items()} == data["schemes"]
     assert {k: list(v) for k, v in SCHEME_GROUPS.items()} == data["groups"]
-    assert SCHEMES[data["default"]] == C3_SINEBOW
+    assert (data["default"], data["defaultTone"]) == (DEFAULT_SCHEME, DEFAULT_TONE)
 
 
 # Opt-in: the large v3 fixtures (generate.mjs --large --out DIR writes them to DIR/v3/).

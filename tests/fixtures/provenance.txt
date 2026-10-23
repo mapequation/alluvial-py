@@ -1,8 +1,8 @@
 # Provenance of tests/fixtures (written by tools/ts-fixtures/generate.mjs)
-ts_repo_head: 60fa1bfd939215320e408f1434dfe468eb8d12f3
+ts_repo_head: 4aac4ecfb7ac4df93ee0c051bd14add8a125648d
 ts_src_dirty: no
-ts_src_sha256: 248e128abf52bb5f56f6e9016d46dc4dbc3638837435deb4130a1910246bc5ac  (packages/alluvial-diagram/src/**/*.ts(x), excluding tests)
-node: v25.8.1
+ts_src_sha256: 8e9aceb7c3afc18c758d7912768b7b233bf8073db510263c99dcfdd78eaf96a2  (packages/alluvial-diagram/src/**/*.ts(x), excluding tests)
+node: v24.21.0
 vite: 8.3.4
 mobx: 7.0.6
 @mapequation/infomap-parser: 1.0.2

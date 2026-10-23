@@ -16,6 +16,7 @@ from typing import TYPE_CHECKING, Any
 from .._jscompat import is_array_index_key, js_is_integer, js_number_to_string, js_truthy
 from .._palette import (
     DEFAULT_HIGHLIGHT_COLOR,
+    DEFAULT_SCHEME,
     DEFAULT_TONE,
     check_offset,
     check_tone,
@@ -114,10 +115,10 @@ class DiagramStore:
         Layout options passed to every ``update_layout``.
     scheme : str or sequence of str, optional
         Color scheme for the coloring operations: a web-app scheme name (``alluvial.SCHEMES``, TS ctor
-        option ``colorScheme``) or a list of colors. Default ``"C3 Sinebow"``.
+        option ``colorScheme``) or a list of colors. Default ``_palette.DEFAULT_SCHEME``.
     tone : str, optional
         The c3 tone of the C3 schemes and of ``color_module_hierarchy_in_all_networks`` (``_palette.TONES``,
-        TS ctor option ``colorTone``). Default ``"strong"``.
+        TS ctor option ``colorTone``). Default ``_palette.DEFAULT_TONE``.
     offset : float or None, optional
         The c3 offset of the first color, in degrees around the hue source (TS ctor option ``colorOffset``).
         Default ``None``, c3's default for the scheme.
@@ -138,7 +139,7 @@ class DiagramStore:
         self,
         options: LayoutOptions,
         *,
-        scheme: str | Sequence[str] = "C3 Sinebow",
+        scheme: str | Sequence[str] = DEFAULT_SCHEME,
         tone: str = DEFAULT_TONE,
         offset: float | None = None,
         default_highlight_color: str = DEFAULT_HIGHLIGHT_COLOR,

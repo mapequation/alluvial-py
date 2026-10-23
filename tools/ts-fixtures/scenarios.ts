@@ -19,7 +19,7 @@ export type StoreOptions = {
   verticalAlign?: "bottom" | "justify";
   moduleSize?: "flow" | "nodes";
   sortModulesBy?: "flow" | "nodes" | "highlightIndex" | "nodeId";
-  // v3: DiagramStore ctor option (a COLOR_SCHEMES name; default "C3 Sinebow")
+  // v3: DiagramStore ctor option (a COLOR_SCHEMES name; default the store's selectedSchemeName)
   colorScheme?: string;
   // c3 tone and offset (web app 1.16, #47): DiagramStore ctor options colorTone (a TONES name; default "strong") and
   // colorOffset (degrees; default null, c3's default for the scheme)

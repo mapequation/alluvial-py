@@ -229,7 +229,7 @@ const C3_TONES: Scenario[] = [
     scenario("multilevel-tree", `tone${tone[0].toUpperCase()}${tone.slice(1)}`, MULTILEVEL, {
       options: { colorTone: tone },
       ops: [COLOR_MATCHING],
-      description: `colorTone "${tone}" (C3 Sinebow), then colorMatchingModulesInAllNetworks()`,
+      description: `colorTone "${tone}" (the default scheme), then colorMatchingModulesInAllNetworks()`,
     })
   ),
   ...([
@@ -268,7 +268,7 @@ const C3_TONES: Scenario[] = [
 const HIERARCHIES: Scenario[] = [
   scenario("multilevel-tree", "hierarchy", MULTILEVEL, {
     ops: [HIERARCHY],
-    description: "colorModuleHierarchyInAllNetworks() (C3 Sinebow, top modules only)",
+    description: "colorModuleHierarchyInAllNetworks() (the default scheme, top modules only)",
   }),
   scenario("multilevel-tree", "hierarchyLevel2", MULTILEVEL, {
     ops: [LEVEL2, HIERARCHY],
@@ -319,9 +319,11 @@ const HIERARCHIES: Scenario[] = [
   }),
   // A module with 119 sub-modules: c3-colors 2.0.1 colours it differently from @mapequation/c3 2.0.1
   // (xfail in tests/test_v3_fixtures.py, C3_WIDE_XFAIL)
+  // Pinned to C3 Sinebow in c3's "strong" tone, where the divergence is known
   scenario("wide-tree", "hierarchyLevel2", ["data/wide_t0.tree"], {
+    options: { colorScheme: "C3 Sinebow", colorTone: "strong" },
     ops: [LEVEL2, HIERARCHY],
-    description: "one module with 119 sub-modules; moduleLevel 2, hierarchy colouring (C3 Sinebow)",
+    description: "one module with 119 sub-modules; moduleLevel 2, hierarchy coloring (C3 Sinebow, strong)",
   }),
   // Non-numeric path parts ("1:x:1" -> [1, NaN, 1]): c3 keys modules by the joined path, so the NaN parts match
   scenario("nanpath-json", "hierarchyLevel2", ["data/nanpath_t0.json"], {
