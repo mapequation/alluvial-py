@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Changelog &#8212; alluvial 0.6.0</title>
+    <title>Changelog &#8212; alluvial 0.7.0</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
 
-    <script src="_static/documentation_options.js?v=8fa8b3e9"></script>
+    <script src="_static/documentation_options.js?v=fe7df9b0"></script>
     <script src="_static/doctools.js?v=fd6eb6e6"></script>
     <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'changelog';</script>
@@ -49,7 +49,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="color-scheme" content="light dark"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.6.0" />
+  <meta name="docsearch:version" content="0.7.0" />
   
     
     <script src="_static/searchtools.js"></script>
@@ -117,7 +117,7 @@
   
   
   
-    <p class="title logo__title">alluvial 0.6.0</p>
+    <p class="title logo__title">alluvial 0.7.0</p>
   
 </a></div>
     
@@ -400,26 +400,86 @@
 <a class="reference external" href="https://semver.org/">Semantic Versioning</a>. 0.6.0 is the first release on PyPI; 0.1.0 to 0.5.0 were development
 milestones and were not published.</p>
 <section id="id1">
-<h2>[0.6.0] - 2026-10-21<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
-<p>c3 2 in the web app (TS #47, web app 1.16) and the saved tone and offset (TS #57), ported against TS <code class="docutils literal notranslate"><span class="pre">master</span></code>.
-Port base: TS <code class="docutils literal notranslate"><span class="pre">master</span></code> <code class="docutils literal notranslate"><span class="pre">60fa1bf</span></code> (#58); <code class="docutils literal notranslate"><span class="pre">tests/fixtures/provenance.txt</span></code> records it (<code class="docutils literal notranslate"><span class="pre">ts_repo_head</span></code>). #59 (<code class="docutils literal notranslate"><span class="pre">4a46b90</span></code>,
-licence credit only) does not touch the engine.</p>
-<p>Upgrading from 0.5:</p>
+<h2>[0.7.0] - 2026-10-23<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>Upgrading from 0.6:</p>
 <ul class="simple">
-<li><p>New dependency <code class="docutils literal notranslate"><span class="pre">c3-colors==2.0.1</span></code> (the Python port of <code class="docutils literal notranslate"><span class="pre">&#64;mapequation/c3</span></code>, pinned to the TS lockfile’s version).</p></li>
-<li><p>The C3 schemes (the default <code class="docutils literal notranslate"><span class="pre">&quot;C3</span> <span class="pre">Sinebow&quot;</span></code> included) are c3 2’s (web app 1.16): other colours, hex strings instead
-of <code class="docutils literal notranslate"><span class="pre">rgb()</span></code>. Colourings with the default scheme change colour, not geometry. <code class="docutils literal notranslate"><span class="pre">alluvial.palette.C3_SINEBOW</span></code> follows,
-and the package data <code class="docutils literal notranslate"><span class="pre">c3-sinebow-512.json</span></code> is gone (<code class="docutils literal notranslate"><span class="pre">SCHEMES[&quot;C3</span> <span class="pre">Sinebow&quot;]</span></code>).</p></li>
+<li><p>The default <code class="docutils literal notranslate"><span class="pre">colors</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;module_id&quot;</span></code>, not <code class="docutils literal notranslate"><span class="pre">&quot;similarity&quot;</span></code>. Pass <code class="docutils literal notranslate"><span class="pre">colors=&quot;similarity&quot;</span></code> to keep the 0.6 colors.</p></li>
+<li><p>The default color scheme is <code class="docutils literal notranslate"><span class="pre">&quot;C3</span> <span class="pre">Oklch&quot;</span></code> in the <code class="docutils literal notranslate"><span class="pre">&quot;vivid&quot;</span></code> tone, as in the web app (was <code class="docutils literal notranslate"><span class="pre">&quot;C3</span> <span class="pre">Sinebow&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;strong&quot;</span></code>).
+Pass <code class="docutils literal notranslate"><span class="pre">scheme=&quot;C3</span> <span class="pre">Sinebow&quot;,</span> <span class="pre">tone=&quot;strong&quot;</span></code> to keep the 0.6 colors.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">alluvial.palette</span></code> is private. <code class="docutils literal notranslate"><span class="pre">alluvial.SCHEMES</span></code> is now a tuple of scheme names. For the colors of a scheme, use
+<a class="reference external" href="https://mapequation.github.io/c3">c3</a> directly.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">plot()</span></code> without <code class="docutils literal notranslate"><span class="pre">ax</span></code> sizes the figure by its content: a small diagram is about 2 inches tall, not 8.</p></li>
 </ul>
 <section id="added">
 <h3>Added<a class="headerlink" href="#added" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Plain dicts as networks: <code class="docutils literal notranslate"><span class="pre">alluvial.plot([{&quot;Ann&quot;:</span> <span class="pre">1,</span> <span class="pre">&quot;Bo&quot;:</span> <span class="pre">1,</span> <span class="pre">&quot;Cy&quot;:</span> <span class="pre">2},</span> <span class="pre">{&quot;Ann&quot;:</span> <span class="pre">1,</span> <span class="pre">&quot;Bo&quot;:</span> <span class="pre">2,</span> <span class="pre">&quot;Cy&quot;:</span> <span class="pre">&quot;2:1&quot;}])</span></code>. A
+module is an int, a tree path like <code class="docutils literal notranslate"><span class="pre">&quot;2:1&quot;</span></code> or a tuple.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">alluvial.partition(modules,</span> <span class="pre">flows=None,</span> <span class="pre">*,</span> <span class="pre">name=None)</span></code> for one network with optional flows (normalized to sum to 1)
+and a name. Module paths make sub-modules: a node’s path is its module’s path plus its position in the module,
+as in Infomap’s <code class="docutils literal notranslate"><span class="pre">.tree</span></code> files.</p></li>
+<li><p>pandas DataFrames in long format: <code class="docutils literal notranslate"><span class="pre">alluvial.plot(df)</span></code> with the columns <code class="docutils literal notranslate"><span class="pre">network</span></code>, <code class="docutils literal notranslate"><span class="pre">node</span></code>, <code class="docutils literal notranslate"><span class="pre">module</span></code> and an optional
+<code class="docutils literal notranslate"><span class="pre">flow</span></code>, or <code class="docutils literal notranslate"><span class="pre">alluvial.from_dataframe(df,</span> <span class="pre">network=...,</span> <span class="pre">node=...,</span> <span class="pre">module=...,</span> <span class="pre">flow=...)</span></code> for other column names. pandas
+stays optional.</p></li>
+<li><p>Without flows, modules are sized and sorted by node count (<code class="docutils literal notranslate"><span class="pre">module_size</span></code> and <code class="docutils literal notranslate"><span class="pre">sort_modules_by</span></code> default to <code class="docutils literal notranslate"><span class="pre">&quot;nodes&quot;</span></code>
+unless set).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">color_network</span></code> chooses the network for <code class="docutils literal notranslate"><span class="pre">colors=&quot;nodes&quot;</span></code>, as the web app’s selected network does. The default is the
+first network.</p></li>
+<li><p>Every public function and class has a usage example in its docstring, run as a doctest, and the API reference links
+to the capabilities sections that use it.</p></li>
+<li><p>Pull requests get a preview of the docs site.</p></li>
+<li><p>Port base: TS <code class="docutils literal notranslate"><span class="pre">master</span></code> <code class="docutils literal notranslate"><span class="pre">effb609</span></code> (web app and <code class="docutils literal notranslate"><span class="pre">&#64;mapequation/alluvial-diagram</span></code> 1.17.0, with #64). Since 0.6.0 the
+engine changed in #60 (types only) and #64 (the default colors); the fixtures are regenerated from it.</p></li>
+</ul>
+</section>
+<section id="changed">
+<h3>Changed<a class="headerlink" href="#changed" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>The default <code class="docutils literal notranslate"><span class="pre">colors</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;module_id&quot;</span></code>.</p></li>
+<li><p>The default color scheme is <code class="docutils literal notranslate"><span class="pre">&quot;C3</span> <span class="pre">Oklch&quot;</span></code> in the <code class="docutils literal notranslate"><span class="pre">&quot;vivid&quot;</span></code> tone, the web app’s new default (TS #64). The default
+scheme and tone have one source: the TS store, through <code class="docutils literal notranslate"><span class="pre">data/color-schemes.json</span></code> (<code class="docutils literal notranslate"><span class="pre">generate.mjs</span> <span class="pre">--make-data</span></code>
+writes <code class="docutils literal notranslate"><span class="pre">default</span></code> and <code class="docutils literal notranslate"><span class="pre">defaultTone</span></code> from a new <code class="docutils literal notranslate"><span class="pre">DiagramStore</span></code>). <code class="docutils literal notranslate"><span class="pre">_palette.DEFAULT_SCHEME</span></code> and <code class="docutils literal notranslate"><span class="pre">DEFAULT_TONE</span></code> read
+it, and the engine store and <code class="docutils literal notranslate"><span class="pre">layout()</span></code> use them.</p></li>
+<li><p>The examples use Infomap’s functional API, <code class="docutils literal notranslate"><span class="pre">infomap.run(...)</span></code>, whose <code class="docutils literal notranslate"><span class="pre">Result</span></code> alluvial reads (as it did before).
+<code class="docutils literal notranslate"><span class="pre">infomap.Infomap</span></code> objects that have run still work.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">alluvial.palette</span></code> is private (<code class="docutils literal notranslate"><span class="pre">alluvial._palette</span></code>), and <code class="docutils literal notranslate"><span class="pre">alluvial.SCHEMES</span></code> is a tuple of names.</p></li>
+<li><p>The default figure size follows the content: the height grows with the number of modules in the tallest network
+(2 to 6 inches), and the width with the number of networks and the labels.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hierarchy=&quot;outline&quot;</span></code> draws solid dark gray outlines instead of dots. <code class="docutils literal notranslate"><span class="pre">hierarchy_kw</span></code> still restyles them.</p></li>
+<li><p>The docs, docstrings and messages use American spelling, like the API.</p></li>
+<li><p>The landing page and README lead with what the package does and show a version of the neuroscience alluvial diagram
+from Wikipedia (<code class="docutils literal notranslate"><span class="pre">examples/hero.py</span></code>): synthetic yearly citation networks, partitioned with <code class="docutils literal notranslate"><span class="pre">infomap.run</span></code>, in which
+Neurology, Psychology and part of Molecular &amp; cell biology merge into Neuroscience.</p></li>
+</ul>
+</section>
+<section id="fixed">
+<h3>Fixed<a class="headerlink" href="#fixed" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>The README images show on PyPI (absolute URLs) and use the current colors.</p></li>
+</ul>
+</section>
+</section>
+<section id="id2">
+<h2>[0.6.0] - 2026-10-21<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>c3 2 in the web app (TS #47, web app 1.16) and the saved tone and offset (TS #57), ported against TS <code class="docutils literal notranslate"><span class="pre">master</span></code>.
+Port base: TS <code class="docutils literal notranslate"><span class="pre">master</span></code> <code class="docutils literal notranslate"><span class="pre">60fa1bf</span></code> (#58); <code class="docutils literal notranslate"><span class="pre">tests/fixtures/provenance.txt</span></code> records it (<code class="docutils literal notranslate"><span class="pre">ts_repo_head</span></code>). #59 (<code class="docutils literal notranslate"><span class="pre">4a46b90</span></code>,
+license credit only) does not touch the engine.</p>
+<p>Upgrading from 0.5:</p>
+<ul class="simple">
+<li><p>New dependency <code class="docutils literal notranslate"><span class="pre">c3-colors==2.0.1</span></code> (the Python port of <code class="docutils literal notranslate"><span class="pre">&#64;mapequation/c3</span></code>, pinned to the TS lockfile’s version).</p></li>
+<li><p>The C3 schemes (the default <code class="docutils literal notranslate"><span class="pre">&quot;C3</span> <span class="pre">Sinebow&quot;</span></code> included) are c3 2’s (web app 1.16): other colors, hex strings instead
+of <code class="docutils literal notranslate"><span class="pre">rgb()</span></code>. Colorings with the default scheme change color, not geometry. <code class="docutils literal notranslate"><span class="pre">alluvial.palette.C3_SINEBOW</span></code> follows,
+and the package data <code class="docutils literal notranslate"><span class="pre">c3-sinebow-512.json</span></code> is gone (<code class="docutils literal notranslate"><span class="pre">SCHEMES[&quot;C3</span> <span class="pre">Sinebow&quot;]</span></code>).</p></li>
+</ul>
+<section id="id3">
+<h3>Added<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>First release on PyPI</strong> (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">alluvial</span></code>), from <a class="github reference external" href="https://github.com/mapequation/alluvial-py">mapequation/alluvial-py</a>, with a docs
 site at <a class="reference external" href="https://mapequation.github.io/alluvial-py">https://mapequation.github.io/alluvial-py</a> (Sphinx: the tutorial and capabilities notebooks and the API
 reference). CI tests Linux and macOS on Python 3.11 to 3.14 and the lowest direct dependencies, runs the fixture
 check and the fuzz tests against the TS engine at the provenance commit, and checks TS <code class="docutils literal notranslate"><span class="pre">master</span></code> weekly for drift.
 A GitHub release <code class="docutils literal notranslate"><span class="pre">vX.Y.Z</span></code> publishes to PyPI with trusted publishing.</p></li>
-<li><p><strong>c3 2: tone, offset and colouring by module hierarchy (TS #47, web app 1.16), saved with the diagram (TS #57).</strong>
+<li><p><strong>c3 2: tone, offset and coloring by module hierarchy (TS #47, web app 1.16), saved with the diagram (TS #57).</strong>
 Ported against the merged TS <code class="docutils literal notranslate"><span class="pre">master</span></code> (<code class="docutils literal notranslate"><span class="pre">61b5390</span></code>; <code class="docutils literal notranslate"><span class="pre">packages/alluvial-diagram</span></code> identical to PR #57’s <code class="docutils literal notranslate"><span class="pre">9dd2954</span></code>);
 re-checked against <code class="docutils literal notranslate"><span class="pre">60fa1bf</span></code> (#58). The C3 schemes are computed by <code class="docutils literal notranslate"><span class="pre">c3-colors</span></code> 2.0.1, the Python port of
 <code class="docutils literal notranslate"><span class="pre">&#64;mapequation/c3</span></code>, pinned to the TS lockfile’s version (<code class="docutils literal notranslate"><span class="pre">tests/test_c3_schemes.py</span></code> checks the pin, and the TS
@@ -428,7 +488,7 @@ re-checked against <code class="docutils literal notranslate"><span class="pre">
 <li><p><code class="docutils literal notranslate"><span class="pre">alluvial.palette</span></code>: <code class="docutils literal notranslate"><span class="pre">TONES</span></code>, <code class="docutils literal notranslate"><span class="pre">DEFAULT_TONE</span></code>, <code class="docutils literal notranslate"><span class="pre">scheme_colors(name,</span> <span class="pre">tone,</span> <span class="pre">offset)</span></code>, <code class="docutils literal notranslate"><span class="pre">scheme_is_hue_source</span></code>,
 <code class="docutils literal notranslate"><span class="pre">default_scheme_offset</span></code>, <code class="docutils literal notranslate"><span class="pre">hierarchy_options</span></code> (TS <code class="docutils literal notranslate"><span class="pre">schemeColors</span></code>, <code class="docutils literal notranslate"><span class="pre">schemeIsHueSource</span></code>, <code class="docutils literal notranslate"><span class="pre">defaultSchemeOffset</span></code>,
 <code class="docutils literal notranslate"><span class="pre">hierarchyOptions</span></code>), the new scheme <code class="docutils literal notranslate"><span class="pre">&quot;C3</span> <span class="pre">Oklch&quot;</span></code> (65 schemes), and the d3 interpolators c3 takes as hue sources
-(<code class="docutils literal notranslate"><span class="pre">alluvial._d3_interpolators</span></code>, exact ports of d3-scale-chromatic 3.1 with their colour data in
+(<code class="docutils literal notranslate"><span class="pre">alluvial._d3_interpolators</span></code>, exact ports of d3-scale-chromatic 3.1 with their color data in
 <code class="docutils literal notranslate"><span class="pre">data/d3-interpolators.json</span></code>).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">DiagramStore(tone=,</span> <span class="pre">offset=)</span></code>, <code class="docutils literal notranslate"><span class="pre">selected_tone</span></code>/<code class="docutils literal notranslate"><span class="pre">selected_offset</span></code>, <code class="docutils literal notranslate"><span class="pre">set_selected_tone</span></code>, <code class="docutils literal notranslate"><span class="pre">set_selected_offset</span></code>,
 <code class="docutils literal notranslate"><span class="pre">set_selected_scheme</span></code> resetting the offset, and <code class="docutils literal notranslate"><span class="pre">color_module_hierarchy_in_all_networks</span></code> (TS
@@ -439,19 +499,19 @@ re-checked against <code class="docutils literal notranslate"><span class="pre">
 color tone (unknown tone)” / “ignoring the saved color offset (invalid value)”; <code class="docutils literal notranslate"><span class="pre">open_networks</span></code> restores as TS
 <code class="docutils literal notranslate"><span class="pre">openNetworks</span></code> (another saved scheme resets the offset; a saved tone/offset applies when present). In <code class="docutils literal notranslate"><span class="pre">layout</span></code>,
 explicit <code class="docutils literal notranslate"><span class="pre">tone</span></code>/<code class="docutils literal notranslate"><span class="pre">offset</span></code> win, and an explicit other <code class="docutils literal notranslate"><span class="pre">scheme</span></code> drops the stored offset.</p></li>
-<li><p>Fixtures: regenerated against that TS tree. Every fixture whose colours come from a C3 scheme changes colour
+<li><p>Fixtures: regenerated against that TS tree. Every fixture whose colors come from a C3 scheme changes color
 strings only (no geometry); saved files gain <code class="docutils literal notranslate"><span class="pre">colorTone</span></code>/<code class="docutils literal notranslate"><span class="pre">colorOffset</span></code>. 34 new v3 scenarios (every tone, offsets,
-C3 Oklch, hierarchy colouring, saved tone/offset and their restore rules, <code class="docutils literal notranslate"><span class="pre">reloadStore</span></code>), the TS-derived
+C3 Oklch, hierarchy coloring, saved tone/offset and their restore rules, <code class="docutils literal notranslate"><span class="pre">reloadStore</span></code>), the TS-derived
 <code class="docutils literal notranslate"><span class="pre">tests/data/ts_c3_schemes.json</span></code> (every C3 scheme x tone x 6 offsets, interpolator samples, <code class="docutils literal notranslate"><span class="pre">hierarchy()</span></code> of
 every scheme), and a c3 fuzz mode (<code class="docutils literal notranslate"><span class="pre">gen.py</span> <span class="pre">--c3</span></code>, <code class="docutils literal notranslate"><span class="pre">-k</span> <span class="pre">c3</span></code>).</p></li>
 </ul>
 </li>
 </ul>
 </section>
-<section id="changed">
-<h3>Changed<a class="headerlink" href="#changed" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h3>Changed<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Package metadata: authors mapequation, and the licence reads “Copyright (c) 2019-2026 The mapequation authors”
+<li><p>Package metadata: authors mapequation, and the license reads “Copyright (c) 2019-2026 The mapequation authors”
 like the web app’s (TS #59). The fixture tools look for the TS checkout at <code class="docutils literal notranslate"><span class="pre">../web/alluvial</span></code> next to this repo
 unless <code class="docutils literal notranslate"><span class="pre">ALLUVIAL_TS_ROOT</span></code> is set. The science <code class="docutils literal notranslate"><span class="pre">module_level=2</span></code> test counts layouts instead of timing them
 (<code class="docutils literal notranslate"><span class="pre">test_module_level_on_science_is_one_layout</span></code>), so slow CI runners pass.</p></li>
@@ -468,15 +528,15 @@ scheme, tone and offset. <code class="docutils literal notranslate"><span class=
 huge floats as integer literals (<code class="docutils literal notranslate"><span class="pre">-427299959682199200</span></code>), so the fuzz test reads TS output with integers beyond
 2**53 as doubles, like <code class="docutils literal notranslate"><span class="pre">JSON.parse</span></code>. v1, v2, v4 and c3 seeds 0-4999 pass, c3 also 5000-9999.</p></li>
 <li><p><strong>Fixtures:</strong> 297 (205 v1/v2, 77 v3, 15 v4). New v3 scenarios: <code class="docutils literal notranslate"><span class="pre">multilevel-tree__toneRestore{OddColor,HugeOffset}__</span> <span class="pre">roundTrip</span></code>, <code class="docutils literal notranslate"><span class="pre">nanpath-json__hierarchyLevel2</span></code> (string paths with a non-numeric part, which become NaN: TS c3 keys
-modules by the joined path, and the port’s one shared NaN keeps its tuple keys equal, so the colours match) and
+modules by the joined path, and the port’s one shared NaN keeps its tuple keys equal, so the colors match) and
 <code class="docutils literal notranslate"><span class="pre">wide-tree__hierarchyLevel2</span></code> (see Known issues). <code class="docutils literal notranslate"><span class="pre">tests/data/ts_c3_schemes.json</span></code> gains <code class="docutils literal notranslate"><span class="pre">hierarchyWide</span></code>.</p></li>
 </ul>
 </section>
 <section id="known-issues">
 <h3>Known issues<a class="headerlink" href="#known-issues" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>c3-colors 2.0.1 vs <code class="docutils literal notranslate"><span class="pre">&#64;mapequation/c3</span></code> 2.0.1:</strong> <code class="docutils literal notranslate"><span class="pre">hierarchy()</span></code> colours a module with many sub-modules (about 40 or
-more) differently: some sibling colours swap (for 119 sub-modules, 8 of 121 colours with C3 Sinebow, 2 with C3
+<li><p><strong>c3-colors 2.0.1 vs <code class="docutils literal notranslate"><span class="pre">&#64;mapequation/c3</span></code> 2.0.1:</strong> <code class="docutils literal notranslate"><span class="pre">hierarchy()</span></code> colors a module with many sub-modules (about 40 or
+more) differently: some sibling colors swap (for 119 sub-modules, 8 of 121 colors with C3 Sinebow, 2 with C3
 Oklch). Last-bit differences between Python’s <code class="docutils literal notranslate"><span class="pre">math.hypot</span></code>/libm and V8’s <code class="docutils literal notranslate"><span class="pre">Math.hypot</span></code>/trig shift the radii, and
 the farthest-point sampling in c3’s <code class="docutils literal notranslate"><span class="pre">placeChildren</span></code> breaks near-ties the other way. <code class="docutils literal notranslate"><span class="pre">colors=&quot;hierarchy&quot;</span></code>
 (<code class="docutils literal notranslate"><span class="pre">color_module_hierarchy_in_all_networks</span></code>) inherits it. Not patched around in the port: strict xfail tests
@@ -488,7 +548,7 @@ the farthest-point sampling in c3’s <code class="docutils literal notranslate"
 <section id="not-published">
 <h2>[0.5.0] - not published<a class="headerlink" href="#not-published" title="Link to this heading">#</a></h2>
 <p>Fix round against the TypeScript worktree <code class="docutils literal notranslate"><span class="pre">py-parity-fixes</span></code> (branched from <code class="docutils literal notranslate"><span class="pre">d0abf3b</span></code>); see
-<code class="docutils literal notranslate"><span class="pre">docs/dev/fix-plan.md</span></code>. Per work package (WP), the fixture and behaviour changes are listed below.</p>
+<code class="docutils literal notranslate"><span class="pre">docs/dev/fix-plan.md</span></code>. Per work package (WP), the fixture and behavior changes are listed below.</p>
 <p>Upgrading from 0.4 (breaking):</p>
 <ul class="simple">
 <li><p>Python &gt;= 3.11 (WP1).</p></li>
@@ -499,12 +559,12 @@ the farthest-point sampling in c3’s <code class="docutils literal notranslate"
 <code class="docutils literal notranslate"><span class="pre">timestamp</span></code> are gone (WP2, WP9). Files saved by 0.4 with <code class="docutils literal notranslate"><span class="pre">format=&quot;webapp&quot;</span></code> still read as plain Infomap JSON.</p></li>
 <li><p>A node with a non-finite or missing flow raises <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> at load (WP4).</p></li>
 <li><p>Engine results change where TS was fixed: stree files lose a phantom level, regrouping <code class="docutils literal notranslate"><span class="pre">1:2</span></code> no longer collapses
-<code class="docutils literal notranslate"><span class="pre">10:*</span></code>, recolouring no longer moves modules, similarity chains that start after the first network get their own
-colours, and <code class="docutils literal notranslate"><span class="pre">module_level</span></code> expands in one batch (WP3-WP8). Diagrams of plain inputs without these cases are
+<code class="docutils literal notranslate"><span class="pre">10:*</span></code>, recoloring no longer moves modules, similarity chains that start after the first network get their own
+colors, and <code class="docutils literal notranslate"><span class="pre">module_level</span></code> expands in one batch (WP3-WP8). Diagrams of plain inputs without these cases are
 unchanged.</p></li>
 </ul>
-<section id="id2">
-<h3>Changed<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<section id="id5">
+<h3>Changed<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>WP1, breaking:</strong> Python 3.10 is no longer supported (<code class="docutils literal notranslate"><span class="pre">requires-python</span> <span class="pre">=</span> <span class="pre">&quot;&gt;=3.11&quot;</span></code>; the 3.10 classifier, the
 ruff <code class="docutils literal notranslate"><span class="pre">py310</span></code> target and the 3.10 CI jobs are gone; the lowest-direct-dependencies CI job runs on 3.11). The numpy
@@ -551,8 +611,8 @@ fixes by rejecting such flows at load.</p></li>
 longer occur because NaN flows are rejected at load (below). <code class="docutils literal notranslate"><span class="pre">sort_by_number</span></code> is now a plain stable key sort.</p></li>
 </ul>
 </section>
-<section id="fixed">
-<h3>Fixed<a class="headerlink" href="#fixed" title="Link to this heading">#</a></h3>
+<section id="id6">
+<h3>Fixed<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>WP3: tree paths, in TS and Python together (E1, E2, E3, P3; Y7).</strong> <code class="docutils literal notranslate"><span class="pre">TreePath</span></code> strips the stree trailing <code class="docutils literal notranslate"><span class="pre">:</span></code> before
 splitting, so <code class="docutils literal notranslate"><span class="pre">&quot;1:1:1:&quot;</span></code> has 3 levels, not 4 with a phantom <code class="docutils literal notranslate"><span class="pre">0</span></code> (stree files no longer get an extra expandable level
@@ -588,7 +648,7 @@ called by <code class="docutils literal notranslate"><span class="pre">create_fi
 NaN geometry and a V8-specific module order; JSON <code class="docutils literal notranslate"><span class="pre">&quot;flow&quot;:</span> <span class="pre">null</span></code> was read as 0 (Y13). A JSON <code class="docutils literal notranslate"><span class="pre">moduleLevel</span></code> that is
 not an integer &gt;= 1 (negatives included) now means level 1 in both engines (E18); <code class="docutils literal notranslate"><span class="pre">bipartiteStartId:</span> <span class="pre">null</span></code> is
 absent in TS too (E14; Python already read it so, the divergence note is gone). TS now reads upper-case
-extensions and recognises zips by <code class="docutils literal notranslate"><span class="pre">.zip</span></code> or the <code class="docutils literal notranslate"><span class="pre">x-zip-compressed</span></code>/<code class="docutils literal notranslate"><span class="pre">x-zip</span></code> MIME types, skipping <code class="docutils literal notranslate"><span class="pre">__MACOSX/</span></code>,
+extensions and recognizes zips by <code class="docutils literal notranslate"><span class="pre">.zip</span></code> or the <code class="docutils literal notranslate"><span class="pre">x-zip-compressed</span></code>/<code class="docutils literal notranslate"><span class="pre">x-zip</span></code> MIME types, skipping <code class="docutils literal notranslate"><span class="pre">__MACOSX/</span></code>,
 <code class="docutils literal notranslate"><span class="pre">._*</span></code> and directory entries (P1, P2); Python already dispatched case-insensitively and skipped those entries
 (now tested). The empty-diagram warning reads “every node flow is zero or negative, …”.</p></li>
 <li><p><strong>WP4, fixtures:</strong> removed <code class="docutils literal notranslate"><span class="pre">nan-tree__default</span></code>, <code class="docutils literal notranslate"><span class="pre">nan-tree__colored</span></code> and <code class="docutils literal notranslate"><span class="pre">nan-multilevel__expand</span></code> (and their
@@ -609,77 +669,77 @@ regenerated with node 25.8.1 and <code class="docutils literal notranslate"><spa
 <code class="docutils literal notranslate"><span class="pre">ALLUVIAL_TS_ROOT</span></code> at the worktree; ruff check and format clean. Differential fuzz: seeds 0-4999 in v1, v2 and v4
 (15000 cases, node 24.21.0) and seeds 0-999 in all three modes with node 25.8.1 all pass, so the 9 node-25 E9
 divergences noted under WP2/WP3 are gone (those cases are now rejected by both engines).</p></li>
-<li><p><strong>WP5: leaf mutation, in TS and Python together (E4, E5, E6; Y4).</strong> Recolouring keeps every module in place: an
+<li><p><strong>WP5: leaf mutation, in TS and Python together (E4, E5, E6; Y4).</strong> Recoloring keeps every module in place: an
 emptied module is removed only when its leaf moves to another module (<code class="docutils literal notranslate"><span class="pre">LeafNode._remove</span></code>), so a single-leaf module
-keeps its object, name, position and flow (before, it was re-created at the end with flow 0). With it go five colour
-quirks: the visible-leaf walks (<code class="docutils literal notranslate"><span class="pre">colors=&quot;layer&quot;</span></code>/<code class="docutils literal notranslate"><span class="pre">&quot;physical_id&quot;</span></code>, metadata colouring, <code class="docutils literal notranslate"><span class="pre">highlight=</span></code>) no longer skip a
-module, so no labelled node stays gray and the “stay gray” warning is gone; <code class="docutils literal notranslate"><span class="pre">colorMatchingModules</span></code> chains run through
+keeps its object, name, position and flow (before, it was re-created at the end with flow 0). With it go five color
+quirks: the visible-leaf walks (<code class="docutils literal notranslate"><span class="pre">colors=&quot;layer&quot;</span></code>/<code class="docutils literal notranslate"><span class="pre">&quot;physical_id&quot;</span></code>, metadata coloring, <code class="docutils literal notranslate"><span class="pre">highlight=</span></code>) no longer skip a
+module, so no labeled node stays gray and the “stay gray” warning is gone; <code class="docutils literal notranslate"><span class="pre">colorMatchingModules</span></code> chains run through
 single-leaf modules; <code class="docutils literal notranslate"><span class="pre">colorNodesInModule</span></code> propagates from one; <code class="docutils literal notranslate"><span class="pre">colorMatchingModulesInAllNetworks</span></code> is idempotent.
-Colour ops skip leaves whose highlight index does not change (E5). Duplicate identifiers link only the registered
+Color ops skip leaves whose highlight index does not change (E5). Duplicate identifiers link only the registered
 (last) leaf across networks, the others stay dangling (E6): no stolen leaves, no <code class="docutils literal notranslate"><span class="pre">NULL--</span></code> streamline ids, and the
 flow of every duplicate is drawn. The web app warns once per file with duplicate identifiers (non-fatal); Python
 keeps its reader warning. <code class="docutils literal notranslate"><span class="pre">DiagramStore.apply_highlight</span></code> no longer detects the walk skip, and <code class="docutils literal notranslate"><span class="pre">_visible_leaf_walk</span></code>
 is a plain loop (Y4).</p></li>
-<li><p><strong>WP5, fixtures:</strong> changed (orders, last bits, the fixed colours and links): <code class="docutils literal notranslate"><span class="pre">debug5-stree__expandHighlight</span></code>,
+<li><p><strong>WP5, fixtures:</strong> changed (orders, last bits, the fixed colors and links): <code class="docutils literal notranslate"><span class="pre">debug5-stree__expandHighlight</span></code>,
 <code class="docutils literal notranslate"><span class="pre">dupname-tree__highlight</span></code>, <code class="docutils literal notranslate"><span class="pre">fuzz1347__ops</span></code>, <code class="docutils literal notranslate"><span class="pre">fuzz2455__ops</span></code>, <code class="docutils literal notranslate"><span class="pre">fuzz670__ops</span></code>, <code class="docutils literal notranslate"><span class="pre">hlskip-tree__{categoricalSkip,</span> <span class="pre">colorByPhysicalId,</span> <span class="pre">colorMatchingModulesSingle,</span> <span class="pre">colorMatchingModulesThrough,</span> <span class="pre">colorNodesInModuleSingle}</span></code> (new
 descriptions), <code class="docutils literal notranslate"><span class="pre">planted-ftree__{defaultColorChange,</span> <span class="pre">highlightThenClear}</span></code>, <code class="docutils literal notranslate"><span class="pre">science-stree__nameColored</span></code>,
 <code class="docutils literal notranslate"><span class="pre">states-json__name</span></code>, <code class="docutils literal notranslate"><span class="pre">states-tree__{name,</span> <span class="pre">nameColored,</span> <span class="pre">nameColorSelectedNodes}</span></code> and
 <code class="docutils literal notranslate"><span class="pre">v3/states-ftree__colored__name__roundTrip</span></code>, as the plan predicted. Also changed, not predicted:
 <code class="docutils literal notranslate"><span class="pre">planted-ftree__{categorical,</span> <span class="pre">categoricalNoMetaFirst,</span> <span class="pre">realIntervals}</span></code> (last bits and label tie order only; their
-default-colour category or interval is now a no-op for leaves already at -1, the E5 guard in the store loops, which
+default-color category or interval is now a no-op for leaves already at -1, the E5 guard in the store loops, which
 the plan’s probe applied only to <code class="docutils literal notranslate"><span class="pre">Module.setColor</span></code>). Predicted but unchanged: <code class="docutils literal notranslate"><span class="pre">fuzz1347__level4</span></code> (its duplicates
 <code class="docutils literal notranslate"><span class="pre">9</span></code> and <code class="docutils literal notranslate"><span class="pre">2</span></code> take the benign path; the probe ran before WP3, whose phantom-level fix changed what <code class="docutils literal notranslate"><span class="pre">moduleLevel</span> <span class="pre">4</span></code>
 expands. Confirmed in review: a regeneration with only the E6 guard reverted leaves <code class="docutils literal notranslate"><span class="pre">fuzz1347__level4</span></code>
 byte-identical and changes exactly the E6 files listed above).
 New: <code class="docutils literal notranslate"><span class="pre">dupname-tree__recolor</span></code> (every duplicate runs <code class="docutils literal notranslate"><span class="pre">update()</span></code>) and <code class="docutils literal notranslate"><span class="pre">v4/hlskip-tree__default__namesOrderRecolor</span></code>
-(a single-leaf module moved, named, then recoloured keeps its name and place). <code class="docutils literal notranslate"><span class="pre">provenance.txt</span></code>: new source hash,
+(a single-leaf module moved, named, then recolored keeps its name and place). <code class="docutils literal notranslate"><span class="pre">provenance.txt</span></code>: new source hash,
 <code class="docutils literal notranslate"><span class="pre">fixtures:</span> <span class="pre">202</span></code>, <code class="docutils literal notranslate"><span class="pre">fixtures_v4:</span> <span class="pre">15</span></code>, node 24.21.0. The harness ignores the new non-fatal parse warnings.</p></li>
-<li><p><strong>WP5, tests:</strong> the five tests that pinned the old behaviour now pin the fix (<code class="docutils literal notranslate"><span class="pre">test_engine_model.py</span></code>: duplicate
-links, single-network colouring of every module, idempotent matching; <code class="docutils literal notranslate"><span class="pre">test_engine_v2.py</span></code> and <code class="docutils literal notranslate"><span class="pre">test_layout_v2.py</span></code>:
-no gray node and no warning on <code class="docutils literal notranslate"><span class="pre">hlskip</span></code>). New: <code class="docutils literal notranslate"><span class="pre">test_recolour_single_leaf_module_keeps_name_order_and_flow</span></code> and
+<li><p><strong>WP5, tests:</strong> the five tests that pinned the old behavior now pin the fix (<code class="docutils literal notranslate"><span class="pre">test_engine_model.py</span></code>: duplicate
+links, single-network coloring of every module, idempotent matching; <code class="docutils literal notranslate"><span class="pre">test_engine_v2.py</span></code> and <code class="docutils literal notranslate"><span class="pre">test_layout_v2.py</span></code>:
+no gray node and no warning on <code class="docutils literal notranslate"><span class="pre">hlskip</span></code>). New: <code class="docutils literal notranslate"><span class="pre">test_recolor_single_leaf_module_keeps_name_order_and_flow</span></code> and
 <code class="docutils literal notranslate"><span class="pre">test_no_fixture_has_a_null_streamline_id</span></code>; the new v4 scenario is replayed but not rebuilt from <code class="docutils literal notranslate"><span class="pre">layout()</span></code>
-arguments (<code class="docutils literal notranslate"><span class="pre">NOT_LAYOUT_ORDER</span></code>, colour after order and names). The obsolete “stay gray” warning filters are gone.
-Suite 1822 -&gt; 1830 passed, 8 -&gt; 9 skipped. TS: <code class="docutils literal notranslate"><span class="pre">StreamlineNode.test.ts</span></code> (single-leaf recolour, no-op recolour,
+arguments (<code class="docutils literal notranslate"><span class="pre">NOT_LAYOUT_ORDER</span></code>, color after order and names). The obsolete “stay gray” warning filters are gone.
+Suite 1822 -&gt; 1830 passed, 8 -&gt; 9 skipped. TS: <code class="docutils literal notranslate"><span class="pre">StreamlineNode.test.ts</span></code> (single-leaf recolor, no-op recolor,
 duplicate identifiers) and <code class="docutils literal notranslate"><span class="pre">parse-files.test.ts</span></code> (the duplicate warning).</p></li>
 <li><p><strong>WP5, verification:</strong> TS <code class="docutils literal notranslate"><span class="pre">tsc</span></code>, <code class="docutils literal notranslate"><span class="pre">build:lib</span></code>, <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">test</span></code> (package 58, app 6), <code class="docutils literal notranslate"><span class="pre">build:app</span></code> pass; <code class="docutils literal notranslate"><span class="pre">generate.mjs</span> <span class="pre">--check</span></code>
 byte-identical with node 24.21.0 and 25.8.1. Python 1830 passed / 9 skipped with <code class="docutils literal notranslate"><span class="pre">ALLUVIAL_TS_ROOT</span></code> at the
 worktree; ruff check and format clean. Differential fuzz campaign (node 24.21.0): v1 seeds 0-4999, v2 0-9999 and
 v4 0-4999 all pass (20000 cases).</p></li>
-<li><p><strong>WP6: colour operations, in TS and Python together (S1, S3, S5, S6, S7, E12; Y5, Y6, Y8).</strong></p>
+<li><p><strong>WP6: color operations, in TS and Python together (S1, S3, S5, S6, S7, E12; Y5, Y6, Y8).</strong></p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">colors=&quot;similarity&quot;</span></code> (<code class="docutils literal notranslate"><span class="pre">colorMatchingModulesInAllNetworks</span></code>, S1): one colour counter for all network pairs. A
+<li><p><code class="docutils literal notranslate"><span class="pre">colors=&quot;similarity&quot;</span></code> (<code class="docutils literal notranslate"><span class="pre">colorMatchingModulesInAllNetworks</span></code>, S1): one color counter for all network pairs. A
 similarity chain that starts in network 1 or later no longer reuses <code class="docutils literal notranslate"><span class="pre">scheme[0],</span> <span class="pre">scheme[1],</span> <span class="pre">…</span></code> and so no longer
-takes the colour of an unrelated chain (owner decision 3). Chains that start in network 0 keep their colours.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">colors=&quot;module_id&quot;</span></code> (<code class="docutils literal notranslate"><span class="pre">colorModuleIdsInAllNetworks</span></code>, S3) clears first, like the other colour ops: the registry
-restarts and hidden modules lose stale colours. Expanded-multilayer groups are taken in insertion order (no JS
+takes the color of an unrelated chain (owner decision 3). Chains that start in network 0 keep their colors.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">colors=&quot;module_id&quot;</span></code> (<code class="docutils literal notranslate"><span class="pre">colorModuleIdsInAllNetworks</span></code>, S3) clears first, like the other color ops: the registry
+restarts and hidden modules lose stale colors. Expanded-multilayer groups are taken in insertion order (no JS
 object key order; Y5).</p></li>
 <li><p>Module similarity (S5): the node distribution keeps insertion order for every identifier (TS <code class="docutils literal notranslate"><span class="pre">Map</span></code>, no JS object
 key order; Y5), and name-mode identifiers such as <code class="docutils literal notranslate"><span class="pre">constructor</span></code> or <code class="docutils literal notranslate"><span class="pre">__proto__</span></code> match in TS too.
 <code class="docutils literal notranslate"><span class="pre">_jscompat.js_own_keys_order_items</span></code> stays for byte-identical metadata JSON.</p></li>
 <li><p>Real-valued metadata bins (S6): the last bin includes its upper edge, so the leaves with the maximum value get
-the last colour (before: no colour).</p></li>
+the last color (before: no color).</p></li>
 <li><p>Input palettes (<code class="docutils literal notranslate"><span class="pre">check_colors</span></code>, S7; Y8): the files’ palettes are merged (first occurrence wins). A <code class="docutils literal notranslate"><span class="pre">colors</span></code> list is
 local to its file: each node’s <code class="docutils literal notranslate"><span class="pre">highlight_index</span></code> into it is remapped to the merged index (an index outside the
 file’s list, <code class="docutils literal notranslate"><span class="pre">-1</span></code> or past the end, is kept), and the file’s <code class="docutils literal notranslate"><span class="pre">colors</span></code> becomes the merged palette, so a second
-<code class="docutils literal notranslate"><span class="pre">set_networks</span></code> on the same files is the identity. <code class="docutils literal notranslate"><span class="pre">colors:</span> <span class="pre">true</span></code> nodes get the real index of their colour (before:
-the dummy index 0 when the colour came from an earlier list). <code class="docutils literal notranslate"><span class="pre">layout()</span></code> copies every file with input colours
+<code class="docutils literal notranslate"><span class="pre">set_networks</span></code> on the same files is the identity. <code class="docutils literal notranslate"><span class="pre">colors:</span> <span class="pre">true</span></code> nodes get the real index of their color (before:
+the dummy index 0 when the color came from an earlier list). <code class="docutils literal notranslate"><span class="pre">layout()</span></code> copies every file with input colors
 before <code class="docutils literal notranslate"><span class="pre">check_colors</span></code>, so the caller’s files are not changed. TS <code class="docutils literal notranslate"><span class="pre">moveNetwork</span></code> gives every file the store palette
 before it rebuilds (fix-plan finding 5).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">have_metadata</span></code> (E12; Y6) is true when some leaf has metadata (before: only the first leaf in tree order was
-checked), so the metadata colour ops no longer skip such a network. A network without leaves no longer raises
+checked), so the metadata color ops no longer skip such a network. A network without leaves no longer raises
 <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>; <code class="docutils literal notranslate"><span class="pre">is_multilayer</span></code>/<code class="docutils literal notranslate"><span class="pre">is_higher_order</span></code> read the first leaf safely in TS too.</p></li>
 </ul>
 </li>
 <li><p><strong>WP6, fixtures:</strong> changed: <code class="docutils literal notranslate"><span class="pre">v3/jscolors-abc__default</span></code> and <code class="docutils literal notranslate"><span class="pre">v3/jscolors-abc__default__roundTrip</span></code> (S7: b’s <code class="docutils literal notranslate"><span class="pre">#0f0</span></code>
 nodes get index 1, not the dummy 0); <code class="docutils literal notranslate"><span class="pre">planted-ftree__categoricalNoMetaFirst</span></code>, and also, not predicted,
 <code class="docutils literal notranslate"><span class="pre">planted-ftree__{arrayLength,</span> <span class="pre">arrayMetadata}</span></code> (E12: their first leaf has <code class="docutils literal notranslate"><span class="pre">metadata:</span> <span class="pre">null</span></code>, so a whole network was
-skipped; now coloured); <code class="docutils literal notranslate"><span class="pre">planted-ftree__realMetadata</span></code> (S6: the maximum-valued leaves get the last bin’s colour);
+skipped; now colored); <code class="docutils literal notranslate"><span class="pre">planted-ftree__realMetadata</span></code> (S6: the maximum-valued leaves get the last bin’s color);
 <code class="docutils literal notranslate"><span class="pre">fuzz2455__ops</span></code> and, not predicted, <code class="docutils literal notranslate"><span class="pre">v3/multilevel-tree__schemeSwitch</span></code> (S3: <code class="docutils literal notranslate"><span class="pre">colorModuleIdsInAllNetworks</span></code> after
-another colour op now starts from an empty registry; in fuzz2455 a hidden module loses a stale colour, in
-schemeSwitch the registry has the 4 Set1 colours instead of 3 Sinebow + 4 Set1). Each attribution was checked by
+another color op now starts from an empty registry; in fuzz2455 a hidden module loses a stale color, in
+schemeSwitch the registry has the 4 Set1 colors instead of 3 Sinebow + 4 Set1). Each attribution was checked by
 regenerating with only that fix reverted in the TS worktree (the fixture then equals the WP5 one). Predicted but
 unchanged: <code class="docutils literal notranslate"><span class="pre">planted-ftree__colorOpsMixed</span></code> (its <code class="docutils literal notranslate"><span class="pre">colorModuleIdsInAllNetworks</span></code> follows <code class="docutils literal notranslate"><span class="pre">colorNodesInModulesInAllNetworks</span></code>,
-which registered the same scheme colours from index 0, and every coloured module is visible, so clearing first gives
+which registered the same scheme colors from index 0, and every colored module is visible, so clearing first gives
 the same indices). S1 and S5 change no committed fixture, as predicted. New: <code class="docutils literal notranslate"><span class="pre">abc-chain__similarity</span></code> (v1; hand-written
 <code class="docutils literal notranslate"><span class="pre">abcchain_t{0,1,2}.tree</span></code>, <code class="docutils literal notranslate"><span class="pre">make_datasets.py</span></code> (j), <code class="docutils literal notranslate"><span class="pre">datasets.json</span></code> <code class="docutils literal notranslate"><span class="pre">v2_datasets.abcchain</span></code>): <code class="docutils literal notranslate"><span class="pre">b.2</span></code> and <code class="docutils literal notranslate"><span class="pre">c.1</span></code> get
 <code class="docutils literal notranslate"><span class="pre">scheme[1]</span></code>; with the old counter all five modules got <code class="docutils literal notranslate"><span class="pre">scheme[0]</span></code> (checked the same way). <code class="docutils literal notranslate"><span class="pre">provenance.txt</span></code>: new
@@ -689,7 +749,7 @@ source hash, <code class="docutils literal notranslate"><span class="pre">fixtur
 <code class="docutils literal notranslate"><span class="pre">check_colors</span></code> remap and idempotence, <code class="docutils literal notranslate"><span class="pre">layout()</span></code> leaves list-palette inputs unchanged, <code class="docutils literal notranslate"><span class="pre">color_module_ids_in_all_networks</span></code>
 clears first, similarity with <code class="docutils literal notranslate"><span class="pre">constructor</span></code>/<code class="docutils literal notranslate"><span class="pre">__proto__</span></code> identifiers (<code class="docutils literal notranslate"><span class="pre">test_engine_model.py</span></code>), the inclusive last bin
 and <code class="docutils literal notranslate"><span class="pre">have_metadata</span></code> with a first leaf without metadata (<code class="docutils literal notranslate"><span class="pre">test_engine_v2.py</span></code>); scenario count 202 -&gt; 203. TS:
-<code class="docutils literal notranslate"><span class="pre">DiagramStore.test.ts</span></code> (<code class="docutils literal notranslate"><span class="pre">checkColors</span></code> with mixed palettes and on the same files twice; <code class="docutils literal notranslate"><span class="pre">moveNetwork</span></code> after a recolour).</p></li>
+<code class="docutils literal notranslate"><span class="pre">DiagramStore.test.ts</span></code> (<code class="docutils literal notranslate"><span class="pre">checkColors</span></code> with mixed palettes and on the same files twice; <code class="docutils literal notranslate"><span class="pre">moveNetwork</span></code> after a recolor).</p></li>
 <li><p><strong>WP6, verification:</strong> TS <code class="docutils literal notranslate"><span class="pre">tsc</span></code>, <code class="docutils literal notranslate"><span class="pre">build:lib</span></code>, <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">test</span></code> (package 61, app 6), <code class="docutils literal notranslate"><span class="pre">build:app</span></code> pass; <code class="docutils literal notranslate"><span class="pre">generate.mjs</span> <span class="pre">--check</span></code>
 byte-identical (node 24.21.0). Python 1842 passed / 9 skipped with <code class="docutils literal notranslate"><span class="pre">ALLUVIAL_TS_ROOT</span></code> at the worktree (1830 + 7 new
 tests + the new scenario’s parametrizations); ruff check and format clean. Differential fuzz: v2 seeds 0-1999, v1 and
@@ -782,10 +842,10 @@ through <code class="docutils literal notranslate"><span class="pre">layout</spa
 pass; <code class="docutils literal notranslate"><span class="pre">generate.mjs</span> <span class="pre">--check</span></code> byte-identical. Python 1860 passed / 9 skipped with <code class="docutils literal notranslate"><span class="pre">ALLUVIAL_TS_ROOT</span></code> at the worktree
 (1857 + 3 new tests); ruff check and format clean. Differential fuzz: v2 seeds 0-4999 (AC), v4 and v1 seeds 0-999
 all pass. Visible-set diff script over the WP7 and WP8 dumps: identical visible ids and order in all 17.</p></li>
-<li><p><strong>WP10, TS only (H3):</strong> <code class="docutils literal notranslate"><span class="pre">DiagramStore.moveNetwork</span></code> keeps its state. It serialises the diagram in memory as a save
-(<code class="docutils literal notranslate"><span class="pre">serializeDiagramData</span></code>, the data step of <code class="docutils literal notranslate"><span class="pre">serializeDiagram</span></code>, now exported), writes each node’s colour and module
+<li><p><strong>WP10, TS only (H3):</strong> <code class="docutils literal notranslate"><span class="pre">DiagramStore.moveNetwork</span></code> keeps its state. It serializes the diagram in memory as a save
+(<code class="docutils literal notranslate"><span class="pre">serializeDiagramData</span></code>, the data step of <code class="docutils literal notranslate"><span class="pre">serializeDiagram</span></code>, now exported), writes each node’s color and module
 level back per input node (<code class="docutils literal notranslate"><span class="pre">Network.inputLeafNodes</span></code>, so duplicate identifiers keep their own instead of the
-registered leaf’s), reorders the files and restores them with <code class="docutils literal notranslate"><span class="pre">openNetworks</span></code>. The palette, per-leaf colours, network
+registered leaf’s), reorders the files and restores them with <code class="docutils literal notranslate"><span class="pre">openNetworks</span></code>. The palette, per-leaf colors, network
 and module names, custom module orders, options, scheme and bipartite toggle survive a move (before, names and the
 custom order were lost and duplicates were miswritten). Python has no <code class="docutils literal notranslate"><span class="pre">moveNetwork</span></code>; no Python or fixture change.</p></li>
 <li><p><strong>WP11, TS only (U1, E13, E16, E8):</strong> the web app’s margin slider label shows the real top-level margin <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">**</span> <span class="pre">value</span></code>
@@ -830,8 +890,8 @@ comment no longer claims unflagged cases draw exactly as before.</p></li>
 </li>
 </ul>
 </section>
-<section id="id3">
-<h3>Added<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<section id="id7">
+<h3>Added<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>WP9: the saved-diagram format “alluvial network files”, formatVersion 1, in TS and Python together (L1, L2, L3,
 E19; saveload-plan.md §4-§7).</strong> A saved diagram is one Infomap-JSON file per network (<code class="docutils literal notranslate"><span class="pre">NN_&lt;network</span> <span class="pre">name&gt;.json</span></code>), in
@@ -868,7 +928,7 @@ one-network diagram. Nothing is lost any more, so the “do not store” warning
 <li><p><code class="docutils literal notranslate"><span class="pre">layout(...,</span> <span class="pre">restore_state=True)</span></code> restores a saved diagram as the web app opens it: options, scheme, module
 orders and module names. Explicit keywords win silently (owner default): layout options, <code class="docutils literal notranslate"><span class="pre">scheme</span></code> and
 <code class="docutils literal notranslate"><span class="pre">show_bipartite_nodes</span></code> replace the stored values, <code class="docutils literal notranslate"><span class="pre">module_order</span></code>/<code class="docutils literal notranslate"><span class="pre">module_names</span></code> replace the stored orders/names.
-The restore warnings are issued as <code class="docutils literal notranslate"><span class="pre">UserWarning(&quot;saved</span> <span class="pre">diagram:</span> <span class="pre">...&quot;)</span></code>. Saved files keep their colours by default
+The restore warnings are issued as <code class="docutils literal notranslate"><span class="pre">UserWarning(&quot;saved</span> <span class="pre">diagram:</span> <span class="pre">...&quot;)</span></code>. Saved files keep their colors by default
 (<code class="docutils literal notranslate"><span class="pre">colors=None</span></code>), even when the palette is empty. The restored <code class="docutils literal notranslate"><span class="pre">fontSize</span></code> and <code class="docutils literal notranslate"><span class="pre">aggregateStateNames</span></code> are used for the
 labels.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">read</span></code> takes a directory (its network files in name order) or a list of paths, and sorts the files of one saved
@@ -890,7 +950,7 @@ options, scheme and <code class="docutils literal notranslate"><span class="pre"
 The harness-local <code class="docutils literal notranslate"><span class="pre">webAppFiles</span></code> writer, its <code class="docutils literal notranslate"><span class="pre">inputLeaves</span></code> wrapper and the <code class="docutils literal notranslate"><span class="pre">loadWebAppFiles</span></code> id rewrite are gone.
 The 20 existing round-trip fixtures (16 v3, 4 v4) changed only in these blocks and in the description text (“saved
 files + reload”); a diff that drops them and <code class="docutils literal notranslate"><span class="pre">description</span></code> shows every engine dump unchanged. 11 new v3 fixtures:
-<code class="docutils literal notranslate"><span class="pre">multilevel-tree__options__roundTrip</span></code> (every saved option changed, <code class="docutils literal notranslate"><span class="pre">Paired</span></code>, colouring, expand, order, names, a
+<code class="docutils literal notranslate"><span class="pre">multilevel-tree__options__roundTrip</span></code> (every saved option changed, <code class="docutils literal notranslate"><span class="pre">Paired</span></code>, coloring, expand, order, names, a
 network name), <code class="docutils literal notranslate"><span class="pre">multilevel-tree__restore{Shuffled,Partial,MixedSaves,FormatVersion2,BadBlock,BadOptions}__roundTrip</span></code>
 (the restore warnings and partial restores), <code class="docutils literal notranslate"><span class="pre">multilevel-tree__flowThreshold40__orderHidden__roundTrip</span></code> (hidden
 modules in <code class="docutils literal notranslate"><span class="pre">moduleOrder</span></code>), <code class="docutils literal notranslate"><span class="pre">bipartite-json__hidden__roundTrip</span></code> (E19), <code class="docutils literal notranslate"><span class="pre">planted-json__default__passthrough__roundTrip</span></code>
@@ -899,7 +959,7 @@ hand-written data <code class="docutils literal notranslate"><span class="pre">t
 <code class="docutils literal notranslate"><span class="pre">provenance.txt</span></code>: new source hash.</p></li>
 <li><p><strong>WP9, tests:</strong> new <code class="docutils literal notranslate"><span class="pre">tests/test_saveload.py</span></code>: Python-save == TS-save for every round-trip fixture; TS-save -&gt;
 Python-load through <code class="docutils literal notranslate"><span class="pre">read</span></code> of a directory, a zip and a shuffled list of paths; reload == original (order, names,
-colours, options, scheme, network names; geometry within 1e-9); hidden order after lowering the threshold;
+colors, options, scheme, network names; geometry within 1e-9); hidden order after lowering the threshold;
 Infomap pass-through; <code class="docutils literal notranslate"><span class="pre">restore_state=False</span></code>; restore warnings; 2019 rejection; <code class="docutils literal notranslate"><span class="pre">show_bipartite_nodes</span></code>.
 <code class="docutils literal notranslate"><span class="pre">test_v3_fixtures</span></code>/<code class="docutils literal notranslate"><span class="pre">test_v4_fixtures</span></code> check <code class="docutils literal notranslate"><span class="pre">savedFiles</span></code> byte for byte and <code class="docutils literal notranslate"><span class="pre">savedReload</span></code> bit for bit (with the
 restored options, scheme and warnings); the v4 <code class="docutils literal notranslate"><span class="pre">save_diagram</span></code> test runs the public API as a zip and as loose files.
@@ -919,7 +979,7 @@ fuzz with round trips and the direct Python-save -&gt; TS-open: v1, v2, v4 seeds
 tour of every public feature in ten sections (inputs: tree/ftree/stree/clu, Infomap JSON path and dict,
 <code class="docutils literal notranslate"><span class="pre">infomap.Infomap</span></code> objects and their <code class="docutils literal notranslate"><span class="pre">Result</span></code>, state/memory and multilayer networks with <code class="docutils literal notranslate"><span class="pre">split_layers</span></code>, a zip,
 directories and lists of files, <code class="docutils literal notranslate"><span class="pre">NetworkFile</span></code>, names/ids/identifier, bipartite networks; every <code class="docutils literal notranslate"><span class="pre">LayoutOptions</span></code>
-field; all colour modes, schemes, highlight groups by mapping and by function, legends; <code class="docutils literal notranslate"><span class="pre">module_level</span></code>, <code class="docutils literal notranslate"><span class="pre">expand</span></code>
+field; all color modes, schemes, highlight groups by mapping and by function, legends; <code class="docutils literal notranslate"><span class="pre">module_level</span></code>, <code class="docutils literal notranslate"><span class="pre">expand</span></code>
 and the hierarchy styles; <code class="docutils literal notranslate"><span class="pre">module_names</span></code>/<code class="docutils literal notranslate"><span class="pre">module_order</span></code>; drawing on subplot axes, fonts from <code class="docutils literal notranslate"><span class="pre">rcParams</span></code>, every
 label option, palettes and colormaps, gradients, styles, <code class="docutils literal notranslate"><span class="pre">get_artists</span></code>, PNG/PDF/SVG and <code class="docutils literal notranslate"><span class="pre">rasterized</span></code>; the geometry
 without matplotlib, <code class="docutils literal notranslate"><span class="pre">to_dict</span></code>/<code class="docutils literal notranslate"><span class="pre">from_dict</span></code> and a renderer of one’s own; <code class="docutils literal notranslate"><span class="pre">save_diagram</span></code> zip/loose/<code class="docutils literal notranslate"><span class="pre">.json</span></code> -&gt;
@@ -934,10 +994,10 @@ removed, new counts); the port-notes index and <code class="docutils literal not
 replaced writer) updated. TS: package README section “Saving and opening diagrams” (the formatVersion 1
 contract), a CHANGELOG entry; the TS version is not bumped (owner decision).</p></li>
 <li><p><strong>WP12, found while writing the notebook (not fixed, both engines, parity holds):</strong> a reload equals the original
-up to float summation order (about 1e-13 px, as saveload-plan.md §4.5 states): highlight groups built by a colour
+up to float summation order (about 1e-13 px, as saveload-plan.md §4.5 states): highlight groups built by a color
 operation sum their flows in another order than the groups built at load from <code class="docutils literal notranslate"><span class="pre">highlightIndex</span></code> (a plain JSON of
 the same nodes without <code class="docutils literal notranslate"><span class="pre">highlightIndex</span></code> reloads bit for bit). Labels of nodes with exactly equal flow can then list
-in another order (e.g. <code class="docutils literal notranslate"><span class="pre">multilevel_t*.tree</span></code> saved and reopened, or the same diagram coloured differently). The
+in another order (e.g. <code class="docutils literal notranslate"><span class="pre">multilevel_t*.tree</span></code> saved and reopened, or the same diagram colored differently). The
 notebook compares a reload with the original up to rounding and without the node-name labels, and checks that
 saving a reloaded diagram again is bit-exact.</p></li>
 <li><p><strong>WP12, fixtures:</strong> none change (no engine or harness change).</p></li>
@@ -948,7 +1008,7 @@ pass; ruff check and format clean.</p></li>
 <li><p><strong>WP13: final verification.</strong> Fixed: the sdist shipped <code class="docutils literal notranslate"><span class="pre">tests/test_capabilities_notebook.py</span></code> without
 <code class="docutils literal notranslate"><span class="pre">docs/capabilities.ipynb</span></code>, so the test failed when run from the sdist (<code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> sdist <code class="docutils literal notranslate"><span class="pre">include</span></code> now lists
 the notebook). Added <code class="docutils literal notranslate"><span class="pre">test_python_save_diagram_zip_opens_in_ts</span></code> (<code class="docutils literal notranslate"><span class="pre">tests/test_fuzz_parity.py</span></code>): zips written by
-<code class="docutils literal notranslate"><span class="pre">alluvial.save_diagram</span></code> (Python’s <code class="docutils literal notranslate"><span class="pre">zipfile</span></code>, deflated; plain, options + names + <code class="docutils literal notranslate"><span class="pre">module_id</span></code> colours, <code class="docutils literal notranslate"><span class="pre">module_level=2</span></code>,
+<code class="docutils literal notranslate"><span class="pre">alluvial.save_diagram</span></code> (Python’s <code class="docutils literal notranslate"><span class="pre">zipfile</span></code>, deflated; plain, options + names + <code class="docutils literal notranslate"><span class="pre">module_id</span></code> colors, <code class="docutils literal notranslate"><span class="pre">module_level=2</span></code>,
 <code class="docutils literal notranslate"><span class="pre">module_order</span></code>, split layers) are opened by TS through the web app’s loader (<code class="docutils literal notranslate"><span class="pre">parseAcceptedFiles</span></code> unzips with
 JSZip, then <code class="docutils literal notranslate"><span class="pre">openNetworks</span></code>; harness <code class="docutils literal notranslate"><span class="pre">openMain</span></code> now also opens <code class="docutils literal notranslate"><span class="pre">&lt;case&gt;/saved.zip</span></code> as one dropped file) and must
 equal Python’s <code class="docutils literal notranslate"><span class="pre">read</span></code> of the same zip bit for bit. TS-side: the new lines of the WP changes formatted with the repo’s
@@ -961,19 +1021,19 @@ Python 2051 passed / 19 skipped (py314 <code class="docutils literal notranslate
 fresh venvs on 3.11, 3.12, 3.13 and 3.14 green (fuzz skipped there: no harness in the sdist); fuzz 3000 seeds
 each for v1, v2 and v4 including the round trips and Python-save -&gt; TS-open; large science fixtures replayed;
 both notebooks execute in conda py314 without errors or warnings; a headless run of the built web app loads a
-Python zip (same group positions and fills as Python, bit for bit), recolours it and downloads a zip that
+Python zip (same group positions and fills as Python, bit for bit), recolors it and downloads a zip that
 Python reopens like TS (bit for bit; equal to the in-app picture up to float summation order, as documented).</p></li>
 </ul>
 </li>
 </ul>
 </section>
 </section>
-<section id="id4">
-<h2>[0.4.0] - not published<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<section id="id8">
+<h2>[0.4.0] - not published<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
 <p>Module names and order for paper figures, checked against 14 new TypeScript reference scenarios
 (<code class="docutils literal notranslate"><span class="pre">tests/fixtures/v4</span></code>, bit for bit, plus byte-identical saved texts).</p>
-<section id="id5">
-<h3>Added<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<section id="id9">
+<h3>Added<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">layout(...,</span> <span class="pre">module_names=...)</span></code>: <code class="docutils literal notranslate"><span class="pre">{(network,</span> <span class="pre">module_id):</span> <span class="pre">name}</span></code> or a function of the new <code class="docutils literal notranslate"><span class="pre">alluvial.ModuleInfo</span></code>;
 <code class="docutils literal notranslate"><span class="pre">draw</span></code> shows the names, as the web app does. Saved diagrams write them in <code class="docutils literal notranslate"><span class="pre">moduleNames</span></code>.</p></li>
@@ -986,8 +1046,8 @@ zip paths as <code class="docutils literal notranslate"><span class="pre">layout
 one network has it); their “no network” errors list the names.</p></li>
 </ul>
 </section>
-<section id="id6">
-<h3>Changed<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<section id="id10">
+<h3>Changed<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">save_diagram(format=&quot;webapp&quot;)</span></code> also warns that module names are not stored.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">save_diagram(format=&quot;diagram&quot;)</span></code> warns when a custom module order would be lost (the saved diagram has no field
@@ -997,22 +1057,22 @@ harness (no fixture changes).</p></li>
 </ul>
 </section>
 </section>
-<section id="id7">
-<h2>[0.3.0] - not published<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<section id="id11">
+<h2>[0.3.0] - not published<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
 <p>The web-app bridge, checked against 30 new TypeScript reference scenarios (<code class="docutils literal notranslate"><span class="pre">tests/fixtures/v3</span></code>, bit for bit, plus
 byte-identical saved texts) and save/load round trips in the differential fuzzer.</p>
-<section id="id8">
-<h3>Added<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<section id="id12">
+<h3>Added<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">alluvial.read</span></code> loads a saved web-app diagram (a port of the web app’s converter) and returns a <code class="docutils literal notranslate"><span class="pre">SavedDiagram</span></code>;
-<code class="docutils literal notranslate"><span class="pre">layout</span></code>/<code class="docutils literal notranslate"><span class="pre">plot</span></code> take it and restore its state (layout options, default colour, label font size, palette), as the
+<code class="docutils literal notranslate"><span class="pre">layout</span></code>/<code class="docutils literal notranslate"><span class="pre">plot</span></code> take it and restore its state (layout options, default color, label font size, palette), as the
 web app that saved it did (<code class="docutils literal notranslate"><span class="pre">restore_state=False</span></code> loads it like today’s converter).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">alluvial.save_diagram(networks,</span> <span class="pre">path,</span> <span class="pre">format=&quot;diagram&quot;</span> <span class="pre">|</span> <span class="pre">&quot;webapp&quot;,</span> <span class="pre">**layout_kwargs)</span></code>: the web app’s
 <code class="docutils literal notranslate"><span class="pre">saveDiagram</span></code> JSON, byte-identical to TS for the same store state, or one Infomap-JSON file per network with the
 palette (<code class="docutils literal notranslate"><span class="pre">colors</span></code>) that today’s web app opens (directory or <code class="docutils literal notranslate"><span class="pre">.zip</span></code>).</p></li>
 <li><p>JSON top-level <code class="docutils literal notranslate"><span class="pre">colors</span></code> and per-node <code class="docutils literal notranslate"><span class="pre">color</span></code> (<code class="docutils literal notranslate"><span class="pre">checkColors</span></code>, including its index-0 quirk); <code class="docutils literal notranslate"><span class="pre">layout</span></code> keeps input
-colours by default when the input carries them.</p></li>
-<li><p>The 64 named colour schemes of the web app (<code class="docutils literal notranslate"><span class="pre">alluvial.palette.SCHEMES</span></code>, <code class="docutils literal notranslate"><span class="pre">SCHEME_GROUPS</span></code>, <code class="docutils literal notranslate"><span class="pre">get_scheme</span></code>) and
+colors by default when the input carries them.</p></li>
+<li><p>The 64 named color schemes of the web app (<code class="docutils literal notranslate"><span class="pre">alluvial.palette.SCHEMES</span></code>, <code class="docutils literal notranslate"><span class="pre">SCHEME_GROUPS</span></code>, <code class="docutils literal notranslate"><span class="pre">get_scheme</span></code>) and
 <code class="docutils literal notranslate"><span class="pre">layout(...,</span> <span class="pre">scheme=...)</span></code>; the scheme also gives the default <code class="docutils literal notranslate"><span class="pre">highlight_colors</span></code>.</p></li>
 <li><p>Engine: <code class="docutils literal notranslate"><span class="pre">DiagramStore.check_colors</span></code>, <code class="docutils literal notranslate"><span class="pre">set_network_name</span></code>, <code class="docutils literal notranslate"><span class="pre">set_module_name</span></code>, display <code class="docutils literal notranslate"><span class="pre">settings</span></code>, schemes by name;
 <code class="docutils literal notranslate"><span class="pre">alluvial._jscompat.js_json_stringify</span></code>.</p></li>
@@ -1023,12 +1083,12 @@ name instead of its leaf names, as the web app’s renderer does. (<code class="
 <li><p>Tutorial section “Open in the web app”.</p></li>
 </ul>
 </section>
-<section id="id9">
-<h3>Changed<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<section id="id13">
+<h3>Changed<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Warnings point at the caller’s line whether <code class="docutils literal notranslate"><span class="pre">layout</span></code>, <code class="docutils literal notranslate"><span class="pre">plot</span></code>, <code class="docutils literal notranslate"><span class="pre">read</span></code> or <code class="docutils literal notranslate"><span class="pre">save_diagram</span></code> was called (the stack level
 is computed, not fixed).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">layout(...,</span> <span class="pre">colors=None)</span></code> is the default when the input carries colours (a saved diagram, or JSON with <code class="docutils literal notranslate"><span class="pre">colors</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">layout(...,</span> <span class="pre">colors=None)</span></code> is the default when the input carries colors (a saved diagram, or JSON with <code class="docutils literal notranslate"><span class="pre">colors</span></code>).</p></li>
 <li><p>JSON <code class="docutils literal notranslate"><span class="pre">&quot;flow&quot;:</span> <span class="pre">null</span></code> is read as 0 (what JS arithmetic does with the <code class="docutils literal notranslate"><span class="pre">null</span></code> that <code class="docutils literal notranslate"><span class="pre">JSON.stringify</span></code> writes for NaN).</p></li>
 <li><p>Examples and the tutorial use only infomap API that 2.15 does not deprecate and 2.14 supports (the relax rate as
 the <code class="docutils literal notranslate"><span class="pre">--multilayer-relax-rate</span></code> flag of <code class="docutils literal notranslate"><span class="pre">Infomap.run</span></code>, partition facts via <code class="docutils literal notranslate"><span class="pre">alluvial.read(im)</span></code>).</p></li>
@@ -1051,12 +1111,12 @@ the zip name) and a <code class="docutils literal notranslate"><span class="pre"
 </ul>
 </section>
 </section>
-<section id="id10">
-<h2>[0.2.0] - not published<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<section id="id14">
+<h2>[0.2.0] - not published<a class="headerlink" href="#id14" title="Link to this heading">#</a></h2>
 <p>The v2 features of the web app, each a port of the store operations it uses, checked against 73 new TypeScript
 reference scenarios (204 in all, bit for bit) and an extended differential fuzzer.</p>
-<section id="id11">
-<h3>Added<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<section id="id15">
+<h3>Added<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Sub-modules: <code class="docutils literal notranslate"><span class="pre">layout(...,</span> <span class="pre">module_level=2)</span></code> (an int, or one per network) expands every visible module that has
 sub-modules, as a deterministic sequence of the web app’s <code class="docutils literal notranslate"><span class="pre">expand</span></code> operations; <code class="docutils literal notranslate"><span class="pre">expand=[(network,</span> <span class="pre">module_id),</span> <span class="pre">...]</span></code>
@@ -1066,13 +1126,13 @@ expands single modules first. <code class="docutils literal notranslate"><span c
 whenever the geometry has outlines) or dotted rounded boxes (<code class="docutils literal notranslate"><span class="pre">&quot;outline&quot;</span></code>); <code class="docutils literal notranslate"><span class="pre">hierarchy_kw</span></code> styles them. Labels and
 network names make room for them.</p></li>
 <li><p>Highlight groups: <code class="docutils literal notranslate"><span class="pre">layout(...,</span> <span class="pre">highlight={label:</span> <span class="pre">identifiers})</span></code> or <code class="docutils literal notranslate"><span class="pre">highlight=callable(NodeInfo)</span> <span class="pre">-&gt;</span> <span class="pre">label</span> <span class="pre">|</span> <span class="pre">None</span></code>,
-with <code class="docutils literal notranslate"><span class="pre">highlight_colors</span></code>. It runs the web app’s “colour by metadata” operation; <code class="docutils literal notranslate"><span class="pre">AlluvialGeometry.highlight_labels</span></code>
-(<code class="docutils literal notranslate"><span class="pre">HighlightLabel</span></code>) keeps the labels, and <code class="docutils literal notranslate"><span class="pre">layout</span></code> warns where the web app’s colour walk leaves labelled nodes gray.</p></li>
+with <code class="docutils literal notranslate"><span class="pre">highlight_colors</span></code>. It runs the web app’s “color by metadata” operation; <code class="docutils literal notranslate"><span class="pre">AlluvialGeometry.highlight_labels</span></code>
+(<code class="docutils literal notranslate"><span class="pre">HighlightLabel</span></code>) keeps the labels, and <code class="docutils literal notranslate"><span class="pre">layout</span></code> warns where the web app’s color walk leaves labeled nodes gray.</p></li>
 <li><p>Legends: <code class="docutils literal notranslate"><span class="pre">draw(...,</span> <span class="pre">legend=True)</span></code> and <code class="docutils literal notranslate"><span class="pre">alluvial.legend(ax,</span> <span class="pre">other=None,</span> <span class="pre">**kwargs)</span></code> add a legend of the highlight
 labels above the diagram, inside the axes (the fit makes room for it).</p></li>
-<li><p>Module label lines take their node’s highlight colour, as in the web app (<code class="docutils literal notranslate"><span class="pre">draw(label_colors=&quot;auto&quot;)</span></code>: for
+<li><p>Module label lines take their node’s highlight color, as in the web app (<code class="docutils literal notranslate"><span class="pre">draw(label_colors=&quot;auto&quot;)</span></code>: for
 highlight diagrams; <code class="docutils literal notranslate"><span class="pre">True</span></code> always). <code class="docutils literal notranslate"><span class="pre">ModuleGeometry.name_highlight_indices</span></code> and <code class="docutils literal notranslate"><span class="pre">name_insignificant</span></code> carry it.</p></li>
-<li><p>More colourings: <code class="docutils literal notranslate"><span class="pre">colors=&quot;layer&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">colors=&quot;physical_id&quot;</span></code> for multilayer and state networks.</p></li>
+<li><p>More colorings: <code class="docutils literal notranslate"><span class="pre">colors=&quot;layer&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">colors=&quot;physical_id&quot;</span></code> for multilayer and state networks.</p></li>
 <li><p>Multilayer splitting: <code class="docutils literal notranslate"><span class="pre">layout(...,</span> <span class="pre">split_layers=True)</span></code> (or one flag per network) and
 <code class="docutils literal notranslate"><span class="pre">alluvial.read(...,</span> <span class="pre">split_layers=True)</span></code> / <code class="docutils literal notranslate"><span class="pre">alluvial.split_layers(nf)</span></code> give one network per layer, matched by
 physical id, as the web app does.</p></li>
@@ -1081,15 +1141,15 @@ physical id, as the web app does.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">AlluvialArtists.outlines</span></code> and <code class="docutils literal notranslate"><span class="pre">AlluvialArtists.legend</span></code>; outline artists have the gid <code class="docutils literal notranslate"><span class="pre">outline:&lt;network&gt;:&lt;path&gt;</span></code>.</p></li>
 <li><p>Examples <code class="docutils literal notranslate"><span class="pre">examples/hierarchy.py</span></code>, <code class="docutils literal notranslate"><span class="pre">examples/highlight.py</span></code> and <code class="docutils literal notranslate"><span class="pre">examples/multilayer.py</span></code>.</p></li>
 <li><p>A tutorial notebook, <code class="docutils literal notranslate"><span class="pre">docs/tutorial.ipynb</span></code> (executed with its outputs, and run by the tests): seeded Infomap runs on
-a small temporal network, colourings, sub-modules, highlight groups, multilayer networks, reading files, a PDF
+a small temporal network, colorings, sub-modules, highlight groups, multilayer networks, reading files, a PDF
 figure for a paper and restyling artists.</p></li>
 <li><p>Warnings for silent mistakes: state networks matched by state id next to networks matched by node id, a
 <code class="docutils literal notranslate"><span class="pre">module_level</span></code> deeper than a network’s module tree, a <code class="docutils literal notranslate"><span class="pre">highlight</span></code> function that labels no node, and <code class="docutils literal notranslate"><span class="pre">highlight</span></code>
 identifiers that match no node (now with examples and a hint at <code class="docutils literal notranslate"><span class="pre">identifier=</span></code>).</p></li>
 </ul>
 </section>
-<section id="id12">
-<h3>Changed<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<section id="id16">
+<h3>Changed<a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Colliding network ids (files with the same stem in different folders, or <code class="docutils literal notranslate"><span class="pre">NetworkFile</span></code>s with the same id) are
 renamed <code class="docutils literal notranslate"><span class="pre">out</span></code>, <code class="docutils literal notranslate"><span class="pre">out_2</span></code>, … instead of raising <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>.</p></li>
@@ -1099,7 +1159,7 @@ renamed <code class="docutils literal notranslate"><span class="pre">out</span><
 <code class="docutils literal notranslate"><span class="pre">FileNotFoundError</span></code> (also without a suffix) and a folder <code class="docutils literal notranslate"><span class="pre">IsADirectoryError</span></code>; <code class="docutils literal notranslate"><span class="pre">draw</span></code> raises <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> for
 networks instead of a geometry and for a figure or an array of axes; unknown keywords of <code class="docutils literal notranslate"><span class="pre">layout</span></code> and <code class="docutils literal notranslate"><span class="pre">plot</span></code>
 suggest the closest valid name.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">draw(module_kw=...)</span></code> docs note that a hatch needs an <code class="docutils literal notranslate"><span class="pre">edgecolor</span></code> (the edge is drawn in the face colour).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">draw(module_kw=...)</span></code> docs note that a hatch needs an <code class="docutils literal notranslate"><span class="pre">edgecolor</span></code> (the edge is drawn in the face color).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">alluvial.read()</span></code> checks that the path exists (<code class="docutils literal notranslate"><span class="pre">FileNotFoundError</span></code>) and is not a folder (<code class="docutils literal notranslate"><span class="pre">IsADirectoryError</span></code>)
 before looking at its suffix. <code class="docutils literal notranslate"><span class="pre">module_level</span></code> accepts numpy integers and arrays. An <code class="docutils literal notranslate"><span class="pre">expand=</span></code> module without
 sub-modules says so in the error, and a module that is not shown says whether its parent must be expanded first
@@ -1114,16 +1174,16 @@ fits): for the science example with <code class="docutils literal notranslate"><
 <h3>Fixed (parity with the web app)<a class="headerlink" href="#fixed-parity-with-the-web-app" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">layout(highlight=...)</span></code> also labels a leaf that duplicate identifiers leave in a streamline node outside the
-module tree; before, it could stay gray where the web app colours it (<code class="docutils literal notranslate"><span class="pre">Network.built_leaf_nodes</span></code>, fixture
+module tree; before, it could stay gray where the web app colors it (<code class="docutils literal notranslate"><span class="pre">Network.built_leaf_nodes</span></code>, fixture
 <code class="docutils literal notranslate"><span class="pre">dupname-tree__highlight</span></code>).</p></li>
 <li><p>Splitting two inputs with the same file stem (the same file twice, or <code class="docutils literal notranslate"><span class="pre">a/x.tree</span></code> and <code class="docutils literal notranslate"><span class="pre">b/x.tree</span></code>) gave
-<code class="docutils literal notranslate"><span class="pre">colors=&quot;module_id&quot;</span></code> the single-multilayer-network colours. The second input now gets the id <code class="docutils literal notranslate"><span class="pre">x_2</span></code> before
+<code class="docutils literal notranslate"><span class="pre">colors=&quot;module_id&quot;</span></code> the single-multilayer-network colors. The second input now gets the id <code class="docutils literal notranslate"><span class="pre">x_2</span></code> before
 splitting (layers <code class="docutils literal notranslate"><span class="pre">x_2_layer1</span></code>, …), so each file’s layers keep their own original id, as with the web app’s
 distinct file ids (fixture <code class="docutils literal notranslate"><span class="pre">mlayer-split-twice__colorModuleIds</span></code>). Their layer ids change from <code class="docutils literal notranslate"><span class="pre">x_layer1_2</span></code> to
 <code class="docutils literal notranslate"><span class="pre">x_2_layer1</span></code>.</p></li>
 <li><p>Node metadata that is not an object (from JSON input): an array is read by index and <code class="docutils literal notranslate"><span class="pre">length</span></code> as in the web app
 (fixtures <code class="docutils literal notranslate"><span class="pre">planted-ftree__arrayMetadata</span></code>, <code class="docutils literal notranslate"><span class="pre">__arrayLength</span></code>), and a string, number or <code class="docutils literal notranslate"><span class="pre">true</span></code> raises the web app’s
-<code class="docutils literal notranslate"><span class="pre">TypeError</span></code> in the metadata colour operations instead of being skipped.</p></li>
+<code class="docutils literal notranslate"><span class="pre">TypeError</span></code> in the metadata color operations instead of being skipped.</p></li>
 <li><p>Infomap JSON: a top-level <code class="docutils literal notranslate"><span class="pre">name</span></code> that is <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> or a number is used as given (a number as its JavaScript string),
 as in the web app; a <code class="docutils literal notranslate"><span class="pre">null</span></code> entry in <code class="docutils literal notranslate"><span class="pre">layers</span></code> that the layer-name lookup reaches raises <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> (the web app
 throws).</p></li>
@@ -1133,23 +1193,23 @@ throws).</p></li>
 <h3>Notes<a class="headerlink" href="#notes" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>The saved web-app diagram JSON (<code class="docutils literal notranslate"><span class="pre">networks</span></code> without <code class="docutils literal notranslate"><span class="pre">nodes</span></code>) is not read yet; it gets its own error message.</p></li>
-<li><p>Hierarchy shadows are drawn opaque in their colour over white; the web app’s <code class="docutils literal notranslate"><span class="pre">mix-blend-mode:</span> <span class="pre">difference</span></code> has no
+<li><p>Hierarchy shadows are drawn opaque in their color over white; the web app’s <code class="docutils literal notranslate"><span class="pre">mix-blend-mode:</span> <span class="pre">difference</span></code> has no
 vector equivalent, so where a shadow overlaps a module the module simply covers it.</p></li>
 </ul>
 </section>
 </section>
-<section id="id13">
-<h2>[0.1.0] - not published<a class="headerlink" href="#id13" title="Link to this heading">#</a></h2>
+<section id="id17">
+<h2>[0.1.0] - not published<a class="headerlink" href="#id17" title="Link to this heading">#</a></h2>
 <p>First release.</p>
-<section id="id14">
-<h3>Added<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<section id="id18">
+<h3>Added<a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">alluvial.layout()</span></code>: a port of the layout engine of the mapequation.org alluvial web app
-(<code class="docutils literal notranslate"><span class="pre">&#64;mapequation/alluvial-diagram</span></code> 1.15.0). Module order, sizes, margins, streamlines and colours match the web app;
+(<code class="docutils literal notranslate"><span class="pre">&#64;mapequation/alluvial-diagram</span></code> 1.15.0). Module order, sizes, margins, streamlines and colors match the web app;
 all 128 v1 reference scenarios generated from the TypeScript store match bit for bit, and a differential fuzzer
 (<code class="docutils literal notranslate"><span class="pre">tests/test_fuzz_parity.py</span></code>, <code class="docutils literal notranslate"><span class="pre">tools/ts-fixtures</span></code>) compares the two on random networks and operations.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">LayoutOptions</span></code> with the web app’s layout options (height, module width, flow and streamline thresholds, margins,
-vertical alignment, module size and sort order) and the web app’s colouring (<code class="docutils literal notranslate"><span class="pre">colors=&quot;similarity&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;module_id&quot;</span></code>
+vertical alignment, module size and sort order) and the web app’s coloring (<code class="docutils literal notranslate"><span class="pre">colors=&quot;similarity&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;module_id&quot;</span></code>
 or <code class="docutils literal notranslate"><span class="pre">&quot;nodes&quot;</span></code>).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">AlluvialGeometry</span></code>: a frozen, renderer-independent geometry contract (modules, groups, streamlines as path codes or
 SVG paths, labels) with <code class="docutils literal notranslate"><span class="pre">to_dict()</span></code> / <code class="docutils literal notranslate"><span class="pre">from_dict()</span></code>. <code class="docutils literal notranslate"><span class="pre">ModuleGeometry.name_candidates</span></code> offers renderers more label
@@ -1160,11 +1220,11 @@ or their <code class="docutils literal notranslate"><span class="pre">Result</sp
 refitted at every draw (constrained layout, <code class="docutils literal notranslate"><span class="pre">bbox_inches=&quot;tight&quot;</span></code> and resizing work), overlapping labels lose lines
 instead of colliding, long labels are truncated, gradient streamlines stay small in PDF/SVG, and every artist has
 a <code class="docutils literal notranslate"><span class="pre">gid</span></code>.</p></li>
-<li><p>The web app’s colour handling (<code class="docutils literal notranslate"><span class="pre">alluvial.palette</span></code>), including its 512-colour <code class="docutils literal notranslate"><span class="pre">c3-sinebow</span></code> palette.</p></li>
+<li><p>The web app’s color handling (<code class="docutils literal notranslate"><span class="pre">alluvial.palette</span></code>), including its 512-color <code class="docutils literal notranslate"><span class="pre">c3-sinebow</span></code> palette.</p></li>
 </ul>
 </section>
-<section id="id15">
-<h3>Notes<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<section id="id19">
+<h3>Notes<a class="headerlink" href="#id19" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Requires Python &gt;= 3.10 and matplotlib &gt;= 3.7. Reading Infomap objects needs infomap &gt;= 2.14, which requires
 Python &gt;= 3.11; files written by any infomap version read on every supported Python.</p></li>
@@ -1212,41 +1272,47 @@ Python &gt;= 3.11; files written by any infomap version read on every supported 
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">[0.6.0] - 2026-10-21</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">[0.7.0] - 2026-10-23</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#added">Added</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changed">Changed</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed">Fixed</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">[0.6.0] - 2026-10-21</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Added</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Changed</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#known-issues">Known issues</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#not-published">[0.5.0] - not published</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Changed</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Changed</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removed">Removed</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed">Fixed</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Added</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Fixed</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Added</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">[0.4.0] - not published</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Added</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Changed</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">[0.4.0] - not published</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Added</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Changed</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">[0.3.0] - not published</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Added</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Changed</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">[0.3.0] - not published</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Added</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Changed</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed-v3-parity-review">Fixed (v3 parity review)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed-release-review">Fixed (release review)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">[0.2.0] - not published</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Added</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Changed</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">[0.2.0] - not published</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Added</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Changed</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed-parity-with-the-web-app">Fixed (parity with the web app)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">[0.1.0] - not published</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Added</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Notes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">[0.1.0] - not published</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Added</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">Notes</a></li>
 </ul>
 </li>
 </ul>
