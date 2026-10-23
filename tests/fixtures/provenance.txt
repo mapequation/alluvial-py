@@ -1,5 +1,5 @@
 # Provenance of tests/fixtures (written by tools/ts-fixtures/generate.mjs)
-ts_repo_head: 4aac4ecfb7ac4df93ee0c051bd14add8a125648d
+ts_repo_head: effb6094a200cc3e1ed93116dce86633997d2cb5
 ts_src_dirty: no
 ts_src_sha256: 8e9aceb7c3afc18c758d7912768b7b233bf8073db510263c99dcfdd78eaf96a2  (packages/alluvial-diagram/src/**/*.ts(x), excluding tests)
 node: v24.21.0

@@ -5,7 +5,7 @@ All notable changes to this project are documented here. The format follows
 [Semantic Versioning](https://semver.org/). 0.6.0 is the first release on PyPI; 0.1.0 to 0.5.0 were development
 milestones and were not published.
 
-## [0.7.0] - Unreleased
+## [0.7.0] - 2026-10-23
 
 Upgrading from 0.6:
 
@@ -33,8 +33,8 @@ Upgrading from 0.6:
 - Every public function and class has a usage example in its docstring, run as a doctest, and the API reference links
   to the capabilities sections that use it.
 - Pull requests get a preview of the docs site.
-- Port base: TS `default-c3-oklch-vivid` (#64, `4aac4ec`), on top of `master` (#59-#63; #60 is the only engine
-  change, types only). The fixtures are regenerated from it.
+- Port base: TS `master` `effb609` (web app and `@mapequation/alluvial-diagram` 1.17.0, with #64). Since 0.6.0 the
+  engine changed in #60 (types only) and #64 (the default colors); the fixtures are regenerated from it.
 
 ### Changed
 
