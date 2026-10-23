@@ -1,8 +1,10 @@
 """Frozen geometry: the only contract between the layout engine and the renderers.
 
-Coordinates are the TS/SVG ones: x right, y down, layout px; the diagram spans ``[0, width] x [0, height]``.
-Spec: docs/dev/design.md (Geometry contract) and port-notes/streamlines.md §7. Never imports matplotlib.
+Coordinates are the web app's SVG ones: x right, y down, layout px; the diagram spans ``[0, width] x [0, height]``.
+Never imports matplotlib.
 """
+
+# Spec: docs/dev/design.md (Geometry contract) and port-notes/streamlines.md §7.
 
 from __future__ import annotations
 
@@ -72,13 +74,13 @@ class Label(_ToDict):
     text : str
         Text; multi-line module labels join the names with ``"\\n"`` in top-to-bottom order.
     x, y : float
-        Anchor point. For module labels ``y`` is the module's vertical centre and line ``center_line`` is
-        vertically centred on it (SVG ``dominant-baseline: middle``). For network names ``y`` is
-        ``network.height + 20`` and the TS renderer puts the first baseline one network font size below it.
+        Anchor point. For module labels ``y`` is the module's vertical center and line ``center_line`` is
+        vertically centered on it (SVG ``dominant-baseline: middle``). For network names ``y`` is
+        ``network.height + 20`` and the web app puts the first baseline one network font size below it.
     anchor : {"start", "end", "middle"}
         SVG ``text-anchor``.
     center_line : int
-        Index of the line centred on ``y`` (``ceil(n / 2) - 1`` for an n-line module label, else 0).
+        Index of the line centered on ``y`` (``ceil(n / 2) - 1`` for an n-line module label, else 0).
     """
 
     text: str
@@ -90,7 +92,7 @@ class Label(_ToDict):
 
 @dataclass(frozen=True)
 class GroupGeometry(_ToDict):
-    """A highlight group: a coloured slice of a module. ``highlight_index`` -1 is the default colour."""
+    """A highlight group: a colored slice of a module. ``highlight_index`` -1 is the default color."""
 
     highlight_index: int
     insignificant: bool
@@ -108,7 +110,7 @@ class ModuleGeometry(_ToDict):
     Attributes
     ----------
     id : str
-        Module path string, e.g. ``"3"`` (TS ``moduleId``).
+        Module path string, e.g. ``"3"``.
     path : tuple of int
         Module path components.
     network_index : int
@@ -116,33 +118,33 @@ class ModuleGeometry(_ToDict):
     highlight_index : int
         The highlight index of the module's largest group.
     groups : tuple of GroupGeometry
-        In TS group order: significant first, then by highlight index.
+        In the web app's group order: significant first, then by highlight index.
     label : Label or None
         Name label; only modules of the first (anchor ``"end"``) and last (anchor ``"start"``) network have one.
     largest_leaf_names : tuple of str
         Label names in descending flow (aggregated to physical names for state networks), capped by the web
-        app's lines-per-module rule at layout px (TS parity; ``label.text`` joins them).
+        app's lines-per-module rule at layout px (``label.text`` joins them).
     name_candidates : tuple of str
-        For labelled modules only: ``largest_leaf_names`` followed by the next largest names, up to
+        For labeled modules only: ``largest_leaf_names`` followed by the next largest names, up to
         ``NAME_CANDIDATES`` in total. Renderers that size labels at their own scale (``alluvial.mpl``) pick
         lines from these, so a tall axes or a small font can show more names than a 600 px web view.
     level : int
         The module level (``1`` for top modules; deeper after ``module_level``/``expand``).
     max_level : int
-        The deepest level the module could be expanded to (TS ``maxModuleLevel``); ``> level`` means it has
+        The deepest level the module could be expanded to; ``> level`` means it has
         sub-modules.
     order : int or None
-        Index of the module in the network's hierarchical draw order (TS ``hierarchicalChildren``, breadth first,
+        Index of the module in the network's hierarchical draw order (breadth first,
         interleaved with ``NetworkGeometry.outlines``). In a flat diagram it is the index in ``modules``.
     name_highlight_indices : tuple of int
         Highlight index of each label name, aligned with ``name_candidates`` (or ``largest_leaf_names`` when there
-        are no candidates). The web app colours each label line with it (black for -1).
+        are no candidates). The web app colors each label line with it (black for -1).
     name_insignificant : tuple of bool
         Whether each label name is an insignificant node (drawn brighter); always False for aggregated names.
     name : str
-        The module's custom name (TS ``Module.name``; restored from a saved web-app diagram), or ``""``. The web
+        The module's custom name (restored from a saved web-app diagram), or ``""``. The web
         app shows it, when set, as the module's label instead of the largest leaf names (``label`` keeps the leaf
-        names, for parity).
+        names).
     """
 
     id: str
@@ -168,7 +170,7 @@ class ModuleGeometry(_ToDict):
 
 @dataclass(frozen=True)
 class OutlineGeometry(_ToDict):
-    """A super-module box: the union of the visible modules below one parent module path (TS ``TreeNode``).
+    """A super-module box: the union of the visible modules below one parent module path.
 
     Attributes
     ----------
@@ -196,8 +198,17 @@ class OutlineGeometry(_ToDict):
 
 @dataclass(frozen=True)
 class HighlightLabel(_ToDict):
-    """One label of ``layout(highlight=...)``: its text, its highlight index (-1: drawn in the default colour) and
-    the colour string registered for it."""
+    """One label of ``layout(highlight=...)``: its text, its highlight index (-1: drawn in the default color) and
+    the color string registered for it.
+
+    Examples
+    --------
+    >>> import alluvial
+    >>> networks = [{"a": 1, "b": 1, "c": 2}, {"a": 1, "b": 2, "c": 2}]
+    >>> geometry = alluvial.layout(networks, highlight={"group a": ["a"]}, highlight_colors=["tab:red"])
+    >>> geometry.highlight_labels
+    (HighlightLabel(label='group a', highlight_index=0, color='tab:red'),)
+    """
 
     label: str
     highlight_index: int
@@ -224,12 +235,12 @@ class NetworkGeometry(_ToDict):
 
 @dataclass(frozen=True)
 class StreamlineGeometry(_ToDict):
-    """A streamline between two adjacent networks (TS ``StreamlineLink``).
+    """A streamline between two adjacent networks.
 
     Attributes
     ----------
     id : str
-        The TS link id (the left streamline node's id).
+        The web app's link id (the left streamline node's id).
     left, right : tuple
         ``(network_index, module_id, highlight_index)`` of the group at each end.
     x0, y0, h0 : float
@@ -241,7 +252,7 @@ class StreamlineGeometry(_ToDict):
     highlight_index : int
         ``max(left_highlight_index, right_highlight_index)``; the draw-order key.
     left_insignificant, right_insignificant : bool
-        Whether the group at each end is insignificant (drawn with a brighter colour).
+        Whether the group at each end is insignificant (drawn with a brighter color).
     """
 
     id: str
@@ -271,7 +282,7 @@ class StreamlineGeometry(_ToDict):
     def path(self) -> list[tuple[int, tuple[float, float]]]:
         """Closed outline as ``(code, (x, y))`` pairs with matplotlib ``Path`` codes, in layout coordinates.
 
-        Same points as the TS SVG path: bottom edge left to right, up the right end, top edge back, close.
+        Same points as the web app's SVG path: bottom edge left to right, up the right end, top edge back, close.
         Top edges below 1e-6 snap to 0.
         """
         x0, x1, y0, y1, y2, y3, cpx = self._points()
@@ -288,7 +299,7 @@ class StreamlineGeometry(_ToDict):
         ]
 
     def svg_path(self) -> str:
-        """The SVG path string exactly as TS ``StreamlineLink.path`` formats it."""
+        """The SVG path string exactly as the web app formats it."""
         x0, x1, y0, y1, y2, y3, cpx = self._points()
         f = js_number_to_string
         return (
@@ -313,11 +324,26 @@ class AlluvialGeometry(_ToDict):
     streamlines : tuple of StreamlineGeometry
         In draw order (``getLinks`` order per network pair, pairs left to right).
     palette : tuple of str
-        The highlight colours in effect (TS ``highlightColors``); ``highlight_index`` i maps to ``palette[i]``.
+        The highlight colors in effect; ``highlight_index`` i maps to ``palette[i]``.
     options : LayoutOptions or None
         The options the layout ran with.
     highlight_labels : tuple of HighlightLabel
         The labels of ``layout(highlight=...)`` in label order (empty otherwise), for legends.
+
+    Examples
+    --------
+    >>> import alluvial
+    >>> geometry = alluvial.layout([{"a": 1, "b": 1, "c": 2}, {"a": 1, "b": 2, "c": 2}], names=["2020", "2021"])
+    >>> geometry.width, geometry.height
+    (320.0, 600.0)
+    >>> module = geometry.networks[0].modules[0]
+    >>> module.id, module.label.text.splitlines()
+    ('1', ['a', 'b'])
+
+    It converts to plain dicts and lists (e.g. for JSON) and back:
+
+    >>> alluvial.AlluvialGeometry.from_dict(geometry.to_dict()) == geometry
+    True
     """
 
     width: float
@@ -396,7 +422,7 @@ def build_geometry(
     """Snapshot a laid-out engine diagram into an ``AlluvialGeometry``.
 
     Contract: ``diagram`` is an ``alluvial.engine`` Diagram on which ``calc_flow`` and ``update_layout(options)``
-    have run (and any colour operations, each followed by its own layout). The result holds, per network in
+    have run (and any color operations, each followed by its own layout). The result holds, per network in
     ``diagram.children`` order, the visible modules in ``network.children`` order with their groups (module
     ``children`` order) and labels (layout.md §6, colors-render.md §7.5), and the streamlines of
     ``network.get_links(options.streamline_threshold)`` for each network pair, left to right. All numbers are

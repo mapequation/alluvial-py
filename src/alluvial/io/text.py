@@ -1,6 +1,6 @@
 """Port of ``@mapequation/infomap-parser`` 1.0.2 (``src/index.ts``) for ``.tree``/``.ftree``/``.stree``/``.clu`` text.
 
-Behaviour follows ``parse(text, undefined, parseLinks=true, strictHeader=false)`` as called by the web app
+Behavior follows ``parse(text, undefined, parseLinks=true, strictHeader=false)`` as called by the web app
 (docs/dev/port-notes/parsers.md §2), including its quirks: raw path strings, ``name[1:-1]`` slicing, ``split(" ")``
 column handling, ``higher_order`` always ``False`` and ``None`` padding of short ftree link records.
 """

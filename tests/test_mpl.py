@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import itertools
 import sys
 import warnings
 
@@ -19,7 +20,7 @@ from matplotlib.patches import Rectangle
 
 import alluvial
 from alluvial import mpl as amp
-from alluvial.palette import DEFAULT_HIGHLIGHT_COLOR, brighter, to_rgb01
+from alluvial._palette import DEFAULT_HIGHLIGHT_COLOR, brighter, to_rgb01
 
 
 @pytest.fixture(autouse=True)
@@ -83,15 +84,64 @@ def test_savefig_formats(tmp_path, fmt):
     assert out.stat().st_size > 1000
 
 
-def test_own_figure_is_one_point_per_px():
+def test_own_figure_is_sized_by_content():
     geom = _geom("states-tree__default")
-    ax = alluvial.draw(geom)
+    with warnings.catch_warnings():
+        warnings.simplefilter("error")
+        ax = alluvial.draw(geom)
     width_in, height_in = ax.figure.get_size_inches()
+    n_modules = max(len(n.modules) for n in geom.networks)
+    lo, hi = amp.FIG_HEIGHT_RANGE
+    expected = min(max(amp.FIG_HEIGHT_BASE + amp.FIG_HEIGHT_PER_MODULE * n_modules, lo), hi)
+    assert height_in == pytest.approx(expected)
+    assert height_in < geom.height / 72  # not one point per layout px
+    diagram = amp.FIG_WIDTH_BASE + amp.FIG_WIDTH_PER_NETWORK * (len(geom.networks) - 1)
+    assert diagram < width_in <= 2 * amp.FIG_DIAGRAM_MAX_WIDTH
     x0, x1 = ax.get_xlim()
     y0, y1 = ax.get_ylim()
-    assert (x1 - x0) / 72 == pytest.approx(width_in)
-    assert (y1 - y0) / 72 == pytest.approx(height_in)
     assert x0 < 0 < geom.width < x1 and y0 < 0 < geom.height <= y1
+    # Text sizes stay in points: the module labels keep the default size.
+    assert alluvial.get_artists(ax).module_labels[0].get_fontsize() == pytest.approx(
+        amp._fontsize_pt(None, "small")
+    )
+
+
+def _fake_geometry(modules_per_network, width=800.0):
+    from types import SimpleNamespace
+
+    networks = [
+        SimpleNamespace(modules=[None] * k, x=240.0 * i, width=80.0)
+        for i, k in enumerate(modules_per_network)
+    ]
+    return SimpleNamespace(networks=networks, width=width, height=600.0)
+
+
+def test_own_figure_height_grows_with_modules_within_bounds():
+    heights = [amp._figure_height(_fake_geometry([k, 1])) for k in range(0, 200)]
+    assert all(a <= b for a, b in itertools.pairwise(heights))
+    assert min(heights) == pytest.approx(amp.FIG_HEIGHT_RANGE[0])
+    assert max(heights) == pytest.approx(amp.FIG_HEIGHT_RANGE[1])
+    assert heights[10] > heights[4]  # grows inside the range
+    # The fullest network counts, not the total.
+    assert amp._figure_height(_fake_geometry([10, 2])) == amp._figure_height(_fake_geometry([2, 10, 3]))
+
+
+def test_own_figure_width_grows_with_networks_and_labels():
+    widths = [amp._figure_width(_fake_geometry([3] * n), 0.0) for n in range(1, 8)]
+    assert all(a < b for a, b in itertools.pairwise(widths))
+    geom = _fake_geometry([3, 3])
+    assert amp._figure_width(geom, 72.0) == pytest.approx(amp._figure_width(geom, 0.0) + 1.0)
+    # Label space is capped at the diagram width; long network names widen the diagram.
+    assert amp._figure_width(geom, 1e6) == pytest.approx(2 * amp._figure_width(geom, 0.0))
+    assert amp._figure_width(geom, 0.0, name_pt=400.0) > amp._figure_width(geom, 0.0) + 400.0 / 72
+
+
+def test_user_axes_and_figsize_are_kept():
+    geom = _geom("states-tree__default")
+    fig, ax = plt.subplots(figsize=(3.4, 2.4))
+    assert alluvial.draw(geom, ax) is ax
+    fig.canvas.draw()
+    assert tuple(fig.get_size_inches()) == pytest.approx((3.4, 2.4))
 
 
 def test_y_orientation_largest_module_at_bottom():

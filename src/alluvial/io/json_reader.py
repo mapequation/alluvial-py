@@ -230,7 +230,7 @@ def read_json(
 
     Defaults: id = ``network_id`` > the JSON top-level ``id`` (a non-empty string) > the file stem; name = ``name``
     > the JSON ``name`` > the file basename. The JSON ``format``/``haveModules``/``filename``/``size``/
-    ``lastModified`` keys, which TS would honour, are ignored (they do not affect the layout).
+    ``lastModified`` keys, which TS would honor, are ignored (they do not affect the layout).
     """
     p = Path(path)
     text = p.read_text(encoding="utf-8-sig")

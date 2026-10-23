@@ -7,16 +7,18 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING, Any
 
-from . import palette
+from . import _palette
 from .geometry import AlluvialGeometry, HighlightLabel
-from .io import NetworkFile, read, split_layers
+from .io import NetworkFile, from_dataframe, partition, read, split_layers
 from .layout import LayoutOptions, ModuleInfo, NodeInfo, layout, save_diagram
-from .palette import SCHEMES
 
 if TYPE_CHECKING:
     from .mpl import draw, get_artists, legend, plot
 
-__version__ = "0.6.0"
+__version__ = "0.7.0"
+
+#: The names of the web app's color schemes, in the order of its scheme menu: the values of ``scheme=``.
+SCHEMES: tuple[str, ...] = tuple(_palette.SCHEMES)
 
 __all__ = [
     "SCHEMES",
@@ -28,10 +30,11 @@ __all__ = [
     "NodeInfo",
     "__version__",
     "draw",
+    "from_dataframe",
     "get_artists",
     "layout",
     "legend",
-    "palette",
+    "partition",
     "plot",
     "read",
     "save_diagram",

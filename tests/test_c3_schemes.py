@@ -23,9 +23,8 @@ from conftest import TESTS_DIR
 
 import alluvial
 from alluvial._d3_interpolators import interpolator, scheme_interpolators
-from alluvial.engine import DiagramStore
-from alluvial.layout import LayoutOptions, _build_store, _layout_arguments
-from alluvial.palette import (
+from alluvial._palette import (
+    DEFAULT_SCHEME,
     DEFAULT_TONE,
     SCHEMES,
     TONES,
@@ -34,6 +33,8 @@ from alluvial.palette import (
     scheme_colors,
     scheme_is_hue_source,
 )
+from alluvial.engine import DiagramStore
+from alluvial.layout import LayoutOptions, _build_store, _layout_arguments
 
 ROOT = TESTS_DIR.parent
 REF = json.loads((TESTS_DIR / "data" / "ts_c3_schemes.json").read_text(encoding="utf-8"))
@@ -129,7 +130,7 @@ def test_scheme_colors_validation() -> None:
         scheme_colors("C3 Oklch", "strong", "90")  # type: ignore[arg-type]
     with pytest.raises(ValueError, match="finite"):
         scheme_colors("C3 Oklch", "strong", math.inf)
-    with pytest.raises(ValueError, match="unknown colour scheme"):
+    with pytest.raises(ValueError, match="unknown color scheme"):
         scheme_colors("C3 Nope")
     # the other schemes ignore the tone and offset
     assert scheme_colors("Paired", "pastel", 90) is SCHEMES["Paired"]
@@ -209,7 +210,7 @@ def test_save_writes_tone_and_offset(tmp_path: Path) -> None:
         ("C3 Oklch", "soft", 12.5)
     }
     default = _diagram_blocks(alluvial.save_diagram(MULTILEVEL, tmp_path / "b", loose=True))
-    assert {(b["colorTone"], b["colorOffset"]) for b in default} == {("strong", None)}
+    assert {(b["colorTone"], b["colorOffset"]) for b in default} == {(DEFAULT_TONE, None)}
 
 
 def test_read_restores_tone_and_offset(tmp_path: Path) -> None:
@@ -233,8 +234,8 @@ def test_read_restores_tone_and_offset(tmp_path: Path) -> None:
     )
     store = _store([out], restore_state=False)
     assert (store.selected_scheme_name, store.selected_tone, store.selected_offset) == (
-        "C3 Sinebow",
-        "strong",
+        DEFAULT_SCHEME,
+        DEFAULT_TONE,
         None,
     )
     # the saved colours come back as they were
@@ -263,6 +264,6 @@ def test_invalid_saved_tone_and_offset_warn(tmp_path: Path) -> None:
     assert "saved diagram: ignoring the saved color offset (invalid value)" in messages
     assert (store.selected_scheme_name, store.selected_tone, store.selected_offset) == (
         "C3 Oklch",
-        "strong",
+        DEFAULT_TONE,
         None,
     )

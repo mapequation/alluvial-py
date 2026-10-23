@@ -1,9 +1,10 @@
-"""Input records mirroring ``parsers/types.ts`` (``Node``, ``NetworkFile``) and the ftree module record.
+"""Input records: ``NetworkFile``, its ``Node`` rows and the ftree module record.
 
-Spec: docs/dev/port-notes/parsers.md §1. Field names are the snake_case TS names. ``None`` stands for both JS
-``undefined`` and ``null``. Paths are kept raw (``str`` from text files, ``list`` from JSON input); only
-``TreePath`` interprets them.
+``None`` stands for a missing value. Paths are kept raw (``str`` from text files, ``list`` from JSON input).
 """
+
+# Mirrors parsers/types.ts (Node, NetworkFile). Spec: docs/dev/port-notes/parsers.md §1. Field names are the
+# snake_case TS names; None stands for both JS undefined and null; only TreePath interprets the paths.
 
 from __future__ import annotations
 
@@ -84,7 +85,10 @@ class InfomapModule:
 
 @dataclass
 class NetworkFile:
-    """A parsed network file (TS ``NetworkFile`` after ``createFile`` and ``calcStatistics``).
+    """A parsed network file, as ``alluvial.read`` and ``alluvial.partition`` return it.
+
+    Besides the attributes below, it holds the file's Infomap header (``codelength``, ``directed``, ...) and
+    statistics (``is_state_network``, ``is_multilayer``, ``num_top_modules``, ...).
 
     Attributes
     ----------
@@ -97,6 +101,16 @@ class NetworkFile:
         ``"tree"``, ``"ftree"``, ``"stree"``, ``"clu"``, ...
     nodes : list of Node
         Node rows in file order (the order decides module creation order and every downstream tie-break).
+
+    Examples
+    --------
+    >>> import dataclasses, alluvial
+    >>> nf = alluvial.partition({"a": 1, "b": 1, "c": 2}, name="2020")
+    >>> nf.id, nf.name, nf.num_top_modules
+    ('2020', '2020', 2)
+    >>> renamed = dataclasses.replace(nf, id="first", name="First year")
+    >>> [network.name for network in alluvial.layout([renamed, alluvial.partition({"a": 1, "b": 2, "c": 2})]).networks]
+    ['First year', 'network 1']
     """
 
     id: str
@@ -137,7 +151,7 @@ class NetworkFile:
     layer_id: int | None = None
     original_id: str | None = None
     layers: list[dict[str, Any]] | None = None
-    # JSON top-level ``colors`` (TS ``checkColors``: a list of colours, or ``true`` for per-node ``color``)
+    # JSON top-level ``colors`` (TS ``checkColors``: a list of colors, or ``true`` for per-node ``color``)
     colors: Any = None
     # JSON top-level ``modules`` as read (``modules`` holds the parsed records), written back by ``save_diagram``
     raw_modules: list[Any] | None = None

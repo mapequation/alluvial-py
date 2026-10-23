@@ -15,8 +15,8 @@ from matplotlib.colors import to_rgb
 from matplotlib.patches import FancyBboxPatch, Rectangle
 
 import alluvial
+from alluvial import _palette as palette
 from alluvial import mpl as amp
-from alluvial import palette
 
 MULTILEVEL = [DATA_DIR / f"multilevel_t{i}.tree" for i in range(3)]
 PLANTED = [DATA_DIR / f"planted_t{i}.ftree" for i in range(3)]
@@ -80,6 +80,33 @@ def test_shadow_geometry_follows_the_web_app():
     assert d > 0
     assert patch.get_xy() == pytest.approx((outline.x + d, geom.height - outline.y - outline.height - d))
     assert (patch.get_width(), patch.get_height()) == pytest.approx((outline.width, outline.height))
+
+
+def test_outline_is_a_thin_solid_dark_gray_line():
+    geom = alluvial.layout(MULTILEVEL, module_level=2)
+    _fig, ax = _draw_in(SIZES[0], geom, hierarchy="outline")
+    for patch in alluvial.get_artists(ax).outlines:
+        assert patch.get_linestyle() == "-"
+        assert to_rgb(patch.get_edgecolor()) == to_rgb("0.3")
+        assert patch.get_linewidth() == pytest.approx(amp.OUTLINE_LINEWIDTH)
+        assert 0.5 <= patch.get_linewidth() <= 1.0
+        assert patch.get_alpha() is None and not patch.get_fill()
+        assert patch.get_boxstyle().rounding_size > 0
+    _fig, ax = _draw_in(
+        SIZES[0], geom, hierarchy="outline", hierarchy_kw={"linestyle": "--", "edgecolor": "k"}
+    )
+    patch = alluvial.get_artists(ax).outlines[0]
+    assert patch.get_linestyle() == "--"
+    assert to_rgb(patch.get_edgecolor()) == (0.0, 0.0, 0.0)
+
+
+def test_own_figure_grows_with_the_module_count():
+    geoms = [alluvial.layout(MULTILEVEL, module_level=lv) for lv in (1, 2)]
+    counts = [max(len(n.modules) for n in g.networks) for g in geoms]
+    heights = [alluvial.draw(g).figure.get_size_inches()[1] for g in geoms]
+    assert counts[0] < counts[1]
+    assert heights[0] < heights[1]
+    assert all(amp.FIG_HEIGHT_RANGE[0] <= h <= amp.FIG_HEIGHT_RANGE[1] for h in heights)
 
 
 @pytest.mark.parametrize("mode", [False, None])

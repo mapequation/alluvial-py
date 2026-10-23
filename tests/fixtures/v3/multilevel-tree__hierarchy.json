@@ -3,7 +3,7 @@
  "scenario": "multilevel-tree__hierarchy",
  "group": "multilevel-tree",
  "variant": "hierarchy",
- "description": "colorModuleHierarchyInAllNetworks() (C3 Sinebow, top modules only)",
+ "description": "colorModuleHierarchyInAllNetworks() (the default scheme, top modules only)",
  "features": ["hierarchyColor"],
  "inputs": {
   "files": ["data/multilevel_t0.tree","data/multilevel_t1.tree","data/multilevel_t2.tree"],
@@ -24,7 +24,7 @@
    "sortModulesBy": "flow"
   },
   "labelOptions": {"fontSize": 8, "adaptiveFontSize": false, "multilineModuleNames": true, "aggregateStateNames": true, "showModuleNames": true},
-  "colorScheme": "C3 Sinebow",
+  "colorScheme": "C3 Oklch",
   "operations": [
    {"op": "setNetworks"},
    {"op": "colorModuleHierarchyInAllNetworks"}
@@ -54,7 +54,7 @@
   "updateLayoutCalls": 2,
   "usableHeightCheckedModules": 11
  },
- "highlightColors": ["#ea6c63","#3ac1c0","#598d3d","#937cd8"],
+ "highlightColors": ["#0091e3","#d88204","#008a46","#c150a6"],
  "defaultHighlightColor": "#b6b69f",
  "warnings": [],
  "networks": [

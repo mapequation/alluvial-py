@@ -31,7 +31,7 @@ _COLOR_OPS = {
 
 def layout_kwargs(fx: dict[str, Any]) -> dict[str, Any] | None:
     """The ``layout`` arguments that stand for the fixture's op sequence, or None if it has ops ``layout`` cannot
-    express (or not in ``layout``'s order: expand, module level, colour)."""
+    express (or not in ``layout``'s order: expand, module level, color)."""
     inputs = fx["inputs"]
     if "initialOptions" in inputs:
         return None
@@ -41,7 +41,7 @@ def layout_kwargs(fx: dict[str, Any]) -> dict[str, Any] | None:
     split = set(inputs.get("split") or ())
     if split:
         kwargs["split_layers"] = [i in split for i in range(len(inputs["files"]))]
-    stage = 0  # 0: expand, 1: module level, 2: colour
+    stage = 0  # 0: expand, 1: module level, 2: color
     expand: list[tuple[int, str]] = []
     store = DiagramStore(LayoutOptions.from_ts(inputs["options"]))  # resolves index-addressed expands to ids
     store.set_networks(read_fixture_inputs(inputs))
@@ -209,7 +209,7 @@ def test_module_level_accepts_numpy() -> None:
 PLANTED = [DATA_DIR / f"planted_t{i}.ftree" for i in range(3)]
 
 
-def test_highlight_mapping_normalises_identifiers_and_keeps_label_order() -> None:
+def test_highlight_mapping_normalizes_identifiers_and_keeps_label_order() -> None:
     by_int = layout(PLANTED, highlight={"b": [40, 41.0], "a": range(5, 10)})
     by_str = layout(PLANTED, highlight={"b": ["40", "41"], "a": [str(i) for i in range(5, 10)]})
     assert by_int == by_str
@@ -261,14 +261,14 @@ def test_highlight_validation_and_warnings() -> None:
         layout(
             PLANTED, highlight=lambda n: 1 if n.identifier == "1" else ("1" if n.identifier == "2" else None)
         )
-    with pytest.raises(ValueError, match="no colour for label"):
+    with pytest.raises(ValueError, match="no color for label"):
         layout(PLANTED, highlight={"a": [1], "b": [2]}, highlight_colors={"a": "red"})
     with pytest.warns(UserWarning, match="2 of 3 identifiers match no node"):
         layout(PLANTED, highlight={"a": [1, "nope", 10**6]})
-    with pytest.warns(UserWarning, match="default colour"):
+    with pytest.warns(UserWarning, match="default color"):
         geom = layout(PLANTED, highlight={"a": [1], "b": [50]}, highlight_colors=["#b6b69f", "red"])
     assert [h.highlight_index for h in geom.highlight_labels] == [-1, 0]
-    with pytest.warns(UserWarning, match="share a colour"):
+    with pytest.warns(UserWarning, match="share a color"):
         geom = layout(PLANTED, highlight={"a": [1], "b": [50]}, highlight_colors=["red", "red"])
     assert [h.highlight_index for h in geom.highlight_labels] == [0, 0]
 
@@ -293,7 +293,7 @@ def test_highlight_on_hlskip_does_not_warn() -> None:
         layout(paths, highlight={"a": [3, 4], "b": [1]}, highlight_colors=["#ff0000", "#0000ff"])
 
 
-# ------------------------------------------------------------------------------------------------ colour ops
+# ------------------------------------------------------------------------------------------------ color ops
 
 
 def test_colors_layer_and_physical_id_need_higher_order_networks() -> None:

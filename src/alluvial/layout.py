@@ -1,8 +1,10 @@
 """Public, pure layout entry point: networks + options -> ``AlluvialGeometry``. Never imports matplotlib.
 
-``LayoutOptions`` carries the store defaults of the web app (``store/DiagramStore.ts:81-96``) and maps to the
-TS ``LayoutOpts`` names with ``to_ts()``. Spec: docs/dev/design.md (Public API) and port-notes/layout.md §3.1.
+``LayoutOptions`` carries the layout defaults of the web app and maps to its option names with ``to_ts()``.
 """
+
+# Spec: docs/dev/design.md (Public API) and port-notes/layout.md §3.1. The defaults are those of
+# store/DiagramStore.ts:81-96, and to_ts() gives the TS LayoutOpts names.
 
 from __future__ import annotations
 
@@ -77,12 +79,12 @@ class LayoutOptions:
     zero_margins : bool, default False
         Put no margin between modules.
     vertical_align : {"bottom", "justify"}, default "bottom"
-        ``"justify"`` stretches the margins so every network spans the full height. ``"top"`` (once declared
-        in TS but never implemented, now removed there) is rejected.
+        ``"justify"`` stretches the margins so every network spans the full height. ``"top"`` is rejected (the
+        web app never implemented it).
     module_size : {"flow", "nodes"}, default "flow"
         Module height measure.
     sort_modules_by : {"flow", "nodes", "node_id", "highlight_index"}, default "flow"
-        Module order key (descending). ``"node_id"`` is the mean node id (TS ``"nodeId"``).
+        Module order key (descending). ``"node_id"`` is the mean node id.
 
     Raises
     ------
@@ -90,6 +92,17 @@ class LayoutOptions:
         If a value has the wrong type.
     ValueError
         If a value is out of range or not one of the allowed choices.
+
+    Examples
+    --------
+    Pass the fields as keywords to ``layout`` or ``plot``; the geometry keeps the options it ran with:
+
+    >>> import alluvial
+    >>> geometry = alluvial.layout([{"a": 1, "b": 1, "c": 2}, {"a": 1, "b": 2, "c": 2}], height=300, module_width=40)
+    >>> geometry.options.height, geometry.options.module_width
+    (300.0, 40.0)
+    >>> alluvial.LayoutOptions(vertical_align="justify").to_ts()["verticalAlign"]
+    'justify'
     """
 
     height: float = 600.0
@@ -135,14 +148,14 @@ class LayoutOptions:
             )
 
     def to_ts(self) -> dict[str, Any]:
-        """The options under their TS ``LayoutOpts`` names and values (plus ``streamlineThreshold``)."""
+        """The options under the web app's option names and values, as a saved diagram stores them."""
         out = {_TS_NAMES[k]: v for k, v in asdict(self).items()}
         out["sortModulesBy"] = _SORT_TO_TS[self.sort_modules_by]
         return out
 
     @classmethod
     def from_ts(cls, options: Mapping[str, Any]) -> LayoutOptions:
-        """Build from TS option names, e.g. a fixture's ``inputs.options``. Unknown keys raise ``ValueError``."""
+        """Build from the web app's option names (the inverse of ``to_ts()``). Unknown keys raise ``ValueError``."""
         inverse = {v: k for k, v in _TS_NAMES.items()}
         kwargs: dict[str, Any] = {}
         for key, value in options.items():
@@ -184,6 +197,16 @@ class NodeInfo:
         The module path, e.g. ``"1:2:3"`` (the last part is the node's rank in its module).
     metadata : Mapping or None
         The node's metadata, read-only.
+
+    Examples
+    --------
+    >>> import alluvial
+    >>> geometry = alluvial.layout(
+    ...     [{"a": 1, "b": 1, "c": 2}, {"a": 1, "b": 2, "c": 2}],
+    ...     highlight=lambda node: "a" if node.identifier == "a" else None,
+    ... )
+    >>> [label.label for label in geometry.highlight_labels]
+    ['a']
     """
 
     network_index: int
@@ -222,6 +245,15 @@ class ModuleInfo:
         Whether the module is drawn (its flow is above the flow threshold).
     node_names : tuple of str
         The names of its nodes in descending flow (nodes without a name are left out).
+
+    Examples
+    --------
+    >>> import alluvial
+    >>> geometry = alluvial.layout(
+    ...     [{"a": 1, "b": 1, "c": 2}, {"a": 1, "b": 2, "c": 2}], module_names=lambda module: f"M{module.id}"
+    ... )
+    >>> [module.name for module in geometry.networks[0].modules]
+    ['M1', 'M2']
     """
 
     network_index: int
@@ -236,12 +268,13 @@ class ModuleInfo:
 
 
 class _DefaultColors(str):
-    """The default ``colors`` ("similarity"): unlike an explicit value it gives way to ``highlight=``."""
+    """The default ``colors`` ("module_id"): unlike an explicit value it gives way to ``highlight=`` and to the
+    colors of the input."""
 
     __slots__ = ()
 
 
-_DEFAULT_COLORS = _DefaultColors("similarity")
+_DEFAULT_COLORS = _DefaultColors("module_id")
 
 ColorOp = Literal["similarity", "module_id", "nodes", "layer", "physical_id", "hierarchy"]
 Highlight = Mapping[Any, Iterable[Any]] | Callable[[NodeInfo], Any]
@@ -257,6 +290,7 @@ def layout(
     identifier: Literal["id", "name"] = "id",
     split_layers: bool | Sequence[bool] = False,
     colors: ColorOp | None = _DEFAULT_COLORS,
+    color_network: int | str | None = None,
     module_level: int | Sequence[int] = 1,
     expand: Iterable[tuple[int | str, str]] | None = None,
     highlight: Highlight | None = None,
@@ -274,13 +308,20 @@ def layout(
 
     Parameters
     ----------
-    networks : iterable of str or PathLike, infomap.Infomap, Infomap JSON dict or NetworkFile
+    networks : iterable of str or PathLike, infomap.Infomap, dict or NetworkFile, or a pandas DataFrame
         Networks from left to right. Paths are read by suffix (``.tree``, ``.ftree``, ``.stree``, ``.clu``,
         ``.json``); an ``infomap.Infomap`` must already have run. A ``.zip`` of network files (the web app's zip
-        upload, or ``save_diagram``) contributes its files in archive order.
+        upload, or ``save_diagram``) contributes its files in archive order. A dict is Infomap JSON when its
+        ``"nodes"`` is a list of dicts; any other dict is a partition ``{node: module}`` without Infomap
+        (``alluvial.partition``): nodes are ids or names matched across networks by key, a module is an int, a
+        path string ``"1:2"`` or a tuple of ints, and every node gets flow 1/N. A long-format DataFrame with the
+        columns ``network``, ``node``, ``module`` and optionally ``flow`` gives one network per ``network`` value
+        (``alluvial.from_dataframe``, which also takes other column names). When no input carries flows (only
+        such dicts, or partitions and frames without flows), ``module_size`` and ``sort_modules_by`` default to
+        ``"nodes"``.
     names : sequence of str, optional
         Network names, one per network (after splitting layers; numbers are converted with ``str``). Defaults to the file basename, ``"network {i}"``
-        for objects, and ``"<name> layer <k>"``-style names for split layers.
+        for objects (a partition's ``name`` if given), and ``"<name> layer <k>"``-style names for split layers.
     ids : sequence of str, optional
         Network ids, one per network (after splitting layers): unique, without ``"--"``. By default the file stem,
         ``"net{i}"`` for objects or the ``NetworkFile`` id, with colliding ids made unique as ``out``, ``out_2``, ...
@@ -291,59 +332,65 @@ def layout(
     split_layers : bool or sequence of bool, default False
         Split multilayer networks into one network per layer (``alluvial.read(..., split_layers=True)``); a
         sequence gives one flag per input. Split layers match their nodes by physical id.
-    colors : {"similarity", "module_id", "nodes", "layer", "physical_id", "hierarchy"} or None, default "similarity"
-        Colouring operation applied after the build, as in the web app: matching modules across networks, by
-        module id, every node by its module in the first network, by layer id (multilayer networks), by physical
-        node id (state or multilayer networks), or by the module hierarchy (c3's ``hierarchy()``: sub-modules get
-        colours close to their parent's, and the same module path gets the same colour in every network; use it
-        with ``module_level``/``expand``, and ``scheme``, ``tone`` and ``offset`` set the top-module colours).
-        ``None`` keeps the input colours (gray unless the input carries colours). Not allowed with ``highlight``. The default is ``None`` when the input carries colours: Infomap JSON
-        with a top-level ``colors`` (as written by ``save_diagram``).
+    colors : {"similarity", "module_id", "nodes", "layer", "physical_id", "hierarchy"} or None, default "module_id"
+        Coloring operation applied after the build, as in the web app: by module id (the same id gets the same
+        color in every network), matching modules across networks, every node by its module in one network
+        (``color_network``), by layer id (multilayer networks), by physical node id (state or multilayer
+        networks), or by the module hierarchy (c3's ``hierarchy()``: sub-modules get colors close to their
+        parent's, and the same module path gets the same color in every network; use it with
+        ``module_level``/``expand``, and ``scheme``, ``tone`` and ``offset`` set the top-module colors). ``None``
+        keeps the input colors (gray unless the input carries colors). Not allowed with ``highlight``. The default
+        is ``None`` when the input carries colors: Infomap JSON with a top-level ``colors`` (as written by
+        ``save_diagram``).
+    color_network : int or str, optional
+        With ``colors="nodes"``, the network whose modules color the nodes (in every network), as the web app's
+        selected network: an index, a network id, or a name given with ``names=`` when exactly one network has it.
+        Default the first network. Only allowed with ``colors="nodes"``.
     module_level : int or sequence of int, default 1
         Show sub-modules down to this level (one value, or one per network): every visible module whose sub-modules
         go that deep is expanded, as when clicking modules in the web app. ``1`` shows the top modules. With
-        ``colors="similarity"`` a sub-module that is not paired with a module of a neighbouring network can stay
+        ``colors="similarity"`` a sub-module that is not paired with a module of a neighboring network can stay
         gray, as in the web app.
     expand : iterable of (network, module_id), optional
         Modules to expand first, in order. ``network`` is an index or a network id, ``module_id`` a path string like
         ``"1"`` or ``"1:2"`` (looked up when its turn comes, so ``[(0, "1"), (0, "1:2")]`` works).
     highlight : mapping or callable, optional
-        Highlight groups of nodes, each in its own colour (the rest stays gray). Either ``{label: identifiers}``
+        Highlight groups of nodes, each in its own color (the rest stays gray). Either ``{label: identifiers}``
         (matched against node identifiers, ints allowed; an identifier may belong to one label only), or a
         callable ``(NodeInfo) -> label or None`` evaluated once per node. Labels are kept in mapping order (or
         first-appearance order) in ``AlluvialGeometry.highlight_labels``, for ``draw(..., legend=True)``.
     highlight_colors : sequence or mapping, optional
-        Colours of the highlight labels (a list aligned with the labels, or ``{label: colour}``): colour strings
-        (any matplotlib colour name, ``"#rrggbb"`` or ``"rgb(r, g, b)"``) or RGB tuples in [0, 1]. Defaults to the
+        Colors of the highlight labels (a list aligned with the labels, or ``{label: color}``): color strings
+        (any matplotlib color name, ``"#rrggbb"`` or ``"rgb(r, g, b)"``) or RGB tuples in [0, 1]. Defaults to the
         scheme.
-    scheme : str or sequence of colours, optional
-        The colour scheme of the colouring operations: a web-app scheme name (``alluvial.palette.SCHEMES``, e.g.
-        ``"Paired"``, ``"Tableau20"``, ``"C3 Oklch"``; default ``"C3 Sinebow"``) or a list of colours. Also the
-        default ``highlight_colors``.
+    scheme : str or sequence of colors, optional
+        The color scheme of the coloring operations: a web-app scheme name (``alluvial.SCHEMES`` lists them, e.g.
+        ``"Paired"``, ``"Tableau20"``, ``"C3 Sinebow"``; default ``"C3 Oklch"``, as in the web app) or a list of colors. Also the
+        default ``highlight_colors``. The C3 schemes (``"C3 Oklch"``, ``"C3 Turbo"``, ``"C3 Rainbow"``,
+        ``"C3 Sinebow"``, ``"C3 Viridis"``) are computed with c3 (https://mapequation.github.io/c3).
     tone : str, optional
-        The c3 tone (``alluvial.palette.TONES``: ``"vivid"``, ``"bright"``, ``"strong"``, ``"deep"``, ``"dark"``,
-        ``"soft"``, ``"pastel"``, ``"muted"``), the lightness and chroma of the C3 schemes and of
-        ``colors="hierarchy"`` with a C3 or interpolated scheme (``alluvial.palette.scheme_is_hue_source``). Other
-        schemes ignore it. Default ``"strong"`` (or the stored tone of a saved diagram).
+        The c3 tone: ``"vivid"``, ``"bright"``, ``"strong"``, ``"deep"``, ``"dark"``, ``"soft"``, ``"pastel"`` or
+        ``"muted"``, the lightness and chroma of the C3 schemes and of ``colors="hierarchy"`` with a C3 or an
+        interpolated (diverging, sequential or cyclical) scheme. Other schemes ignore it. Default ``"vivid"``, as in
+        the web app (or the stored tone of a saved diagram).
     offset : float, optional
-        Where c3 puts the first colour, in degrees around the hue source: its hue on the OKLCH hue circle
-        (``"C3 Oklch"``), else 360 is the whole scheme. Applies where ``tone`` does. Default c3's
-        (``alluvial.palette.default_scheme_offset``: 245 for ``"C3 Oklch"``, else 0), or the stored offset of a saved
-        diagram when its scheme is used.
+        Where c3 puts the first color, in degrees around the hue source: its hue on the OKLCH hue circle
+        (``"C3 Oklch"``), else 360 is the whole scheme. Applies where ``tone`` does. Default c3's (245 for
+        ``"C3 Oklch"``, else 0), or the stored offset of a saved diagram when its scheme is used.
     restore_state : bool, default True
         Restore what a saved diagram (``save_diagram`` or the web app's "Download diagram") stores besides the
-        networks, colours and expanded modules: the options, the colour scheme with its tone and offset, the custom
+        networks, colors and expanded modules: the options, the color scheme with its tone and offset, the custom
         module orders and the module names, as the web app opens it. Explicit keywords win: a layout option,
         ``scheme``, ``tone`` or ``offset`` given here replaces the stored one (another ``scheme`` drops the stored
         offset), and ``module_order``/``module_names`` replace the stored orders/names. Files from
         different saves, or not all files of one save, restore their module orders and names but not the options
-        (warned). ``False`` loads the files as plain Infomap JSON (with their colours and expanded modules).
+        (warned). ``False`` loads the files as plain Infomap JSON (with their colors and expanded modules).
     module_order : mapping, optional
         ``{network: [module_id, ...]}``: put these visible modules of a network (index, id, or a name given
         with ``names=`` as a string when exactly one network has it) at these positions, listed bottom to top. The unlisted visible modules keep their relative order above them; an ``...``
         (Ellipsis) in the list stands for them, so ``["3", ...]`` puts module 3 at the bottom, ``[..., "3"]`` at
-        the top and ``["2", ..., "5"]`` both. Applied after the colouring as one reorder of the web app's
-        store (TS ``setModuleOrder``: one layout however many modules move; "move up/down" in the web app
+        the top and ``["2", ..., "5"]`` both. Applied after the coloring as one reorder of the web app's
+        store (one layout however many modules move; "move up/down" in the web app
         gives the same order), so ``sort_modules_by`` sets the start. Module ids are those shown after
         ``expand``/``module_level`` (e.g. ``"1:2"``); hidden modules cannot be placed.
     module_names : mapping or callable, optional
@@ -361,13 +408,14 @@ def layout(
     Returns
     -------
     AlluvialGeometry
-        Frozen geometry in TS/SVG coordinates (y down).
+        Frozen geometry in the web app's SVG coordinates (y down).
 
     Raises
     ------
     ValueError
         For an Infomap object that has not run, an unreadable or unsupported file, no networks, an invalid option
-        value, a module to ``expand`` that does not exist or has no sub-modules, ``colors`` with ``highlight``, or
+        value, a module to ``expand`` that does not exist or has no sub-modules, ``colors`` with ``highlight``, an
+        unknown ``color_network`` or one without ``colors="nodes"``, or
         a ``module_order``/``module_names`` entry with an unknown network or module, a module given twice, or (for
         ``module_order``) a hidden module.
     FileNotFoundError
@@ -380,14 +428,23 @@ def layout(
     UserWarning
         For state networks matched by state id next to networks matched by node id (``identifier="id"``), a
         ``module_level`` deeper than a network's module tree, ``highlight`` identifiers that match no node,
-        duplicate node identifiers within a network, highlight labels drawn gray or in a shared colour, and a
+        duplicate node identifiers within a network, highlight labels drawn gray or in a shared color, and a
         diagram where no node flow is positive.
 
     Notes
     -----
-    The steps run in the web app's store, in this order: build, ``expand``, ``module_level``, the colouring
+    The steps run in the web app's store, in this order: build, ``expand``, ``module_level``, the coloring
     (``colors`` or ``highlight``), ``module_order``, then ``module_names``. Each is a sequence of the store's own
     operations, so the geometry matches the web app bit for bit.
+
+    Examples
+    --------
+    >>> import alluvial
+    >>> geometry = alluvial.layout([{"a": 1, "b": 1, "c": 2}, {"a": 1, "b": 2, "c": 2}], names=["2020", "2021"])
+    >>> [network.name for network in geometry.networks]
+    ['2020', '2021']
+    >>> [len(network.modules) for network in geometry.networks], len(geometry.streamlines)
+    ([2, 2], 3)
     """
     from .geometry import build_geometry
 
@@ -398,6 +455,7 @@ def layout(
         identifier=identifier,
         split_layers=split_layers,
         colors=colors,
+        color_network=color_network,
         module_level=module_level,
         expand=expand,
         highlight=highlight,
@@ -432,8 +490,8 @@ def save_diagram(
     """Lay out ``networks`` like ``layout`` and save the diagram as the web app saves it ("Download diagram").
 
     The files are "alluvial network files" (formatVersion 1): one Infomap-JSON file per network
-    (``00_<name>.json``, ...) with the network name, the palette (``colors``), each node's colour index and module
-    level, Infomap's own top-level data, and an ``alluvial`` block with the options, the colour scheme with its c3
+    (``00_<name>.json``, ...) with the network name, the palette (``colors``), each node's color index and module
+    level, Infomap's own top-level data, and an ``alluvial`` block with the options, the color scheme with its c3
     tone and offset, the module names and any custom module order. The web app opens them (drop the zip, or all files, on "Load networks") with
     the same picture, and ``alluvial.read``/``layout`` load them back exactly. Other Infomap-JSON readers ignore the
     block. The text equals the web app's for the same diagram, apart from ``generator``.
@@ -441,7 +499,7 @@ def save_diagram(
     Parameters
     ----------
     networks, **layout_kwargs
-        As for ``layout`` (``names``, ``colors``, ``module_level``, ``highlight``, ``scheme``, ``tone``, ``offset``,
+        As for ``layout`` (``names``, ``colors``, ``color_network``, ``module_level``, ``highlight``, ``scheme``, ``tone``, ``offset``,
         ``module_order``,
         ``module_names``, layout options, ...). The writer reads the engine store after these steps, as the web app
         saves its own store.
@@ -463,6 +521,15 @@ def save_diagram(
         If ``networks`` is an ``AlluvialGeometry`` (pass the networks and ``layout``'s keywords instead).
     ValueError
         For a ``.json`` path and a diagram of more than one network.
+
+    Examples
+    --------
+    >>> import alluvial, pathlib, tempfile
+    >>> networks = [{"a": 1, "b": 1, "c": 2}, {"a": 1, "b": 2, "c": 2}]
+    >>> with tempfile.TemporaryDirectory() as tmp:
+    ...     path = alluvial.save_diagram(networks, pathlib.Path(tmp) / "diagram.zip", names=["2020", "2021"])
+    ...     [network.name for network in alluvial.read(path)]
+    ['2020', '2021']
     """
     from . import __version__
     from .io.alluvial_format import serialize_diagram
@@ -502,6 +569,7 @@ def _layout_arguments(kwargs: dict[str, Any]) -> dict[str, Any]:
         "identifier": "id",
         "split_layers": False,
         "colors": _DEFAULT_COLORS,
+        "color_network": None,
         "module_level": 1,
         "expand": None,
         "highlight": None,
@@ -520,9 +588,9 @@ def _layout_arguments(kwargs: dict[str, Any]) -> dict[str, Any]:
 
 
 def _css_colors(colors: Sequence[Any]) -> list[Any]:
-    """Palette entries as CSS colour strings for the web app: hex and ``rgb()`` strings unchanged, other
-    matplotlib colours (``"tab:blue"``, ``"C0"``, names) as ``#rrggbb``."""
-    from .palette import parse_color
+    """Palette entries as CSS color strings for the web app: hex and ``rgb()`` strings unchanged, other
+    matplotlib colors (``"tab:blue"``, ``"C0"``, names) as ``#rrggbb``."""
+    from ._palette import parse_color
 
     out = []
     for color in colors:
@@ -560,6 +628,7 @@ def _build_store(
     split_layers: bool | Sequence[bool],
     colors: Any,
     module_level: Any,
+    color_network: Any = None,
     expand: Any,
     highlight: Any,
     highlight_colors: Any,
@@ -572,7 +641,7 @@ def _build_store(
     show_bipartite_nodes: bool | None = None,
     options: dict[str, Any],
 ) -> tuple[Any, tuple[Any, ...]]:
-    """The store steps of ``layout`` (and ``save_diagram``): read, build, expand, module level, colouring, module
+    """The store steps of ``layout`` (and ``save_diagram``): read, build, expand, module level, coloring, module
     order, module names. Returns the store and the highlight labels."""
     _check_options(options)
     from .geometry import AlluvialGeometry
@@ -584,6 +653,10 @@ def _build_store(
             "for the web app, pass the networks and the same keywords to alluvial.save_diagram)"
         )
 
+    from .io._partition import from_dataframe, is_dataframe, is_flowless
+
+    if is_dataframe(networks):
+        networks = from_dataframe(networks)
     if (
         isinstance(networks, (str, os.PathLike, NetworkFile, Mapping))
         or is_infomap(networks)
@@ -601,6 +674,11 @@ def _build_store(
     explicit_colors = type(colors) is not _DefaultColors
     if not isinstance(colors, (str, type(None))) or colors not in _COLOR_OPS:
         raise ValueError(f"colors must be one of {tuple(_COLOR_OPS)}, got {colors!r}")
+    if color_network is not None:
+        if not (_is_int(color_network) or isinstance(color_network, str)):
+            raise TypeError(f"color_network must be a network index, id or name, got {color_network!r}")
+        if colors != "nodes":
+            raise ValueError(f'color_network requires colors="nodes", got colors={colors!r}')
     if highlight is not None:
         if explicit_colors:
             raise ValueError("colors and highlight are mutually exclusive; pass only one of them")
@@ -614,8 +692,8 @@ def _build_store(
     if scheme is not None and (
         isinstance(scheme, (bytes, Mapping)) or not isinstance(scheme, (str, Sequence))
     ):
-        raise TypeError(f"scheme must be a scheme name or a sequence of colours, got {scheme!r}")
-    from .palette import check_offset, check_tone, get_scheme
+        raise TypeError(f"scheme must be a scheme name or a sequence of colors, got {scheme!r}")
+    from ._palette import check_offset, check_tone, get_scheme
 
     if isinstance(scheme, str):
         get_scheme(scheme)  # an unknown name fails before reading
@@ -630,13 +708,18 @@ def _build_store(
         raise ValueError("networks is empty; pass at least one network")
 
     read_items = [_read_network(source, i, identifier) for i, source in enumerate(sources)]
-    if any(isinstance(item, list) for item in read_items):  # a zip or a directory
+    if any(isinstance(item, list) for item in read_items):  # a zip, a directory or a data frame
         if isinstance(split_layers, Sequence) and not isinstance(split_layers, str):
-            raise ValueError("split_layers must be a single bool when a zip is among the inputs")
+            raise ValueError(
+                "split_layers must be a single bool when a zip, directory or data frame is among the inputs"
+            )
         read_items = [nf for item in read_items for nf in (item if isinstance(item, list) else [item])]
     read_files: list[NetworkFile] = read_items
     splits = _check_split(split_layers, len(read_files))
 
+    if all(map(is_flowless, read_files)):
+        # no input carries flows (every node has flow 1/N): size and sort modules by node count unless given
+        options = {"module_size": "nodes", "sort_modules_by": "nodes", **options}
     opts = LayoutOptions(**options)
     # The web app gives every loaded file a distinct (random) id, and a split layer's original_id is its file's id
     # (colorModuleIdsInAllNetworks tells one split file from several by it): repeated ids of split inputs get the
@@ -658,7 +741,7 @@ def _build_store(
             raise ValueError(f"got {len(names)} names for {len(files)} networks")
         files = [dataclasses.replace(f, name=name) for f, name in zip(files, names, strict=True)]
     files = _assign_ids(files, ids)
-    # checkColors writes the merged highlight_index onto the nodes of a file with colours (and the merged palette
+    # checkColors writes the merged highlight_index onto the nodes of a file with colors (and the merged palette
     # onto a list-palette file): use copies
     files = [
         dataclasses.replace(f, nodes=[dataclasses.replace(n) for n in f.nodes]) if _has_input_colors(f) else f
@@ -695,17 +778,17 @@ def _build_store(
         show_bipartite_nodes = stored.get("showBipartiteNodes", True)
     is_saved = saved is not None and any(block is not None for block in saved.networks)
     if not explicit_colors and highlight is None and (is_saved or any(map(_has_input_colors, files))):
-        colors = None  # keep the input colours
+        colors = None  # keep the input colors
 
     from .engine import DiagramStore
     from .engine.store import HIGHLIGHT_KEY
     from .geometry import HighlightLabel
-    from .palette import DEFAULT_TONE
 
     store = DiagramStore(
         opts,
-        scheme="C3 Sinebow" if scheme is None else scheme,
-        tone=DEFAULT_TONE if tone is None else tone,
+        # the store's defaults (the web app's default scheme and tone) apply unless given
+        **({} if scheme is None else {"scheme": scheme}),
+        **({} if tone is None else {"tone": tone}),
         offset=offset,
         show_bipartite_nodes=show_bipartite_nodes,
         display_options={k: v for k, v in stored.items() if k in DISPLAY_OPTION_DEFAULTS},
@@ -748,7 +831,10 @@ def _build_store(
     else:
         _check_color_op(store, colors)
         op = _COLOR_OPS[colors]
-        if op is not None:
+        if colors == "nodes" and color_network is not None:
+            network = store.diagram.children[_network_index(store, color_network, "color_network")]
+            store.color_nodes_in_modules_in_all_networks(network.network_id)
+        elif op is not None:
             getattr(store, op)()
     if order_items:
         store.apply_module_order(
@@ -892,6 +978,7 @@ LAYOUT_KEYWORDS = (
     "identifier",
     "split_layers",
     "colors",
+    "color_network",
     "module_level",
     "expand",
     "highlight",
@@ -1019,16 +1106,30 @@ def _distinct_ids(ids: list[str]) -> list[str]:
     return out
 
 
+def _is_infomap_json(source: Mapping[Any, Any]) -> bool:
+    """A mapping is Infomap JSON when its ``"nodes"`` is a list of dicts; other mappings are ``{node: module}``."""
+    nodes = source.get("nodes")
+    return isinstance(nodes, list) and all(isinstance(node, Mapping) for node in nodes)
+
+
 def _read_network(source: Any, i: int, identifier: str) -> Any:
     """One input, read but not split."""
     from .io import NetworkFile, read
+    from .io._partition import from_dataframe, is_dataframe, is_partition_network, partition, renamed
 
     if isinstance(source, NetworkFile):
+        if is_partition_network(source):  # alluvial.partition without a name
+            return renamed(source, name=f"network {i}", network_id=f"net{i}")
         return source
+    if is_dataframe(source):
+        return from_dataframe(source)
     if isinstance(source, (str, os.PathLike)):
         if not os.path.exists(source):
             raise FileNotFoundError(errno.ENOENT, "no such network file", os.fspath(source))
         return read(source, identifier=identifier)
+    if isinstance(source, Mapping) and not _is_infomap_json(source):
+        # a plain {node: module} partition
+        return renamed(partition(source), name=f"network {i}", network_id=f"net{i}")
     if isinstance(source, Mapping):
         # a JSON name is used as given, even "" (TS spreads the JSON over the defaults); a number becomes a string
         json_name = source.get("name")
@@ -1194,7 +1295,7 @@ def _node_info(i: int, f: Any, node: Any) -> NodeInfo:
 
 
 def _label_nodes(highlight: Any, files: list[Any]) -> tuple[list[Any], list[Any]]:
-    """The highlight labels in index order, and copies of ``files`` whose labelled nodes carry their label index in
+    """The highlight labels in index order, and copies of ``files`` whose labeled nodes carry their label index in
     the private metadata key (read back from the leaves by ``apply_highlight``)."""
     from .engine.store import HIGHLIGHT_KEY
 
@@ -1280,7 +1381,7 @@ def _color_string(color: Any) -> str:
         and all(isinstance(c, numbers.Real) and not isinstance(c, bool) and 0 <= c <= 1 for c in color)
     ):
         return "#" + "".join(f"{round(float(c) * 255):02x}" for c in color[:3])
-    raise TypeError(f"highlight colours must be colour strings or RGB tuples in [0, 1], got {color!r}")
+    raise TypeError(f"highlight colors must be color strings or RGB tuples in [0, 1], got {color!r}")
 
 
 def _label_colors(labels: list[Any], highlight_colors: Any, scheme: Sequence[str]) -> list[str]:
@@ -1289,11 +1390,11 @@ def _label_colors(labels: list[Any], highlight_colors: Any, scheme: Sequence[str
     if isinstance(highlight_colors, Mapping):
         missing = [label for label in labels if label not in highlight_colors]
         if missing:
-            raise ValueError(f"highlight_colors has no colour for label(s) {missing!r}")
+            raise ValueError(f"highlight_colors has no color for label(s) {missing!r}")
         return [_color_string(highlight_colors[label]) for label in labels]
     if isinstance(highlight_colors, str) or not isinstance(highlight_colors, Sequence):
         raise TypeError(
-            f"highlight_colors must be a sequence or a mapping of colours, got {highlight_colors!r}"
+            f"highlight_colors must be a sequence or a mapping of colors, got {highlight_colors!r}"
         )
     if len(highlight_colors) < len(labels):
         raise ValueError(f"got {len(highlight_colors)} highlight_colors for {len(labels)} labels")
@@ -1304,7 +1405,7 @@ def _warn_label_colors(store: Any, labels: list[Any], colors: list[str]) -> None
     gray = [str(label) for label, c in zip(labels, colors, strict=True) if c == store.default_highlight_color]
     if gray:
         warnings.warn(
-            f"highlight: label(s) {gray} use the default colour {store.default_highlight_color} and are drawn gray",
+            f"highlight: label(s) {gray} use the default color {store.default_highlight_color} and are drawn gray",
             UserWarning,
             stacklevel=user_stacklevel(),
         )
@@ -1316,7 +1417,7 @@ def _warn_label_colors(store: Any, labels: list[Any], colors: list[str]) -> None
         seen.setdefault(c, label)
     if shared:
         warnings.warn(
-            f"highlight: labels share a colour and cannot be told apart: {shared}",
+            f"highlight: labels share a color and cannot be told apart: {shared}",
             UserWarning,
             stacklevel=user_stacklevel(),
         )

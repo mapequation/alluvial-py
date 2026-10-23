@@ -2,7 +2,7 @@
 d3-color 3.1), returning the same strings as d3 (``"rgb(r, g, b)"``, or ``"#rrggbb"`` for the viridis ramps).
 
 TS ``schemes/index.ts`` (``INTERPOLATED``) samples them for the interpolated schemes and passes them to c3's
-``hierarchy()`` as the hue of those schemes; ``"C3 Viridis"`` takes its hue from ``interpolateViridis``. The colour
+``hierarchy()`` as the hue of those schemes; ``"C3 Viridis"`` takes its hue from ``interpolateViridis``. The color
 data (the ColorBrewer ramps and the viridis ramps) is dumped from the TS repo's d3 into
 ``data/d3-interpolators.json`` (tools/ts-fixtures ``--make-data``). No matplotlib import.
 """
@@ -29,7 +29,7 @@ def _clampi(value: float) -> int:
 
 
 def _format_rgb(r: float, g: float, b: float) -> str:
-    """d3-color ``rgb.formatRgb()`` of an opaque colour."""
+    """d3-color ``rgb.formatRgb()`` of an opaque color."""
     return f"rgb({_clampi(r)}, {_clampi(g)}, {_clampi(b)})"
 
 

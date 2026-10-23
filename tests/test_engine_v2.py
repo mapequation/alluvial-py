@@ -10,12 +10,12 @@ import warnings
 import pytest
 from conftest import TESTS_DIR, assert_matches
 
+from alluvial._palette import SCHEMES
 from alluvial.engine import DiagramStore
 from alluvial.engine._utils import move_item
 from alluvial.engine.store import HIGHLIGHT_KEY
 from alluvial.io import read
 from alluvial.layout import LayoutOptions
-from alluvial.palette import C3_SINEBOW
 
 DATA = TESTS_DIR / "data"
 
@@ -245,7 +245,7 @@ def test_registry_helpers() -> None:
     store.set_selected_scheme(["x", "y"])
     assert store.selected_scheme == ["x", "y"]
     store.set_selected_scheme("C3 Sinebow")
-    assert store.selected_scheme == list(C3_SINEBOW)
+    assert store.selected_scheme == list(SCHEMES["C3 Sinebow"])
     with pytest.raises(ValueError, match="scheme"):
         store.set_selected_scheme("No such scheme")
 

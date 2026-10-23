@@ -1,4 +1,4 @@
-"""The slice of ``store/DiagramStore.ts`` the layout needs: building the diagram, relayout, the colour and highlight
+"""The slice of ``store/DiagramStore.ts`` the layout needs: building the diagram, relayout, the color and highlight
 operations with the TS mutation quirks (spec: docs/dev/port-notes/colors-render.md §2, §4, §6 and v2-highlight.md §2-§4),
 and the hierarchy operations (expand, regroup, move, reset; v2-hierarchy.md §6, §10).
 
@@ -14,20 +14,21 @@ from collections.abc import Callable, Iterable, Mapping, Sequence
 from typing import TYPE_CHECKING, Any
 
 from .._jscompat import is_array_index_key, js_is_integer, js_number_to_string, js_truthy
+from .._palette import (
+    DEFAULT_HIGHLIGHT_COLOR,
+    DEFAULT_SCHEME,
+    DEFAULT_TONE,
+    check_offset,
+    check_tone,
+    hierarchy_options,
+    scheme_colors,
+)
 from ..io.alluvial_format import (
     DISPLAY_OPTION_DEFAULTS,
     LAYOUT_OPTION_KEYS,
     SAVED_OPTION_KEYS,
     AlluvialRestore,
     read_alluvial_metadata,
-)
-from ..palette import (
-    DEFAULT_HIGHLIGHT_COLOR,
-    DEFAULT_TONE,
-    check_offset,
-    check_tone,
-    hierarchy_options,
-    scheme_colors,
 )
 from ._utils import sort_by_number
 from .diagram import Diagram, LayoutTrace
@@ -106,23 +107,23 @@ def _js_get(items: Sequence[Any], index: int) -> Any:
 
 
 class DiagramStore:
-    """Holds the diagram, the layout options and the highlight colour registry (TS ``highlightColors``).
+    """Holds the diagram, the layout options and the highlight color registry (TS ``highlightColors``).
 
     Parameters
     ----------
     options : LayoutOptions
         Layout options passed to every ``update_layout``.
     scheme : str or sequence of str, optional
-        Colour scheme for the colouring operations: a web-app scheme name (``alluvial.palette.SCHEMES``, TS ctor
-        option ``colorScheme``) or a list of colours. Default ``"C3 Sinebow"``.
+        Color scheme for the coloring operations: a web-app scheme name (``alluvial.SCHEMES``, TS ctor
+        option ``colorScheme``) or a list of colors. Default ``_palette.DEFAULT_SCHEME``.
     tone : str, optional
-        The c3 tone of the C3 schemes and of ``color_module_hierarchy_in_all_networks`` (``alluvial.palette.TONES``,
-        TS ctor option ``colorTone``). Default ``"strong"``.
+        The c3 tone of the C3 schemes and of ``color_module_hierarchy_in_all_networks`` (``_palette.TONES``,
+        TS ctor option ``colorTone``). Default ``_palette.DEFAULT_TONE``.
     offset : float or None, optional
-        The c3 offset of the first colour, in degrees around the hue source (TS ctor option ``colorOffset``).
+        The c3 offset of the first color, in degrees around the hue source (TS ctor option ``colorOffset``).
         Default ``None``, c3's default for the scheme.
     default_highlight_color : str, optional
-        Colour of ``highlight_index == -1``.
+        Color of ``highlight_index == -1``.
     show_bipartite_nodes : bool, default True
         TS ``showBipartiteNodes``: ``False`` hides the nodes of a bipartite network's second type (node id >=
         ``bipartiteStartId``), applied when the diagram is built (fix round E19).
@@ -138,7 +139,7 @@ class DiagramStore:
         self,
         options: LayoutOptions,
         *,
-        scheme: str | Sequence[str] = "C3 Sinebow",
+        scheme: str | Sequence[str] = DEFAULT_SCHEME,
         tone: str = DEFAULT_TONE,
         offset: float | None = None,
         default_highlight_color: str = DEFAULT_HIGHLIGHT_COLOR,
@@ -174,7 +175,7 @@ class DiagramStore:
         each node's ``highlight_index`` into it is remapped to the merged index (an index outside the file's palette,
         ``-1`` or past the end, is kept), and the file's ``colors`` becomes the merged palette, so a second call on the
         same files is the identity. ``colors: true`` sets each node's ``highlight_index`` from its ``color``. Both
-        mutate the files and nodes, as in TS. Then ``highlight_colors`` is replaced (``[]`` if no file has colours).
+        mutate the files and nodes, as in TS. Then ``highlight_colors`` is replaced (``[]`` if no file has colors).
         """
         colors: list[Any] = []
         color_indices: dict[Any, int] = {}
@@ -273,7 +274,7 @@ class DiagramStore:
     def restore_saved_scheme(self, saved: AlluvialRestore) -> None:
         """The scheme step of ``open_networks`` (TS, #57): a saved scheme other than the current one replaces it and
         resets the offset; then the saved tone and offset apply when present (missing ones keep the current); the
-        scheme colours are recomputed. No layout."""
+        scheme colors are recomputed. No layout."""
         if saved.color_scheme is not None and saved.color_scheme != self.selected_scheme_name:
             self.selected_scheme_name = saved.color_scheme
             # The default offset differs between hue sources
@@ -469,11 +470,11 @@ class DiagramStore:
         self.update_layout()
 
     def color_module_hierarchy_in_all_networks(self) -> None:
-        """TS ``colorModuleHierarchyInAllNetworks``: colour the visible modules by their place in the module
-        hierarchy with c3's ``hierarchy()``, so that sub-modules get colours close to their parent; the same module
-        path gets the same colour in all networks.
+        """TS ``colorModuleHierarchyInAllNetworks``: color the visible modules by their place in the module
+        hierarchy with c3's ``hierarchy()``, so that sub-modules get colors close to their parent; the same module
+        path gets the same color in all networks.
 
-        The scheme, tone and offset set the colours of the top modules (``alluvial.palette.hierarchy_options``); a
+        The scheme, tone and offset set the colors of the top modules (``_palette.hierarchy_options``); a
         list scheme is taken as c3 seeds, like the schemes that are no hue source.
         """
         if len(self.diagram.children) == 0:
@@ -538,11 +539,11 @@ class DiagramStore:
         self.highlight_colors = list(highlight_colors)
 
     def set_default_highlight_color(self, color: str) -> None:
-        """Change the colour of index -1 (affects later ``get_highlight_index`` calls only; no layout)."""
+        """Change the color of index -1 (affects later ``get_highlight_index`` calls only; no layout)."""
         self.default_highlight_color = color
 
     def set_selected_scheme(self, scheme: str | Sequence[str]) -> None:
-        """The scheme for later colour ops (no recolouring): a web-app scheme name or a list of colours.
+        """The scheme for later color ops (no recoloring): a web-app scheme name or a list of colors.
 
         Resets the offset to c3's default (``None``), whose value differs between hue sources, and keeps the tone
         (TS ``setSelectedScheme``)."""
@@ -551,13 +552,13 @@ class DiagramStore:
         self._set_scheme(scheme)
 
     def set_selected_tone(self, tone: str) -> None:
-        """TS ``setSelectedTone``: the c3 tone of the C3 schemes and of the hierarchy colouring (no recolouring)."""
+        """TS ``setSelectedTone``: the c3 tone of the C3 schemes and of the hierarchy coloring (no recoloring)."""
         self.selected_tone = check_tone(tone)
         self._update_scheme_colors()
 
     def set_selected_offset(self, offset: float | None) -> None:
-        """TS ``setSelectedOffset``: the c3 offset of the first colour, in degrees around the hue source (no
-        recolouring). ``None`` (c3's default) is a Python extension; the TS setter takes a number."""
+        """TS ``setSelectedOffset``: the c3 offset of the first color, in degrees around the hue source (no
+        recoloring). ``None`` (c3's default) is a Python extension; the TS setter takes a number."""
         self.selected_offset = check_offset(offset)
         self._update_scheme_colors()
 
@@ -569,7 +570,7 @@ class DiagramStore:
         else:
             colors = list(scheme)
             if not colors:
-                raise ValueError("a colour scheme needs at least one colour")
+                raise ValueError("a color scheme needs at least one color")
             self.selected_scheme = colors
             self.selected_scheme_name = None
 
@@ -604,7 +605,7 @@ class DiagramStore:
             )
         return _js_get(self.highlight_colors, highlight_index)
 
-    # --- v2 colour ops (v2-highlight.md §3) ----------------------------------------------------------------------
+    # --- v2 color ops (v2-highlight.md §3) ----------------------------------------------------------------------
 
     def color_matching_modules(self, module: Module, color: Any, side: int | None = None) -> None:
         highlight_index = self.get_highlight_index(color)
@@ -655,7 +656,7 @@ class DiagramStore:
         self, network_filter: Callable[[Network], bool], visit: Callable[[LeafNode], None]
     ) -> None:
         """The walk of the layer/physical-id/metadata ops: every leaf of every visible module, leaves snapshotted
-        per module. Recolouring keeps every module in place (E4), so ``network.children`` does not change."""
+        per module. Recoloring keeps every module in place (E4), so ``network.children`` does not change."""
         for network in self.diagram.children:
             if not network_filter(network):
                 continue
@@ -690,7 +691,7 @@ class DiagramStore:
         self._color_by_key(lambda node: node.node_id, False)
 
     def color_categorical_metadata(self, name: str, colors: Mapping[Any, Any]) -> None:
-        """``colors`` maps category (str) to colour, in JS ``Map`` order (= highlight index order)."""
+        """``colors`` maps category (str) to color, in JS ``Map`` order (= highlight index order)."""
         self.clear_colors(False)
         for color in colors.values():
             self.get_highlight_index(color)
@@ -710,7 +711,7 @@ class DiagramStore:
 
     def color_real_metadata(self, name: str, bins: Sequence[Mapping[str, Any]]) -> None:
         """``bins``: ``{"x0", "x1", "color"}`` records; a value takes the first bin with ``x0 <= v < x1``, or
-        ``x0 <= v <= x1`` for the last bin (S6: the data maximum gets the last colour)."""
+        ``x0 <= v <= x1`` for the last bin (S6: the data maximum gets the last color)."""
         self.clear_colors(False)
         for b in bins:
             self.get_highlight_index(b["color"])

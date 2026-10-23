@@ -24,7 +24,7 @@
    "sortModulesBy": "flow"
   },
   "labelOptions": {"fontSize": 8, "adaptiveFontSize": false, "multilineModuleNames": true, "aggregateStateNames": true, "showModuleNames": true},
-  "colorScheme": "C3 Sinebow",
+  "colorScheme": "C3 Oklch",
   "operations": [
    {"op": "setNetworks"},
    {"op": "colorByPhysicalId"}
@@ -54,7 +54,7 @@
   "updateLayoutCalls": 2,
   "usableHeightCheckedModules": 6
  },
- "highlightColors": ["#ea6c63","#3ac1c0","#5a8c3c","#977bd7","#cd9600","#507de1","#62a769","#de85b9","#ca6a37","#39a1f1","#6dc660","#9d66a9","#879b34","#8c99f9","#009d61","#e76484","#e98c74","#0098c1","#6cb156","#cb92fa","#877e00","#7389d0","#61b476","#be5b83","#d17b17","#68a6ff","#5a9859","#c67bbb","#90bc5a","#776cd0","#00a784","#e08287","#c36253","#00a7bc","#77bd59","#9c6cd9","#b39939","#89aaff","#34954b","#d4649d","#f18129","#4c88cb","#63ab5e","#d887d9","#769a0d"],
+ "highlightColors": ["#0091e3","#d88204","#008a4e","#bf51ab","#00a5ac","#d42e43","#8c8d00","#9680f4","#008aac","#e55801","#6ab200","#9454b6","#009983","#e55993","#977400","#547cff","#00a4e1","#c06000","#32a838","#d56be0","#00847d","#c9546e","#a59000","#6465da","#0096aa","#f65840","#708800","#9d6edd","#00b586","#bb368a","#ad7600","#4c92ee","#0081bd","#c66d00","#00b550","#bb43b6","#00a1a0","#f1687a","#817800","#7b6cf2","#00a4c2","#c64f2c","#6f9a00","#b674ef","#009577"],
  "defaultHighlightColor": "#b6b69f",
  "warnings": [],
  "networks": [

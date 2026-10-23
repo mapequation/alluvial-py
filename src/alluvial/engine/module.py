@@ -282,7 +282,7 @@ class Module(AlluvialNode):
         return True
 
     def move(self, direction: str) -> bool:
-        """Swap with the neighbour in ``network.children`` (``"up"`` = higher index); sets ``is_custom_sorted``."""
+        """Swap with the neighbor in ``network.children`` (``"up"`` = higher index); sets ``is_custom_sorted``."""
         index = self.parent_index
 
         network = self.parent

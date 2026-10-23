@@ -11129,9 +11129,9 @@
     "showBipartiteNodes": true
    },
    "colorScheme": "C3 Oklch",
-   "colorTone": "strong",
+   "colorTone": "vivid",
    "colorOffset": null,
-   "schemeSha256": "37bad274576ddd1e69658a62ac876ab09b4c2ce041ad0b8dfe9dc8d368dff92b",
+   "schemeSha256": "e47ebc4a7705aee503f59bd5589515079cc11941aa5c9b64d672dbc1bbe79ef6",
    "openWarnings": ["ignoring the saved color tone (unknown tone)","ignoring the saved color offset (invalid value)"]
   }
  }

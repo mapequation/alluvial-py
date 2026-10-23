@@ -219,8 +219,10 @@ def test_module_labels_do_not_overlap(size):
 
 def test_overlap_allowed_reproduces_web_app_rule():
     geom = _geom()
-    ax = alluvial.draw(geom, avoid_label_overlap=False)  # own figure: 1 pt per px, as in the web app
+    ax = alluvial.draw(geom, avoid_label_overlap=False)
     fs = alluvial.get_artists(ax).module_labels[0].get_fontsize()
+    (_, y0), (_, y1) = ax.transData.transform([(0, 0), (0, 1)])
+    pt_per_px = (y1 - y0) * 72 / ax.figure.dpi  # module heights on the page, in points
     for n in geom.networks:
         for m in n.modules:
             if m.label is None:
@@ -230,7 +232,7 @@ def test_overlap_allowed_reproduces_web_app_rule():
                 for t in ax.texts
                 if t.get_visible() and t.get_gid().startswith(f"module-label:{n.id}:{m.id}:")
             ]
-            assert len(shown) == min(len(m.largest_leaf_names), amp._ts_max_lines(m.height, fs))
+            assert len(shown) == min(len(m.largest_leaf_names), amp._ts_max_lines(m.height * pt_per_px, fs))
 
 
 def test_overlap_avoidance_hides_smaller_modules_first():
@@ -395,7 +397,7 @@ def test_palette_accepts_colormap_object():
 
 
 def test_default_color_gray_and_insignificant_brighter():
-    from alluvial.palette import brighter, to_rgb01
+    from alluvial._palette import brighter, to_rgb01
 
     geom = _geom("science-stree__default")
     ax = alluvial.draw(geom, default_color="0.6")

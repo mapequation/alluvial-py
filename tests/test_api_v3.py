@@ -118,14 +118,17 @@ def test_json_colors_are_kept() -> None:
 
 def test_schemes() -> None:
     fx = _fixture("multilevel-tree__schemePaired")
-    assert list(alluvial.layout(MULTILEVEL, scheme="Paired").palette) == fx["highlightColors"]
+    assert (
+        list(alluvial.layout(MULTILEVEL, colors="similarity", scheme="Paired").palette)
+        == fx["highlightColors"]
+    )
     assert alluvial.layout(MULTILEVEL, scheme=["#000000", "#ffffff"]).palette[0] == "#000000"
     with pytest.raises(ValueError, match="did you mean 'Paired'"):
         alluvial.layout(MULTILEVEL, scheme="paired")
     with pytest.raises(TypeError, match="scheme"):
         alluvial.layout(MULTILEVEL, scheme=3)
     labels = alluvial.layout(MULTILEVEL, highlight={"a": ["1"]}, scheme="Set1").highlight_labels
-    assert labels[0].color == alluvial.palette.SCHEMES["Set1"][0]
+    assert labels[0].color == alluvial._palette.SCHEMES["Set1"][0]
 
 
 def test_draw_shows_module_names() -> None:

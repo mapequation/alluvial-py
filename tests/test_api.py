@@ -79,7 +79,7 @@ def _close_figures():
 def test_layout_of_infomap_state_networks_matches_ts_fixture() -> None:
     fx = load_fixture("states-tree__colored")
     ims = [_build_infomap("states_t0"), _build_infomap("states_t1")]
-    geom = alluvial.layout(ims, names=fx["inputs"]["networkNames"])
+    geom = alluvial.layout(ims, names=fx["inputs"]["networkNames"], colors="similarity")
     expected = geometry_from_fixture(fx)
     assert [n.name for n in geom.networks] == ["states_t0.tree", "states_t1.tree"]
     res = assert_matches(
@@ -136,6 +136,63 @@ def test_layout_colors(colors) -> None:
     else:
         assert indices - {-1}
     alluvial.draw(geom)
+
+
+# Two partitions that split the nodes differently, so the colors depend on the network that sets them.
+_COLOR_NETWORKS = [
+    {"a": 1, "b": 1, "c": 2, "d": 2, "e": 3, "f": 3},
+    {"a": 1, "b": 2, "c": 2, "d": 3, "e": 3, "f": 1},
+]
+
+
+def _group_indices(geom: AlluvialGeometry) -> list[list[set[int]]]:
+    return [[{g.highlight_index for g in m.groups} for m in n.modules] for n in geom.networks]
+
+
+def test_default_colors_are_module_id() -> None:
+    assert _group_indices(alluvial.layout(FTREES)) == _group_indices(
+        alluvial.layout(FTREES, colors="module_id")
+    )
+
+
+@pytest.mark.parametrize("ref", [1, "net1", "second"])
+def test_color_network_colors_nodes_by_that_network(ref) -> None:
+    geom = alluvial.layout(_COLOR_NETWORKS, names=["first", "second"], colors="nodes", color_network=ref)
+    by_network = _group_indices(geom)
+    # every module of the coloring network has one color, a different one per module
+    colors = by_network[1]
+    assert all(len(indices) == 1 for indices in colors)
+    assert len(set().union(*colors)) == len(colors)
+    # the modules of the other network mix them
+    assert any(len(indices) > 1 for indices in by_network[0])
+
+
+def test_color_network_default_is_the_first_network() -> None:
+    first = _group_indices(alluvial.layout(_COLOR_NETWORKS, colors="nodes"))
+    assert first == _group_indices(alluvial.layout(_COLOR_NETWORKS, colors="nodes", color_network=0))
+    assert first != _group_indices(alluvial.layout(_COLOR_NETWORKS, colors="nodes", color_network=1))
+
+
+def test_color_network_errors() -> None:
+    with pytest.raises(ValueError, match="color_network: no network 2"):
+        alluvial.layout(_COLOR_NETWORKS, colors="nodes", color_network=2)
+    with pytest.raises(ValueError, match="color_network: no network 'other'"):
+        alluvial.layout(_COLOR_NETWORKS, colors="nodes", color_network="other")
+    with pytest.raises(ValueError, match='color_network requires colors="nodes"'):
+        alluvial.layout(_COLOR_NETWORKS, color_network=1)
+    with pytest.raises(ValueError, match="color_network requires"):
+        alluvial.layout(_COLOR_NETWORKS, colors="similarity", color_network=1)
+    with pytest.raises(ValueError, match="color_network requires"):
+        alluvial.layout(_COLOR_NETWORKS, highlight={"x": ["a"]}, color_network=1)
+    with pytest.raises(TypeError, match="color_network must be"):
+        alluvial.layout(_COLOR_NETWORKS, colors="nodes", color_network=1.0)
+
+
+def test_plot_forwards_color_network() -> None:
+    ax = alluvial.plot(_COLOR_NETWORKS, colors="nodes", color_network=1)
+    geom = alluvial.get_artists(ax).geometry
+    assert all(len(indices) == 1 for indices in _group_indices(geom)[1])
+    plt.close(ax.figure)
 
 
 def test_plot_into_subplots(tmp_path: Path) -> None:

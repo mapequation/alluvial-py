@@ -5,17 +5,70 @@ All notable changes to this project are documented here. The format follows
 [Semantic Versioning](https://semver.org/). 0.6.0 is the first release on PyPI; 0.1.0 to 0.5.0 were development
 milestones and were not published.
 
+## [0.7.0] - 2026-10-23
+
+Upgrading from 0.6:
+
+- The default `colors` is `"module_id"`, not `"similarity"`. Pass `colors="similarity"` to keep the 0.6 colors.
+- The default color scheme is `"C3 Oklch"` in the `"vivid"` tone, as in the web app (was `"C3 Sinebow"`, `"strong"`).
+  Pass `scheme="C3 Sinebow", tone="strong"` to keep the 0.6 colors.
+- `alluvial.palette` is private. `alluvial.SCHEMES` is now a tuple of scheme names. For the colors of a scheme, use
+  [c3](https://mapequation.github.io/c3) directly.
+- `plot()` without `ax` sizes the figure by its content: a small diagram is about 2 inches tall, not 8.
+
+### Added
+
+- Plain dicts as networks: `alluvial.plot([{"Ann": 1, "Bo": 1, "Cy": 2}, {"Ann": 1, "Bo": 2, "Cy": "2:1"}])`. A
+  module is an int, a tree path like `"2:1"` or a tuple.
+- `alluvial.partition(modules, flows=None, *, name=None)` for one network with optional flows (normalized to sum to 1)
+  and a name. Module paths make sub-modules: a node's path is its module's path plus its position in the module,
+  as in Infomap's `.tree` files.
+- pandas DataFrames in long format: `alluvial.plot(df)` with the columns `network`, `node`, `module` and an optional
+  `flow`, or `alluvial.from_dataframe(df, network=..., node=..., module=..., flow=...)` for other column names. pandas
+  stays optional.
+- Without flows, modules are sized and sorted by node count (`module_size` and `sort_modules_by` default to `"nodes"`
+  unless set).
+- `color_network` chooses the network for `colors="nodes"`, as the web app's selected network does. The default is the
+  first network.
+- Every public function and class has a usage example in its docstring, run as a doctest, and the API reference links
+  to the capabilities sections that use it.
+- Pull requests get a preview of the docs site.
+- Port base: TS `master` `effb609` (web app and `@mapequation/alluvial-diagram` 1.17.0, with #64). Since 0.6.0 the
+  engine changed in #60 (types only) and #64 (the default colors); the fixtures are regenerated from it.
+
+### Changed
+
+- The default `colors` is `"module_id"`.
+- The default color scheme is `"C3 Oklch"` in the `"vivid"` tone, the web app's new default (TS #64). The default
+  scheme and tone have one source: the TS store, through `data/color-schemes.json` (`generate.mjs --make-data`
+  writes `default` and `defaultTone` from a new `DiagramStore`). `_palette.DEFAULT_SCHEME` and `DEFAULT_TONE` read
+  it, and the engine store and `layout()` use them.
+- The examples use Infomap's functional API, `infomap.run(...)`, whose `Result` alluvial reads (as it did before).
+  `infomap.Infomap` objects that have run still work.
+- `alluvial.palette` is private (`alluvial._palette`), and `alluvial.SCHEMES` is a tuple of names.
+- The default figure size follows the content: the height grows with the number of modules in the tallest network
+  (2 to 6 inches), and the width with the number of networks and the labels.
+- `hierarchy="outline"` draws solid dark gray outlines instead of dots. `hierarchy_kw` still restyles them.
+- The docs, docstrings and messages use American spelling, like the API.
+- The landing page and README lead with what the package does and show a version of the neuroscience alluvial diagram
+  from Wikipedia (`examples/hero.py`): synthetic yearly citation networks, partitioned with `infomap.run`, in which
+  Neurology, Psychology and part of Molecular & cell biology merge into Neuroscience.
+
+### Fixed
+
+- The README images show on PyPI (absolute URLs) and use the current colors.
+
 ## [0.6.0] - 2026-10-21
 
 c3 2 in the web app (TS #47, web app 1.16) and the saved tone and offset (TS #57), ported against TS `master`.
 Port base: TS `master` `60fa1bf` (#58); `tests/fixtures/provenance.txt` records it (`ts_repo_head`). #59 (`4a46b90`,
-licence credit only) does not touch the engine.
+license credit only) does not touch the engine.
 
 Upgrading from 0.5:
 
 - New dependency `c3-colors==2.0.1` (the Python port of `@mapequation/c3`, pinned to the TS lockfile's version).
-- The C3 schemes (the default `"C3 Sinebow"` included) are c3 2's (web app 1.16): other colours, hex strings instead
-  of `rgb()`. Colourings with the default scheme change colour, not geometry. `alluvial.palette.C3_SINEBOW` follows,
+- The C3 schemes (the default `"C3 Sinebow"` included) are c3 2's (web app 1.16): other colors, hex strings instead
+  of `rgb()`. Colorings with the default scheme change color, not geometry. `alluvial.palette.C3_SINEBOW` follows,
   and the package data `c3-sinebow-512.json` is gone (`SCHEMES["C3 Sinebow"]`).
 
 ### Added
@@ -25,7 +78,7 @@ Upgrading from 0.5:
   reference). CI tests Linux and macOS on Python 3.11 to 3.14 and the lowest direct dependencies, runs the fixture
   check and the fuzz tests against the TS engine at the provenance commit, and checks TS `master` weekly for drift.
   A GitHub release `vX.Y.Z` publishes to PyPI with trusted publishing.
-- **c3 2: tone, offset and colouring by module hierarchy (TS #47, web app 1.16), saved with the diagram (TS #57).**
+- **c3 2: tone, offset and coloring by module hierarchy (TS #47, web app 1.16), saved with the diagram (TS #57).**
   Ported against the merged TS `master` (`61b5390`; `packages/alluvial-diagram` identical to PR #57's `9dd2954`);
   re-checked against `60fa1bf` (#58). The C3 schemes are computed by `c3-colors` 2.0.1, the Python port of
   `@mapequation/c3`, pinned to the TS lockfile's version (`tests/test_c3_schemes.py` checks the pin, and the TS
@@ -33,7 +86,7 @@ Upgrading from 0.5:
   - `alluvial.palette`: `TONES`, `DEFAULT_TONE`, `scheme_colors(name, tone, offset)`, `scheme_is_hue_source`,
     `default_scheme_offset`, `hierarchy_options` (TS `schemeColors`, `schemeIsHueSource`, `defaultSchemeOffset`,
     `hierarchyOptions`), the new scheme `"C3 Oklch"` (65 schemes), and the d3 interpolators c3 takes as hue sources
-    (`alluvial._d3_interpolators`, exact ports of d3-scale-chromatic 3.1 with their colour data in
+    (`alluvial._d3_interpolators`, exact ports of d3-scale-chromatic 3.1 with their color data in
     `data/d3-interpolators.json`).
   - `DiagramStore(tone=, offset=)`, `selected_tone`/`selected_offset`, `set_selected_tone`, `set_selected_offset`,
     `set_selected_scheme` resetting the offset, and `color_module_hierarchy_in_all_networks` (TS
@@ -45,15 +98,15 @@ Upgrading from 0.5:
     color tone (unknown tone)" / "ignoring the saved color offset (invalid value)"; `open_networks` restores as TS
     `openNetworks` (another saved scheme resets the offset; a saved tone/offset applies when present). In `layout`,
     explicit `tone`/`offset` win, and an explicit other `scheme` drops the stored offset.
-  - Fixtures: regenerated against that TS tree. Every fixture whose colours come from a C3 scheme changes colour
+  - Fixtures: regenerated against that TS tree. Every fixture whose colors come from a C3 scheme changes color
     strings only (no geometry); saved files gain `colorTone`/`colorOffset`. 34 new v3 scenarios (every tone, offsets,
-    C3 Oklch, hierarchy colouring, saved tone/offset and their restore rules, `reloadStore`), the TS-derived
+    C3 Oklch, hierarchy coloring, saved tone/offset and their restore rules, `reloadStore`), the TS-derived
     `tests/data/ts_c3_schemes.json` (every C3 scheme x tone x 6 offsets, interpolator samples, `hierarchy()` of
     every scheme), and a c3 fuzz mode (`gen.py --c3`, `-k c3`).
 
 ### Changed
 
-- Package metadata: authors mapequation, and the licence reads "Copyright (c) 2019-2026 The mapequation authors"
+- Package metadata: authors mapequation, and the license reads "Copyright (c) 2019-2026 The mapequation authors"
   like the web app's (TS #59). The fixture tools look for the TS checkout at `../web/alluvial` next to this repo
   unless `ALLUVIAL_TS_ROOT` is set. The science `module_level=2` test counts layouts instead of timing them
   (`test_module_level_on_science_is_one_layout`), so slow CI runners pass.
@@ -71,13 +124,13 @@ Upgrading from 0.5:
   2**53 as doubles, like `JSON.parse`. v1, v2, v4 and c3 seeds 0-4999 pass, c3 also 5000-9999.
 - **Fixtures:** 297 (205 v1/v2, 77 v3, 15 v4). New v3 scenarios: `multilevel-tree__toneRestore{OddColor,HugeOffset}__
   roundTrip`, `nanpath-json__hierarchyLevel2` (string paths with a non-numeric part, which become NaN: TS c3 keys
-  modules by the joined path, and the port's one shared NaN keeps its tuple keys equal, so the colours match) and
+  modules by the joined path, and the port's one shared NaN keeps its tuple keys equal, so the colors match) and
   `wide-tree__hierarchyLevel2` (see Known issues). `tests/data/ts_c3_schemes.json` gains `hierarchyWide`.
 
 ### Known issues
 
-- **c3-colors 2.0.1 vs `@mapequation/c3` 2.0.1:** `hierarchy()` colours a module with many sub-modules (about 40 or
-  more) differently: some sibling colours swap (for 119 sub-modules, 8 of 121 colours with C3 Sinebow, 2 with C3
+- **c3-colors 2.0.1 vs `@mapequation/c3` 2.0.1:** `hierarchy()` colors a module with many sub-modules (about 40 or
+  more) differently: some sibling colors swap (for 119 sub-modules, 8 of 121 colors with C3 Sinebow, 2 with C3
   Oklch). Last-bit differences between Python's `math.hypot`/libm and V8's `Math.hypot`/trig shift the radii, and
   the farthest-point sampling in c3's `placeChildren` breaks near-ties the other way. `colors="hierarchy"`
   (`color_module_hierarchy_in_all_networks`) inherits it. Not patched around in the port: strict xfail tests
@@ -87,7 +140,7 @@ Upgrading from 0.5:
 ## [0.5.0] - not published
 
 Fix round against the TypeScript worktree `py-parity-fixes` (branched from `d0abf3b`); see
-`docs/dev/fix-plan.md`. Per work package (WP), the fixture and behaviour changes are listed below.
+`docs/dev/fix-plan.md`. Per work package (WP), the fixture and behavior changes are listed below.
 
 Upgrading from 0.4 (breaking):
 
@@ -99,8 +152,8 @@ Upgrading from 0.4 (breaking):
   `timestamp` are gone (WP2, WP9). Files saved by 0.4 with `format="webapp"` still read as plain Infomap JSON.
 - A node with a non-finite or missing flow raises `ValueError` at load (WP4).
 - Engine results change where TS was fixed: stree files lose a phantom level, regrouping `1:2` no longer collapses
-  `10:*`, recolouring no longer moves modules, similarity chains that start after the first network get their own
-  colours, and `module_level` expands in one batch (WP3-WP8). Diagrams of plain inputs without these cases are
+  `10:*`, recoloring no longer moves modules, similarity chains that start after the first network get their own
+  colors, and `module_level` expands in one batch (WP3-WP8). Diagrams of plain inputs without these cases are
   unchanged.
 
 ### Changed
@@ -185,7 +238,7 @@ Upgrading from 0.4 (breaking):
   NaN geometry and a V8-specific module order; JSON `"flow": null` was read as 0 (Y13). A JSON `moduleLevel` that is
   not an integer >= 1 (negatives included) now means level 1 in both engines (E18); `bipartiteStartId: null` is
   absent in TS too (E14; Python already read it so, the divergence note is gone). TS now reads upper-case
-  extensions and recognises zips by `.zip` or the `x-zip-compressed`/`x-zip` MIME types, skipping `__MACOSX/`,
+  extensions and recognizes zips by `.zip` or the `x-zip-compressed`/`x-zip` MIME types, skipping `__MACOSX/`,
   `._*` and directory entries (P1, P2); Python already dispatched case-insensitively and skipped those entries
   (now tested). The empty-diagram warning reads "every node flow is zero or negative, ...".
 - **WP4, fixtures:** removed `nan-tree__default`, `nan-tree__colored` and `nan-multilevel__expand` (and their
@@ -206,75 +259,75 @@ Upgrading from 0.4 (breaking):
   `ALLUVIAL_TS_ROOT` at the worktree; ruff check and format clean. Differential fuzz: seeds 0-4999 in v1, v2 and v4
   (15000 cases, node 24.21.0) and seeds 0-999 in all three modes with node 25.8.1 all pass, so the 9 node-25 E9
   divergences noted under WP2/WP3 are gone (those cases are now rejected by both engines).
-- **WP5: leaf mutation, in TS and Python together (E4, E5, E6; Y4).** Recolouring keeps every module in place: an
+- **WP5: leaf mutation, in TS and Python together (E4, E5, E6; Y4).** Recoloring keeps every module in place: an
   emptied module is removed only when its leaf moves to another module (`LeafNode._remove`), so a single-leaf module
-  keeps its object, name, position and flow (before, it was re-created at the end with flow 0). With it go five colour
-  quirks: the visible-leaf walks (`colors="layer"`/`"physical_id"`, metadata colouring, `highlight=`) no longer skip a
-  module, so no labelled node stays gray and the "stay gray" warning is gone; `colorMatchingModules` chains run through
+  keeps its object, name, position and flow (before, it was re-created at the end with flow 0). With it go five color
+  quirks: the visible-leaf walks (`colors="layer"`/`"physical_id"`, metadata coloring, `highlight=`) no longer skip a
+  module, so no labeled node stays gray and the "stay gray" warning is gone; `colorMatchingModules` chains run through
   single-leaf modules; `colorNodesInModule` propagates from one; `colorMatchingModulesInAllNetworks` is idempotent.
-  Colour ops skip leaves whose highlight index does not change (E5). Duplicate identifiers link only the registered
+  Color ops skip leaves whose highlight index does not change (E5). Duplicate identifiers link only the registered
   (last) leaf across networks, the others stay dangling (E6): no stolen leaves, no `NULL--` streamline ids, and the
   flow of every duplicate is drawn. The web app warns once per file with duplicate identifiers (non-fatal); Python
   keeps its reader warning. `DiagramStore.apply_highlight` no longer detects the walk skip, and `_visible_leaf_walk`
   is a plain loop (Y4).
-- **WP5, fixtures:** changed (orders, last bits, the fixed colours and links): `debug5-stree__expandHighlight`,
+- **WP5, fixtures:** changed (orders, last bits, the fixed colors and links): `debug5-stree__expandHighlight`,
   `dupname-tree__highlight`, `fuzz1347__ops`, `fuzz2455__ops`, `fuzz670__ops`, `hlskip-tree__{categoricalSkip,
   colorByPhysicalId, colorMatchingModulesSingle, colorMatchingModulesThrough, colorNodesInModuleSingle}` (new
   descriptions), `planted-ftree__{defaultColorChange, highlightThenClear}`, `science-stree__nameColored`,
   `states-json__name`, `states-tree__{name, nameColored, nameColorSelectedNodes}` and
   `v3/states-ftree__colored__name__roundTrip`, as the plan predicted. Also changed, not predicted:
   `planted-ftree__{categorical, categoricalNoMetaFirst, realIntervals}` (last bits and label tie order only; their
-  default-colour category or interval is now a no-op for leaves already at -1, the E5 guard in the store loops, which
+  default-color category or interval is now a no-op for leaves already at -1, the E5 guard in the store loops, which
   the plan's probe applied only to `Module.setColor`). Predicted but unchanged: `fuzz1347__level4` (its duplicates
   `9` and `2` take the benign path; the probe ran before WP3, whose phantom-level fix changed what `moduleLevel 4`
   expands. Confirmed in review: a regeneration with only the E6 guard reverted leaves `fuzz1347__level4`
   byte-identical and changes exactly the E6 files listed above).
   New: `dupname-tree__recolor` (every duplicate runs `update()`) and `v4/hlskip-tree__default__namesOrderRecolor`
-  (a single-leaf module moved, named, then recoloured keeps its name and place). `provenance.txt`: new source hash,
+  (a single-leaf module moved, named, then recolored keeps its name and place). `provenance.txt`: new source hash,
   `fixtures: 202`, `fixtures_v4: 15`, node 24.21.0. The harness ignores the new non-fatal parse warnings.
-- **WP5, tests:** the five tests that pinned the old behaviour now pin the fix (`test_engine_model.py`: duplicate
-  links, single-network colouring of every module, idempotent matching; `test_engine_v2.py` and `test_layout_v2.py`:
-  no gray node and no warning on `hlskip`). New: `test_recolour_single_leaf_module_keeps_name_order_and_flow` and
+- **WP5, tests:** the five tests that pinned the old behavior now pin the fix (`test_engine_model.py`: duplicate
+  links, single-network coloring of every module, idempotent matching; `test_engine_v2.py` and `test_layout_v2.py`:
+  no gray node and no warning on `hlskip`). New: `test_recolor_single_leaf_module_keeps_name_order_and_flow` and
   `test_no_fixture_has_a_null_streamline_id`; the new v4 scenario is replayed but not rebuilt from `layout()`
-  arguments (`NOT_LAYOUT_ORDER`, colour after order and names). The obsolete "stay gray" warning filters are gone.
-  Suite 1822 -> 1830 passed, 8 -> 9 skipped. TS: `StreamlineNode.test.ts` (single-leaf recolour, no-op recolour,
+  arguments (`NOT_LAYOUT_ORDER`, color after order and names). The obsolete "stay gray" warning filters are gone.
+  Suite 1822 -> 1830 passed, 8 -> 9 skipped. TS: `StreamlineNode.test.ts` (single-leaf recolor, no-op recolor,
   duplicate identifiers) and `parse-files.test.ts` (the duplicate warning).
 - **WP5, verification:** TS `tsc`, `build:lib`, `npm test` (package 58, app 6), `build:app` pass; `generate.mjs --check`
   byte-identical with node 24.21.0 and 25.8.1. Python 1830 passed / 9 skipped with `ALLUVIAL_TS_ROOT` at the
   worktree; ruff check and format clean. Differential fuzz campaign (node 24.21.0): v1 seeds 0-4999, v2 0-9999 and
   v4 0-4999 all pass (20000 cases).
-- **WP6: colour operations, in TS and Python together (S1, S3, S5, S6, S7, E12; Y5, Y6, Y8).**
-  - `colors="similarity"` (`colorMatchingModulesInAllNetworks`, S1): one colour counter for all network pairs. A
+- **WP6: color operations, in TS and Python together (S1, S3, S5, S6, S7, E12; Y5, Y6, Y8).**
+  - `colors="similarity"` (`colorMatchingModulesInAllNetworks`, S1): one color counter for all network pairs. A
     similarity chain that starts in network 1 or later no longer reuses `scheme[0], scheme[1], …` and so no longer
-    takes the colour of an unrelated chain (owner decision 3). Chains that start in network 0 keep their colours.
-  - `colors="module_id"` (`colorModuleIdsInAllNetworks`, S3) clears first, like the other colour ops: the registry
-    restarts and hidden modules lose stale colours. Expanded-multilayer groups are taken in insertion order (no JS
+    takes the color of an unrelated chain (owner decision 3). Chains that start in network 0 keep their colors.
+  - `colors="module_id"` (`colorModuleIdsInAllNetworks`, S3) clears first, like the other color ops: the registry
+    restarts and hidden modules lose stale colors. Expanded-multilayer groups are taken in insertion order (no JS
     object key order; Y5).
   - Module similarity (S5): the node distribution keeps insertion order for every identifier (TS `Map`, no JS object
     key order; Y5), and name-mode identifiers such as `constructor` or `__proto__` match in TS too.
     `_jscompat.js_own_keys_order_items` stays for byte-identical metadata JSON.
   - Real-valued metadata bins (S6): the last bin includes its upper edge, so the leaves with the maximum value get
-    the last colour (before: no colour).
+    the last color (before: no color).
   - Input palettes (`check_colors`, S7; Y8): the files' palettes are merged (first occurrence wins). A `colors` list is
     local to its file: each node's `highlight_index` into it is remapped to the merged index (an index outside the
     file's list, `-1` or past the end, is kept), and the file's `colors` becomes the merged palette, so a second
-    `set_networks` on the same files is the identity. `colors: true` nodes get the real index of their colour (before:
-    the dummy index 0 when the colour came from an earlier list). `layout()` copies every file with input colours
+    `set_networks` on the same files is the identity. `colors: true` nodes get the real index of their color (before:
+    the dummy index 0 when the color came from an earlier list). `layout()` copies every file with input colors
     before `check_colors`, so the caller's files are not changed. TS `moveNetwork` gives every file the store palette
     before it rebuilds (fix-plan finding 5).
   - `have_metadata` (E12; Y6) is true when some leaf has metadata (before: only the first leaf in tree order was
-    checked), so the metadata colour ops no longer skip such a network. A network without leaves no longer raises
+    checked), so the metadata color ops no longer skip such a network. A network without leaves no longer raises
     `TypeError`; `is_multilayer`/`is_higher_order` read the first leaf safely in TS too.
 - **WP6, fixtures:** changed: `v3/jscolors-abc__default` and `v3/jscolors-abc__default__roundTrip` (S7: b's `#0f0`
   nodes get index 1, not the dummy 0); `planted-ftree__categoricalNoMetaFirst`, and also, not predicted,
   `planted-ftree__{arrayLength, arrayMetadata}` (E12: their first leaf has `metadata: null`, so a whole network was
-  skipped; now coloured); `planted-ftree__realMetadata` (S6: the maximum-valued leaves get the last bin's colour);
+  skipped; now colored); `planted-ftree__realMetadata` (S6: the maximum-valued leaves get the last bin's color);
   `fuzz2455__ops` and, not predicted, `v3/multilevel-tree__schemeSwitch` (S3: `colorModuleIdsInAllNetworks` after
-  another colour op now starts from an empty registry; in fuzz2455 a hidden module loses a stale colour, in
-  schemeSwitch the registry has the 4 Set1 colours instead of 3 Sinebow + 4 Set1). Each attribution was checked by
+  another color op now starts from an empty registry; in fuzz2455 a hidden module loses a stale color, in
+  schemeSwitch the registry has the 4 Set1 colors instead of 3 Sinebow + 4 Set1). Each attribution was checked by
   regenerating with only that fix reverted in the TS worktree (the fixture then equals the WP5 one). Predicted but
   unchanged: `planted-ftree__colorOpsMixed` (its `colorModuleIdsInAllNetworks` follows `colorNodesInModulesInAllNetworks`,
-  which registered the same scheme colours from index 0, and every coloured module is visible, so clearing first gives
+  which registered the same scheme colors from index 0, and every colored module is visible, so clearing first gives
   the same indices). S1 and S5 change no committed fixture, as predicted. New: `abc-chain__similarity` (v1; hand-written
   `abcchain_t{0,1,2}.tree`, `make_datasets.py` (j), `datasets.json` `v2_datasets.abcchain`): `b.2` and `c.1` get
   `scheme[1]`; with the old counter all five modules got `scheme[0]` (checked the same way). `provenance.txt`: new
@@ -284,7 +337,7 @@ Upgrading from 0.4 (breaking):
   `check_colors` remap and idempotence, `layout()` leaves list-palette inputs unchanged, `color_module_ids_in_all_networks`
   clears first, similarity with `constructor`/`__proto__` identifiers (`test_engine_model.py`), the inclusive last bin
   and `have_metadata` with a first leaf without metadata (`test_engine_v2.py`); scenario count 202 -> 203. TS:
-  `DiagramStore.test.ts` (`checkColors` with mixed palettes and on the same files twice; `moveNetwork` after a recolour).
+  `DiagramStore.test.ts` (`checkColors` with mixed palettes and on the same files twice; `moveNetwork` after a recolor).
 - **WP6, verification:** TS `tsc`, `build:lib`, `npm test` (package 61, app 6), `build:app` pass; `generate.mjs --check`
   byte-identical (node 24.21.0). Python 1842 passed / 9 skipped with `ALLUVIAL_TS_ROOT` at the worktree (1830 + 7 new
   tests + the new scenario's parametrizations); ruff check and format clean. Differential fuzz: v2 seeds 0-1999, v1 and
@@ -375,10 +428,10 @@ Upgrading from 0.4 (breaking):
   pass; `generate.mjs --check` byte-identical. Python 1860 passed / 9 skipped with `ALLUVIAL_TS_ROOT` at the worktree
   (1857 + 3 new tests); ruff check and format clean. Differential fuzz: v2 seeds 0-4999 (AC), v4 and v1 seeds 0-999
   all pass. Visible-set diff script over the WP7 and WP8 dumps: identical visible ids and order in all 17.
-- **WP10, TS only (H3):** `DiagramStore.moveNetwork` keeps its state. It serialises the diagram in memory as a save
-  (`serializeDiagramData`, the data step of `serializeDiagram`, now exported), writes each node's colour and module
+- **WP10, TS only (H3):** `DiagramStore.moveNetwork` keeps its state. It serializes the diagram in memory as a save
+  (`serializeDiagramData`, the data step of `serializeDiagram`, now exported), writes each node's color and module
   level back per input node (`Network.inputLeafNodes`, so duplicate identifiers keep their own instead of the
-  registered leaf's), reorders the files and restores them with `openNetworks`. The palette, per-leaf colours, network
+  registered leaf's), reorders the files and restores them with `openNetworks`. The palette, per-leaf colors, network
   and module names, custom module orders, options, scheme and bipartite toggle survive a move (before, names and the
   custom order were lost and duplicates were miswritten). Python has no `moveNetwork`; no Python or fixture change.
 - **WP11, TS only (U1, E13, E16, E8):** the web app's margin slider label shows the real top-level margin `2 ** value`
@@ -455,7 +508,7 @@ Upgrading from 0.4 (breaking):
   - `layout(..., restore_state=True)` restores a saved diagram as the web app opens it: options, scheme, module
     orders and module names. Explicit keywords win silently (owner default): layout options, `scheme` and
     `show_bipartite_nodes` replace the stored values, `module_order`/`module_names` replace the stored orders/names.
-    The restore warnings are issued as `UserWarning("saved diagram: ...")`. Saved files keep their colours by default
+    The restore warnings are issued as `UserWarning("saved diagram: ...")`. Saved files keep their colors by default
     (`colors=None`), even when the palette is empty. The restored `fontSize` and `aggregateStateNames` are used for the
     labels.
   - `read` takes a directory (its network files in name order) or a list of paths, and sorts the files of one saved
@@ -475,7 +528,7 @@ Upgrading from 0.4 (breaking):
   The harness-local `webAppFiles` writer, its `inputLeaves` wrapper and the `loadWebAppFiles` id rewrite are gone.
   The 20 existing round-trip fixtures (16 v3, 4 v4) changed only in these blocks and in the description text ("saved
   files + reload"); a diff that drops them and `description` shows every engine dump unchanged. 11 new v3 fixtures:
-  `multilevel-tree__options__roundTrip` (every saved option changed, `Paired`, colouring, expand, order, names, a
+  `multilevel-tree__options__roundTrip` (every saved option changed, `Paired`, coloring, expand, order, names, a
   network name), `multilevel-tree__restore{Shuffled,Partial,MixedSaves,FormatVersion2,BadBlock,BadOptions}__roundTrip`
   (the restore warnings and partial restores), `multilevel-tree__flowThreshold40__orderHidden__roundTrip` (hidden
   modules in `moduleOrder`), `bipartite-json__hidden__roundTrip` (E19), `planted-json__default__passthrough__roundTrip`
@@ -484,7 +537,7 @@ Upgrading from 0.4 (breaking):
   `provenance.txt`: new source hash.
 - **WP9, tests:** new `tests/test_saveload.py`: Python-save == TS-save for every round-trip fixture; TS-save ->
   Python-load through `read` of a directory, a zip and a shuffled list of paths; reload == original (order, names,
-  colours, options, scheme, network names; geometry within 1e-9); hidden order after lowering the threshold;
+  colors, options, scheme, network names; geometry within 1e-9); hidden order after lowering the threshold;
   Infomap pass-through; `restore_state=False`; restore warnings; 2019 rejection; `show_bipartite_nodes`.
   `test_v3_fixtures`/`test_v4_fixtures` check `savedFiles` byte for byte and `savedReload` bit for bit (with the
   restored options, scheme and warnings); the v4 `save_diagram` test runs the public API as a zip and as loose files.
@@ -505,7 +558,7 @@ Upgrading from 0.4 (breaking):
   tour of every public feature in ten sections (inputs: tree/ftree/stree/clu, Infomap JSON path and dict,
   `infomap.Infomap` objects and their `Result`, state/memory and multilayer networks with `split_layers`, a zip,
   directories and lists of files, `NetworkFile`, names/ids/identifier, bipartite networks; every `LayoutOptions`
-  field; all colour modes, schemes, highlight groups by mapping and by function, legends; `module_level`, `expand`
+  field; all color modes, schemes, highlight groups by mapping and by function, legends; `module_level`, `expand`
   and the hierarchy styles; `module_names`/`module_order`; drawing on subplot axes, fonts from `rcParams`, every
   label option, palettes and colormaps, gradients, styles, `get_artists`, PNG/PDF/SVG and `rasterized`; the geometry
   without matplotlib, `to_dict`/`from_dict` and a renderer of one's own; `save_diagram` zip/loose/`.json` ->
@@ -520,10 +573,10 @@ Upgrading from 0.4 (breaking):
   replaced writer) updated. TS: package README section "Saving and opening diagrams" (the formatVersion 1
   contract), a CHANGELOG entry; the TS version is not bumped (owner decision).
 - **WP12, found while writing the notebook (not fixed, both engines, parity holds):** a reload equals the original
-  up to float summation order (about 1e-13 px, as saveload-plan.md §4.5 states): highlight groups built by a colour
+  up to float summation order (about 1e-13 px, as saveload-plan.md §4.5 states): highlight groups built by a color
   operation sum their flows in another order than the groups built at load from `highlightIndex` (a plain JSON of
   the same nodes without `highlightIndex` reloads bit for bit). Labels of nodes with exactly equal flow can then list
-  in another order (e.g. `multilevel_t*.tree` saved and reopened, or the same diagram coloured differently). The
+  in another order (e.g. `multilevel_t*.tree` saved and reopened, or the same diagram colored differently). The
   notebook compares a reload with the original up to rounding and without the node-name labels, and checks that
   saving a reloaded diagram again is bit-exact.
 - **WP12, fixtures:** none change (no engine or harness change).
@@ -534,7 +587,7 @@ Upgrading from 0.4 (breaking):
 - **WP13: final verification.** Fixed: the sdist shipped `tests/test_capabilities_notebook.py` without
   `docs/capabilities.ipynb`, so the test failed when run from the sdist (`pyproject.toml` sdist `include` now lists
   the notebook). Added `test_python_save_diagram_zip_opens_in_ts` (`tests/test_fuzz_parity.py`): zips written by
-  `alluvial.save_diagram` (Python's `zipfile`, deflated; plain, options + names + `module_id` colours, `module_level=2`,
+  `alluvial.save_diagram` (Python's `zipfile`, deflated; plain, options + names + `module_id` colors, `module_level=2`,
   `module_order`, split layers) are opened by TS through the web app's loader (`parseAcceptedFiles` unzips with
   JSZip, then `openNetworks`; harness `openMain` now also opens `<case>/saved.zip` as one dropped file) and must
   equal Python's `read` of the same zip bit for bit. TS-side: the new lines of the WP changes formatted with the repo's
@@ -546,7 +599,7 @@ Upgrading from 0.4 (breaking):
     fresh venvs on 3.11, 3.12, 3.13 and 3.14 green (fuzz skipped there: no harness in the sdist); fuzz 3000 seeds
     each for v1, v2 and v4 including the round trips and Python-save -> TS-open; large science fixtures replayed;
     both notebooks execute in conda py314 without errors or warnings; a headless run of the built web app loads a
-    Python zip (same group positions and fills as Python, bit for bit), recolours it and downloads a zip that
+    Python zip (same group positions and fills as Python, bit for bit), recolors it and downloads a zip that
     Python reopens like TS (bit for bit; equal to the in-app picture up to float summation order, as documented).
 
 ## [0.4.0] - not published
@@ -583,14 +636,14 @@ byte-identical saved texts) and save/load round trips in the differential fuzzer
 ### Added
 
 - `alluvial.read` loads a saved web-app diagram (a port of the web app's converter) and returns a `SavedDiagram`;
-  `layout`/`plot` take it and restore its state (layout options, default colour, label font size, palette), as the
+  `layout`/`plot` take it and restore its state (layout options, default color, label font size, palette), as the
   web app that saved it did (`restore_state=False` loads it like today's converter).
 - `alluvial.save_diagram(networks, path, format="diagram" | "webapp", **layout_kwargs)`: the web app's
   `saveDiagram` JSON, byte-identical to TS for the same store state, or one Infomap-JSON file per network with the
   palette (`colors`) that today's web app opens (directory or `.zip`).
 - JSON top-level `colors` and per-node `color` (`checkColors`, including its index-0 quirk); `layout` keeps input
-  colours by default when the input carries them.
-- The 64 named colour schemes of the web app (`alluvial.palette.SCHEMES`, `SCHEME_GROUPS`, `get_scheme`) and
+  colors by default when the input carries them.
+- The 64 named color schemes of the web app (`alluvial.palette.SCHEMES`, `SCHEME_GROUPS`, `get_scheme`) and
   `layout(..., scheme=...)`; the scheme also gives the default `highlight_colors`.
 - Engine: `DiagramStore.check_colors`, `set_network_name`, `set_module_name`, display `settings`, schemes by name;
   `alluvial._jscompat.js_json_stringify`.
@@ -604,7 +657,7 @@ byte-identical saved texts) and save/load round trips in the differential fuzzer
 
 - Warnings point at the caller's line whether `layout`, `plot`, `read` or `save_diagram` was called (the stack level
   is computed, not fixed).
-- `layout(..., colors=None)` is the default when the input carries colours (a saved diagram, or JSON with `colors`).
+- `layout(..., colors=None)` is the default when the input carries colors (a saved diagram, or JSON with `colors`).
 - JSON `"flow": null` is read as 0 (what JS arithmetic does with the `null` that `JSON.stringify` writes for NaN).
 - Examples and the tutorial use only infomap API that 2.15 does not deprecate and 2.14 supports (the relax rate as
   the `--multilayer-relax-rate` flag of `Infomap.run`, partition facts via `alluvial.read(im)`).
@@ -636,13 +689,13 @@ reference scenarios (204 in all, bit for bit) and an extended differential fuzze
   whenever the geometry has outlines) or dotted rounded boxes (`"outline"`); `hierarchy_kw` styles them. Labels and
   network names make room for them.
 - Highlight groups: `layout(..., highlight={label: identifiers})` or `highlight=callable(NodeInfo) -> label | None`,
-  with `highlight_colors`. It runs the web app's "colour by metadata" operation; `AlluvialGeometry.highlight_labels`
-  (`HighlightLabel`) keeps the labels, and `layout` warns where the web app's colour walk leaves labelled nodes gray.
+  with `highlight_colors`. It runs the web app's "color by metadata" operation; `AlluvialGeometry.highlight_labels`
+  (`HighlightLabel`) keeps the labels, and `layout` warns where the web app's color walk leaves labeled nodes gray.
 - Legends: `draw(..., legend=True)` and `alluvial.legend(ax, other=None, **kwargs)` add a legend of the highlight
   labels above the diagram, inside the axes (the fit makes room for it).
-- Module label lines take their node's highlight colour, as in the web app (`draw(label_colors="auto")`: for
+- Module label lines take their node's highlight color, as in the web app (`draw(label_colors="auto")`: for
   highlight diagrams; `True` always). `ModuleGeometry.name_highlight_indices` and `name_insignificant` carry it.
-- More colourings: `colors="layer"` and `colors="physical_id"` for multilayer and state networks.
+- More colorings: `colors="layer"` and `colors="physical_id"` for multilayer and state networks.
 - Multilayer splitting: `layout(..., split_layers=True)` (or one flag per network) and
   `alluvial.read(..., split_layers=True)` / `alluvial.split_layers(nf)` give one network per layer, matched by
   physical id, as the web app does.
@@ -651,7 +704,7 @@ reference scenarios (204 in all, bit for bit) and an extended differential fuzze
 - `AlluvialArtists.outlines` and `AlluvialArtists.legend`; outline artists have the gid `outline:<network>:<path>`.
 - Examples `examples/hierarchy.py`, `examples/highlight.py` and `examples/multilayer.py`.
 - A tutorial notebook, `docs/tutorial.ipynb` (executed with its outputs, and run by the tests): seeded Infomap runs on
-  a small temporal network, colourings, sub-modules, highlight groups, multilayer networks, reading files, a PDF
+  a small temporal network, colorings, sub-modules, highlight groups, multilayer networks, reading files, a PDF
   figure for a paper and restyling artists.
 - Warnings for silent mistakes: state networks matched by state id next to networks matched by node id, a
   `module_level` deeper than a network's module tree, a `highlight` function that labels no node, and `highlight`
@@ -667,7 +720,7 @@ reference scenarios (204 in all, bit for bit) and an extended differential fuzze
   `FileNotFoundError` (also without a suffix) and a folder `IsADirectoryError`; `draw` raises `TypeError` for
   networks instead of a geometry and for a figure or an array of axes; unknown keywords of `layout` and `plot`
   suggest the closest valid name.
-- The `draw(module_kw=...)` docs note that a hatch needs an `edgecolor` (the edge is drawn in the face colour).
+- The `draw(module_kw=...)` docs note that a hatch needs an `edgecolor` (the edge is drawn in the face color).
 - `alluvial.read()` checks that the path exists (`FileNotFoundError`) and is not a folder (`IsADirectoryError`)
   before looking at its suffix. `module_level` accepts numpy integers and arrays. An `expand=` module without
   sub-modules says so in the error, and a module that is not shown says whether its parent must be expanded first
@@ -680,16 +733,16 @@ reference scenarios (204 in all, bit for bit) and an extended differential fuzze
 ### Fixed (parity with the web app)
 
 - `layout(highlight=...)` also labels a leaf that duplicate identifiers leave in a streamline node outside the
-  module tree; before, it could stay gray where the web app colours it (`Network.built_leaf_nodes`, fixture
+  module tree; before, it could stay gray where the web app colors it (`Network.built_leaf_nodes`, fixture
   `dupname-tree__highlight`).
 - Splitting two inputs with the same file stem (the same file twice, or `a/x.tree` and `b/x.tree`) gave
-  `colors="module_id"` the single-multilayer-network colours. The second input now gets the id `x_2` before
+  `colors="module_id"` the single-multilayer-network colors. The second input now gets the id `x_2` before
   splitting (layers `x_2_layer1`, ...), so each file's layers keep their own original id, as with the web app's
   distinct file ids (fixture `mlayer-split-twice__colorModuleIds`). Their layer ids change from `x_layer1_2` to
   `x_2_layer1`.
 - Node metadata that is not an object (from JSON input): an array is read by index and `length` as in the web app
   (fixtures `planted-ftree__arrayMetadata`, `__arrayLength`), and a string, number or `true` raises the web app's
-  `TypeError` in the metadata colour operations instead of being skipped.
+  `TypeError` in the metadata color operations instead of being skipped.
 - Infomap JSON: a top-level `name` that is `""` or a number is used as given (a number as its JavaScript string),
   as in the web app; a `null` entry in `layers` that the layer-name lookup reaches raises `ValueError` (the web app
   throws).
@@ -697,7 +750,7 @@ reference scenarios (204 in all, bit for bit) and an extended differential fuzze
 ### Notes
 
 - The saved web-app diagram JSON (`networks` without `nodes`) is not read yet; it gets its own error message.
-- Hierarchy shadows are drawn opaque in their colour over white; the web app's `mix-blend-mode: difference` has no
+- Hierarchy shadows are drawn opaque in their color over white; the web app's `mix-blend-mode: difference` has no
   vector equivalent, so where a shadow overlaps a module the module simply covers it.
 
 ## [0.1.0] - not published
@@ -707,11 +760,11 @@ First release.
 ### Added
 
 - `alluvial.layout()`: a port of the layout engine of the mapequation.org alluvial web app
-  (`@mapequation/alluvial-diagram` 1.15.0). Module order, sizes, margins, streamlines and colours match the web app;
+  (`@mapequation/alluvial-diagram` 1.15.0). Module order, sizes, margins, streamlines and colors match the web app;
   all 128 v1 reference scenarios generated from the TypeScript store match bit for bit, and a differential fuzzer
   (`tests/test_fuzz_parity.py`, `tools/ts-fixtures`) compares the two on random networks and operations.
 - `LayoutOptions` with the web app's layout options (height, module width, flow and streamline thresholds, margins,
-  vertical alignment, module size and sort order) and the web app's colouring (`colors="similarity"`, `"module_id"`
+  vertical alignment, module size and sort order) and the web app's coloring (`colors="similarity"`, `"module_id"`
   or `"nodes"`).
 - `AlluvialGeometry`: a frozen, renderer-independent geometry contract (modules, groups, streamlines as path codes or
   SVG paths, labels) with `to_dict()` / `from_dict()`. `ModuleGeometry.name_candidates` offers renderers more label
@@ -722,7 +775,7 @@ First release.
   refitted at every draw (constrained layout, `bbox_inches="tight"` and resizing work), overlapping labels lose lines
   instead of colliding, long labels are truncated, gradient streamlines stay small in PDF/SVG, and every artist has
   a `gid`.
-- The web app's colour handling (`alluvial.palette`), including its 512-colour `c3-sinebow` palette.
+- The web app's color handling (`alluvial.palette`), including its 512-color `c3-sinebow` palette.
 
 ### Notes
 

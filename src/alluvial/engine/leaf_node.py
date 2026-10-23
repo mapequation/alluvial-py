@@ -200,7 +200,7 @@ class LeafNode(AlluvialNode):
         if group is not None and group.is_empty:
             module.remove_child(group)
 
-        # Keep an emptied module when the leaf goes straight back into it (colour changes, E4): re-creating it
+        # Keep an emptied module when the leaf goes straight back into it (color changes, E4): re-creating it
         # would lose its name, position and flow.
         if module is not None and module.is_empty and module.module_id != self.module_id:
             network.remove_child(module)

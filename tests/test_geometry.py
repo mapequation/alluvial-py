@@ -48,12 +48,12 @@ def test_build_geometry_svg_paths_match_fixture_strings() -> None:
     ("name", "kwargs"),
     [
         ("planted-ftree__default", {"colors": None}),
-        ("planted-ftree__colored", {}),
+        ("planted-ftree__colored", {"colors": "similarity"}),
         ("planted-ftree__colorModuleIds", {"colors": "module_id"}),
         ("planted-ftree__colorNodes", {"colors": "nodes"}),
-        ("states-tree__colored", {}),
-        ("debug5-stree__nameColored", {"identifier": "name"}),
-        ("science-stree__nameColored", {"identifier": "name"}),
+        ("states-tree__colored", {"colors": "similarity"}),
+        ("debug5-stree__nameColored", {"identifier": "name", "colors": "similarity"}),
+        ("science-stree__nameColored", {"identifier": "name", "colors": "similarity"}),
     ],
 )
 def test_layout_matches_fixture(name: str, kwargs: dict) -> None:

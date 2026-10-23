@@ -65,7 +65,7 @@
   "updateLayoutCalls": 3,
   "usableHeightCheckedModules": 34
  },
- "highlightColors": ["#d8729e","#f37064","#d85666","#80ab4b","#e59f37","#b39316","#af772d","#c64e33","#d26415","#1ca771","#54a258","#32ac61","#fb7b99","#d3757a","#39a667"],
+ "highlightColors": ["#d7548e","#f34e4e","#d52b51","#729e30","#a7a001","#7fb03c","#c2492b","#c26603","#d15314","#029645","#15a25d","#389b48","#fc5c88","#d25867","#009b56"],
  "defaultHighlightColor": "#b6b69f",
  "warnings": [],
  "networks": [

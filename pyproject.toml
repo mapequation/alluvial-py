@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "alluvial"
-version = "0.6.0"
+version = "0.7.0"
 description = "Alluvial diagrams of Infomap partitions for matplotlib, with the layout of the mapequation.org web app"
 readme = "README.md"
 license = "MIT"
@@ -40,7 +40,9 @@ Changelog = "https://github.com/mapequation/alluvial-py/blob/main/CHANGELOG.md"
 
 [project.optional-dependencies]
 infomap = ["infomap>=2.14"]
-# infomap >= 2.14 has the Result API the object reader needs; files written by any infomap version still read.
+# infomap >= 2.14 has the Result API the object reader needs and infomap.run(network) returning a Result (checked with
+# 2.14.0; 2.13 has no Result, and its run(flags) is the command line);
+# files written by any infomap version still read.
 # nbconvert (nbclient, nbformat) and ipykernel run the tutorial notebook in tests/test_tutorial.py; ipykernel
 # < 6.3.1 imports ipython_genutils without requiring it, so the lowest-deps job would skip the notebook.
 # The tests need infomap >= 2.15.1 (Result.write_tree, the functional API, files compared with a v2.15.1 header;
@@ -52,6 +54,7 @@ dev = [
     "ruff>=0.6",
     "nbconvert>=7",
     "ipykernel>=6.3.1",
+    "pandas>=2",  # tests of alluvial.from_dataframe and DataFrame input; not a runtime dependency
 ]
 
 # The Sphinx site (docs/, deployed by .github/workflows/docs.yml); a dependency group, so not in the package metadata.
@@ -106,7 +109,7 @@ select = ["E", "W", "F", "I", "UP", "B", "SIM", "RUF"]
 ignore = ["E501", "B905", "RUF001", "RUF002", "RUF003"]
 
 [tool.ruff.lint.per-file-ignores]
-"src/alluvial/palette.py" = ["E741"]  # `l` is HSL/HCL lightness, as in the d3 sources
+"src/alluvial/_palette.py" = ["E741"]  # `l` is HSL/HCL lightness, as in the d3 sources
 "examples/*.py" = ["E402"]  # imports after sys.path / backend setup
 "tests/test_io_infomap.py" = ["E402"]  # imports after pytest.importorskip("infomap")
 

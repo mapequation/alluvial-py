@@ -24,7 +24,7 @@
    "sortModulesBy": "flow"
   },
   "labelOptions": {"fontSize": 8, "adaptiveFontSize": false, "multilineModuleNames": true, "aggregateStateNames": true, "showModuleNames": true},
-  "colorScheme": "C3 Sinebow",
+  "colorScheme": "C3 Oklch",
   "operations": [
    {"op": "setNetworks"},
    {
@@ -65,7 +65,7 @@
   "updateLayoutCalls": 3,
   "usableHeightCheckedModules": 8
  },
- "highlightColors": ["#bf6d98","#f39137","#31a97a","#5ab1fa"],
+ "highlightColors": ["#3a72db","#36a6f4","#cf6323","#f56869"],
  "defaultHighlightColor": "#b6b69f",
  "warnings": [],
  "networks": [
