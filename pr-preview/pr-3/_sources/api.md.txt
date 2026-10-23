@@ -104,7 +104,7 @@ Used in: [1.1 Dicts, partition() and DataFrames](capabilities.ipynb#11-dicts-par
 .. autofunction:: alluvial.read
 ```
 
-Used in: [1.2 Infomap output files](capabilities.ipynb#12-infomap-output-files-tree-ftree-stree-clu) · [1.3 Infomap JSON](capabilities.ipynb#13-infomap-json) · [1.4 infomap.Infomap objects](capabilities.ipynb#14-infomapinfomap-objects) · [1.7 The web app's zip, directories and lists of files](capabilities.ipynb#17-the-web-apps-zip-directories-and-lists-of-files)
+Used in: [1.2 Infomap output files](capabilities.ipynb#12-infomap-output-files-tree-ftree-stree-clu) · [1.3 Infomap JSON](capabilities.ipynb#13-infomap-json) · [1.4 Infomap results and objects](capabilities.ipynb#14-infomap-results-and-objects) · [1.7 The web app's zip, directories and lists of files](capabilities.ipynb#17-the-web-apps-zip-directories-and-lists-of-files)
 
 ```{eval-rst}
 .. autofunction:: alluvial.split_layers

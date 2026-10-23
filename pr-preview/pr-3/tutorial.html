@@ -426,7 +426,9 @@ seeded, so the figures come out the same each time.</p>
 <h2>A small temporal network<a class="headerlink" href="#a-small-temporal-network" title="Link to this heading">#</a></h2>
 <p>Here 36 people work in teams of six, and teams that share a department collaborate. Over three years the
 departments reorganize. In 2022 one team moves to another department, and in 2023 three departments become two.
-For each year, links are drawn at random: dense within teams, sparser within departments, and rare between them.</p>
+For each year, links are drawn at random: dense within teams, sparser within departments, and rare between them.
+<code class="docutils literal notranslate"><span class="pre">infomap.run</span></code> finds the modules of each year’s network and returns an immutable <code class="docutils literal notranslate"><span class="pre">Result</span></code>. The network is an
+<code class="docutils literal notranslate"><span class="pre">infomap.Network</span></code>, which carries the people’s names.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">NAMES</span> <span class="o">=</span> <span class="p">[</span>
@@ -499,17 +501,14 @@ For each year, links are drawn at random: dense within teams, sparser within dep
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">run_infomap</span><span class="p">(</span><span class="n">links</span><span class="p">):</span>
-    <span class="n">im</span> <span class="o">=</span> <span class="n">infomap</span><span class="o">.</span><span class="n">Infomap</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">num_trials</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">NAMES</span><span class="p">):</span>
-        <span class="n">im</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
-    <span class="n">im</span><span class="o">.</span><span class="n">add_links</span><span class="p">(</span><span class="n">links</span><span class="p">)</span>
-    <span class="n">im</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">im</span>
+    <span class="s2">"One seeded Infomap run on a named network."</span>
+    <span class="n">network</span> <span class="o">=</span> <span class="n">infomap</span><span class="o">.</span><span class="n">Network</span><span class="p">()</span><span class="o">.</span><span class="n">add_nodes</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">NAMES</span><span class="p">))</span><span class="o">.</span><span class="n">add_links</span><span class="p">(</span><span class="n">links</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">infomap</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">network</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">num_trials</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 
 
-<span class="n">im_a</span><span class="p">,</span> <span class="n">im_b</span><span class="p">,</span> <span class="n">im_c</span> <span class="o">=</span> <span class="p">(</span><span class="n">run_infomap</span><span class="p">(</span><span class="n">links</span><span class="p">[</span><span class="n">year</span><span class="p">])</span> <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">YEARS</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">year</span><span class="p">,</span> <span class="n">im</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">YEARS</span><span class="p">,</span> <span class="p">(</span><span class="n">im_a</span><span class="p">,</span> <span class="n">im_b</span><span class="p">,</span> <span class="n">im_c</span><span class="p">)):</span>
-    <span class="n">nf</span> <span class="o">=</span> <span class="n">alluvial</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>  <span class="c1"># the partition as alluvial reads it</span>
+<span class="n">results</span> <span class="o">=</span> <span class="p">[</span><span class="n">run_infomap</span><span class="p">(</span><span class="n">links</span><span class="p">[</span><span class="n">year</span><span class="p">])</span> <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">YEARS</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">year</span><span class="p">,</span> <span class="n">result</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">YEARS</span><span class="p">,</span> <span class="n">results</span><span class="p">):</span>
+    <span class="n">nf</span> <span class="o">=</span> <span class="n">alluvial</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>  <span class="c1"># the partition as alluvial reads it</span>
     <span class="n">paths</span> <span class="o">=</span> <span class="p">[</span><span class="n">node</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">nf</span><span class="o">.</span><span class="n">nodes</span><span class="p">]</span>  <span class="c1"># "1:2:3": module 1, sub-module 2, node 3</span>
     <span class="n">top_modules</span> <span class="o">=</span> <span class="p">{</span><span class="n">path</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">paths</span><span class="p">}</span>
     <span class="n">levels</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">len</span><span class="p">,</span> <span class="n">paths</span><span class="p">))</span>
@@ -528,18 +527,18 @@ For each year, links are drawn at random: dense within teams, sparser within dep
 </section>
 <section id="one-diagram-for-several-runs">
 <h2>One diagram for several runs<a class="headerlink" href="#one-diagram-for-several-runs" title="Link to this heading">#</a></h2>
-<p>Pass the Infomap objects from left to right. Each column is a network, and each block a module, with its height
+<p>Pass the Infomap results from left to right. Each column is a network, and each block a module, with its height
 proportional to the module’s flow. A streamline joins two modules and is as thick as the flow of the nodes they
 share. Nodes are matched across networks by node id. Modules carry the names of their largest nodes (by flow) on the
 first and last network.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">im_a</span><span class="p">,</span> <span class="n">im_b</span><span class="p">,</span> <span class="n">im_c</span><span class="p">],</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6e2cfcc29bf756421e390a5581638bd564b96ded2a1d5740979eb33a21e1c82c.png" src="_images/6e2cfcc29bf756421e390a5581638bd564b96ded2a1d5740979eb33a21e1c82c.png" />
+<img alt="_images/3f07f56c378edeeae786d6c7e74fce2a400f41ac9db2ec95a975934b8f1b53a3.png" src="_images/3f07f56c378edeeae786d6c7e74fce2a400f41ac9db2ec95a975934b8f1b53a3.png" />
 </div>
 </div>
 <p>Without <code class="docutils literal notranslate"><span class="pre">ax=</span></code>, <code class="docutils literal notranslate"><span class="pre">plot</span></code> makes its own figure, sized by its content: taller with more modules, wider with more
@@ -548,12 +547,12 @@ while every font size and gap stays in points.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">"constrained"</span><span class="p">)</span>
-<span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">im_a</span><span class="p">,</span> <span class="n">im_b</span><span class="p">,</span> <span class="n">im_c</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">);</span>
+<span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6d4964e143cd54014a648ee803a69414ba3c91530cb53f5163e411a680644ade.png" src="_images/6d4964e143cd54014a648ee803a69414ba3c91530cb53f5163e411a680644ade.png" />
+<img alt="_images/4dc2dcf87f10f10ce96904cbc99545fb17c4426f358f4667e85b0feb316f7946.png" src="_images/4dc2dcf87f10f10ce96904cbc99545fb17c4426f358f4667e85b0feb316f7946.png" />
 </div>
 </div>
 </section>
@@ -571,13 +570,13 @@ while every font size and gap stays in points.</p>
 when modules change size. Here the two teams at the top, labeled Cal and Ike, swap numbers between 2021 and 2022:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">year</span><span class="p">,</span> <span class="n">im</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">YEARS</span><span class="p">,</span> <span class="p">(</span><span class="n">im_a</span><span class="p">,</span> <span class="n">im_b</span><span class="p">,</span> <span class="n">im_c</span><span class="p">)):</span>
-    <span class="n">module</span> <span class="o">=</span> <span class="p">{</span><span class="n">node</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">node</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">alluvial</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">im</span><span class="p">)</span><span class="o">.</span><span class="n">nodes</span><span class="p">}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">year</span><span class="p">,</span> <span class="n">result</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">YEARS</span><span class="p">,</span> <span class="n">results</span><span class="p">):</span>
+    <span class="n">module</span> <span class="o">=</span> <span class="p">{</span><span class="n">node</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">node</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">alluvial</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="o">.</span><span class="n">nodes</span><span class="p">}</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">: Cal's team is module </span><span class="si">{</span><span class="n">module</span><span class="p">[</span><span class="s1">'Cal'</span><span class="p">]</span><span class="si">}</span><span class="s2">, Ike's team is module </span><span class="si">{</span><span class="n">module</span><span class="p">[</span><span class="s1">'Ike'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">2.8</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">"constrained"</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">colors</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axs</span><span class="p">,</span> <span class="p">[</span><span class="s2">"module_id"</span><span class="p">,</span> <span class="s2">"similarity"</span><span class="p">]):</span>
-    <span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">im_a</span><span class="p">,</span> <span class="n">im_b</span><span class="p">,</span> <span class="n">im_c</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">colors</span><span class="p">)</span>
+    <span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">colors</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">"colors=</span><span class="si">{</span><span class="n">colors</span><span class="si">!r}</span><span class="s2">"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s2">"medium"</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -588,7 +587,7 @@ when modules change size. Here the two teams at the top, labeled Cal and Ike, sw
 2023: Cal's team is module 3, Ike's team is module 4
 </pre></div>
 </div>
-<img alt="_images/a65fe1caa56852887f26560e285e7437c2a6770d707527680aaa4209d72c461f.png" src="_images/a65fe1caa56852887f26560e285e7437c2a6770d707527680aaa4209d72c461f.png" />
+<img alt="_images/ad6c3decf0eb95bba9b2b077346b7362ad18e0b6b08f577958dc3d45f88f836f.png" src="_images/ad6c3decf0eb95bba9b2b077346b7362ad18e0b6b08f577958dc3d45f88f836f.png" />
 </div>
 </div>
 <p>With <code class="docutils literal notranslate"><span class="pre">&quot;module_id&quot;</span></code>, the two teams swap colors in 2022, and their streamlines change color on the way. With
@@ -602,15 +601,15 @@ a list of colors or a matplotlib colormap, for example <code class="docutils lit
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">2.8</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">"constrained"</span><span class="p">)</span>
-<span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">im_a</span><span class="p">,</span> <span class="n">im_b</span><span class="p">,</span> <span class="n">im_c</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s2">"nodes"</span><span class="p">)</span>
-<span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">im_a</span><span class="p">,</span> <span class="n">im_b</span><span class="p">,</span> <span class="n">im_c</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s2">"nodes"</span><span class="p">,</span> <span class="n">color_network</span><span class="o">=</span><span class="s2">"2023"</span><span class="p">)</span>
+<span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s2">"nodes"</span><span class="p">)</span>
+<span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s2">"nodes"</span><span class="p">,</span> <span class="n">color_network</span><span class="o">=</span><span class="s2">"2023"</span><span class="p">)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'colors="nodes" (the first network)'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s2">"medium"</span><span class="p">)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'colors="nodes", color_network="2023"'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s2">"medium"</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/fc3bc7ac5d2e81a5e30992524febe6e464919bc82e9a36fa96c866489b18b6ba.png" src="_images/fc3bc7ac5d2e81a5e30992524febe6e464919bc82e9a36fa96c866489b18b6ba.png" />
+<img alt="_images/ca7a1595e55e3d1416790cdec805158e6be802b4c8da3f6c4e399716ea50736a.png" src="_images/ca7a1595e55e3d1416790cdec805158e6be802b4c8da3f6c4e399716ea50736a.png" />
 </div>
 </div>
 </section>
@@ -627,15 +626,15 @@ module it cannot pair stays gray.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">"constrained"</span><span class="p">)</span>
-<span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">im_a</span><span class="p">,</span> <span class="n">im_b</span><span class="p">,</span> <span class="n">im_c</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">,</span> <span class="n">module_level</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">im_a</span><span class="p">,</span> <span class="n">im_b</span><span class="p">,</span> <span class="n">im_c</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">,</span> <span class="n">module_level</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">hierarchy</span><span class="o">=</span><span class="s2">"outline"</span><span class="p">)</span>
+<span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">,</span> <span class="n">module_level</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">,</span> <span class="n">module_level</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">hierarchy</span><span class="o">=</span><span class="s2">"outline"</span><span class="p">)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"module_level=2"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s2">"medium"</span><span class="p">)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'hierarchy="outline"'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s2">"medium"</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/403c12ea18b7f96223f255a7187662eaf2d33f1ebed1cc519f216666b753e2ae.png" src="_images/403c12ea18b7f96223f255a7187662eaf2d33f1ebed1cc519f216666b753e2ae.png" />
+<img alt="_images/ef9b77c5e3991bbd0b1f679b51c0a11578a394fb42a651b84d8d582c70eed730.png" src="_images/ef9b77c5e3991bbd0b1f679b51c0a11578a394fb42a651b84d8d582c70eed730.png" />
 </div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">expand=[(network,</span> <span class="pre">module_id),</span> <span class="pre">...]</span></code> opens single modules instead. <code class="docutils literal notranslate"><span class="pre">network</span></code> is an index (or a network id), and
@@ -644,12 +643,12 @@ two teams Infomap tells apart. Expanding a module without sub-modules raises <co
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">"constrained"</span><span class="p">)</span>
-<span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">im_a</span><span class="p">,</span> <span class="n">im_b</span><span class="p">,</span> <span class="n">im_c</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">"2"</span><span class="p">)]);</span>
+<span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">"2"</span><span class="p">)]);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8c5b65dac960db5d7e1a7d3404f6edd0afa33c46a3eeec47159ff1b5f3f0f298.png" src="_images/8c5b65dac960db5d7e1a7d3404f6edd0afa33c46a3eeec47159ff1b5f3f0f298.png" />
+<img alt="_images/15c57884f0937d7d2c02936e4b21c6817bd786e1ac80a028b41c97ce6d665643.png" src="_images/15c57884f0937d7d2c02936e4b21c6817bd786e1ac80a028b41c97ce6d665643.png" />
 </div>
 </div>
 </section>
@@ -661,12 +660,12 @@ two teams Infomap tells apart. Expanding a module without sub-modules raises <co
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">teams</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"Ada's team"</span><span class="p">:</span> <span class="n">TEAMS</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">"Max's team"</span><span class="p">:</span> <span class="n">TEAMS</span><span class="p">[</span><span class="mi">2</span><span class="p">]}</span>  <span class="c1"># node ids</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">"constrained"</span><span class="p">)</span>
-<span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">im_a</span><span class="p">,</span> <span class="n">im_b</span><span class="p">,</span> <span class="n">im_c</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">,</span> <span class="n">highlight</span><span class="o">=</span><span class="n">teams</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+<span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">,</span> <span class="n">highlight</span><span class="o">=</span><span class="n">teams</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/09c63dde42b25ec3a3536f80a932894e4b7e341711ec093a6408c4a58fd30ff9.png" src="_images/09c63dde42b25ec3a3536f80a932894e4b7e341711ec093a6408c4a58fd30ff9.png" />
+<img alt="_images/8f5e1bf419ffdeda7a71257d279dc54e4c104cd2922f20019e7b98b9d107d9d4.png" src="_images/8f5e1bf419ffdeda7a71257d279dc54e4c104cd2922f20019e7b98b9d107d9d4.png" />
 </div>
 </div>
 <p>With <code class="docutils literal notranslate"><span class="pre">identifier=&quot;name&quot;</span></code>, nodes are matched by name, and <code class="docutils literal notranslate"><span class="pre">highlight</span></code> takes names too. <code class="docutils literal notranslate"><span class="pre">highlight</span></code> also accepts a
@@ -681,7 +680,7 @@ entry for the gray nodes.</p>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">"constrained"</span><span class="p">)</span>
 <span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
-    <span class="p">[</span><span class="n">im_a</span><span class="p">,</span> <span class="n">im_b</span><span class="p">,</span> <span class="n">im_c</span><span class="p">],</span>
+    <span class="n">results</span><span class="p">,</span>
     <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
     <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">,</span>
     <span class="n">identifier</span><span class="o">=</span><span class="s2">"name"</span><span class="p">,</span>
@@ -705,12 +704,11 @@ modules that span the years. A multilayer network is a <em>state network</em>: e
 layer and matches the layers by physical node, as the web app’s “split layers” does.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ml</span> <span class="o">=</span> <span class="n">infomap</span><span class="o">.</span><span class="n">Infomap</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">num_trials</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># relax rate: Infomap's default, 0.15</span>
-<span class="n">ml</span><span class="o">.</span><span class="n">set_names</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">NAMES</span><span class="p">)))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">network</span> <span class="o">=</span> <span class="n">infomap</span><span class="o">.</span><span class="n">Network</span><span class="p">()</span><span class="o">.</span><span class="n">set_names</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">NAMES</span><span class="p">)))</span>
 <span class="k">for</span> <span class="n">layer</span><span class="p">,</span> <span class="n">year</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">YEARS</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">links</span><span class="p">[</span><span class="n">year</span><span class="p">]:</span>
-        <span class="n">ml</span><span class="o">.</span><span class="n">add_multilayer_intra_link</span><span class="p">(</span><span class="n">layer</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
-<span class="n">ml</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+        <span class="n">network</span><span class="o">.</span><span class="n">add_multilayer_intra_link</span><span class="p">(</span><span class="n">layer</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+<span class="n">ml</span> <span class="o">=</span> <span class="n">infomap</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">network</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">num_trials</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>  <span class="c1"># relax rate: Infomap's default, 0.15</span>
 <span class="n">top_modules</span> <span class="o">=</span> <span class="p">{</span><span class="n">node</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">alluvial</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">ml</span><span class="p">)</span><span class="o">.</span><span class="n">nodes</span><span class="p">}</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">top_modules</span><span class="p">)</span><span class="si">}</span><span class="s2"> modules across </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">YEARS</span><span class="p">)</span><span class="si">}</span><span class="s2"> layers"</span><span class="p">)</span>
 
@@ -725,7 +723,7 @@ layer and matches the layers by physical node, as the web app’s “split layer
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5 modules across 3 layers
 </pre></div>
 </div>
-<img alt="_images/4fb5e5808b846545819104ddb6b1b9f0bb9386f77a10dc5a0d0419beb6b69805.png" src="_images/4fb5e5808b846545819104ddb6b1b9f0bb9386f77a10dc5a0d0419beb6b69805.png" />
+<img alt="_images/888e11c1f6b4c3a272eed76a590a2b2c38ae20bb235090b6ae29920d31d1c1e9.png" src="_images/888e11c1f6b4c3a272eed76a590a2b2c38ae20bb235090b6ae29920d31d1c1e9.png" />
 </div>
 </div>
 <p>Memory (higher-order) networks work the same way. Their nodes are state nodes too.</p>
@@ -745,8 +743,8 @@ runs from Python, which gives the same files as the command line <code class="do
 
 <span class="n">out</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"tutorial_output"</span><span class="p">)</span>
 <span class="n">out</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">year</span><span class="p">,</span> <span class="n">im</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">YEARS</span><span class="p">,</span> <span class="p">(</span><span class="n">im_a</span><span class="p">,</span> <span class="n">im_b</span><span class="p">,</span> <span class="n">im_c</span><span class="p">)):</span>
-    <span class="n">im</span><span class="o">.</span><span class="n">write_flow_tree</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">out</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"team_</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">.ftree"</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">year</span><span class="p">,</span> <span class="n">result</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">YEARS</span><span class="p">,</span> <span class="n">results</span><span class="p">):</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">write_flow_tree</span><span class="p">(</span><span class="n">out</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"team_</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">.ftree"</span><span class="p">)</span>
 
 <span class="n">paths</span> <span class="o">=</span> <span class="p">[</span><span class="n">out</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"team_</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">.ftree"</span> <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">YEARS</span><span class="p">]</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">"constrained"</span><span class="p">)</span>
@@ -755,7 +753,7 @@ runs from Python, which gives the same files as the command line <code class="do
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b79791642a5186ac944626c4d46c1cf7e4782ed19e7ee3e632960ce362237d41.png" src="_images/b79791642a5186ac944626c4d46c1cf7e4782ed19e7ee3e632960ce362237d41.png" />
+<img alt="_images/4ec8114b9bd484a36007ad2b4f3f97321ea47b9aead97d5a42d3bfb2c7f73930.png" src="_images/4ec8114b9bd484a36007ad2b4f3f97321ea47b9aead97d5a42d3bfb2c7f73930.png" />
 </div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">alluvial.read</span></code> returns the parsed <code class="docutils literal notranslate"><span class="pre">NetworkFile</span></code>, which is useful for checking what was read. <code class="docutils literal notranslate"><span class="pre">alluvial.layout</span></code>
@@ -793,7 +791,7 @@ A network is its index (<code class="docutils literal notranslate"><span class="
 <code class="docutils literal notranslate"><span class="pre">&quot;3&quot;</span></code>, or <code class="docutils literal notranslate"><span class="pre">&quot;3:1&quot;</span></code> after <code class="docutils literal notranslate"><span class="pre">module_level=2</span></code> or <code class="docutils literal notranslate"><span class="pre">expand</span></code>. Get the ids from a plain <code class="docutils literal notranslate"><span class="pre">layout</span></code> first:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">geometry</span> <span class="o">=</span> <span class="n">alluvial</span><span class="o">.</span><span class="n">layout</span><span class="p">([</span><span class="n">im_a</span><span class="p">,</span> <span class="n">im_b</span><span class="p">,</span> <span class="n">im_c</span><span class="p">],</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">geometry</span> <span class="o">=</span> <span class="n">alluvial</span><span class="o">.</span><span class="n">layout</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">network</span> <span class="ow">in</span> <span class="n">geometry</span><span class="o">.</span><span class="n">networks</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">network</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">network</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">network</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="p">[</span><span class="n">module</span><span class="o">.</span><span class="n">id</span> <span class="k">for</span> <span class="n">module</span> <span class="ow">in</span> <span class="n">network</span><span class="o">.</span><span class="n">modules</span><span class="p">])</span>
 </pre></div>
@@ -826,18 +824,17 @@ module with Ada is at the bottom in every year, and each network gets its own id
     <span class="k">return</span> <span class="s2">" + "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">teams</span><span class="p">)</span> <span class="ow">or</span> <span class="kc">None</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">module_of</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">module_of</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
     <span class="s2">"The top module of the node with this name."</span>
-    <span class="n">node</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">node</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">alluvial</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">im</span><span class="p">)</span><span class="o">.</span><span class="n">nodes</span> <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span><span class="p">)</span>
+    <span class="n">node</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">node</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">alluvial</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="o">.</span><span class="n">nodes</span> <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">node</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
 
-<span class="n">ims</span> <span class="o">=</span> <span class="p">[</span><span class="n">im_a</span><span class="p">,</span> <span class="n">im_b</span><span class="p">,</span> <span class="n">im_c</span><span class="p">]</span>
-<span class="n">ada_at_bottom</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="p">[</span><span class="n">module_of</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="s2">"Ada"</span><span class="p">),</span> <span class="o">...</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">im</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ims</span><span class="p">)}</span>
+<span class="n">ada_at_bottom</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="p">[</span><span class="n">module_of</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="s2">"Ada"</span><span class="p">),</span> <span class="o">...</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">result</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">results</span><span class="p">)}</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ada_at_bottom</span><span class="p">)</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">"constrained"</span><span class="p">)</span>
-<span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ims</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">,</span> <span class="n">module_names</span><span class="o">=</span><span class="n">team_name</span><span class="p">,</span> <span class="n">module_order</span><span class="o">=</span><span class="n">ada_at_bottom</span><span class="p">);</span>
+<span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">,</span> <span class="n">module_names</span><span class="o">=</span><span class="n">team_name</span><span class="p">,</span> <span class="n">module_order</span><span class="o">=</span><span class="n">ada_at_bottom</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -845,7 +842,7 @@ module with Ada is at the bottom in every year, and each network gets its own id
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{0: ['1', Ellipsis], 1: ['1', Ellipsis], 2: ['1', Ellipsis]}
 </pre></div>
 </div>
-<img alt="_images/c27716a0760cbf465e5d0721994887c4c912ea35e5f803892639da42684d98f1.png" src="_images/c27716a0760cbf465e5d0721994887c4c912ea35e5f803892639da42684d98f1.png" />
+<img alt="_images/8d954b7ed2e5e5d33eaf673234461889ad103999ce166a80a6b62b0271df1abe.png" src="_images/8d954b7ed2e5e5d33eaf673234461889ad103999ce166a80a6b62b0271df1abe.png" />
 </div>
 </div>
 <p>Some things to know:</p>
@@ -868,7 +865,7 @@ are kept (<code class="docutils literal notranslate"><span class="pre">ModuleGeo
 <span class="p">}</span>
 <span class="k">for</span> <span class="n">what</span><span class="p">,</span> <span class="n">kwargs</span> <span class="ow">in</span> <span class="n">mistakes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">alluvial</span><span class="o">.</span><span class="n">layout</span><span class="p">(</span><span class="n">ims</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">alluvial</span><span class="o">.</span><span class="n">layout</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="k">except</span> <span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">)</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">what</span><span class="si">}</span><span class="s2">:</span><span class="se">\n</span><span class="s2">  </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">error</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
@@ -898,7 +895,7 @@ collide with its neighbor loses lines.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">plt</span><span class="o">.</span><span class="n">rc_context</span><span class="p">({</span><span class="s2">"font.family"</span><span class="p">:</span> <span class="s2">"serif"</span><span class="p">,</span> <span class="s2">"font.size"</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">"pdf.fonttype"</span><span class="p">:</span> <span class="mi">42</span><span class="p">}):</span>
     <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mf">2.4</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">"constrained"</span><span class="p">)</span>
-    <span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">im_a</span><span class="p">,</span> <span class="n">im_b</span><span class="p">,</span> <span class="n">im_c</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">a</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">,</span> <span class="n">max_label_lines</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">a</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">,</span> <span class="n">max_label_lines</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
     <span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">ml</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">b</span><span class="p">,</span> <span class="n">split_layers</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s2">"nodes"</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">"tab10"</span><span class="p">)</span>
     <span class="n">a</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"(a) one Infomap run per year"</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">"left"</span><span class="p">)</span>
     <span class="n">b</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"(b) one multilayer run"</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">"left"</span><span class="p">)</span>
@@ -913,7 +910,7 @@ collide with its neighbor loses lines.</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>figure.pdf: 20 KiB
 </pre></div>
 </div>
-<img alt="_images/b61d11a993d23d1c40aef86b08396af2cb3bf3430d59d0836dab211484ec0f98.png" src="_images/b61d11a993d23d1c40aef86b08396af2cb3bf3430d59d0836dab211484ec0f98.png" />
+<img alt="_images/f46c532bf71fdc77329cccf935346090211fd7f08035bc6e0e1e7b536e3294e2.png" src="_images/f46c532bf71fdc77329cccf935346090211fd7f08035bc6e0e1e7b536e3294e2.png" />
 </div>
 </div>
 <p>The PDF stays vector. A streamline between two colors is a small gradient image clipped to its outline, and
@@ -928,16 +925,14 @@ change the keyword arguments do not cover. Every artist has a <code class="docut
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s2">"constrained"</span><span class="p">)</span>
-<span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">im_a</span><span class="p">,</span> <span class="n">im_b</span><span class="p">,</span> <span class="n">im_c</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">,</span> <span class="n">streamline_kw</span><span class="o">=</span><span class="p">{</span><span class="s2">"alpha"</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">})</span>
+<span class="n">alluvial</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">,</span> <span class="n">streamline_kw</span><span class="o">=</span><span class="p">{</span><span class="s2">"alpha"</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">})</span>
 <span class="n">art</span> <span class="o">=</span> <span class="n">alluvial</span><span class="o">.</span><span class="n">get_artists</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">art</span><span class="o">.</span><span class="n">modules</span><span class="p">),</span> <span class="s2">"module rectangles,"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">art</span><span class="o">.</span><span class="n">streamlines</span><span class="p">),</span> <span class="s2">"streamlines"</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">art</span><span class="o">.</span><span class="n">network_labels</span><span class="p">:</span>
     <span class="n">text</span><span class="o">.</span><span class="n">set_fontweight</span><span class="p">(</span><span class="s2">"bold"</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">rect</span> <span class="ow">in</span> <span class="n">art</span><span class="o">.</span><span class="n">modules</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">rect</span><span class="o">.</span><span class="n">get_gid</span><span class="p">()</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span>
-        <span class="s2">"module:net1:"</span>
-    <span class="p">):</span>  <span class="c1"># the middle network (Infomap objects get ids net0, net1, ...)</span>
+    <span class="k">if</span> <span class="n">rect</span><span class="o">.</span><span class="n">get_gid</span><span class="p">()</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"module:net1:"</span><span class="p">):</span>  <span class="c1"># the middle network (networks get ids net0, net1, ...)</span>
         <span class="n">rect</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
             <span class="n">hatch</span><span class="o">=</span><span class="s2">"///"</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">"white"</span>
         <span class="p">)</span>  <span class="c1"># hatches take the edge color, which is the face color by default</span>
@@ -948,7 +943,7 @@ change the keyword arguments do not cover. Every artist has a <code class="docut
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12 module rectangles, 10 streamlines
 </pre></div>
 </div>
-<img alt="_images/e4938b44611745cbf40c8252456af02745c82d8ba0e9ac8e9007b7baf8d2abcf.png" src="_images/e4938b44611745cbf40c8252456af02745c82d8ba0e9ac8e9007b7baf8d2abcf.png" />
+<img alt="_images/624b2640669075ae88997e93dc683661559e2ada445d2d4b342fd528d61c49a9.png" src="_images/624b2640669075ae88997e93dc683661559e2ada445d2d4b342fd528d61c49a9.png" />
 </div>
 </div>
 </section>
@@ -964,7 +959,7 @@ the expanded modules, the layout options, the color scheme, module names and cus
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">names</span><span class="o">=</span><span class="n">YEARS</span><span class="p">,</span> <span class="n">module_level</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">alluvial</span><span class="o">.</span><span class="n">save_diagram</span><span class="p">([</span><span class="n">im_a</span><span class="p">,</span> <span class="n">im_b</span><span class="p">,</span> <span class="n">im_c</span><span class="p">],</span> <span class="n">out</span> <span class="o">/</span> <span class="s2">"teams.zip"</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="n">alluvial</span><span class="o">.</span><span class="n">save_diagram</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">out</span> <span class="o">/</span> <span class="s2">"teams.zip"</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
 <span class="n">saved</span> <span class="o">=</span> <span class="n">alluvial</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">out</span> <span class="o">/</span> <span class="s2">"teams.zip"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">([</span><span class="n">nf</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">nf</span> <span class="ow">in</span> <span class="n">saved</span><span class="p">],</span> <span class="s2">"palette"</span><span class="p">,</span> <span class="n">saved</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">colors</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span>
@@ -974,10 +969,10 @@ the expanded modules, the layout options, the color scheme, module names and cus
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>['2021', '2022', '2023'] palette ['#ea6c63', '#3ac1c0', '#5a8c3c']
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>['2021', '2022', '2023'] palette ['#0091e3', '#d88204', '#008a4e']
 </pre></div>
 </div>
-<img alt="_images/16dfd04f56f425c32ee2d7428b77decfe08ae231cb9662480d8b9f508d972ef7.png" src="_images/16dfd04f56f425c32ee2d7428b77decfe08ae231cb9662480d8b9f508d972ef7.png" />
+<img alt="_images/c2d42c1720321d30dbc053fc9af9cb74a54d834908e3eb2e81835ecbcc032104.png" src="_images/c2d42c1720321d30dbc053fc9af9cb74a54d834908e3eb2e81835ecbcc032104.png" />
 </div>
 </div>
 </section>
@@ -996,8 +991,8 @@ warning.</p></li>
 
 <span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">(</span><span class="n">record</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">as</span> <span class="n">caught</span><span class="p">:</span>
     <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s2">"always"</span><span class="p">)</span>
-    <span class="n">alluvial</span><span class="o">.</span><span class="n">layout</span><span class="p">([</span><span class="n">im_a</span><span class="p">,</span> <span class="n">im_b</span><span class="p">],</span> <span class="n">highlight</span><span class="o">=</span><span class="p">{</span><span class="s2">"typo"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Adaa"</span><span class="p">]},</span> <span class="n">identifier</span><span class="o">=</span><span class="s2">"name"</span><span class="p">)</span>
-    <span class="n">alluvial</span><span class="o">.</span><span class="n">layout</span><span class="p">([</span><span class="n">im_a</span><span class="p">,</span> <span class="n">im_b</span><span class="p">],</span> <span class="n">module_level</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+    <span class="n">alluvial</span><span class="o">.</span><span class="n">layout</span><span class="p">(</span><span class="n">results</span><span class="p">[:</span><span class="mi">2</span><span class="p">],</span> <span class="n">highlight</span><span class="o">=</span><span class="p">{</span><span class="s2">"typo"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Adaa"</span><span class="p">]},</span> <span class="n">identifier</span><span class="o">=</span><span class="s2">"name"</span><span class="p">)</span>
+    <span class="n">alluvial</span><span class="o">.</span><span class="n">layout</span><span class="p">(</span><span class="n">results</span><span class="p">[:</span><span class="mi">2</span><span class="p">],</span> <span class="n">module_level</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">caught</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"warning:"</span><span class="p">,</span> <span class="n">w</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
 </pre></div>

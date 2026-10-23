@@ -404,6 +404,8 @@ milestones and were not published.</p>
 <p>Upgrading from 0.6:</p>
 <ul class="simple">
 <li><p>The default <code class="docutils literal notranslate"><span class="pre">colors</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;module_id&quot;</span></code>, not <code class="docutils literal notranslate"><span class="pre">&quot;similarity&quot;</span></code>. Pass <code class="docutils literal notranslate"><span class="pre">colors=&quot;similarity&quot;</span></code> to keep the 0.6 colors.</p></li>
+<li><p>The default color scheme is <code class="docutils literal notranslate"><span class="pre">&quot;C3</span> <span class="pre">Oklch&quot;</span></code> in the <code class="docutils literal notranslate"><span class="pre">&quot;vivid&quot;</span></code> tone, as in the web app (was <code class="docutils literal notranslate"><span class="pre">&quot;C3</span> <span class="pre">Sinebow&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;strong&quot;</span></code>).
+Pass <code class="docutils literal notranslate"><span class="pre">scheme=&quot;C3</span> <span class="pre">Sinebow&quot;,</span> <span class="pre">tone=&quot;strong&quot;</span></code> to keep the 0.6 colors.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">alluvial.palette</span></code> is private. <code class="docutils literal notranslate"><span class="pre">alluvial.SCHEMES</span></code> is now a tuple of scheme names. For the colors of a scheme, use
 <a class="reference external" href="https://mapequation.github.io/c3">c3</a> directly.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">plot()</span></code> without <code class="docutils literal notranslate"><span class="pre">ax</span></code> sizes the figure by its content: a small diagram is about 2 inches tall, not 8.</p></li>
@@ -426,19 +428,28 @@ first network.</p></li>
 <li><p>Every public function and class has a usage example in its docstring, run as a doctest, and the API reference links
 to the capabilities sections that use it.</p></li>
 <li><p>Pull requests get a preview of the docs site.</p></li>
+<li><p>Port base: TS <code class="docutils literal notranslate"><span class="pre">default-c3-oklch-vivid</span></code> (#64, <code class="docutils literal notranslate"><span class="pre">4aac4ec</span></code>), on top of <code class="docutils literal notranslate"><span class="pre">master</span></code> (#59-#63; #60 is the only engine
+change, types only). The fixtures are regenerated from it.</p></li>
 </ul>
 </section>
 <section id="changed">
 <h3>Changed<a class="headerlink" href="#changed" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>The default <code class="docutils literal notranslate"><span class="pre">colors</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;module_id&quot;</span></code>.</p></li>
+<li><p>The default color scheme is <code class="docutils literal notranslate"><span class="pre">&quot;C3</span> <span class="pre">Oklch&quot;</span></code> in the <code class="docutils literal notranslate"><span class="pre">&quot;vivid&quot;</span></code> tone, the web app’s new default (TS #64). The default
+scheme and tone have one source: the TS store, through <code class="docutils literal notranslate"><span class="pre">data/color-schemes.json</span></code> (<code class="docutils literal notranslate"><span class="pre">generate.mjs</span> <span class="pre">--make-data</span></code>
+writes <code class="docutils literal notranslate"><span class="pre">default</span></code> and <code class="docutils literal notranslate"><span class="pre">defaultTone</span></code> from a new <code class="docutils literal notranslate"><span class="pre">DiagramStore</span></code>). <code class="docutils literal notranslate"><span class="pre">_palette.DEFAULT_SCHEME</span></code> and <code class="docutils literal notranslate"><span class="pre">DEFAULT_TONE</span></code> read
+it, and the engine store and <code class="docutils literal notranslate"><span class="pre">layout()</span></code> use them.</p></li>
+<li><p>The examples use Infomap’s functional API, <code class="docutils literal notranslate"><span class="pre">infomap.run(...)</span></code>, whose <code class="docutils literal notranslate"><span class="pre">Result</span></code> alluvial reads (as it did before).
+<code class="docutils literal notranslate"><span class="pre">infomap.Infomap</span></code> objects that have run still work.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">alluvial.palette</span></code> is private (<code class="docutils literal notranslate"><span class="pre">alluvial._palette</span></code>), and <code class="docutils literal notranslate"><span class="pre">alluvial.SCHEMES</span></code> is a tuple of names.</p></li>
 <li><p>The default figure size follows the content: the height grows with the number of modules in the tallest network
 (2 to 6 inches), and the width with the number of networks and the labels.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">hierarchy=&quot;outline&quot;</span></code> draws solid dark gray outlines instead of dots. <code class="docutils literal notranslate"><span class="pre">hierarchy_kw</span></code> still restyles them.</p></li>
 <li><p>The docs, docstrings and messages use American spelling, like the API.</p></li>
 <li><p>The landing page and README lead with what the package does and show a version of the neuroscience alluvial diagram
-from Wikipedia, made with the science citation data in <code class="docutils literal notranslate"><span class="pre">tests/data</span></code>.</p></li>
+from Wikipedia (<code class="docutils literal notranslate"><span class="pre">examples/hero.py</span></code>): synthetic yearly citation networks, partitioned with <code class="docutils literal notranslate"><span class="pre">infomap.run</span></code>, in which
+Neurology, Psychology and part of Molecular &amp; cell biology merge into Neuroscience.</p></li>
 </ul>
 </section>
 <section id="fixed">
