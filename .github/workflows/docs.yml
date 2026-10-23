@@ -1,44 +1,55 @@
 name: Build and deploy docs
 
-# Pull requests only build; main deploys to GitHub Pages (Settings > Pages > Source: GitHub Actions).
+# main deploys to the root of the gh-pages branch. Each pull request from this repo gets a preview at
+# pr-preview/pr-<number>/ and a comment with its link; the preview is removed when the pull request closes.
+# Pages serves the gh-pages branch (Settings > Pages > Source: Deploy from a branch, gh-pages, /).
+
 on:
   push:
     branches: [main]
   pull_request:
-    branches: [main]
+    types: [opened, reopened, synchronize, closed]
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
+  pull-requests: write
 
 jobs:
-  build:
+  docs:
     runs-on: ubuntu-latest
+    # One push to gh-pages at a time; a newer run waits instead of cancelling one in progress
+    concurrency:
+      group: gh-pages
+      cancel-in-progress: false
+
     steps:
       - uses: actions/checkout@v7
+
       - uses: astral-sh/setup-uv@v10.3.0
+        if: github.event.action != 'closed'
         with:
           python-version: "3.14"
           enable-cache: true
-      - run: uv run --locked --group docs sphinx-build -W --keep-going -b html docs docs/_build/html
-      - if: github.event_name != 'pull_request'
-        uses: actions/upload-pages-artifact@v5
-        with:
-          path: docs/_build/html
 
-  deploy:
-    if: github.event_name != 'pull_request'
-    needs: build
-    runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    concurrency:
-      group: pages
-      cancel-in-progress: false
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v5
+      - name: Build
+        if: github.event.action != 'closed'
+        run: |
+          uv run --locked --group docs sphinx-build -W --keep-going -b html docs docs/_build/html
+          touch docs/_build/html/.nojekyll
+
+      - name: Deploy the site
+        if: github.event_name != 'pull_request'
+        uses: JamesIves/github-pages-deploy-action@v4.9.0
+        with:
+          folder: docs/_build/html
+          branch: gh-pages
+          clean-exclude: pr-preview/
+
+      # Pull requests from forks only build: their token can't push to gh-pages
+      - name: Deploy or remove the preview
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+        uses: rossjrw/pr-preview-action@v1.8.1
+        with:
+          source-dir: docs/_build/html
+          pages-base-url: mapequation.org/alluvial-py
