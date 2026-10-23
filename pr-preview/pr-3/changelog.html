@@ -399,8 +399,8 @@
 <a class="reference external" href="https://keepachangelog.com/en/1.1.0/">Keep a Changelog</a> and the project uses
 <a class="reference external" href="https://semver.org/">Semantic Versioning</a>. 0.6.0 is the first release on PyPI; 0.1.0 to 0.5.0 were development
 milestones and were not published.</p>
-<section id="unreleased">
-<h2>[0.7.0] - Unreleased<a class="headerlink" href="#unreleased" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h2>[0.7.0] - 2026-10-23<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>Upgrading from 0.6:</p>
 <ul class="simple">
 <li><p>The default <code class="docutils literal notranslate"><span class="pre">colors</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;module_id&quot;</span></code>, not <code class="docutils literal notranslate"><span class="pre">&quot;similarity&quot;</span></code>. Pass <code class="docutils literal notranslate"><span class="pre">colors=&quot;similarity&quot;</span></code> to keep the 0.6 colors.</p></li>
@@ -428,8 +428,8 @@ first network.</p></li>
 <li><p>Every public function and class has a usage example in its docstring, run as a doctest, and the API reference links
 to the capabilities sections that use it.</p></li>
 <li><p>Pull requests get a preview of the docs site.</p></li>
-<li><p>Port base: TS <code class="docutils literal notranslate"><span class="pre">default-c3-oklch-vivid</span></code> (#64, <code class="docutils literal notranslate"><span class="pre">4aac4ec</span></code>), on top of <code class="docutils literal notranslate"><span class="pre">master</span></code> (#59-#63; #60 is the only engine
-change, types only). The fixtures are regenerated from it.</p></li>
+<li><p>Port base: TS <code class="docutils literal notranslate"><span class="pre">master</span></code> <code class="docutils literal notranslate"><span class="pre">effb609</span></code> (web app and <code class="docutils literal notranslate"><span class="pre">&#64;mapequation/alluvial-diagram</span></code> 1.17.0, with #64). Since 0.6.0 the
+engine changed in #60 (types only) and #64 (the default colors); the fixtures are regenerated from it.</p></li>
 </ul>
 </section>
 <section id="changed">
@@ -459,8 +459,8 @@ Neurology, Psychology and part of Molecular &amp; cell biology merge into Neuros
 </ul>
 </section>
 </section>
-<section id="id1">
-<h2>[0.6.0] - 2026-10-21<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<section id="id2">
+<h2>[0.6.0] - 2026-10-21<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p>c3 2 in the web app (TS #47, web app 1.16) and the saved tone and offset (TS #57), ported against TS <code class="docutils literal notranslate"><span class="pre">master</span></code>.
 Port base: TS <code class="docutils literal notranslate"><span class="pre">master</span></code> <code class="docutils literal notranslate"><span class="pre">60fa1bf</span></code> (#58); <code class="docutils literal notranslate"><span class="pre">tests/fixtures/provenance.txt</span></code> records it (<code class="docutils literal notranslate"><span class="pre">ts_repo_head</span></code>). #59 (<code class="docutils literal notranslate"><span class="pre">4a46b90</span></code>,
 license credit only) does not touch the engine.</p>
@@ -471,8 +471,8 @@ license credit only) does not touch the engine.</p>
 of <code class="docutils literal notranslate"><span class="pre">rgb()</span></code>. Colorings with the default scheme change color, not geometry. <code class="docutils literal notranslate"><span class="pre">alluvial.palette.C3_SINEBOW</span></code> follows,
 and the package data <code class="docutils literal notranslate"><span class="pre">c3-sinebow-512.json</span></code> is gone (<code class="docutils literal notranslate"><span class="pre">SCHEMES[&quot;C3</span> <span class="pre">Sinebow&quot;]</span></code>).</p></li>
 </ul>
-<section id="id2">
-<h3>Added<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<section id="id3">
+<h3>Added<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>First release on PyPI</strong> (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">alluvial</span></code>), from <a class="github reference external" href="https://github.com/mapequation/alluvial-py">mapequation/alluvial-py</a>, with a docs
 site at <a class="reference external" href="https://mapequation.github.io/alluvial-py">https://mapequation.github.io/alluvial-py</a> (Sphinx: the tutorial and capabilities notebooks and the API
@@ -508,8 +508,8 @@ every scheme), and a c3 fuzz mode (<code class="docutils literal notranslate"><s
 </li>
 </ul>
 </section>
-<section id="id3">
-<h3>Changed<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h3>Changed<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Package metadata: authors mapequation, and the license reads “Copyright (c) 2019-2026 The mapequation authors”
 like the web app’s (TS #59). The fixture tools look for the TS checkout at <code class="docutils literal notranslate"><span class="pre">../web/alluvial</span></code> next to this repo
@@ -563,8 +563,8 @@ the farthest-point sampling in c3’s <code class="docutils literal notranslate"
 colors, and <code class="docutils literal notranslate"><span class="pre">module_level</span></code> expands in one batch (WP3-WP8). Diagrams of plain inputs without these cases are
 unchanged.</p></li>
 </ul>
-<section id="id4">
-<h3>Changed<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<section id="id5">
+<h3>Changed<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>WP1, breaking:</strong> Python 3.10 is no longer supported (<code class="docutils literal notranslate"><span class="pre">requires-python</span> <span class="pre">=</span> <span class="pre">&quot;&gt;=3.11&quot;</span></code>; the 3.10 classifier, the
 ruff <code class="docutils literal notranslate"><span class="pre">py310</span></code> target and the 3.10 CI jobs are gone; the lowest-direct-dependencies CI job runs on 3.11). The numpy
@@ -611,8 +611,8 @@ fixes by rejecting such flows at load.</p></li>
 longer occur because NaN flows are rejected at load (below). <code class="docutils literal notranslate"><span class="pre">sort_by_number</span></code> is now a plain stable key sort.</p></li>
 </ul>
 </section>
-<section id="id5">
-<h3>Fixed<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<section id="id6">
+<h3>Fixed<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>WP3: tree paths, in TS and Python together (E1, E2, E3, P3; Y7).</strong> <code class="docutils literal notranslate"><span class="pre">TreePath</span></code> strips the stree trailing <code class="docutils literal notranslate"><span class="pre">:</span></code> before
 splitting, so <code class="docutils literal notranslate"><span class="pre">&quot;1:1:1:&quot;</span></code> has 3 levels, not 4 with a phantom <code class="docutils literal notranslate"><span class="pre">0</span></code> (stree files no longer get an extra expandable level
@@ -890,8 +890,8 @@ comment no longer claims unflagged cases draw exactly as before.</p></li>
 </li>
 </ul>
 </section>
-<section id="id6">
-<h3>Added<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<section id="id7">
+<h3>Added<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>WP9: the saved-diagram format “alluvial network files”, formatVersion 1, in TS and Python together (L1, L2, L3,
 E19; saveload-plan.md §4-§7).</strong> A saved diagram is one Infomap-JSON file per network (<code class="docutils literal notranslate"><span class="pre">NN_&lt;network</span> <span class="pre">name&gt;.json</span></code>), in
@@ -1028,12 +1028,12 @@ Python reopens like TS (bit for bit; equal to the in-app picture up to float sum
 </ul>
 </section>
 </section>
-<section id="id7">
-<h2>[0.4.0] - not published<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<section id="id8">
+<h2>[0.4.0] - not published<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
 <p>Module names and order for paper figures, checked against 14 new TypeScript reference scenarios
 (<code class="docutils literal notranslate"><span class="pre">tests/fixtures/v4</span></code>, bit for bit, plus byte-identical saved texts).</p>
-<section id="id8">
-<h3>Added<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<section id="id9">
+<h3>Added<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">layout(...,</span> <span class="pre">module_names=...)</span></code>: <code class="docutils literal notranslate"><span class="pre">{(network,</span> <span class="pre">module_id):</span> <span class="pre">name}</span></code> or a function of the new <code class="docutils literal notranslate"><span class="pre">alluvial.ModuleInfo</span></code>;
 <code class="docutils literal notranslate"><span class="pre">draw</span></code> shows the names, as the web app does. Saved diagrams write them in <code class="docutils literal notranslate"><span class="pre">moduleNames</span></code>.</p></li>
@@ -1046,8 +1046,8 @@ zip paths as <code class="docutils literal notranslate"><span class="pre">layout
 one network has it); their “no network” errors list the names.</p></li>
 </ul>
 </section>
-<section id="id9">
-<h3>Changed<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<section id="id10">
+<h3>Changed<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">save_diagram(format=&quot;webapp&quot;)</span></code> also warns that module names are not stored.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">save_diagram(format=&quot;diagram&quot;)</span></code> warns when a custom module order would be lost (the saved diagram has no field
@@ -1057,12 +1057,12 @@ harness (no fixture changes).</p></li>
 </ul>
 </section>
 </section>
-<section id="id10">
-<h2>[0.3.0] - not published<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<section id="id11">
+<h2>[0.3.0] - not published<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
 <p>The web-app bridge, checked against 30 new TypeScript reference scenarios (<code class="docutils literal notranslate"><span class="pre">tests/fixtures/v3</span></code>, bit for bit, plus
 byte-identical saved texts) and save/load round trips in the differential fuzzer.</p>
-<section id="id11">
-<h3>Added<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<section id="id12">
+<h3>Added<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">alluvial.read</span></code> loads a saved web-app diagram (a port of the web app’s converter) and returns a <code class="docutils literal notranslate"><span class="pre">SavedDiagram</span></code>;
 <code class="docutils literal notranslate"><span class="pre">layout</span></code>/<code class="docutils literal notranslate"><span class="pre">plot</span></code> take it and restore its state (layout options, default color, label font size, palette), as the
@@ -1083,8 +1083,8 @@ name instead of its leaf names, as the web app’s renderer does. (<code class="
 <li><p>Tutorial section “Open in the web app”.</p></li>
 </ul>
 </section>
-<section id="id12">
-<h3>Changed<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<section id="id13">
+<h3>Changed<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Warnings point at the caller’s line whether <code class="docutils literal notranslate"><span class="pre">layout</span></code>, <code class="docutils literal notranslate"><span class="pre">plot</span></code>, <code class="docutils literal notranslate"><span class="pre">read</span></code> or <code class="docutils literal notranslate"><span class="pre">save_diagram</span></code> was called (the stack level
 is computed, not fixed).</p></li>
@@ -1111,12 +1111,12 @@ the zip name) and a <code class="docutils literal notranslate"><span class="pre"
 </ul>
 </section>
 </section>
-<section id="id13">
-<h2>[0.2.0] - not published<a class="headerlink" href="#id13" title="Link to this heading">#</a></h2>
+<section id="id14">
+<h2>[0.2.0] - not published<a class="headerlink" href="#id14" title="Link to this heading">#</a></h2>
 <p>The v2 features of the web app, each a port of the store operations it uses, checked against 73 new TypeScript
 reference scenarios (204 in all, bit for bit) and an extended differential fuzzer.</p>
-<section id="id14">
-<h3>Added<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<section id="id15">
+<h3>Added<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Sub-modules: <code class="docutils literal notranslate"><span class="pre">layout(...,</span> <span class="pre">module_level=2)</span></code> (an int, or one per network) expands every visible module that has
 sub-modules, as a deterministic sequence of the web app’s <code class="docutils literal notranslate"><span class="pre">expand</span></code> operations; <code class="docutils literal notranslate"><span class="pre">expand=[(network,</span> <span class="pre">module_id),</span> <span class="pre">...]</span></code>
@@ -1148,8 +1148,8 @@ figure for a paper and restyling artists.</p></li>
 identifiers that match no node (now with examples and a hint at <code class="docutils literal notranslate"><span class="pre">identifier=</span></code>).</p></li>
 </ul>
 </section>
-<section id="id15">
-<h3>Changed<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<section id="id16">
+<h3>Changed<a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Colliding network ids (files with the same stem in different folders, or <code class="docutils literal notranslate"><span class="pre">NetworkFile</span></code>s with the same id) are
 renamed <code class="docutils literal notranslate"><span class="pre">out</span></code>, <code class="docutils literal notranslate"><span class="pre">out_2</span></code>, … instead of raising <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>.</p></li>
@@ -1198,11 +1198,11 @@ vector equivalent, so where a shadow overlaps a module the module simply covers 
 </ul>
 </section>
 </section>
-<section id="id16">
-<h2>[0.1.0] - not published<a class="headerlink" href="#id16" title="Link to this heading">#</a></h2>
-<p>First release.</p>
 <section id="id17">
-<h3>Added<a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
+<h2>[0.1.0] - not published<a class="headerlink" href="#id17" title="Link to this heading">#</a></h2>
+<p>First release.</p>
+<section id="id18">
+<h3>Added<a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">alluvial.layout()</span></code>: a port of the layout engine of the mapequation.org alluvial web app
 (<code class="docutils literal notranslate"><span class="pre">&#64;mapequation/alluvial-diagram</span></code> 1.15.0). Module order, sizes, margins, streamlines and colors match the web app;
@@ -1223,8 +1223,8 @@ a <code class="docutils literal notranslate"><span class="pre">gid</span></code>
 <li><p>The web app’s color handling (<code class="docutils literal notranslate"><span class="pre">alluvial.palette</span></code>), including its 512-color <code class="docutils literal notranslate"><span class="pre">c3-sinebow</span></code> palette.</p></li>
 </ul>
 </section>
-<section id="id18">
-<h3>Notes<a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
+<section id="id19">
+<h3>Notes<a class="headerlink" href="#id19" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Requires Python &gt;= 3.10 and matplotlib &gt;= 3.7. Reading Infomap objects needs infomap &gt;= 2.14, which requires
 Python &gt;= 3.11; files written by any infomap version read on every supported Python.</p></li>
@@ -1272,47 +1272,47 @@ Python &gt;= 3.11; files written by any infomap version read on every supported 
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unreleased">[0.7.0] - Unreleased</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">[0.7.0] - 2026-10-23</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#added">Added</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changed">Changed</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed">Fixed</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">[0.6.0] - 2026-10-21</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Added</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Changed</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">[0.6.0] - 2026-10-21</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Added</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Changed</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#known-issues">Known issues</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#not-published">[0.5.0] - not published</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Changed</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Changed</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removed">Removed</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Fixed</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Added</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Fixed</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Added</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">[0.4.0] - not published</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Added</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Changed</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">[0.4.0] - not published</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Added</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Changed</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">[0.3.0] - not published</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Added</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Changed</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">[0.3.0] - not published</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Added</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Changed</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed-v3-parity-review">Fixed (v3 parity review)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed-release-review">Fixed (release review)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">[0.2.0] - not published</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Added</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Changed</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">[0.2.0] - not published</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Added</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Changed</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixed-parity-with-the-web-app">Fixed (parity with the web app)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">[0.1.0] - not published</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Added</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Notes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">[0.1.0] - not published</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Added</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">Notes</a></li>
 </ul>
 </li>
 </ul>
